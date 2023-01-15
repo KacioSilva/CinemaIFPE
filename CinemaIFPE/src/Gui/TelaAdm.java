@@ -1,19 +1,14 @@
 package Gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Core.Administrador;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.Color;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -114,8 +109,9 @@ public class TelaAdm extends JFrame {
 				
 				try{
 	                boolean logar = Administrador.login(usuario, senha);
-	                mensagem.setForeground(new Color(35, 98, 1));
-	                mensagem.setText("LOGADO COM SUCESSO");
+	                HubADM hubADM = new HubADM();
+	                hubADM.setVisible(true);
+	                dispose();
 //	                HubADM hubDoAdm = new HubADM();
 //	                hubDoAdm.setVisible(true);
 //	                dispose();
@@ -155,5 +151,3 @@ public class TelaAdm extends JFrame {
 	      
 	}
 }
-
-//
