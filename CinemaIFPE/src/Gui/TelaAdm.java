@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Core.Administrador;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -50,6 +53,7 @@ public class TelaAdm extends JFrame {
 		contentPane.setLayout(null);
 		
 		//-------CRIANDO OS LABELS
+		
 		JLabel cineifPaulista = new JLabel("CineIF Paulista");
 		cineifPaulista.setForeground(new Color(63, 164, 13, 236));
 		cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
@@ -66,9 +70,9 @@ public class TelaAdm extends JFrame {
 	    senha.setBounds(285, 525, 66, 29);
 	    contentPane.add(senha);
 	      
-	    JLabel mensagem = new JLabel("       Mensagem");
+	    JLabel mensagem = new JLabel("  ");
 	    mensagem.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    mensagem.setBounds(369, 576, 141, 25);
+	    mensagem.setBounds(334, 576, 272, 25);
 	    contentPane.add(mensagem);
 	      
 	    JLabel administrador = new JLabel("ADMINISTRADOR");
@@ -105,6 +109,22 @@ public class TelaAdm extends JFrame {
 		JButton entrar = new JButton("Entrar");
 		entrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String usuario = textField.getText();
+				String senha = new String(passwordField.getPassword());
+				
+				try{
+	                boolean logar = Administrador.login(usuario, senha);
+	                mensagem.setForeground(new Color(35, 98, 1));
+	                mensagem.setText("LOGADO COM SUCESSO");
+//	                HubADM hubDoAdm = new HubADM();
+//	                hubDoAdm.setVisible(true);
+//	                dispose();
+
+	            } catch (RuntimeException e1){
+	                mensagem.setText(e1.getMessage());
+	                mensagem.setForeground(new Color(241, 5, 5));
+	            }
+
 			}
 		});
 		entrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
