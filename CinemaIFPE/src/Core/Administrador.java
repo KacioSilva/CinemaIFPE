@@ -7,6 +7,7 @@ import Database.Conexao;
 import Database.FuncionarioData;
 
 public class Administrador {	
+	//Método para controle de acesso do adm para as áreas de controle do cinema
 	public static boolean login(String usuario, String senha){
         if(usuario.equals("adm")  && senha.equals("123")){
                 return true;
@@ -16,6 +17,7 @@ public class Administrador {
          }
 	}
 	
+	//Método para o funcionário editar os lanches
 	public static boolean funcEditarLanche(String nome, String preco, String marca, String Quantidade, String ID) throws SQLException {
 	    FuncionarioData lancheadm = new FuncionarioData();
 

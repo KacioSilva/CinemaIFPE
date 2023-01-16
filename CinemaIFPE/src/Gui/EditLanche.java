@@ -224,8 +224,13 @@ public class EditLanche extends JFrame {
 		JButton lanche1 = new JButton("LANCHE 1");
 		lanche1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				conexao.conectar();
-				conexao.lanche1(); 	
+				try {
+					conexao.conectar();
+				} catch (Exception e1) {
+					confirmacao.setText(e1.getMessage());
+					//e1.printStackTrace();
+				}
+				conexao.lanche1(1);
 				
 				tfID.setText("1");
 				tfNome.setText(conexao.getNome());
@@ -240,8 +245,13 @@ public class EditLanche extends JFrame {
 		JButton lanche2 = new JButton("LANCHE 2");
 		lanche2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				conexao.conectar();
-				conexao.lanche2();
+				try {
+					conexao.conectar();
+				} catch (Exception e1) {
+					confirmacao.setText(e1.getMessage());
+					//e1.printStackTrace();
+				}
+				conexao.lanche1(2);
 				
 				tfID.setText("2");
 				tfNome.setText(conexao.getNome());
@@ -257,8 +267,13 @@ public class EditLanche extends JFrame {
 		JButton lanche3 = new JButton("LANCHE 3");
 		lanche3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				conexao.conectar();
-				conexao.lanche3();
+				try {
+					conexao.conectar();
+				} catch (Exception e1) {
+					confirmacao.setText(e1.getMessage());
+					//e1.printStackTrace();
+				}
+				conexao.lanche1(3);
 			
 				tfID.setText("3");
 				tfNome.setText(conexao.getNome());
@@ -274,8 +289,13 @@ public class EditLanche extends JFrame {
 		JButton lanche4 = new JButton("LANCHE 4");
 		lanche4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				conexao.conectar();
-				conexao.lanche4();
+				try {
+					conexao.conectar();
+				} catch (Exception e1) {
+					confirmacao.setText(e1.getMessage());
+					//e1.printStackTrace();
+				}
+				conexao.lanche1(4);
 				
 				tfID.setText("4");
 				tfNome.setText(conexao.getNome());
@@ -291,8 +311,13 @@ public class EditLanche extends JFrame {
 		JButton lanche5 = new JButton("LANCHE 5");
 		lanche5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				conexao.conectar();
-				conexao.lanche5();
+				try {
+					conexao.conectar();
+				} catch (Exception e1) {
+					confirmacao.setText(e1.getMessage());
+					//e1.printStackTrace();
+				}
+				conexao.lanche1(5);
 				
 			
 				tfID.setText("5");
