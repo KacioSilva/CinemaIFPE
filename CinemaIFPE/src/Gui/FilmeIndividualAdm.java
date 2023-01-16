@@ -26,6 +26,9 @@ public class FilmeIndividualAdm extends JFrame {
 	private JTextField txtDiretor;
 	private JTextField txtSinopse;
 	private JButton limparCampos;
+	private JButton botaos1;
+	private JButton botaos2;
+	private JButton botaos3;
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -97,24 +100,28 @@ public class FilmeIndividualAdm extends JFrame {
 	    contentPane.add(fotofilme);
 	    
 	    txtIdade = new JTextField();
+	    txtIdade.setHorizontalAlignment(SwingConstants.CENTER);
 	    txtIdade.setText("IDADE");
 	    txtIdade.setBounds(39, 374, 62, 19);
 	    contentPane.add(txtIdade);
 	    txtIdade.setColumns(10);
 	    
 	    txtDurao = new JTextField();
+	    txtDurao.setHorizontalAlignment(SwingConstants.CENTER);
 	    txtDurao.setText("DURAÇÃO");
 	    txtDurao.setBounds(101, 374, 58, 19);
 	    contentPane.add(txtDurao);
 	    txtDurao.setColumns(10);
 	    
 	    txtGenero = new JTextField();
+	    txtGenero.setHorizontalAlignment(SwingConstants.CENTER);
 	    txtGenero.setText("genero");
 	    txtGenero.setBounds(160, 374, 60, 19);
 	    contentPane.add(txtGenero);
 	    txtGenero.setColumns(10);
 	    
 	    txtDiretor = new JTextField();
+	    txtDiretor.setHorizontalAlignment(SwingConstants.CENTER);
 	    txtDiretor.setText("DIRETOR");
 	    txtDiretor.setBounds(80, 403, 96, 19);
 	    contentPane.add(txtDiretor);
@@ -148,6 +155,26 @@ public class FilmeIndividualAdm extends JFrame {
 	    });
 	    limparCampos.setBounds(493, 584, 103, 29);
 	    contentPane.add(limparCampos);
+	    
+	    botaos1 = new JButton("sessao1");
+	    botaos1.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    	}
+	    });
+	    botaos1.setBounds(264, 26, 85, 29);
+	    contentPane.add(botaos1);
+	    
+	    botaos2 = new JButton("sessao2");
+	    botaos2.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    	}
+	    });
+	    botaos2.setBounds(421, 26, 85, 29);
+	    contentPane.add(botaos2);
+	    
+	    botaos3 = new JButton("sessao3");
+	    botaos3.setBounds(561, 26, 85, 29);
+	    contentPane.add(botaos3);
 	  
 	    
 	   
