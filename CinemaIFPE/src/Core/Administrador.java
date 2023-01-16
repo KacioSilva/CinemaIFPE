@@ -1,10 +1,12 @@
 package Core;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import Database.Conexao;
 import Database.FuncionarioData;
 
-public class Administrador {
+public class Administrador {	
 	public static boolean login(String usuario, String senha){
         if(usuario.equals("adm")  && senha.equals("123")){
                 return true;
@@ -22,9 +24,6 @@ public class Administrador {
 	}else{
 		
 		return true;
-	}  
-	    }//lancheadm.editarGeral(Integer.parseInt(ID),nome,marca,Integer.parseInt(preco),Integer.parseInt(Quantidade));
-	}     	
-
-
-
+	}   
+	    }
+}

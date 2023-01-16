@@ -4,8 +4,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Core.Administrador;
+import Database.Conexao;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -19,6 +19,8 @@ import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 
 public class EditLanche extends JFrame {
+	Conexao conexao = new Conexao();	
+	
 	private JPanel contentPane;
 	private JTextField tfID;
 	private JTextField tfNome;
@@ -222,8 +224,14 @@ public class EditLanche extends JFrame {
 		JButton lanche1 = new JButton("LANCHE 1");
 		lanche1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tfID.setText("1");
+				conexao.conectar();
+				conexao.lanche1(); 	
 				
+				tfID.setText("1");
+				tfNome.setText(conexao.getNome());
+				tfMarca.setText(conexao.getMarca());
+				tfPreco.setText(conexao.getPreco());
+				tfQuantidade.setText(conexao.getQuantidade());
 			}
 		});
 		lanche1.setBounds(55, 159, 227, 21);
@@ -232,8 +240,15 @@ public class EditLanche extends JFrame {
 		JButton lanche2 = new JButton("LANCHE 2");
 		lanche2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				conexao.conectar();
+				conexao.lanche2();
 				
 				tfID.setText("2");
+				tfNome.setText(conexao.getNome());
+				tfMarca.setText(conexao.getMarca());
+				tfPreco.setText(conexao.getPreco());
+				tfQuantidade.setText(conexao.getQuantidade());
+			
 			}
 		});
 		lanche2.setBounds(55, 251, 227, 21);
@@ -242,8 +257,15 @@ public class EditLanche extends JFrame {
 		JButton lanche3 = new JButton("LANCHE 3");
 		lanche3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				conexao.conectar();
+				conexao.lanche3();
+			
 				tfID.setText("3");
+				tfNome.setText(conexao.getNome());
+				tfMarca.setText(conexao.getMarca());
+				tfPreco.setText(conexao.getPreco());
+				tfQuantidade.setText(conexao.getQuantidade());
+				
 			}
 		});
 		lanche3.setBounds(55, 343, 227, 21);
@@ -252,8 +274,15 @@ public class EditLanche extends JFrame {
 		JButton lanche4 = new JButton("LANCHE 4");
 		lanche4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				conexao.conectar();
+				conexao.lanche4();
 				
 				tfID.setText("4");
+				tfNome.setText(conexao.getNome());
+				tfMarca.setText(conexao.getMarca());
+				tfPreco.setText(conexao.getPreco());
+				tfQuantidade.setText(conexao.getQuantidade());
+				
 			}
 		});
 		lanche4.setBounds(55, 436, 227, 21);
@@ -262,8 +291,15 @@ public class EditLanche extends JFrame {
 		JButton lanche5 = new JButton("LANCHE 5");
 		lanche5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				conexao.conectar();
+				conexao.lanche5();
 				
+			
 				tfID.setText("5");
+				tfNome.setText(conexao.getNome());
+				tfMarca.setText(conexao.getMarca());
+				tfPreco.setText(conexao.getPreco());
+				tfQuantidade.setText(conexao.getQuantidade());
 			}
 		});
 		lanche5.setBounds(55, 544, 227, 21);
