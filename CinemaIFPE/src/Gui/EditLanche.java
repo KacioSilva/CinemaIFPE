@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.awt.Toolkit;
 
 public class EditLanche extends JFrame {
 	Conexao conexao = new Conexao();	
@@ -48,6 +49,7 @@ public class EditLanche extends JFrame {
 	}
 
 	public EditLanche() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EditLanche.class.getResource("/Midia/ifpe.png")));
 		
 		setResizable(false);
 		setTitle("Editar Lanches - ADM");
@@ -95,6 +97,10 @@ public class EditLanche extends JFrame {
 		
 		//-------CRIANDO OS TEXTFIELDS	
 		tfID = new JTextField();
+		tfID.setBackground(new Color(255, 0, 0));
+		tfID.setForeground(new Color(0, 0, 0));
+		tfID.setFont(new Font("Tahoma", Font.BOLD, 10));
+		tfID.setEnabled(false);
 		tfID.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -205,6 +211,7 @@ public class EditLanche extends JFrame {
 				tfMarca.setText("");
 				tfPreco.setText("");
 				tfQuantidade.setText("");
+				confirmacao.setText("");
 			}
 		});
 		limpar.setBounds(639, 582, 85, 32);
@@ -329,7 +336,7 @@ public class EditLanche extends JFrame {
 				tfQuantidade.setText(conexao.getQuantidade());
 			}
 		});
-		lanche5.setBounds(55, 544, 227, 21);
+		lanche5.setBounds(55, 530, 227, 21);
 		contentPane.add(lanche5);
 	}
 }

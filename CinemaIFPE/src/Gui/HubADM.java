@@ -64,6 +64,14 @@ public class HubADM extends JFrame {
 		contentPane.add(lanches);
 		
 		JButton filmes = new JButton("FILMES");
+		filmes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				FilmeIndividualAdm telafilme = new FilmeIndividualAdm();
+				telafilme.setVisible(true);
+				dispose();
+			}
+		});
 		filmes.setBounds(634, 300, 187, 251);
 		contentPane.add(filmes);
 		
