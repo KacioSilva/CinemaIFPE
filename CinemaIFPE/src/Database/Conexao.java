@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Core.Administrador;
@@ -31,10 +32,6 @@ public class Conexao {
 	private ArrayList<String> arrayPull = new ArrayList<String>();
 	
 	private Connection conexao = null;
-	//private java.sql.Statement statement = null;
-	//private ResultSet resultset = null;
-	
-
 	
 	public ArrayList getArrayPull() {
 		return this.arrayPull;
@@ -42,7 +39,7 @@ public class Conexao {
 	
 	
 	
-	public void conectar() throws Exception {
+	public void conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
 		String senha = "Tt4189952";
@@ -50,10 +47,10 @@ public class Conexao {
 		try {
 			Class.forName(driver);
 			conexao = DriverManager.getConnection(servidor, usuario, senha);
-			//this.statement = this.conexao.createStatement();
-		}catch(Exception e) {
-			throw new Exception("Erro de acesso ao banco!");
-			//System.out.println("erro : " + e.getMessage());
+		}catch(SQLException e) {
+			throw new SQLException("Erro de acesso ao banco!");			
+		}catch(ClassNotFoundException e1){
+			throw new ClassNotFoundException("Erro inesperado!");
 		}
 	}
 	
@@ -67,7 +64,6 @@ public class Conexao {
 	
 	public void lanche1(int idlancheh) {
 		try {
-			//Conexao conexao = new Conexao();
 			String query = "select * from lanche where idLanche = ?";
 			PreparedStatement resultset = conexao.prepareStatement(query);
 			resultset.setInt(1, idlancheh);
@@ -88,9 +84,41 @@ public class Conexao {
 			arrayPull.clear();
 
 			
-		}catch(Exception e) {
+		}catch(SQLException e) {
 			System.out.println("erro: " + e.getMessage());
 		}	
-		
 	}	
+	
+	
+	public void editarGeral(int idLanche,String nome, String marca, int preco, int quantidadeEstoque) throws SQLException{
+        String editarGeralUp = "update lanche set nome=?, marca=?, preco=?, quantidadeEstoque=? where idlanche = ?";
+        try {
+
+            PreparedStatement pstmt = conexao.prepareStatement(editarGeralUp);
+            pstmt.setString(1, nome);
+            pstmt.setString(2, marca);
+            pstmt.setInt(3, preco);
+            pstmt.setInt(4, quantidadeEstoque);
+            pstmt.setInt(5, idLanche);
+
+            pstmt.executeUpdate();
+
+            PreparedStatement statement = conexao.prepareStatement("select * from lanche");
+
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                System.out.println(rs.getString("idLanche"));
+                System.out.println(rs.getString("nome"));
+                System.out.println(rs.getString("marca"));
+                System.out.println(rs.getString("preco"));
+                System.out.println(rs.getString("quantidadeEstoque"));
+            }
+        }
+        catch(SQLException e){
+            throw new SQLException("Erro ao conectar com o banco!");
+        }
+        finally {
+            conexao.close();
+        }
+    }
 }
