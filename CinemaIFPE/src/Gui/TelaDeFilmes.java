@@ -14,6 +14,7 @@ import javax.swing.Icon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class TelaDeFilmes extends JFrame {
 
@@ -34,6 +35,7 @@ public class TelaDeFilmes extends JFrame {
 	}
 
 	public TelaDeFilmes() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaDeFilmes.class.getResource("/Midia/ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 720);

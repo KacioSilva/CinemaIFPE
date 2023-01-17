@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
+import java.awt.Toolkit;
 
 public class FilmeIndividualAdm extends JFrame {
 	
@@ -29,6 +30,8 @@ public class FilmeIndividualAdm extends JFrame {
 	private JButton botaos1;
 	private JButton botaos2;
 	private JButton botaos3;
+	private JTextField tfAlterarNome;
+	private String nomedofilme;
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -45,6 +48,7 @@ public class FilmeIndividualAdm extends JFrame {
 	}
 	
 	public FilmeIndividualAdm() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(FilmeIndividualAdm.class.getResource("/Midia/ifpe.png")));
 		
 		setTitle("ALTERAR FILMES - ADM");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,8 +64,9 @@ public class FilmeIndividualAdm extends JFrame {
 		
 		//-------CRIANDO OS LABELS	
 		JLabel nomeFilme = new JLabel("NOME DO FILME");
+		nomeFilme.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeFilme.setFont(new Font("Arial", Font.BOLD, 16));
-		nomeFilme.setBounds(63, 103, 139, 29);
+		nomeFilme.setBounds(39, 103, 181, 29);
 		contentPane.add(nomeFilme);
 		
 	  
@@ -84,20 +89,24 @@ public class FilmeIndividualAdm extends JFrame {
 	    
 	    //-----CRIANDO AS IMAGENS
 	    tfAlterImg = new JTextField();
+	    tfAlterImg.setText("/midia/interstellarpng.png");
 	    tfAlterImg.setFont(new Font("Arial", Font.PLAIN, 12));
 	    tfAlterImg.setHorizontalAlignment(SwingConstants.CENTER);
-	    tfAlterImg.setText("/midia/teste4.png");
 	    tfAlterImg.setBounds(715, 46, 245, 29);
 	    contentPane.add(tfAlterImg);
 	    tfAlterImg.setColumns(10);
+	   
 	    
 	    JButton fotofilme = new JButton("FOTO DO FILME");
+	    fotofilme.setIcon(new ImageIcon(FilmeIndividualAdm.class.getResource(alterarimagem)));
 	    fotofilme.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    	}
 	    });
 	    fotofilme.setBounds(39, 142, 181, 222);
 	    contentPane.add(fotofilme);
+	    
+	    
 	    
 	    txtIdade = new JTextField();
 	    txtIdade.setHorizontalAlignment(SwingConstants.CENTER);
@@ -135,16 +144,7 @@ public class FilmeIndividualAdm extends JFrame {
 	    txtSinopse.setColumns(10);
 	    
 	    
-	    JButton salvar = new JButton("SALVAR");
-		salvar.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		
-	    		
-	   	
-	    	}
-	    });
-		salvar.setBounds(358, 584, 103, 29);
-	    contentPane.add(salvar);
+	    
 	    
 	    limparCampos = new JButton("LIMPAR");
 	    limparCampos.addActionListener(new ActionListener() {
@@ -169,12 +169,48 @@ public class FilmeIndividualAdm extends JFrame {
 	    	public void actionPerformed(ActionEvent e) {
 	    	}
 	    });
-	    botaos2.setBounds(421, 26, 85, 29);
+	    botaos2.setBounds(413, 26, 85, 29);
 	    contentPane.add(botaos2);
 	    
 	    botaos3 = new JButton("sessao3");
 	    botaos3.setBounds(561, 26, 85, 29);
 	    contentPane.add(botaos3);
+	    
+	    JLabel lblNewLabel = new JLabel("TRAILER");
+	    lblNewLabel.setFont(new Font("Arial", Font.BOLD, 28));
+	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	    lblNewLabel.setBounds(381, 191, 181, 123);
+	    contentPane.add(lblNewLabel);
+	    
+	    tfAlterarNome = new JTextField();
+	    tfAlterarNome.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    	}
+	    });
+	    tfAlterarNome.setBounds(715, 457, 207, 19);
+	    contentPane.add(tfAlterarNome);
+	    tfAlterarNome.setColumns(10);
+	    
+	    JLabel lblNewLabel_1 = new JLabel("ALTERAR NOME DO FILME:");
+	    lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+	    lblNewLabel_1.setBounds(715, 434, 176, 13);
+	    contentPane.add(lblNewLabel_1);
+	    
+	    
+	    JButton salvar = new JButton("SALVAR");
+		salvar.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    		nomedofilme = tfAlterarNome.getText();
+	    		nomeFilme.setText(nomedofilme);
+	    		
+	    		alterarimagem = tfAlterImg.getText();
+	    		fotofilme.setIcon(new ImageIcon(FilmeIndividualAdm.class.getResource(alterarimagem)));
+	    	}
+	    });
+		salvar.setBounds(358, 584, 103, 29);
+	    contentPane.add(salvar);
 	  
 	    
 	   

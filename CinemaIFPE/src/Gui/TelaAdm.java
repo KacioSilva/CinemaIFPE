@@ -16,6 +16,7 @@ import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class TelaAdm extends JFrame {
 
@@ -37,6 +38,7 @@ public class TelaAdm extends JFrame {
 		});
 	}
 	public TelaAdm() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAdm.class.getResource("/Midia/ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 720);
@@ -57,22 +59,22 @@ public class TelaAdm extends JFrame {
 		
 		JLabel usuario = new JLabel("Usuário:");
 		usuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		usuario.setBounds(274, 474, 81, 29);
+		usuario.setBounds(296, 474, 81, 29);
 	    contentPane.add(usuario);
 	      
 	    JLabel senha = new JLabel("Senha:");
 	    senha.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	    senha.setBounds(285, 525, 66, 29);
+	    senha.setBounds(311, 525, 66, 29);
 	    contentPane.add(senha);
 	      
 	    JLabel mensagem = new JLabel("  ");
 	    mensagem.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    mensagem.setBounds(334, 576, 272, 25);
+	    mensagem.setBounds(353, 576, 272, 25);
 	    contentPane.add(mensagem);
 	      
 	    JLabel administrador = new JLabel("ADMINISTRADOR");
 	    administrador.setFont(new Font("Tahoma", Font.BOLD, 18));
-	    administrador.setBounds(344, 438, 163, 25);
+	    administrador.setBounds(377, 437, 187, 25);
 	    contentPane.add(administrador);
 		
 	    //-------CRIANDO OS BOTÕES
@@ -98,7 +100,7 @@ public class TelaAdm extends JFrame {
 	      });
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 
-		help.setBounds(880, 41, 66, 29);
+		help.setBounds(881, 25, 66, 29);
 		contentPane.add(help);
 		
 		JButton entrar = new JButton("Entrar");
@@ -124,7 +126,7 @@ public class TelaAdm extends JFrame {
 			}
 		});
 		entrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		entrar.setBounds(379, 612, 117, 23);
+		entrar.setBounds(408, 611, 117, 23);
 		contentPane.add(entrar);
 		
 		
@@ -132,13 +134,13 @@ public class TelaAdm extends JFrame {
 		//--------CRIANDO AS CAIXAS DE TEXTO
 		textField = new JTextField();
 	    textField.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    textField.setBounds(355, 474, 163, 29);
+	    textField.setBounds(387, 476, 163, 29);
 	    contentPane.add(textField);
 	    textField.setColumns(10);
 	      
 	    passwordField = new JPasswordField();
 	    passwordField.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    passwordField.setBounds(355, 525, 163, 29);
+	    passwordField.setBounds(387, 527, 163, 29);
 	    contentPane.add(passwordField);
 	    
 	    
@@ -147,7 +149,7 @@ public class TelaAdm extends JFrame {
 	     ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
 	     JLabel ifpe = new JLabel(logo_ifpe);
 	     getContentPane().add(ifpe);
-	      ifpe.setBounds(285,130,284,281);
+	      ifpe.setBounds(322,131,284,281);
 	      
 	}
 }

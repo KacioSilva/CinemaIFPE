@@ -10,6 +10,7 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class HubADM extends JFrame {
 
@@ -28,6 +29,7 @@ public class HubADM extends JFrame {
 		});
 	}
 	public HubADM() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HubADM.class.getResource("/Midia/ifpe.png")));
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
