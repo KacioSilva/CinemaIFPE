@@ -5,15 +5,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Core.Filme;
+
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import java.awt.Toolkit;
+import java.awt.Color;
 
 public class FilmeIndividualAdm extends JFrame {
 	
@@ -32,6 +41,8 @@ public class FilmeIndividualAdm extends JFrame {
 	private JButton botaos3;
 	private JTextField tfAlterarNome;
 	private String nomedofilme;
+	private JTextField tfcaminhofoto;
+	private Filme filme;
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -96,14 +107,14 @@ public class FilmeIndividualAdm extends JFrame {
 	    contentPane.add(tfAlterImg);
 	    tfAlterImg.setColumns(10);
 	   
-	    
-	    JButton fotofilme = new JButton("FOTO DO FILME");
-	    fotofilme.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    	}
-	    });
-	    fotofilme.setBounds(39, 142, 181, 222);
-	    contentPane.add(fotofilme);
+//	    
+//	    JButton fotofilme = new JButton("FOTO DO FILME");
+//	    fotofilme.addActionListener(new ActionListener() {
+//	    	public void actionPerformed(ActionEvent e) {
+//	    	}
+//	    });
+//	    fotofilme.setBounds(39, 142, 181, 222);
+//	    contentPane.add(fotofilme);
 	    
 	    
 	    
@@ -204,12 +215,59 @@ public class FilmeIndividualAdm extends JFrame {
 	    		nomedofilme = tfAlterarNome.getText();
 	    		nomeFilme.setText(nomedofilme);
 	    		
-	    		alterarimagem = tfAlterImg.getText();
-	    		fotofilme.setIcon(new ImageIcon(FilmeIndividualAdm.class.getResource(alterarimagem)));
+	    		
+	    		
+	    		
+	    	
+	    		
+//	    		alterarimagem = tfAlterImg.getText();
+//	    		fotofilme.setIcon(new ImageIcon(FilmeIndividualAdm.class.getResource(alterarimagem)));
 	    	}
 	    });
 		salvar.setBounds(358, 584, 103, 29);
 	    contentPane.add(salvar);
+	    
+	    JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
+	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
+	    labelFotoFilme.setBackground(new Color(128, 255, 255));
+	    labelFotoFilme.setBounds(39, 155, 181, 209);
+	    contentPane.add(labelFotoFilme);
+	    
+	    
+	    tfcaminhofoto = new JTextField();
+	    tfcaminhofoto.setBounds(10, 445, 280, 19);
+	    contentPane.add(tfcaminhofoto);
+	    tfcaminhofoto.setColumns(10);
+	    
+	    
+	    JButton adicionarImagem = new JButton("add imagem");
+	    adicionarImagem.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    		JFileChooser arquivo = new JFileChooser();
+	    		arquivo.setDialogTitle("Selecione uma imagem"); //título da tela de escolha de arquivos
+	    		arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY); //setando para escolher apenas arquivos
+	    		int op = arquivo.showOpenDialog(getComponent(0)); //Abrindo tela de escolha de arquivos
+	    		
+	    		if(op == JFileChooser.APPROVE_OPTION) { // Verificando se o usuário escolheu algum arquivo
+	    			
+	    			File file = new File("");
+	    			file = arquivo.getSelectedFile(); //Pega o arquivo selecionado pelo usuário
+	    			String nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
+	    			tfcaminhofoto.setText(nomeArquivo);
+	    			ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
+	    			labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
+	    					labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
+	    			
+	    			
+	    		}
+	    		
+	    	}
+	    });
+	    adicionarImagem.setBounds(76, 493, 115, 38);
+	    contentPane.add(adicionarImagem);
+	    
+	   
 	  
 	    
 	   
