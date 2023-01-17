@@ -22,7 +22,7 @@ public class FilmeIndividualAdm extends JFrame {
 	private String alterarimagem;
 	private String posicao;
 	private JTextField txtIdade;
-	private JTextField txtDurao;
+	private JTextField txtDuracao;
 	private JTextField txtGenero;
 	private JTextField txtDiretor;
 	private JTextField txtSinopse;
@@ -98,7 +98,6 @@ public class FilmeIndividualAdm extends JFrame {
 	   
 	    
 	    JButton fotofilme = new JButton("FOTO DO FILME");
-	    fotofilme.setIcon(new ImageIcon(FilmeIndividualAdm.class.getResource(alterarimagem)));
 	    fotofilme.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    	}
@@ -115,12 +114,12 @@ public class FilmeIndividualAdm extends JFrame {
 	    contentPane.add(txtIdade);
 	    txtIdade.setColumns(10);
 	    
-	    txtDurao = new JTextField();
-	    txtDurao.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtDurao.setText("DURAÇÃO");
-	    txtDurao.setBounds(101, 374, 58, 19);
-	    contentPane.add(txtDurao);
-	    txtDurao.setColumns(10);
+	    txtDuracao = new JTextField();
+	    txtDuracao.setHorizontalAlignment(SwingConstants.CENTER);
+	    txtDuracao.setText("DURAÇÃO");
+	    txtDuracao.setBounds(101, 374, 58, 19);
+	    contentPane.add(txtDuracao);
+	    txtDuracao.setColumns(10);
 	    
 	    txtGenero = new JTextField();
 	    txtGenero.setHorizontalAlignment(SwingConstants.CENTER);
