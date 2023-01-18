@@ -23,6 +23,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import java.awt.Toolkit;
 import java.awt.Color;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 
 public class FilmeIndividualAdm extends JFrame {
 	
@@ -43,6 +47,7 @@ public class FilmeIndividualAdm extends JFrame {
 	private String nomedofilme;
 	private JTextField tfcaminhofoto;
 	private Filme filme;
+	private String nomeArquivo;
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -208,24 +213,7 @@ public class FilmeIndividualAdm extends JFrame {
 	    contentPane.add(lblNewLabel_1);
 	    
 	    
-	    JButton salvar = new JButton("SALVAR");
-		salvar.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		
-	    		nomedofilme = tfAlterarNome.getText();
-	    		nomeFilme.setText(nomedofilme);
-	    		
-	    		
-	    		
-	    		
-	    	
-	    		
-//	    		alterarimagem = tfAlterImg.getText();
-//	    		fotofilme.setIcon(new ImageIcon(FilmeIndividualAdm.class.getResource(alterarimagem)));
-	    	}
-	    });
-		salvar.setBounds(358, 584, 103, 29);
-	    contentPane.add(salvar);
+	  
 	    
 	    JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
 	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
@@ -253,27 +241,33 @@ public class FilmeIndividualAdm extends JFrame {
 	    			
 	    			File file = new File("");
 	    			file = arquivo.getSelectedFile(); //Pega o arquivo selecionado pelo usuário
-	    			String nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
+	    			nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
 	    			tfcaminhofoto.setText(nomeArquivo);
 	    			ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
 	    			labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
 	    					labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
 	    			
-	    			
 	    		}
-	    		
 	    	}
 	    });
 	    adicionarImagem.setBounds(76, 493, 115, 38);
 	    contentPane.add(adicionarImagem);
 	    
-	   
-	  
 	    
-	   
-	    
-	    
-	    
-	    
-	}
+	    JButton salvar = new JButton("SALVAR");
+	  		salvar.addActionListener(new ActionListener() {
+	  	    	public void actionPerformed(ActionEvent e) {
+	  	    		String cartaz = nomeArquivo;
+	  	    		String trailer = "trailer";
+	  	    		String diretor = txtDiretor.getText();
+	  	    		String duracao = txtDuracao.getText();
+	  	    		String genero = txtGenero.getText();
+	  				String idade = txtIdade.getText();
+	  	    		String sinopse = txtSinopse.getText();
+	  	    			  	    		
+	  	    	}
+	  	    });
+	  		salvar.setBounds(358, 584, 103, 29);
+	  	    contentPane.add(salvar);
+	  	 }
 }

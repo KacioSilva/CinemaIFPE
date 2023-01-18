@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import Core.Administrador;
+import Core.Lanche;
 import Database.Conexao;
 
 import javax.swing.JLabel;
@@ -20,7 +21,8 @@ import java.sql.SQLException;
 import java.awt.Toolkit;
 
 public class EditLanche extends JFrame {
-	Conexao conexao = new Conexao();	
+	Conexao conexao = new Conexao();
+	Lanche lanche = new Lanche();
 	
 	private JPanel contentPane;
 	private JTextField tfID;
@@ -239,13 +241,14 @@ public class EditLanche extends JFrame {
 					confirmacao.setText(e1.getMessage());
 					//e1.printStackTrace();
 				}
-				conexao.lanche1(1);
+				lanche.pegarLanche(1);
 				
 				tfID.setText("1");
-				tfNome.setText(conexao.getNome());
-				tfMarca.setText(conexao.getMarca());
-				tfPreco.setText(conexao.getPreco());
-				tfQuantidade.setText(conexao.getQuantidade());
+				tfNome.setText(lanche.getNomeLanche());
+				tfMarca.setText(lanche.getMarca());
+				tfPreco.setText(lanche.getPreco());
+				tfQuantidade.setText(lanche.getQuantidade());
+				System.out.println(lanche.getNomeLanche());
 			}
 		});
 		lanche1.setBounds(55, 159, 227, 21);
@@ -260,13 +263,13 @@ public class EditLanche extends JFrame {
 					confirmacao.setText(e1.getMessage());
 					//e1.printStackTrace();
 				}
-				conexao.lanche1(2);
+				lanche.pegarLanche(2);
 				
 				tfID.setText("2");
-				tfNome.setText(conexao.getNome());
-				tfMarca.setText(conexao.getMarca());
-				tfPreco.setText(conexao.getPreco());
-				tfQuantidade.setText(conexao.getQuantidade());
+					tfNome.setText(lanche.getNomeLanche());
+				tfMarca.setText(lanche.getMarca());
+				tfPreco.setText(lanche.getPreco());
+				tfQuantidade.setText(lanche.getQuantidade());
 			
 			}
 		});
@@ -282,13 +285,13 @@ public class EditLanche extends JFrame {
 					confirmacao.setText(e1.getMessage());
 					//e1.printStackTrace();
 				}
-				conexao.lanche1(3);
+				lanche.pegarLanche(3);
 			
 				tfID.setText("3");
-				tfNome.setText(conexao.getNome());
-				tfMarca.setText(conexao.getMarca());
-				tfPreco.setText(conexao.getPreco());
-				tfQuantidade.setText(conexao.getQuantidade());
+				tfNome.setText(lanche.getNomeLanche());
+				tfMarca.setText(lanche.getMarca());
+				tfPreco.setText(lanche.getPreco());
+				tfQuantidade.setText(lanche.getQuantidade());
 				
 			}
 		});
@@ -304,13 +307,13 @@ public class EditLanche extends JFrame {
 					confirmacao.setText(e1.getMessage());
 					//e1.printStackTrace();
 				}
-				conexao.lanche1(4);
+				lanche.pegarLanche(4);
 				
 				tfID.setText("4");
-				tfNome.setText(conexao.getNome());
-				tfMarca.setText(conexao.getMarca());
-				tfPreco.setText(conexao.getPreco());
-				tfQuantidade.setText(conexao.getQuantidade());
+				tfNome.setText(lanche.getNomeLanche());
+				tfMarca.setText(lanche.getMarca());
+				tfPreco.setText(lanche.getPreco());
+				tfQuantidade.setText(lanche.getQuantidade());
 				
 			}
 		});
@@ -326,14 +329,14 @@ public class EditLanche extends JFrame {
 					confirmacao.setText(e1.getMessage());
 					//e1.printStackTrace();
 				}
-				conexao.lanche1(5);
+				lanche.pegarLanche(5);
 				
 			
 				tfID.setText("5");
-				tfNome.setText(conexao.getNome());
-				tfMarca.setText(conexao.getMarca());
-				tfPreco.setText(conexao.getPreco());
-				tfQuantidade.setText(conexao.getQuantidade());
+				tfNome.setText(lanche.getNomeLanche());
+				tfMarca.setText(lanche.getMarca());
+				tfPreco.setText(lanche.getPreco());
+				tfQuantidade.setText(lanche.getQuantidade());
 			}
 		});
 		lanche5.setBounds(55, 530, 227, 21);

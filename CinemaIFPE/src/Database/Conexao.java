@@ -7,36 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 import Core.Administrador;
+import Core.Filme;
+import Core.Lanche;
 
 public class Conexao {
-	
-	//ATRIBUTOS DOS LANCHES
-	private String nome;
-	private String marca;
-	private String preco;
-	private String quantidade;
-	
-	//MÉTODOS DOS LANCHES
-	public String getNome() {
-		return this.nome;
-	}public String getMarca() {
-		return this.marca;
-	}
-	public String getPreco() {
-		return this.preco;
-	}
-	public String getQuantidade() {
-		return this.quantidade;
-	}
-	private ArrayList<String> arrayPull = new ArrayList<String>();
-	
+
 	private Connection conexao = null;
-	
-	public ArrayList getArrayPull() {
-		return this.arrayPull;
-	}
-	
 	
 	public void conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
@@ -60,34 +39,6 @@ public class Conexao {
 			return false;
 		}
 	}
-	
-	public void lanche1(int idlancheh) {
-		try {
-			String query = "select * from lanche where idLanche = ?";
-			PreparedStatement resultset = conexao.prepareStatement(query);
-			resultset.setInt(1, idlancheh);
-			ResultSet rs = resultset.executeQuery();
-			
-			while(rs.next()){
-				arrayPull.add(rs.getString("idLanche"));
-                arrayPull.add(rs.getString("nome"));
-                arrayPull.add(rs.getString("marca"));
-                arrayPull.add(rs.getString("preco"));
-                arrayPull.add(rs.getString("quantidadeEstoque"));
-			}
-			nome = arrayPull.get(1);
-			marca = arrayPull.get(2);
-			preco = arrayPull.get(3);
-			quantidade = arrayPull.get(4);
-			System.out.println(arrayPull);
-			arrayPull.clear();
-
-			
-		}catch(SQLException e) {
-			System.out.println("erro: " + e.getMessage());
-		}	
-	}	
-	
 	
 	public void editarGeral(int idLanche,String nome, String marca, int preco, int quantidadeEstoque) throws SQLException{
         String editarGeralUp = "update lanche set nome=?, marca=?, preco=?, quantidadeEstoque=? where idlanche = ?";
@@ -120,4 +71,36 @@ public class Conexao {
             conexao.close();
         }
     }
+	
+	
+	
+	public void editarFilme() throws SQLException{
+			try {
+				conectar();
+				String inserirFilmes = "INSERT INTO filme (nome, cartaz, trailer, sinopse, diretor, duracao, genero, anoLancamento, classificacaoIndicativa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				PreparedStatement pstmt = conexao.prepareStatement(inserirFilmes);
+				pstmt.setString(1, "teste5");
+				pstmt.setString(2, "C:\\Users\\kacio\\Desktop\\ajudeEu.png");
+				pstmt.setString(3, "teste3");
+				pstmt.setString(4, "teste4");
+				pstmt.setString(5, "teste5");
+				pstmt.setInt(6, 6);
+				pstmt.setString(7, "teste7");
+				pstmt.setString(8, "2004/05/29");
+				pstmt.setInt(9, 12);
+				
+				pstmt.execute();
+
+				
+				
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		
+	}
 }
+//String nome, String cartaz, String trailer, String sinopse, String diretor, String duracao, String genero, 
+//String anoLancamento, String classificacaoIndicativa
