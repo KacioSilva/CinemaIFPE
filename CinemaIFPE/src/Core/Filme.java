@@ -97,7 +97,7 @@ public class Filme{
     public void conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "203040lL";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -118,6 +118,7 @@ public class Filme{
 				resultset.setString(1, nome);
 				ResultSet rs = resultset.executeQuery();
 				while(rs.next()){
+					arrayFilmes.add(rs.getString("nome"));
 					arrayFilmes.add(rs.getString("cartaz"));
 					arrayFilmes.add(rs.getString("trailer"));
 					arrayFilmes.add(rs.getString("sinopse"));
