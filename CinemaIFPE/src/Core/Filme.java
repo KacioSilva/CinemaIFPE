@@ -15,7 +15,7 @@ public class Filme{
     private String sinopse;
     private String cartaz;
     private String diretor;
-    private int duracao;
+    private String duracao;
     private String genero;
     private String anoLancamento;
     private String classIndicativa;
@@ -55,11 +55,11 @@ public class Filme{
         this.diretor = diretor;
     }
 
-    public int getDuracao() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(int duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 
@@ -98,7 +98,7 @@ public class Filme{
     public void conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "203040lL";
+		String senha = "Gilva";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -111,14 +111,15 @@ public class Filme{
 	}
     
     
-    public void pegarFilmes(String nome) throws SQLException{
+    public void pegarFilmes(int i) throws SQLException{
 		try {
 				conectar();
-				String query = "select * from filme where nome = ?";
+				String query = "select * from filme where idFilme = ?";
 				PreparedStatement resultset = conexao.prepareStatement(query);
-				resultset.setString(1, nome);
+				resultset.setInt(1, i);
 				ResultSet rs = resultset.executeQuery();
 				while(rs.next()){
+					arrayFilmes.add(rs.getString("idFilme"));
 					arrayFilmes.add(rs.getString("nome"));
 					arrayFilmes.add(rs.getString("cartaz"));
 					arrayFilmes.add(rs.getString("trailer"));
@@ -129,6 +130,15 @@ public class Filme{
 					arrayFilmes.add(rs.getString("anoLancamento"));
 					arrayFilmes.add(rs.getString("classificacaoIndicativa"));
 				}
+				 nomeFilme = arrayFilmes.get(1);
+				 cartaz = arrayFilmes.get(2);
+				 sinopse = arrayFilmes.get(3);
+				 diretor =arrayFilmes.get(4);
+				 duracao = arrayFilmes.get(5);
+				 genero =  arrayFilmes.get(6);
+				 anoLancamento=  arrayFilmes.get(7);
+				 classIndicativa=  arrayFilmes.get(8);
+				 trailer=  arrayFilmes.get(9);
 				
 				System.out.println(arrayFilmes);
 				arrayFilmes.clear();

@@ -26,6 +26,7 @@ import java.awt.Color;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 
 public class FilmeIndividualAdm extends JFrame {
@@ -46,6 +47,7 @@ public class FilmeIndividualAdm extends JFrame {
 	private JTextField tfcaminhofoto;
 	private Filme filme;
 	private String nomeArquivo;
+	private Filme filmeObj = new Filme();
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -158,17 +160,7 @@ public class FilmeIndividualAdm extends JFrame {
 	    limparCampos.setBounds(493, 584, 103, 29);
 	    contentPane.add(limparCampos);
 	    
-	    sessao3 = new JButton("sessao3");
-	    sessao3.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    	}
-	    });
-	    sessao3.setBounds(509, 26, 85, 29);
-	    contentPane.add(sessao3);
 	    
-	    sessao4 = new JButton("sessao4");
-	    sessao4.setBounds(627, 26, 85, 29);
-	    contentPane.add(sessao4);
 	    
 	    JLabel lblNewLabel = new JLabel("TRAILER");
 	    lblNewLabel.setFont(new Font("Arial", Font.BOLD, 28));
@@ -220,8 +212,8 @@ public class FilmeIndividualAdm extends JFrame {
 	    			
 	    			File file = new File("");
 	    			file = arquivo.getSelectedFile(); //Pega o arquivo selecionado pelo usuário
-	    			nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
-	    			tfcaminhofoto.setText(nomeArquivo);
+	    			//nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
+	    			//tfcaminhofoto.setText(nomeArquivo);
 	    			ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
 	    			labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
 	    					labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
@@ -252,33 +244,152 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    JButton sessao1 = new JButton("sessao1");
 	  	    sessao1.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
+	  	    		try {
+						filmeObj.conectar();
+						filmeObj.pegarFilmes(1);
+					} catch (ClassNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+	  	    		
+	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtDuracao.setText(filmeObj.getDuracao());
+	  	    		txtGenero.setText(filmeObj.getGenero());
+	  	    		txtDiretor.setText(filmeObj.getDiretor());
+	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
+	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		txtSinopse.setText(filmeObj.getSinopse());
+						
 	  	    	}
 	  	    });
 	  	    sessao1.setBounds(272, 26, 85, 29);
 	  	    contentPane.add(sessao1);
 	  	    
-	  	    JButton sessao5 = new JButton("sessao5");
+	  	    
+	  	    
+	  	    JButton sessao2 = new JButton("sessao2");
+	  	    sessao2.addActionListener(new ActionListener() {
+	  	    	public void actionPerformed(ActionEvent e) {
+	  	    		try {
+						filmeObj.conectar();
+						filmeObj.pegarFilmes(2);
+					} catch (ClassNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+	  	    		
+	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtDuracao.setText(filmeObj.getDuracao());
+	  	    		txtGenero.setText(filmeObj.getGenero());
+	  	    		txtDiretor.setText(filmeObj.getDiretor());
+	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
+	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		txtSinopse.setText(filmeObj.getSinopse());
+	  	    	}
+	  	    });
+	  	    sessao2.setBounds(387, 26, 85, 29);
+	  	    contentPane.add(sessao2);
+	  	    
+	  	    
+	  	    sessao3 = new JButton("sessao3");
+	  	    sessao3.addActionListener(new ActionListener() {
+		    	public void actionPerformed(ActionEvent e) {
+		    		try {
+						filmeObj.conectar();
+						filmeObj.pegarFilmes(3);
+					} catch (ClassNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+	  	    		
+	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtDuracao.setText(filmeObj.getDuracao());
+	  	    		txtGenero.setText(filmeObj.getGenero());
+	  	    		txtDiretor.setText(filmeObj.getDiretor());
+	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
+	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		txtSinopse.setText(filmeObj.getSinopse());
+		    	}
+		    });
+		    sessao3.setBounds(509, 26, 85, 29);
+		    contentPane.add(sessao3);
+		    
+		    sessao4 = new JButton("sessao4");
+		    sessao4.addActionListener(new ActionListener() {
+		    	public void actionPerformed(ActionEvent e) {
+		    		try {
+						filmeObj.conectar();
+						filmeObj.pegarFilmes(4);
+					} catch (ClassNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+	  	    		
+	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtDuracao.setText(filmeObj.getDuracao());
+	  	    		txtGenero.setText(filmeObj.getGenero());
+	  	    		txtDiretor.setText(filmeObj.getDiretor());
+	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
+	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		txtSinopse.setText(filmeObj.getSinopse());
+		    	}
+		    });
+		    sessao4.setBounds(627, 26, 85, 29);
+		    contentPane.add(sessao4);
+		    
+		    
+		    JButton sessao5 = new JButton("sessao5");
 	  	    sessao5.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
+	  	    		try {
+						filmeObj.conectar();
+						filmeObj.pegarFilmes(5);
+					} catch (ClassNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+	  	    		
+	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtDuracao.setText(filmeObj.getDuracao());
+	  	    		txtGenero.setText(filmeObj.getGenero());
+	  	    		txtDiretor.setText(filmeObj.getDiretor());
+	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
+	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    	}
 	  	    });
 	  	    sessao5.setBounds(741, 26, 85, 29);
 	  	    contentPane.add(sessao5);
 	  	    
+	  	    
 	  	    JButton sessao6 = new JButton("sessao6");
 	  	    sessao6.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
+	  	    		try {
+						filmeObj.conectar();
+						filmeObj.pegarFilmes(6);
+					} catch (ClassNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+	  	    		
+	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtDuracao.setText(filmeObj.getDuracao());
+	  	    		txtGenero.setText(filmeObj.getGenero());
+	  	    		txtDiretor.setText(filmeObj.getDiretor());
+	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
+	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    	}
 	  	    });
 	  	    sessao6.setBounds(856, 26, 85, 29);
 	  	    contentPane.add(sessao6);
-	  	    
-	  	    JButton sessao2 = new JButton("sessao2");
-	  	    sessao2.addActionListener(new ActionListener() {
-	  	    	public void actionPerformed(ActionEvent e) {
-	  	    	}
-	  	    });
-	  	    sessao2.setBounds(387, 26, 85, 29);
-	  	    contentPane.add(sessao2);
 	  	 }
+	
 }
