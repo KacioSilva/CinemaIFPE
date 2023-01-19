@@ -20,7 +20,7 @@ public class Conexao {
 	public void conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "203040lL";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -74,20 +74,21 @@ public class Conexao {
 	
 	
 	
-	public void editarFilme() throws SQLException{
+	public void editarFilme(String nome, String cartaz, String trailer, String sinopse, String diretor, int duracao, String genero, 
+			String anoLancamento, int classificacaoIndicativa ) throws SQLException{
 			try {
 				conectar();
 				String inserirFilmes = "INSERT INTO filme (nome, cartaz, trailer, sinopse, diretor, duracao, genero, anoLancamento, classificacaoIndicativa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement pstmt = conexao.prepareStatement(inserirFilmes);
-				pstmt.setString(1, "teste5");
-				pstmt.setString(2, "C:\\Users\\kacio\\Desktop\\ajudeEu.png");
-				pstmt.setString(3, "teste3");
-				pstmt.setString(4, "teste4");
-				pstmt.setString(5, "teste5");
-				pstmt.setInt(6, 6);
-				pstmt.setString(7, "teste7");
-				pstmt.setString(8, "2004/05/29");
-				pstmt.setInt(9, 12);
+				pstmt.setString(1, nome);
+				pstmt.setString(2, cartaz);
+				pstmt.setString(3, trailer);
+				pstmt.setString(4, sinopse);
+				pstmt.setString(5, diretor);
+				pstmt.setInt(6, duracao);
+				pstmt.setString(7, genero);
+				pstmt.setString(8, anoLancamento);
+				pstmt.setInt(9, classificacaoIndicativa);
 				
 				pstmt.execute();
 

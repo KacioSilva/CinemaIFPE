@@ -34,5 +34,25 @@ public class Administrador {
 		lancheadm.editarGeral(Integer.parseInt(ID),nome,marca,Integer.parseInt(preco),Integer.parseInt(Quantidade));
 		return true;
 		}   
-	}	
+
+	}
+	
+
+		public static boolean funcEditarFilme(String nome, String cartaz, String trailer, String sinopse, String diretor, String duracao, String genero, 
+				String anoLancamento, String classificacaoIndicativa) throws SQLException, ClassNotFoundException  {
+		    Conexao filmeadm = new Conexao();
+			filmeadm.conectar();
+
+		    if (nome.isEmpty() || nome.isEmpty() || cartaz.isEmpty() || trailer.isEmpty() || sinopse.isEmpty() 
+		    		|| diretor.isEmpty() || duracao.isEmpty() || genero.isEmpty() || anoLancamento.isEmpty() || classificacaoIndicativa.isEmpty()){
+		        throw new RuntimeException("Campos vazios");
+		}else{
+			filmeadm.editarFilme(nome, cartaz, trailer, sinopse, diretor, Integer.parseInt(duracao), genero, anoLancamento,Integer.parseInt(classificacaoIndicativa));
+			return true;
+			}   
+		}
+	
+	
+		
+	
 }
