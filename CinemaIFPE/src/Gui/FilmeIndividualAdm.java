@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Core.Administrador;
 import Core.Filme;
 
 import javax.swing.JButton;
@@ -212,8 +213,8 @@ public class FilmeIndividualAdm extends JFrame {
 	    			
 	    			File file = new File("");
 	    			file = arquivo.getSelectedFile(); //Pega o arquivo selecionado pelo usuário
-	    			//nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
-	    			//tfcaminhofoto.setText(nomeArquivo);
+	    			nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
+	    			tfcaminhofoto.setText(nomeArquivo);
 	    			ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
 	    			labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
 	    					labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
@@ -228,13 +229,36 @@ public class FilmeIndividualAdm extends JFrame {
 	    JButton salvar = new JButton("SALVAR");
 	  		salvar.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
-	  	    		String cartaz = nomeArquivo;
+	  	    		String idadeIndicativa = "2004-05-29";
+	  	    		String nome = tfAlterarNome.getText();
+	  	    		String cartaz = tfcaminhofoto.getText();
 	  	    		String trailer = "trailer";
 	  	    		String diretor = txtDiretor.getText();
 	  	    		String duracao = txtDuracao.getText();
 	  	    		String genero = txtGenero.getText();
 	  				String idade = txtIdade.getText();
 	  	    		String sinopse = txtSinopse.getText();
+	  	    		try{
+	  	    			
+	                    Administrador.funcEditarFilme(nome, cartaz, trailer, sinopse, diretor, duracao, genero, idadeIndicativa, idade);
+	                    System.out.println("EDITOU");
+//	                    confirmacao.setText("Tudo certo!");
+//	                    confirmacao.setForeground(new Color(36, 187, 11));
+
+	                }catch (RuntimeException e1){
+	                	System.out.println("ERRO1 " + e1.getMessage());
+//	                    confirmacao.setText(e1.getMessage());
+//	                    confirmacao.setForeground(new Color(245, 13, 13, 255));
+
+	                } catch (SQLException ex) {
+	                	System.out.println("ERRO2");
+//	                    confirmacao.setText("Erro de conexao!");
+//	                    confirmacao.setForeground(new Color(245, 13, 13, 255));
+	                    //throw new RuntimeException(ex);
+	                } catch (ClassNotFoundException e2) {
+	                	System.out.println("ERRO3");
+//	                	confirmacao.setText(e2.getMessage());
+					}
 	  	    			  	    		
 	  	    	}
 	  	    });
