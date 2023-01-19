@@ -13,7 +13,7 @@ Filme filme = new Filme();
 try {
 
    // conexao.editarFilme();
-    Administrador.funcEditarFilme("kacio", "cartaz", "teste1", "teste2", "teste3", "225", "teste5", "2004/05/29", "18");
+    Administrador.funcEditarFilme("1", "kacio", "cartaz", "teste1", "teste2", "teste3", "225", "teste5", "2004/05/29", "18");
 
 } catch (SQLException e) {
     // TODO Auto-generated catch block

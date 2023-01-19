@@ -14,7 +14,7 @@ import Core.Filme;
 import Core.Lanche;
 
 public class Conexao {
-
+	
 	private Connection conexao = null;
 	
 	public void conectar() throws SQLException, ClassNotFoundException {
@@ -74,11 +74,11 @@ public class Conexao {
 	
 	
 	
-	public void editarFilme(String nome, String cartaz, String trailer, String sinopse, String diretor, int duracao, String genero, 
+	public void editarFilme(int idFilme, String nome, String cartaz, String trailer, String sinopse, String diretor, int duracao, String genero, 
 			String anoLancamento, int classificacaoIndicativa ) throws SQLException{
 			try {
 				conectar();
-				String inserirFilmes = "INSERT INTO filme (nome, cartaz, trailer, sinopse, diretor, duracao, genero, anoLancamento, classificacaoIndicativa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String inserirFilmes = "UPDATE filme SET nome = ?, cartaz = ?, trailer = ?, sinopse = ?, diretor = ?, duracao = ?, genero = ?, anoLancamento = ?, classificacaoIndicativa = ? WHERE idFilme = ?";
 				PreparedStatement pstmt = conexao.prepareStatement(inserirFilmes);
 				pstmt.setString(1, nome);
 				pstmt.setString(2, cartaz);
@@ -89,7 +89,7 @@ public class Conexao {
 				pstmt.setString(7, genero);
 				pstmt.setString(8, anoLancamento);
 				pstmt.setInt(9, classificacaoIndicativa);
-				
+				pstmt.setInt(10, idFilme);
 				pstmt.execute();
 
 				

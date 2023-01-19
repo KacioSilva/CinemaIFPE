@@ -229,6 +229,7 @@ public class FilmeIndividualAdm extends JFrame {
 	    JButton salvar = new JButton("SALVAR");
 	  		salvar.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
+	  	    		String idFilme = "1";
 	  	    		String idadeIndicativa = "2004-05-29";
 	  	    		String nome = tfAlterarNome.getText();
 	  	    		String cartaz = tfcaminhofoto.getText();
@@ -240,7 +241,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		String sinopse = txtSinopse.getText();
 	  	    		try{
 	  	    			
-	                    Administrador.funcEditarFilme(nome, cartaz, trailer, sinopse, diretor, duracao, genero, idadeIndicativa, idade);
+	                    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, idadeIndicativa, idade);
 	                    System.out.println("EDITOU");
 //	                    confirmacao.setText("Tudo certo!");
 //	                    confirmacao.setForeground(new Color(36, 187, 11));
