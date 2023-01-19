@@ -106,7 +106,7 @@ public class Filme{
     public void conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Fam1l1a..";
+		String senha = "203040lL";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);

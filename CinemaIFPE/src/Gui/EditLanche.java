@@ -99,9 +99,9 @@ public class EditLanche extends JFrame {
 		
 		//-------CRIANDO OS TEXTFIELDS	
 		tfID = new JTextField();
-		tfID.setBackground(new Color(255, 0, 0));
+		tfID.setBackground(new Color(0, 0, 0));
 		tfID.setForeground(new Color(0, 0, 0));
-		tfID.setFont(new Font("Tahoma", Font.BOLD, 10));
+		tfID.setFont(new Font("Arial", Font.BOLD, 14));
 		tfID.setEnabled(false);
 		tfID.addKeyListener(new KeyAdapter() {
 			@Override

@@ -29,7 +29,7 @@ public class Administrador {
 		lancheadm.conectar();
 
 	    if (nome.isEmpty() || preco.isEmpty() || marca.isEmpty() || Quantidade.isEmpty() || ID.isEmpty() ){
-	        throw new RuntimeException("Campos vazios");
+	        throw new RuntimeException(" Há campos vazios");
 	}else{
 		lancheadm.editarGeral(Integer.parseInt(ID),nome,marca,Integer.parseInt(preco),Integer.parseInt(Quantidade));
 		return true;

@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import Core.Administrador;
@@ -13,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -28,6 +31,7 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.ScrollPaneConstants;
 
 
 public class FilmeIndividualAdm extends JFrame {
@@ -39,7 +43,6 @@ public class FilmeIndividualAdm extends JFrame {
 	private JTextField txtDuracao;
 	private JTextField txtGenero;
 	private JTextField txtDiretor;
-	private JTextField txtSinopse;
 	private JButton limparCampos;
 	private JButton sessao3;
 	private JButton sessao4;
@@ -50,9 +53,8 @@ public class FilmeIndividualAdm extends JFrame {
 	private String nomeArquivo;
 	private Filme filmeObj = new Filme();
 	private JTextField textId;
-	private JTextField textCartaz;
-	private JTextField textField_2;
 	private JTextField textLancamento;
+	private JTextArea txtSinopse;
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -118,52 +120,56 @@ public class FilmeIndividualAdm extends JFrame {
 	    
 	    
 	    txtClassificacao = new JTextField();
+	    
+	    txtClassificacao.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+				}
+			}
+		});
+	    
 	    txtClassificacao.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtClassificacao.setText("IDADE");
 	    txtClassificacao.setBounds(39, 202, 144, 19);
 	    contentPane.add(txtClassificacao);
 	    txtClassificacao.setColumns(10);
 	    
 	    txtDuracao = new JTextField();
+	    
+	    txtDuracao.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+				}
+			}
+		});
+	    
 	    txtDuracao.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtDuracao.setText("DURAÇÃO");
 	    txtDuracao.setBounds(39, 260, 144, 19);
 	    contentPane.add(txtDuracao);
 	    txtDuracao.setColumns(10);
 	    
 	    txtGenero = new JTextField();
 	    txtGenero.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtGenero.setText("genero");
 	    txtGenero.setBounds(39, 312, 144, 19);
 	    contentPane.add(txtGenero);
 	    txtGenero.setColumns(10);
 	    
 	    txtDiretor = new JTextField();
 	    txtDiretor.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtDiretor.setText("DIRETOR");
 	    txtDiretor.setBounds(39, 364, 144, 19);
 	    contentPane.add(txtDiretor);
 	    txtDiretor.setColumns(10);
 	    
-	    txtSinopse = new JTextField();
-	    txtSinopse.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtSinopse.setText("SINOPSE");
-	    txtSinopse.setBounds(715, 142, 245, 233);
-	    contentPane.add(txtSinopse);
-	    txtSinopse.setColumns(10);
 	    
 	    
-	    
-	    
-	    limparCampos = new JButton("LIMPAR");
-	    limparCampos.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		
-	    		
-	    	}
-	    });
-	    limparCampos.setBounds(491, 584, 103, 29);
-	    contentPane.add(limparCampos);
+	   
 	    
 	    textFilme = new JTextField();
 	    textFilme.addActionListener(new ActionListener() {
@@ -186,12 +192,38 @@ public class FilmeIndividualAdm extends JFrame {
 	    JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
 	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
 	    labelFotoFilme.setBackground(new Color(128, 255, 255));
-	    labelFotoFilme.setBounds(354, 166, 181, 209);
+	    labelFotoFilme.setBounds(354, 166, 217, 246);
 	    contentPane.add(labelFotoFilme);
 	    
 	    
+	    
+	    limparCampos = new JButton("LIMPAR");
+	    limparCampos.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    		txtClassificacao.setText("");
+	    		txtDuracao.setText("");
+	    		txtGenero.setText("");
+	    		txtDiretor.setText("");
+	    		tfcaminhofoto.setText("");
+	    		textLancamento.setText("");
+	    		textFilme.setText("");
+	    		txtSinopse.setText("");
+	    		labelFotoFilme.setIcon(null);
+	    		
+	    		
+	    		
+	    		
+	    		
+	    	}
+	    });
+	    limparCampos.setBounds(467, 584, 103, 29);
+	    contentPane.add(limparCampos);
+	    
+	    
+	    
 	    tfcaminhofoto = new JTextField();
-	    tfcaminhofoto.setBounds(316, 416, 280, 19);
+	    tfcaminhofoto.setBounds(39, 414, 144, 19);
 	    contentPane.add(tfcaminhofoto);
 	    tfcaminhofoto.setColumns(10);
 	    
@@ -218,9 +250,15 @@ public class FilmeIndividualAdm extends JFrame {
 	    		}
 	    	}
 	    });
-	    adicionarImagem.setBounds(394, 447, 115, 38);
+	    adicionarImagem.setBounds(398, 456, 115, 38);
 	    contentPane.add(adicionarImagem);
 	    
+	    
+	    JLabel lblConfirmacao = new JLabel("");
+  	    lblConfirmacao.setFont(new Font("Arial", Font.BOLD, 15));
+  	    lblConfirmacao.setHorizontalAlignment(SwingConstants.CENTER);
+  	    lblConfirmacao.setBounds(39, 584, 144, 29);
+  	    contentPane.add(lblConfirmacao);
 	    
 	    JButton salvar = new JButton("SALVAR");
 	  		salvar.addActionListener(new ActionListener() {
@@ -238,29 +276,49 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		try{
 	  	    			
 	  	    			Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa);
-                        System.out.println("EDITOU");
-//	                    confirmacao.setText("Tudo certo!");
-//	                    confirmacao.setForeground(new Color(36, 187, 11));
+                        
+	  	    			System.out.println("EDITOU");
+	  	    			lblConfirmacao.setText("TUDO CERTO!");
+	  	    			lblConfirmacao.setForeground(new Color(36, 187, 11));
+	                    lblConfirmacao.setText("Tudo certo!");
+	                    lblConfirmacao.setForeground(new Color(36, 187, 11));
 
 	                }catch (RuntimeException e1){
 	                	System.out.println("ERRO1 " + e1.getMessage());
-//	                    confirmacao.setText(e1.getMessage());
-//	                    confirmacao.setForeground(new Color(245, 13, 13, 255));
+	                    lblConfirmacao.setText(e1.getMessage());
+	                    lblConfirmacao.setForeground(new Color(245, 13, 13, 255));
 
 	                } catch (SQLException ex) {
 	                	System.out.println("ERRO2");
-//	                    confirmacao.setText("Erro de conexao!");
-//	                    confirmacao.setForeground(new Color(245, 13, 13, 255));
+	                    lblConfirmacao.setText("Erro de conexao!");
+	                    lblConfirmacao.setForeground(new Color(245, 13, 13, 255));
 	                    //throw new RuntimeException(ex);
 	                } catch (ClassNotFoundException e2) {
 	                	System.out.println("ERRO3");
-//	                	confirmacao.setText(e2.getMessage());
+	                	lblConfirmacao.setText(e2.getMessage());
 					}
 	  	    			  	    		
 	  	    	}
 	  	    });
-	  		salvar.setBounds(316, 584, 103, 29);
+	  		salvar.setBounds(354, 584, 103, 29);
 	  	    contentPane.add(salvar);
+	  	    
+	  	    
+	  	    
+	  	    txtSinopse = new JTextArea();
+	  	    txtSinopse.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 15));
+	  	    txtSinopse.setLineWrap(true);
+//	  	    txtSinopse.setBounds(698, 131, 257, 249);
+//	  	    contentPane.add(txtSinopse);
+	  	    
+	  	    
+	  	    JScrollPane scroll = new JScrollPane(txtSinopse, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	  	    scroll.setBounds(698, 131, 240, 230);
+	  	    contentPane.add(scroll);
+	  	    
+	  	    
+	  	    
+	  	    
 	  	    
 	  	    JButton sessao1 = new JButton("sessao1");
 	  	    sessao1.addActionListener(new ActionListener() {
@@ -274,7 +332,8 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
-	  	    		textId.setText("1");
+	  	    		
+	  	    		textId.setText("1");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
@@ -303,6 +362,7 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
+	  	    		textId.setText("2");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
@@ -310,6 +370,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
+	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
 	  	    	}
 	  	    });
 	  	    sessao2.setBounds(387, 26, 85, 29);
@@ -328,6 +389,7 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
+		    		textId.setText("3");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
@@ -335,6 +397,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
+	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
 		    	}
 		    });
 		    sessao3.setBounds(509, 26, 85, 29);
@@ -352,6 +415,7 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
+		    		textId.setText("4");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
@@ -359,6 +423,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
+	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
 		    	}
 		    });
 		    sessao4.setBounds(627, 26, 85, 29);
@@ -377,6 +442,7 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
+	  	    		textId.setText("5");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
@@ -384,6 +450,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
+	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
 	  	    	}
 	  	    });
 	  	    sessao5.setBounds(741, 26, 85, 29);
@@ -402,6 +469,7 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
+	  	    		textId.setText("6");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
@@ -409,6 +477,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
+	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
 	  	    	}
 	  	    });
 	  	    sessao6.setBounds(856, 26, 85, 29);
@@ -422,49 +491,50 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    JLabel lblDuracao = new JLabel("Duração:");
 	  	    lblDuracao.setHorizontalAlignment(SwingConstants.LEFT);
 	  	    lblDuracao.setFont(new Font("Arial", Font.BOLD, 12));
-	  	    lblDuracao.setBounds(39, 230, 69, 19);
+	  	    lblDuracao.setBounds(39, 230, 144, 19);
 	  	    contentPane.add(lblDuracao);
 	  	    
 	  	    JLabel lblGenero = new JLabel("Genero:");
 	  	    lblGenero.setFont(new Font("Arial", Font.BOLD, 12));
-	  	    lblGenero.setBounds(39, 288, 85, 13);
+	  	    lblGenero.setBounds(39, 288, 144, 13);
 	  	    contentPane.add(lblGenero);
 	  	    
 	  	    JLabel lblDiretor = new JLabel("Diretor:");
 	  	    lblDiretor.setFont(new Font("Arial", Font.BOLD, 12));
-	  	    lblDiretor.setBounds(39, 340, 69, 13);
+	  	    lblDiretor.setBounds(39, 340, 144, 13);
 	  	    contentPane.add(lblDiretor);
 	  	    
 	  	    JLabel lblCaminhoFoto = new JLabel("Caminho da foto:");
 	  	    lblCaminhoFoto.setHorizontalAlignment(SwingConstants.LEFT);
 	  	    lblCaminhoFoto.setFont(new Font("Arial", Font.BOLD, 12));
-	  	    lblCaminhoFoto.setBounds(394, 377, 280, 29);
+	  	    lblCaminhoFoto.setBounds(39, 393, 144, 19);
 	  	    contentPane.add(lblCaminhoFoto);
 	  	    
 	  	    textId = new JTextField();
+	  	    
+	  	  textId.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyTyped(KeyEvent e) {
+					
+					char c = e.getKeyChar();
+					if(!Character.isDigit(c)) {
+						e.consume();
+					}
+				}
+			});
+	  	    
+	  	    textId.setBackground(new Color(0, 0, 0));
+	  	    textId.setFont(new Font("Arial", Font.BOLD, 14));
+	  	    textId.setEnabled(false);
+	  	    textId.setHorizontalAlignment(SwingConstants.CENTER);
 	  	    textId.setBounds(39, 149, 144, 19);
 	  	    contentPane.add(textId);
 	  	    textId.setColumns(10);
 	  	    
 	  	    JLabel lblID = new JLabel("ID:");
 	  	    lblID.setFont(new Font("Arial", Font.BOLD, 12));
-	  	    lblID.setBounds(41, 127, 45, 13);
+	  	    lblID.setBounds(41, 127, 142, 13);
 	  	    contentPane.add(lblID);
-	  	    
-	  	    textCartaz = new JTextField();
-	  	    textCartaz.setBounds(39, 416, 144, 19);
-	  	    contentPane.add(textCartaz);
-	  	    textCartaz.setColumns(10);
-	  	    
-	  	    JLabel lblCartaz = new JLabel("cartaz:");
-	  	    lblCartaz.setFont(new Font("Arial", Font.BOLD, 12));
-	  	    lblCartaz.setBounds(39, 393, 69, 13);
-	  	    contentPane.add(lblCartaz);
-	  	    
-	  	    textField_2 = new JTextField();
-	  	    textField_2.setColumns(10);
-	  	    textField_2.setBounds(39, 416, 144, 19);
-	  	    contentPane.add(textField_2);
 	  	    
 	  	    textLancamento = new JTextField();
 	  	    textLancamento.setColumns(10);
@@ -473,7 +543,11 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    
 	  	    JLabel lblDataLancamento = new JLabel("Data - Lançamento:");
 	  	    lblDataLancamento.setFont(new Font("Arial", Font.BOLD, 12));
-	  	    lblDataLancamento.setBounds(39, 443, 130, 13);
+	  	    lblDataLancamento.setBounds(39, 443, 144, 13);
 	  	    contentPane.add(lblDataLancamento);
+	  	    
+	  	   
+	  	    
+	  	   
 	  	 }
 }
