@@ -39,7 +39,6 @@ public class FilmeIndividualAdm extends JFrame {
 	private JTextField txtDiretor;
 	private JTextField txtSinopse;
 	private JButton limparCampos;
-	private JButton botaos1;
 	private JButton botaos2;
 	private JButton botaos3;
 	private JTextField tfAlterarNome;
@@ -159,24 +158,16 @@ public class FilmeIndividualAdm extends JFrame {
 	    limparCampos.setBounds(493, 584, 103, 29);
 	    contentPane.add(limparCampos);
 	    
-	    botaos1 = new JButton("sessao1");
-	    botaos1.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    	}
-	    });
-	    botaos1.setBounds(264, 26, 85, 29);
-	    contentPane.add(botaos1);
-	    
-	    botaos2 = new JButton("sessao2");
+	    botaos2 = new JButton("sessao3");
 	    botaos2.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    	}
 	    });
-	    botaos2.setBounds(413, 26, 85, 29);
+	    botaos2.setBounds(509, 26, 85, 29);
 	    contentPane.add(botaos2);
 	    
-	    botaos3 = new JButton("sessao3");
-	    botaos3.setBounds(561, 26, 85, 29);
+	    botaos3 = new JButton("sessao4");
+	    botaos3.setBounds(627, 26, 85, 29);
 	    contentPane.add(botaos3);
 	    
 	    JLabel lblNewLabel = new JLabel("TRAILER");
@@ -257,5 +248,37 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    });
 	  		salvar.setBounds(358, 584, 103, 29);
 	  	    contentPane.add(salvar);
+	  	    
+	  	    JButton botaos1_1 = new JButton("sessao1");
+	  	    botaos1_1.addActionListener(new ActionListener() {
+	  	    	public void actionPerformed(ActionEvent e) {
+	  	    	}
+	  	    });
+	  	    botaos1_1.setBounds(272, 26, 85, 29);
+	  	    contentPane.add(botaos1_1);
+	  	    
+	  	    JButton btnSessao_1 = new JButton("sessao5");
+	  	    btnSessao_1.addActionListener(new ActionListener() {
+	  	    	public void actionPerformed(ActionEvent e) {
+	  	    	}
+	  	    });
+	  	    btnSessao_1.setBounds(741, 26, 85, 29);
+	  	    contentPane.add(btnSessao_1);
+	  	    
+	  	    JButton btnSessao_2 = new JButton("sessao6");
+	  	    btnSessao_2.addActionListener(new ActionListener() {
+	  	    	public void actionPerformed(ActionEvent e) {
+	  	    	}
+	  	    });
+	  	    btnSessao_2.setBounds(856, 26, 85, 29);
+	  	    contentPane.add(btnSessao_2);
+	  	    
+	  	    JButton btnSessao = new JButton("sessao2");
+	  	    btnSessao.addActionListener(new ActionListener() {
+	  	    	public void actionPerformed(ActionEvent e) {
+	  	    	}
+	  	    });
+	  	    btnSessao.setBounds(387, 26, 85, 29);
+	  	    contentPane.add(btnSessao);
 	  	 }
 }
