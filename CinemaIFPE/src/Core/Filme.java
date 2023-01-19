@@ -22,6 +22,7 @@ public class Filme{
     private String trailer;
     private static Connection conexao = null;
     
+    
     public String getNome() {
         return nomeFilme;
     }

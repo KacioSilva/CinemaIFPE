@@ -17,6 +17,8 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class TelaAdm extends JFrame {
 
@@ -38,6 +40,8 @@ public class TelaAdm extends JFrame {
 		});
 	}
 	public TelaAdm() {
+		
+		setTitle("Login do administrador");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAdm.class.getResource("/Midia/ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -114,9 +118,6 @@ public class TelaAdm extends JFrame {
 	                HubADM hubADM = new HubADM();
 	                hubADM.setVisible(true);
 	                dispose();
-//	                HubADM hubDoAdm = new HubADM();
-//	                hubDoAdm.setVisible(true);
-//	                dispose();
 
 	            } catch (RuntimeException e1){
 	                mensagem.setText(e1.getMessage());
@@ -133,12 +134,60 @@ public class TelaAdm extends JFrame {
 		
 		//--------CRIANDO AS CAIXAS DE TEXTO
 		textField = new JTextField();
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String usuario = textField.getText();
+				String senha = new String(passwordField.getPassword());
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					
+					try{
+		                Administrador.login(usuario, senha);
+		                HubADM hubADM = new HubADM();
+		                hubADM.setVisible(true);
+		                dispose();
+
+		            } catch (RuntimeException e1){
+		                mensagem.setText(e1.getMessage());
+		                mensagem.setForeground(new Color(241, 5, 5));
+		            }
+
+					
+				}
+			}
+		});
 	    textField.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    textField.setBounds(387, 476, 163, 29);
 	    contentPane.add(textField);
 	    textField.setColumns(10);
 	      
 	    passwordField = new JPasswordField();
+	    passwordField.addKeyListener(new KeyAdapter() {
+	    	@Override
+	    	public void keyPressed(KeyEvent e) {
+	    		
+	    		String usuario = textField.getText();
+				String senha = new String(passwordField.getPassword());
+				
+	    		if( e.getKeyCode() == KeyEvent.VK_ENTER ) {
+	    			
+	    			try{
+		                Administrador.login(usuario, senha);
+		                HubADM hubADM = new HubADM();
+		                hubADM.setVisible(true);
+		                dispose();
+
+		            } catch (RuntimeException e1){
+		                mensagem.setText(e1.getMessage());
+		                mensagem.setForeground(new Color(241, 5, 5));
+		            }
+
+	    			
+	    			
+	    		}
+	    	}
+	    });
 	    passwordField.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	    passwordField.setBounds(387, 527, 163, 29);
 	    contentPane.add(passwordField);

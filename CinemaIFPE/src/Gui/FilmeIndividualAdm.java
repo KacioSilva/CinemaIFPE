@@ -31,7 +31,6 @@ import java.sql.PreparedStatement;
 public class FilmeIndividualAdm extends JFrame {
 	
 	private JPanel contentPane;
-	private JTextField tfAlterImg;
 	private String alterarimagem;
 	private String posicao;
 	private JTextField txtIdade;
@@ -100,17 +99,6 @@ public class FilmeIndividualAdm extends JFrame {
 		});
 	    voltar.setBounds(39, 26, 85, 29);
 		contentPane.add(voltar);
-		
-	
-	    
-	    //-----CRIANDO AS IMAGENS
-	    tfAlterImg = new JTextField();
-	    tfAlterImg.setText("/midia/interstellarpng.png");
-	    tfAlterImg.setFont(new Font("Arial", Font.PLAIN, 12));
-	    tfAlterImg.setHorizontalAlignment(SwingConstants.CENTER);
-	    tfAlterImg.setBounds(715, 46, 245, 29);
-	    contentPane.add(tfAlterImg);
-	    tfAlterImg.setColumns(10);
 	   
 //	    
 //	    JButton fotofilme = new JButton("FOTO DO FILME");

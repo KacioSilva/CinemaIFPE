@@ -29,6 +29,8 @@ public class HubADM extends JFrame {
 		});
 	}
 	public HubADM() {
+		
+		setTitle("Hub de alterações do administrador");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(HubADM.class.getResource("/Midia/ifpe.png")));
 		
 		setResizable(false);

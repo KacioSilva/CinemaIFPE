@@ -35,6 +35,8 @@ public class TelaDeFilmes extends JFrame {
 	}
 
 	public TelaDeFilmes() {
+		
+		setTitle("Escolha de filmes");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaDeFilmes.class.getResource("/Midia/ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

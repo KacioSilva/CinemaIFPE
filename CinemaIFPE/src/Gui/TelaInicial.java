@@ -34,6 +34,8 @@ public class TelaInicial extends JFrame {
 		});
 	}
 	public TelaInicial() {
+		
+		setTitle("CineIF Paulista");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaInicial.class.getResource("/Midia/ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
