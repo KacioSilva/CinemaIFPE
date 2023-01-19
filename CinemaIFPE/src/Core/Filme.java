@@ -11,6 +11,7 @@ import Database.Conexao;
 public class Filme{
 	
 	private static ArrayList<String> arrayFilmes = new ArrayList<String>();
+	private String idFilme;
     private String nomeFilme;
     private String sinopse;
     private String cartaz;
@@ -22,6 +23,13 @@ public class Filme{
     private String trailer;
     private static Connection conexao = null;
     
+    public String getIdFilme() {
+        return idFilme;
+    }
+
+    public void setIdFilme(String idFilme) {
+        this.idFilme = idFilme;
+    }
     
     public String getNome() {
         return nomeFilme;
@@ -130,20 +138,22 @@ public class Filme{
 					arrayFilmes.add(rs.getString("anoLancamento"));
 					arrayFilmes.add(rs.getString("classificacaoIndicativa"));
 				}
+				
+				 idFilme = arrayFilmes.get(0);
 				 nomeFilme = arrayFilmes.get(1);
 				 cartaz = arrayFilmes.get(2);
-				 sinopse = arrayFilmes.get(3);
-				 diretor =arrayFilmes.get(4);
-				 duracao = arrayFilmes.get(5);
-				 genero =  arrayFilmes.get(6);
-				 anoLancamento=  arrayFilmes.get(7);
-				 classIndicativa=  arrayFilmes.get(8);
-				 trailer=  arrayFilmes.get(9);
+				 trailer=  arrayFilmes.get(3);
+				 sinopse = arrayFilmes.get(4);
+				 diretor =arrayFilmes.get(5);
+				 duracao = arrayFilmes.get(6);
+				 genero =  arrayFilmes.get(7);
+				 anoLancamento=  arrayFilmes.get(8);
+				 classIndicativa=  arrayFilmes.get(9);
+				
 				
 				System.out.println(arrayFilmes);
 				arrayFilmes.clear();
 
-				
 			} catch (SQLException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

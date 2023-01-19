@@ -60,11 +60,6 @@ public class TelaDeFilmes extends JFrame {
 		emExibicao.setBounds(50, 104, 114, 23);
 		contentPane.add(emExibicao);
 		
-		JLabel emBreve = new JLabel("Em Breve:");
-		emBreve.setFont(new Font("Tahoma", Font.BOLD, 17));
-		emBreve.setBounds(50, 393, 114, 23);
-		contentPane.add(emBreve);
-		
 		
 		//-------CRIANDO OS BOTÕES
 		JButton filme1 = new JButton((Icon) null);

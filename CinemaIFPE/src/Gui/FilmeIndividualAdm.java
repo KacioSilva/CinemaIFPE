@@ -35,7 +35,7 @@ public class FilmeIndividualAdm extends JFrame {
 	private JPanel contentPane;
 	private String alterarimagem;
 	private String posicao;
-	private JTextField txtIdade;
+	private JTextField txtClassificacao;
 	private JTextField txtDuracao;
 	private JTextField txtGenero;
 	private JTextField txtDiretor;
@@ -43,12 +43,16 @@ public class FilmeIndividualAdm extends JFrame {
 	private JButton limparCampos;
 	private JButton sessao3;
 	private JButton sessao4;
-	private JTextField tfAlterarNome;
+	private JTextField textFilme;
 	private String nomedofilme;
 	private JTextField tfcaminhofoto;
 	private Filme filme;
 	private String nomeArquivo;
 	private Filme filmeObj = new Filme();
+	private JTextField textId;
+	private JTextField textCartaz;
+	private JTextField textField_2;
+	private JTextField textLancamento;
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -83,7 +87,7 @@ public class FilmeIndividualAdm extends JFrame {
 		JLabel nomeFilme = new JLabel("NOME DO FILME");
 		nomeFilme.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeFilme.setFont(new Font("Arial", Font.BOLD, 16));
-		nomeFilme.setBounds(39, 103, 181, 29);
+		nomeFilme.setBounds(354, 127, 181, 29);
 		contentPane.add(nomeFilme);
 		
 	  
@@ -113,31 +117,31 @@ public class FilmeIndividualAdm extends JFrame {
 	    
 	    
 	    
-	    txtIdade = new JTextField();
-	    txtIdade.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtIdade.setText("IDADE");
-	    txtIdade.setBounds(39, 374, 62, 19);
-	    contentPane.add(txtIdade);
-	    txtIdade.setColumns(10);
+	    txtClassificacao = new JTextField();
+	    txtClassificacao.setHorizontalAlignment(SwingConstants.CENTER);
+	    txtClassificacao.setText("IDADE");
+	    txtClassificacao.setBounds(39, 202, 144, 19);
+	    contentPane.add(txtClassificacao);
+	    txtClassificacao.setColumns(10);
 	    
 	    txtDuracao = new JTextField();
 	    txtDuracao.setHorizontalAlignment(SwingConstants.CENTER);
 	    txtDuracao.setText("DURAÇÃO");
-	    txtDuracao.setBounds(101, 374, 58, 19);
+	    txtDuracao.setBounds(39, 260, 144, 19);
 	    contentPane.add(txtDuracao);
 	    txtDuracao.setColumns(10);
 	    
 	    txtGenero = new JTextField();
 	    txtGenero.setHorizontalAlignment(SwingConstants.CENTER);
 	    txtGenero.setText("genero");
-	    txtGenero.setBounds(160, 374, 60, 19);
+	    txtGenero.setBounds(39, 312, 144, 19);
 	    contentPane.add(txtGenero);
 	    txtGenero.setColumns(10);
 	    
 	    txtDiretor = new JTextField();
 	    txtDiretor.setHorizontalAlignment(SwingConstants.CENTER);
 	    txtDiretor.setText("DIRETOR");
-	    txtDiretor.setBounds(80, 403, 96, 19);
+	    txtDiretor.setBounds(39, 364, 144, 19);
 	    contentPane.add(txtDiretor);
 	    txtDiretor.setColumns(10);
 	    
@@ -158,31 +162,23 @@ public class FilmeIndividualAdm extends JFrame {
 	    		
 	    	}
 	    });
-	    limparCampos.setBounds(493, 584, 103, 29);
+	    limparCampos.setBounds(491, 584, 103, 29);
 	    contentPane.add(limparCampos);
 	    
-	    
-	    
-	    JLabel lblNewLabel = new JLabel("TRAILER");
-	    lblNewLabel.setFont(new Font("Arial", Font.BOLD, 28));
-	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-	    lblNewLabel.setBounds(381, 191, 181, 123);
-	    contentPane.add(lblNewLabel);
-	    
-	    tfAlterarNome = new JTextField();
-	    tfAlterarNome.addActionListener(new ActionListener() {
+	    textFilme = new JTextField();
+	    textFilme.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		
 	    	}
 	    });
-	    tfAlterarNome.setBounds(715, 457, 207, 19);
-	    contentPane.add(tfAlterarNome);
-	    tfAlterarNome.setColumns(10);
+	    textFilme.setBounds(39, 526, 144, 19);
+	    contentPane.add(textFilme);
+	    textFilme.setColumns(10);
 	    
-	    JLabel lblNewLabel_1 = new JLabel("ALTERAR NOME DO FILME:");
-	    lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-	    lblNewLabel_1.setBounds(715, 434, 176, 13);
-	    contentPane.add(lblNewLabel_1);
+	    JLabel lblnomeFilme = new JLabel("Nome do filme:");
+	    lblnomeFilme.setFont(new Font("Arial", Font.BOLD, 12));
+	    lblnomeFilme.setBounds(39, 503, 144, 13);
+	    contentPane.add(lblnomeFilme);
 	    
 	    
 	  
@@ -190,12 +186,12 @@ public class FilmeIndividualAdm extends JFrame {
 	    JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
 	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
 	    labelFotoFilme.setBackground(new Color(128, 255, 255));
-	    labelFotoFilme.setBounds(39, 155, 181, 209);
+	    labelFotoFilme.setBounds(354, 166, 181, 209);
 	    contentPane.add(labelFotoFilme);
 	    
 	    
 	    tfcaminhofoto = new JTextField();
-	    tfcaminhofoto.setBounds(10, 445, 280, 19);
+	    tfcaminhofoto.setBounds(316, 416, 280, 19);
 	    contentPane.add(tfcaminhofoto);
 	    tfcaminhofoto.setColumns(10);
 	    
@@ -222,27 +218,27 @@ public class FilmeIndividualAdm extends JFrame {
 	    		}
 	    	}
 	    });
-	    adicionarImagem.setBounds(76, 493, 115, 38);
+	    adicionarImagem.setBounds(394, 447, 115, 38);
 	    contentPane.add(adicionarImagem);
 	    
 	    
 	    JButton salvar = new JButton("SALVAR");
 	  		salvar.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
-	  	    		String idFilme = "1";
-	  	    		String idadeIndicativa = "2004-05-29";
-	  	    		String nome = tfAlterarNome.getText();
+	  	    		String idFilme = textId.getText();
+	  	    		String idadeIndicativa = txtClassificacao.getText();
+	  	    		String nome = textFilme.getText();
 	  	    		String cartaz = tfcaminhofoto.getText();
 	  	    		String trailer = "trailer";
 	  	    		String diretor = txtDiretor.getText();
 	  	    		String duracao = txtDuracao.getText();
 	  	    		String genero = txtGenero.getText();
-	  				String idade = txtIdade.getText();
+	  				String lancamento = textLancamento.getText();
 	  	    		String sinopse = txtSinopse.getText();
 	  	    		try{
 	  	    			
-	                    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, idadeIndicativa, idade);
-	                    System.out.println("EDITOU");
+	  	    			Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa);
+                        System.out.println("EDITOU");
 //	                    confirmacao.setText("Tudo certo!");
 //	                    confirmacao.setForeground(new Color(36, 187, 11));
 
@@ -263,7 +259,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    			  	    		
 	  	    	}
 	  	    });
-	  		salvar.setBounds(358, 584, 103, 29);
+	  		salvar.setBounds(316, 584, 103, 29);
 	  	    contentPane.add(salvar);
 	  	    
 	  	    JButton sessao1 = new JButton("sessao1");
@@ -278,13 +274,15 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
-	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		textId.setText("1");
+	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
 	  	    		txtDiretor.setText(filmeObj.getDiretor());
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
-	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
+	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
 						
 	  	    	}
 	  	    });
@@ -305,12 +303,12 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
-	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
 	  	    		txtDiretor.setText(filmeObj.getDiretor());
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
-	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    	}
 	  	    });
@@ -330,12 +328,12 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
-	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
 	  	    		txtDiretor.setText(filmeObj.getDiretor());
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
-	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 		    	}
 		    });
@@ -354,12 +352,12 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
-	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
 	  	    		txtDiretor.setText(filmeObj.getDiretor());
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
-	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 		    	}
 		    });
@@ -379,12 +377,12 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
-	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
 	  	    		txtDiretor.setText(filmeObj.getDiretor());
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
-	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    	}
 	  	    });
@@ -404,17 +402,78 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
-	  	    		txtIdade.setText(filmeObj.getClassIndicativa());
+	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
 	  	    		txtDiretor.setText(filmeObj.getDiretor());
 	  	    		tfcaminhofoto.setText(filmeObj.getCartaz());
-	  	    		tfAlterarNome.setText(filmeObj.getNome());
+	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    	}
 	  	    });
 	  	    sessao6.setBounds(856, 26, 85, 29);
 	  	    contentPane.add(sessao6);
+	  	    
+	  	    JLabel lblClassIndicativa = new JLabel("Classificação indicativa:");
+	  	    lblClassIndicativa.setFont(new Font("Arial", Font.BOLD, 12));
+	  	    lblClassIndicativa.setBounds(39, 178, 149, 13);
+	  	    contentPane.add(lblClassIndicativa);
+	  	    
+	  	    JLabel lblDuracao = new JLabel("Duração:");
+	  	    lblDuracao.setHorizontalAlignment(SwingConstants.LEFT);
+	  	    lblDuracao.setFont(new Font("Arial", Font.BOLD, 12));
+	  	    lblDuracao.setBounds(39, 230, 69, 19);
+	  	    contentPane.add(lblDuracao);
+	  	    
+	  	    JLabel lblGenero = new JLabel("Genero:");
+	  	    lblGenero.setFont(new Font("Arial", Font.BOLD, 12));
+	  	    lblGenero.setBounds(39, 288, 85, 13);
+	  	    contentPane.add(lblGenero);
+	  	    
+	  	    JLabel lblDiretor = new JLabel("Diretor:");
+	  	    lblDiretor.setFont(new Font("Arial", Font.BOLD, 12));
+	  	    lblDiretor.setBounds(39, 340, 69, 13);
+	  	    contentPane.add(lblDiretor);
+	  	    
+	  	    JLabel lblCaminhoFoto = new JLabel("Caminho da foto:");
+	  	    lblCaminhoFoto.setHorizontalAlignment(SwingConstants.LEFT);
+	  	    lblCaminhoFoto.setFont(new Font("Arial", Font.BOLD, 12));
+	  	    lblCaminhoFoto.setBounds(394, 377, 280, 29);
+	  	    contentPane.add(lblCaminhoFoto);
+	  	    
+	  	    textId = new JTextField();
+	  	    textId.setBounds(39, 149, 144, 19);
+	  	    contentPane.add(textId);
+	  	    textId.setColumns(10);
+	  	    
+	  	    JLabel lblID = new JLabel("ID:");
+	  	    lblID.setFont(new Font("Arial", Font.BOLD, 12));
+	  	    lblID.setBounds(41, 127, 45, 13);
+	  	    contentPane.add(lblID);
+	  	    
+	  	    textCartaz = new JTextField();
+	  	    textCartaz.setBounds(39, 416, 144, 19);
+	  	    contentPane.add(textCartaz);
+	  	    textCartaz.setColumns(10);
+	  	    
+	  	    JLabel lblCartaz = new JLabel("cartaz:");
+	  	    lblCartaz.setFont(new Font("Arial", Font.BOLD, 12));
+	  	    lblCartaz.setBounds(39, 393, 69, 13);
+	  	    contentPane.add(lblCartaz);
+	  	    
+	  	    textField_2 = new JTextField();
+	  	    textField_2.setColumns(10);
+	  	    textField_2.setBounds(39, 416, 144, 19);
+	  	    contentPane.add(textField_2);
+	  	    
+	  	    textLancamento = new JTextField();
+	  	    textLancamento.setColumns(10);
+	  	    textLancamento.setBounds(39, 466, 144, 19);
+	  	    contentPane.add(textLancamento);
+	  	    
+	  	    JLabel lblDataLancamento = new JLabel("Data - Lançamento:");
+	  	    lblDataLancamento.setFont(new Font("Arial", Font.BOLD, 12));
+	  	    lblDataLancamento.setBounds(39, 443, 130, 13);
+	  	    contentPane.add(lblDataLancamento);
 	  	 }
-	
 }
