@@ -1,6 +1,8 @@
 package Gui;
 
 import java.awt.EventQueue;
+
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,6 +30,7 @@ import javax.swing.JTextArea;
 import java.awt.Toolkit;
 import java.awt.Color;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -55,7 +58,12 @@ public class FilmeIndividualAdm extends JFrame {
 	private JTextField textId;
 	private JTextField textLancamento;
 	private JTextArea txtSinopse;
-
+	private File f = null;
+	
+	public String getNomeArquivo() {
+		return nomeArquivo;
+	}
+	
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -213,8 +221,7 @@ public class FilmeIndividualAdm extends JFrame {
 	    		
 	    		
 	    		
-	    		
-	    		
+	    	
 	    	}
 	    });
 	    limparCampos.setBounds(467, 584, 103, 29);
@@ -263,6 +270,7 @@ public class FilmeIndividualAdm extends JFrame {
 	    JButton salvar = new JButton("SALVAR");
 	  		salvar.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
+	  	    	
 	  	    		String idFilme = textId.getText();
 	  	    		String idadeIndicativa = txtClassificacao.getText();
 	  	    		String nome = textFilme.getText();
@@ -332,8 +340,9 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
-	  	    		
-	  	    		textId.setText("1");	  	    		
+	  	  
+	  	    		nomeFilme.setText(filmeObj.getNome());
+	  	    		textId.setText("1");	
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
 	  	    		txtGenero.setText(filmeObj.getGenero());
@@ -362,6 +371,7 @@ public class FilmeIndividualAdm extends JFrame {
 						e1.printStackTrace();
 					}
 	  	    		
+	  	    		nomeFilme.setText(filmeObj.getNome());
 	  	    		textId.setText("2");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
@@ -388,7 +398,7 @@ public class FilmeIndividualAdm extends JFrame {
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
-	  	    		
+		    		nomeFilme.setText(filmeObj.getNome());
 		    		textId.setText("3");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
@@ -414,7 +424,7 @@ public class FilmeIndividualAdm extends JFrame {
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
-	  	    		
+		    		nomeFilme.setText(filmeObj.getNome());
 		    		textId.setText("4");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
@@ -441,7 +451,7 @@ public class FilmeIndividualAdm extends JFrame {
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
-	  	    		
+	  	    		nomeFilme.setText(filmeObj.getNome());
 	  	    		textId.setText("5");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
@@ -468,7 +478,7 @@ public class FilmeIndividualAdm extends JFrame {
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
-	  	    		
+	  	    		nomeFilme.setText(filmeObj.getNome());
 	  	    		textId.setText("6");	  	    		
 	  	    		txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    		txtDuracao.setText(filmeObj.getDuracao());
@@ -545,9 +555,5 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    lblDataLancamento.setFont(new Font("Arial", Font.BOLD, 12));
 	  	    lblDataLancamento.setBounds(39, 443, 144, 13);
 	  	    contentPane.add(lblDataLancamento);
-	  	    
-	  	   
-	  	    
-	  	   
 	  	 }
 }

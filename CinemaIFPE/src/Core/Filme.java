@@ -1,12 +1,25 @@
 package Core;
 
+import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JTextField;
+
 import Database.Conexao;
+import Gui.FilmeIndividualAdm;
+import Midia.Imagem;
 
 public class Filme{
 	
@@ -22,14 +35,15 @@ public class Filme{
     private String classIndicativa;
     private String trailer;
     private static Connection conexao = null;
-    
-    public String getIdFilme() {
-        return idFilme;
-    }
+    private String nomedofilme;
+	private JTextField tfcaminhofoto;
+	private Filme filme;
+	private String nomeArquivo;
+	
+	
+	
+	
 
-    public void setIdFilme(String idFilme) {
-        this.idFilme = idFilme;
-    }
     
     public String getNome() {
         return nomeFilme;
@@ -103,10 +117,11 @@ public class Filme{
         this.trailer = trailer;
     }
     
+    
     public void conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Tt4189952";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -120,15 +135,16 @@ public class Filme{
     
     
     public void pegarFilmes(int i) throws SQLException{
-		try {
+		try {	
 				conectar();
 				String query = "select * from filme where idFilme = ?";
-				PreparedStatement resultset = conexao.prepareStatement(query);
-				resultset.setInt(1, i);
-				ResultSet rs = resultset.executeQuery();
+				PreparedStatement pstm = conexao.prepareStatement(query);
+				pstm.setInt(1, i);
+				ResultSet rs = pstm.executeQuery();
 				while(rs.next()){
 					arrayFilmes.add(rs.getString("idFilme"));
 					arrayFilmes.add(rs.getString("nome"));
+					 
 					arrayFilmes.add(rs.getString("cartaz"));
 					arrayFilmes.add(rs.getString("trailer"));
 					arrayFilmes.add(rs.getString("sinopse"));
@@ -137,8 +153,9 @@ public class Filme{
 					arrayFilmes.add(rs.getString("genero"));
 					arrayFilmes.add(rs.getString("anoLancamento"));
 					arrayFilmes.add(rs.getString("classificacaoIndicativa"));
-				}
-				
+				  	
+				}		  			
+			  
 				 idFilme = arrayFilmes.get(0);
 				 nomeFilme = arrayFilmes.get(1);
 				 cartaz = arrayFilmes.get(2);
@@ -158,5 +175,24 @@ public class Filme{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-    	} 
+		
+		
+    	}
+			public List<Imagem> findAll(){
+			String query = "select * from imagem";
+			List<Imagem> imagens = new ArrayList<Imagem>();	
+			try {
+				PreparedStatement pstm = conexao.prepareStatement(query);
+				ResultSet rs = pstm.executeQuery();
+				while(rs.next()){
+					Imagem imagensObj = new Imagem();
+					imagensObj.setIdFilme(rs.getInt("idImagem"));
+					imagensObj.setNomeFilme(rs.getString("nomeFilme"));
+					imagensObj.setImagem(rs.getBytes("foto"));
+				}		  			
+			}catch(Exception e) {
+				imagens = null;
+			}
+			return imagens;
+		}
 }
