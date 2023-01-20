@@ -208,7 +208,6 @@ public class EditLanche extends JFrame {
 		JButton limpar = new JButton("LIMPAR");
 		limpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tfID.setText("");
 				tfNome.setText("");
 				tfMarca.setText("");
 				tfPreco.setText("");
