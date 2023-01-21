@@ -6,9 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
-
 import Core.Administrador;
 import Core.Filme;
 import Core.Lanche;
@@ -20,7 +18,7 @@ public class Conexao {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "203040lL";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -29,16 +27,11 @@ public class Conexao {
 			throw new SQLException("Erro de acesso ao banco!");
 		}catch(ClassNotFoundException e1){
 			throw new ClassNotFoundException("Erro inesperado!");
-		}
-		return conexao;
+		} return conexao;
 	}
 	
 	public Connection getConexao() {
 		return conexao;
-	}
-
-	public void setConexao(Connection conexao) {
-		this.conexao = conexao;
 	}
 
 	public boolean estaConectado() {
@@ -82,7 +75,6 @@ public class Conexao {
     }
 	
 	
-	
 	public void editarFilme(int idFilme, String nome, String cartaz, String trailer, String sinopse, String diretor, int duracao, String genero, 
 			String anoLancamento, int classificacaoIndicativa ) throws SQLException{
 			try {
@@ -104,13 +96,9 @@ public class Conexao {
 				
 				
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}		
 	}
 }
-//String nome, String cartaz, String trailer, String sinopse, String diretor, String duracao, String genero, 
-//String anoLancamento, String classificacaoIndicativa

@@ -1,18 +1,12 @@
 package Gui;
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Core.Filme;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -22,11 +16,11 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import Database.Conexao;
 
 
 public class TelaInicial extends JFrame {
+	Filme filme = new Filme();
 	
 	
 
@@ -44,11 +38,6 @@ public class TelaInicial extends JFrame {
 		});
 	}
 	public TelaInicial() throws Exception {
-		
-		
-		
-		
-		
 		
 		setTitle("CineIF Paulista");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaInicial.class.getResource("/Midia/ifpe.png")));
@@ -71,34 +60,11 @@ public class TelaInicial extends JFrame {
 		
 		JLabel emDestaque = new JLabel("Em Destaque:");
 		emDestaque.setFont(new Font("Tahoma", Font.BOLD, 22));
-		emDestaque.setBounds(416, 196, 171, 43);
+		emDestaque.setBounds(402, 208, 171, 43);
 	    contentPane.add(emDestaque);
 	      
 	      
-	    //-------CRIANDO OS BOTÕES
-	    
-//	    Filme filme = new Filme();
-//	    
-//	    
-//	    ImageIcon teste = filme.trocarImagem(1);
-	    
-//		JButton filme1 = new JButton(new ImageIcon(getClass().getResource("/midia/teste4.png")));
-//		filme1.setBounds(58, 292, 187, 251);
-//		contentPane.add(filme1);
-//		filme1.setVisible(false);
-//		
-//		JButton filme2 = new JButton(new ImageIcon(getClass().getResource("/midia/interstellarpng.png")));
-//		filme2.setBounds(400, 292, 187, 251);
-//		contentPane.add(filme2);
-//		
-//		JButton filme3 = new JButton(new ImageIcon(getClass().getResource("/midia/powerrangerspng.png")));
-//		filme3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
-//		filme3.setBounds(754, 292, 187, 251);
-//		contentPane.add(filme3);
-		
+
 		JButton help = new JButton("Help");
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
@@ -122,7 +88,7 @@ public class TelaInicial extends JFrame {
 		});
 
 		administrador.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		administrador.setBounds(827, 624, 136, 23);
+		administrador.setBounds(827, 635, 136, 23);
 		contentPane.add(administrador);
 		
 		JButton verTodosFilmes = new JButton("Ver Todos os Filmes");
@@ -144,8 +110,8 @@ public class TelaInicial extends JFrame {
       getContentPane().add(ifpe);
       ifpe.setBounds(0,0,284,281);
       
-      JLabel labelFoto1 = new JLabel("New label");
-      labelFoto1.addMouseListener(new MouseAdapter() {
+      JLabel Filme1 = new JLabel("");
+      Filme1.addMouseListener(new MouseAdapter() {
       	@Override
       	public void mouseClicked(MouseEvent e) {
       		TelaAdm adm = new TelaAdm();
@@ -154,22 +120,70 @@ public class TelaInicial extends JFrame {
       		
       	}
       });
+      String buscarfoto1 = new Filme().buscarCartaz(1);
+      Filme1.setBounds(70, 316, 214, 255);
+      String nomedoarquivo1 = buscarfoto1;
+  		Filme1.setIcon(new ImageIcon(nomedoarquivo1));
+  		Filme1.setText(buscarfoto1);
+  		contentPane.add(Filme1);
+     
       
-      String buscarfoto = new Filme().buscarCartaz();
+      JLabel Filme2 = new JLabel("");
+      Filme2.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        	TelaAdm adm = new TelaAdm();
+        	adm.setVisible(true);
+        	dispose();
+        }
+       });
+      String buscarfoto2 = new Filme().buscarCartaz(2);
+      Filme2.setBounds(373, 316, 214, 255);
+      String nomedoarquivo2 = buscarfoto2;
+      Filme2.setIcon(new ImageIcon(nomedoarquivo2));
+      Filme2.setText(buscarfoto2);
+		contentPane.add(Filme2);
       
-      
-      labelFoto1.setBounds(70, 331, 214, 255);
-      labelFoto1.setText(buscarfoto);
-      contentPane.add(labelFoto1);
-      
-      JLabel labelFoto2 = new JLabel("New label");
-      labelFoto2.setBounds(373, 331, 214, 255);
-      contentPane.add(labelFoto2);
-      
-      JLabel labelFoto3 = new JLabel("New label");
-      labelFoto3.setBounds(694, 331, 214, 255);
-      contentPane.add(labelFoto3);
+      JLabel Filme3 = new JLabel("aaaa");
+      Filme3.addMouseListener(new MouseAdapter() {
+        @Override
+         public void mouseClicked(MouseEvent e) {
+        	TelaAdm adm = new TelaAdm();
+        	adm.setVisible(true);
+        	dispose();
+        	
+        }
+       });
+      Filme3.setBounds(694, 316, 214, 255);
+      String buscarfoto3 = new Filme().buscarCartaz(3);
+      String nomedoarquivo3 = buscarfoto3;
+      Filme3.setIcon(new ImageIcon(nomedoarquivo3));
+      Filme3.setText(buscarfoto3);
+		contentPane.add(Filme3);
+		
+		
+		
+		JLabel nomeFilme1 = new JLabel();
+		nomeFilme1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		filme.pegarFilmes(1);
+		nomeFilme1.setText(filme.getNome());
+		nomeFilme1.setBounds(70, 570, 199, 27);
+		contentPane.add(nomeFilme1);
+		
+	
+		JLabel nomeFilme2 = new JLabel("NomeFilme2");
+		nomeFilme2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		filme.pegarFilmes(2);
+		nomeFilme2.setText(filme.getNome());
+		nomeFilme2.setBounds(373, 570, 199, 27);
+		contentPane.add(nomeFilme2);
+		
+		JLabel nomeFilme3 = new JLabel("");
+		nomeFilme3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		filme.pegarFilmes(3);
+		nomeFilme3.setText(filme.getNome());
+		nomeFilme3.setBounds(737, 570, 199, 27);
+		contentPane.add(nomeFilme3);
       
       }
 }
-//

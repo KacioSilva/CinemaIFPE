@@ -58,7 +58,7 @@ public class TelaAdm extends JFrame {
 		JLabel cineifPaulista = new JLabel("CineIF Paulista");
 		cineifPaulista.setForeground(new Color(63, 164, 13, 236));
 		cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
-		cineifPaulista.setBounds(235, 11, 445, 132);
+		cineifPaulista.setBounds(243, 11, 445, 132);
 		contentPane.add(cineifPaulista);
 		
 		JLabel usuario = new JLabel("Usuário:");
@@ -133,7 +133,7 @@ public class TelaAdm extends JFrame {
 			}
 		});
 		entrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		entrar.setBounds(408, 611, 117, 23);
+		entrar.setBounds(414, 612, 117, 23);
 		contentPane.add(entrar);
 		
 		
@@ -188,9 +188,6 @@ public class TelaAdm extends JFrame {
 		                mensagem.setText(e1.getMessage());
 		                mensagem.setForeground(new Color(241, 5, 5));
 		            }
-
-	    			
-	    			
 	    		}
 	    	}
 	    });
@@ -199,12 +196,10 @@ public class TelaAdm extends JFrame {
 	    contentPane.add(passwordField);
 	    
 	    
-		
-		 //-------CRIANDO A IMAGEM IFPE	
-	     ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
-	     JLabel ifpe = new JLabel(logo_ifpe);
-	     getContentPane().add(ifpe);
-	      ifpe.setBounds(322,131,284,281);
-	      
+	    //-------CRIANDO A IMAGEM IFPE	
+	    ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
+	    JLabel ifpe = new JLabel(logo_ifpe);
+	    getContentPane().add(ifpe);
+	    ifpe.setBounds(321,129,284,281); 
 	}
 }

@@ -12,11 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
-
 import Database.Conexao;
 import Gui.FilmeIndividualAdm;
 
@@ -33,15 +31,11 @@ public class Filme{
     private String anoLancamento;
     private String classIndicativa;
     private String trailer;
-    private static Connection conexao = null;
     private String nomedofilme;
 	private JTextField tfcaminhofoto;
 	private Filme filme;
 	private String nomeArquivo;
 	private String teste;
-	
-	
-	
 	
 
     
@@ -117,8 +111,6 @@ public class Filme{
         this.trailer = trailer;
     }
     
-        
-    
     
     public void pegarFilmes(int i) throws Exception{
     	Conexao conexao = new Conexao();
@@ -139,8 +131,7 @@ public class Filme{
 					arrayFilmes.add(rs.getString("duracao"));
 					arrayFilmes.add(rs.getString("genero"));
 					arrayFilmes.add(rs.getString("anoLancamento"));
-					arrayFilmes.add(rs.getString("classificacaoIndicativa"));
-				  	
+					arrayFilmes.add(rs.getString("classificacaoIndicativa"));  	
 				}		  			
 			  
 				 idFilme = arrayFilmes.get(0);
@@ -161,79 +152,30 @@ public class Filme{
 			} catch (Exception e) {
 				throw new Exception("Erro de conexão!");
 			}
-		
     	}
     
-    
-    public String buscarCartaz()  {
+    public String buscarCartaz(int idFilme)  {
     	
-    	Conexao conexaofilme = new Conexao();
-    	
-    	
-    	
+    	Conexao conexao = new Conexao();
     	try {
-    		conexaofilme.conectar();
+			conexao.conectar();
     		String cartaz = "";
-    		PreparedStatement pstmt = conexao.prepareStatement("select cartaz from filme where idFilme = ?");
-    		pstmt.setString(1,idFilme);
+    		String comando = "select cartaz from filme where idFilme = ?";
+    		PreparedStatement pstmt = conexao.getConexao().prepareStatement(comando);
+    		pstmt.setInt(1,idFilme);
     		ResultSet rs = pstmt.executeQuery();
     		
-    		if(rs.next()) {
+    		while(rs.next()) {
     			cartaz = rs.getString(1);
-    			
+    			return cartaz;
     		}
-    		return cartaz;
     		
-    	} catch (java.sql.SQLException | ClassNotFoundException a) {
-            System.out.println(((SQLException) a).getSQLState() + " - " + a.getMessage());
-            return null;
-        }
-    		
-    	}
-    	
-    	
-    
-    
-    
-    
-    
-    
-    
-    
-			
-//    public ImageIcon trocarImagem(int idFilme) throws Exception {
-//    	
-//    	Conexao conexao = new Conexao();
-//    	
-//    	pegarFilmes(idFilme);     	    	    	    	    	    	    	
-//    	JFileChooser arquivo = new JFileChooser();   	
-//    	conexao.conectar();
-//		String query = "select cartaz from filme where idFilme = ?";
-//		PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
-//		pstm.setInt(1, idFilme);
-//		ResultSet rs = pstm.executeQuery();				
-//		while(rs.next()) {
-//			teste = arrayFilmes.add(rs.getString("cartaz"));
-//			
-//			
-//		}    															
-//		File file = new File("");
-//		file = arquivo.getSelectedFile(); 
-//		cartaz = teste;
-//		ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
-//		
-//		return fotoFilme;
-		
-    	
-    	
-    	
-    	
-    	
-    	
-		
-	    		
-    	
-    
-    
+    	}catch (java.sql.SQLException a) {
+    		a.getMessage();
+        } catch(ClassNotFoundException e) {
+        	e.getMessage();
+        } 
+    	return cartaz;
+    }
 }
 
