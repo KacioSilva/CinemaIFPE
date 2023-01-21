@@ -38,6 +38,7 @@ public class Filme{
 	private JTextField tfcaminhofoto;
 	private Filme filme;
 	private String nomeArquivo;
+	private String teste;
 	
 	
 	
@@ -160,36 +161,53 @@ public class Filme{
 			}
 		
     	}
-			public List<Imagem> findAll(){
-			String query = "select * from imagem";
-			List<Imagem> imagens = new ArrayList<Imagem>();	
-			try {
-				PreparedStatement pstm = conexao.prepareStatement(query);
-				ResultSet rs = pstm.executeQuery();
-				while(rs.next()){
-					Imagem imagensObj = new Imagem();
-					imagensObj.setIdFilme(rs.getInt("idImagem"));
-					imagensObj.setNomeImagem(rs.getString("nomeFilme"));
-					imagensObj.setImagem(rs.getBytes("foto"));
-				}		  			
-			}catch(Exception e) {
-				imagens = null;
-			}
-			return imagens;
-		}
 			
+    public ImageIcon trocarImagem(int idFilme) throws Exception {
+    	
+    	Conexao conexao = new Conexao();
+    	
+    	pegarFilmes(idFilme); 
+    	
+    	JFileChooser arquivo = new JFileChooser(); 
+    	
+    	
+    	
+    	
+    	
+    	conexao.conectar();
+		String query = "select cartaz from filme where idFilme = ?";
+		PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
+		pstm.setInt(1, idFilme);
+		ResultSet rs = pstm.executeQuery();
+		
+		
+//		while(rs.next()) {
+//			teste = arrayFilmes.add(rs.getString("cartaz"));
+//			
+//			
+//		}
+    
+															
+		File file = new File("");
+		file = arquivo.getSelectedFile(); 
+		cartaz = teste;
+		ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
+		
+		return fotoFilme;
+		
+    	
+    	
+    	
+    	
+    	
+    	
+		
+	    		
+    	
+    }
+    
+    
+    
 			
-		public boolean create(Imagem imagem){
-			try {
-				PreparedStatement pstm = conexao
-						.prepareStatement("insert into imagem (foto, nomeImagem, Filme_idFilme, Filme_nome) values(?, ?, ?, ?)");
-				pstm.setString(1, imagem.getNomeImagem());
-				pstm.setBytes(2, imagem.getImagem());
-				pstm.setInt(3, 1);
-				pstm.setString(4, "Filme");
-				return pstm.executeUpdate() > 0;
-			}catch(Exception e) {
-				return false;
-			}
-		}
+
 }

@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Core.Filme;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -17,6 +20,8 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TelaInicial extends JFrame {
 
@@ -33,7 +38,7 @@ public class TelaInicial extends JFrame {
 			}
 		});
 	}
-	public TelaInicial() {
+	public TelaInicial() throws Exception {
 		
 		setTitle("CineIF Paulista");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaInicial.class.getResource("/Midia/ifpe.png")));
@@ -60,22 +65,29 @@ public class TelaInicial extends JFrame {
 	    contentPane.add(emDestaque);
 	      
 	      
-	    //-------CRIANDO OS BOTÕES	
-		JButton filme1 = new JButton(new ImageIcon(getClass().getResource("/midia/teste4.png")));
-		filme1.setBounds(58, 292, 187, 251);
-		contentPane.add(filme1);
-		
-		JButton filme2 = new JButton(new ImageIcon(getClass().getResource("/midia/interstellarpng.png")));
-		filme2.setBounds(400, 292, 187, 251);
-		contentPane.add(filme2);
-		
-		JButton filme3 = new JButton(new ImageIcon(getClass().getResource("/midia/powerrangerspng.png")));
-		filme3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		filme3.setBounds(754, 292, 187, 251);
-		contentPane.add(filme3);
+	    //-------CRIANDO OS BOTÕES
+	    
+//	    Filme filme = new Filme();
+//	    
+//	    
+//	    ImageIcon teste = filme.trocarImagem(1);
+	    
+//		JButton filme1 = new JButton(new ImageIcon(getClass().getResource("/midia/teste4.png")));
+//		filme1.setBounds(58, 292, 187, 251);
+//		contentPane.add(filme1);
+//		filme1.setVisible(false);
+//		
+//		JButton filme2 = new JButton(new ImageIcon(getClass().getResource("/midia/interstellarpng.png")));
+//		filme2.setBounds(400, 292, 187, 251);
+//		contentPane.add(filme2);
+//		
+//		JButton filme3 = new JButton(new ImageIcon(getClass().getResource("/midia/powerrangerspng.png")));
+//		filme3.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		filme3.setBounds(754, 292, 187, 251);
+//		contentPane.add(filme3);
 		
 		JButton help = new JButton("Help");
 		help.addActionListener(new ActionListener() {
@@ -121,6 +133,27 @@ public class TelaInicial extends JFrame {
       JLabel ifpe = new JLabel(logo_ifpe);
       getContentPane().add(ifpe);
       ifpe.setBounds(0,0,284,281);
+      
+      JLabel labelFoto1 = new JLabel("New label");
+      labelFoto1.addMouseListener(new MouseAdapter() {
+      	@Override
+      	public void mouseClicked(MouseEvent e) {
+      		TelaAdm adm = new TelaAdm();
+      		adm.setVisible(true);
+      		dispose();
+      		
+      	}
+      });
+      labelFoto1.setBounds(70, 331, 214, 255);
+      contentPane.add(labelFoto1);
+      
+      JLabel labelFoto2 = new JLabel("New label");
+      labelFoto2.setBounds(373, 331, 214, 255);
+      contentPane.add(labelFoto2);
+      
+      JLabel labelFoto3 = new JLabel("New label");
+      labelFoto3.setBounds(694, 331, 214, 255);
+      contentPane.add(labelFoto3);
       
       }
 }

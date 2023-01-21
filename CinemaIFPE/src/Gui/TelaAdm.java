@@ -85,7 +85,13 @@ public class TelaAdm extends JFrame {
 	    JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaInicial voltar = new TelaInicial();
+				TelaInicial voltar = null;
+				try {
+					voltar = new TelaInicial();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 		        voltar.setVisible(true);
 		        dispose();
 			}

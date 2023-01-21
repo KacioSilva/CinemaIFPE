@@ -62,7 +62,6 @@ public class FilmeIndividualAdm extends JFrame {
 	private JTextField textId;
 	private JTextField textLancamento;
 	private JTextArea txtSinopse;
-	private File f = null;
 	private JTable jtableImagem;
 	File file;
 	Conexao conexao = new Conexao();
@@ -103,8 +102,8 @@ public class FilmeIndividualAdm extends JFrame {
 		//-------CRIANDO OS LABELS	
 		JLabel nomeFilme = new JLabel("NOME DO FILME");
 		nomeFilme.setHorizontalAlignment(SwingConstants.CENTER);
-		nomeFilme.setFont(new Font("Arial", Font.BOLD, 16));
-		nomeFilme.setBounds(354, 127, 181, 29);
+		nomeFilme.setFont(new Font("Arial", Font.BOLD, 14));
+		nomeFilme.setBounds(354, 127, 217, 29);
 		contentPane.add(nomeFilme);
 		
 	  
@@ -204,11 +203,11 @@ public class FilmeIndividualAdm extends JFrame {
 	    
 	  
 	    
-//	    JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
-//	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
-//	    labelFotoFilme.setBackground(new Color(128, 255, 255));
-//	    labelFotoFilme.setBounds(354, 166, 217, 246);
-//	    contentPane.add(labelFotoFilme);
+	    JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
+	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
+	    labelFotoFilme.setBackground(new Color(128, 255, 255));
+	    labelFotoFilme.setBounds(354, 166, 217, 246);
+	    contentPane.add(labelFotoFilme);
 	    
 	    
 	    
@@ -242,6 +241,8 @@ public class FilmeIndividualAdm extends JFrame {
 	    tfcaminhofoto.setColumns(10);
 	    
 	    
+	    
+	    
 	    JButton adicionarImagem = new JButton("add imagem");
 	    adicionarImagem.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
@@ -253,13 +254,18 @@ public class FilmeIndividualAdm extends JFrame {
 	    		
 	    		if(op == JFileChooser.APPROVE_OPTION) { // Verificando se o usuário escolheu algum arquivo
 	    			
+	    			labelFotoFilme.setIcon(null);
+	    			
 	    			file = new File("");
 	    			file = arquivo.getSelectedFile(); //Pega o arquivo selecionado pelo usuário
 	    			nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
 	    			tfcaminhofoto.setText(nomeArquivo);
 	    			ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
-	    			//labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
-	    					//labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
+	    			labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
+	    					labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
+	    			
+	    			String nomedoarquivo = tfcaminhofoto.getText();
+	  	    		labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 	    			
 	    		}
 	    	}
@@ -292,16 +298,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		String sinopse = txtSinopse.getText();
 	  	    		try{
 	  	    			
-	  	    			Filme filme = new Filme();
-		  	    		Imagem img = new Imagem();
-		  	    		
-		  	    		img.setNomeImagem(tfcaminhofoto.getText());
-		  	    		img.setImagem(Files.readAllBytes(file.toPath()));
-		  	    		if(filme.create(img)) {
-		  	    			System.out.println("Sucesso");
-		  	    		} else {
-		  	    			System.out.println("Falhou");
-		  	    		}
+	  	    			
 	  	    			
 	  	    			
 	  	    			Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa);
@@ -319,12 +316,12 @@ public class FilmeIndividualAdm extends JFrame {
 	                	System.out.println("ERRO2");
 	                    //lblConfirmacao.setText("Erro de conexao!");
 	                    //lblConfirmacao.setForeground(new Color(245, 13, 13, 255));
-	                    //throw new RuntimeException(ex);
+	                    throw new RuntimeException(ex);
 	                } catch (ClassNotFoundException e2) {
 	                	System.out.println("ERRO3");
 	                	//lblConfirmacao.setText(e2.getMessage());
 					} catch(Exception e2) {
-						lblConfirmacao.setText("Erro na imagem");
+						//lblConfirmacao.setText("Erro na imagem");
 					}
 	  	    			  	    		
 	  	    	}
@@ -369,6 +366,11 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
+	  	    		
+	  	    		
+	  	    		
+	  	    		String nomedoarquivo = tfcaminhofoto.getText();
+	  	    		labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 						
 	  	    	}
 	  	    });
@@ -396,6 +398,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
+	  	    		
+	  	    		String nomedoarquivo = tfcaminhofoto.getText();
+	  	    		labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 	  	    	}
 	  	    });
 	  	    sessao2.setBounds(387, 26, 85, 29);
@@ -420,6 +425,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
+	  	    		
+	  	    		String nomedoarquivo = tfcaminhofoto.getText();
+	  	    		labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 		    	}
 		    });
 		    sessao3.setBounds(509, 26, 85, 29);
@@ -443,6 +451,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
+	  	    		
+	  	    		String nomedoarquivo = tfcaminhofoto.getText();
+	  	    		labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 		    	}
 		    });
 		    sessao4.setBounds(627, 26, 85, 29);
@@ -468,6 +479,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
+	  	    		
+	  	    		String nomedoarquivo = tfcaminhofoto.getText();
+	  	    		labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 	  	    	}
 	  	    });
 	  	    sessao5.setBounds(741, 26, 85, 29);
@@ -492,6 +506,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		textFilme.setText(filmeObj.getNome());
 	  	    		txtSinopse.setText(filmeObj.getSinopse());
 	  	    		textLancamento.setText(filmeObj.getAnoLancamento());
+	  	    		
+	  	    		String nomedoarquivo = tfcaminhofoto.getText();
+	  	    		labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 	  	    	}
 	  	    });
 	  	    sessao6.setBounds(856, 26, 85, 29);
@@ -560,8 +577,6 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    lblDataLancamento.setBounds(39, 443, 144, 13);
 	  	    contentPane.add(lblDataLancamento);
 	  	    
-	  	    jtableImagem = new JTable();
-	  	    jtableImagem.setBounds(356, 213, 188, 214);
-	  	    contentPane.add(jtableImagem);
+	  	    
 	  	 }
 }
