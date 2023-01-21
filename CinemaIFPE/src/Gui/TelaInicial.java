@@ -23,7 +23,12 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import Database.Conexao;
+
+
 public class TelaInicial extends JFrame {
+	
+	
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -39,6 +44,11 @@ public class TelaInicial extends JFrame {
 		});
 	}
 	public TelaInicial() throws Exception {
+		
+		
+		
+		
+		
 		
 		setTitle("CineIF Paulista");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaInicial.class.getResource("/Midia/ifpe.png")));
@@ -144,7 +154,12 @@ public class TelaInicial extends JFrame {
       		
       	}
       });
+      
+      String buscarfoto = new Filme().buscarCartaz();
+      
+      
       labelFoto1.setBounds(70, 331, 214, 255);
+      labelFoto1.setText(buscarfoto);
       contentPane.add(labelFoto1);
       
       JLabel labelFoto2 = new JLabel("New label");

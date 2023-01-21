@@ -117,6 +117,8 @@ public class Filme{
         this.trailer = trailer;
     }
     
+        
+    
     
     public void pegarFilmes(int i) throws Exception{
     	Conexao conexao = new Conexao();
@@ -161,39 +163,66 @@ public class Filme{
 			}
 		
     	}
+    
+    
+    public String buscarCartaz()  {
+    	
+    	Conexao conexaofilme = new Conexao();
+    	
+    	
+    	
+    	try {
+    		conexaofilme.conectar();
+    		String cartaz = "";
+    		PreparedStatement pstmt = conexao.prepareStatement("select cartaz from filme where idFilme = ?");
+    		pstmt.setString(1,idFilme);
+    		ResultSet rs = pstmt.executeQuery();
+    		
+    		if(rs.next()) {
+    			cartaz = rs.getString(1);
+    			
+    		}
+    		return cartaz;
+    		
+    	} catch (java.sql.SQLException | ClassNotFoundException a) {
+            System.out.println(((SQLException) a).getSQLState() + " - " + a.getMessage());
+            return null;
+        }
+    		
+    	}
+    	
+    	
+    
+    
+    
+    
+    
+    
+    
+    
 			
-    public ImageIcon trocarImagem(int idFilme) throws Exception {
-    	
-    	Conexao conexao = new Conexao();
-    	
-    	pegarFilmes(idFilme); 
-    	
-    	JFileChooser arquivo = new JFileChooser(); 
-    	
-    	
-    	
-    	
-    	
-    	conexao.conectar();
-		String query = "select cartaz from filme where idFilme = ?";
-		PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
-		pstm.setInt(1, idFilme);
-		ResultSet rs = pstm.executeQuery();
-		
-		
+//    public ImageIcon trocarImagem(int idFilme) throws Exception {
+//    	
+//    	Conexao conexao = new Conexao();
+//    	
+//    	pegarFilmes(idFilme);     	    	    	    	    	    	    	
+//    	JFileChooser arquivo = new JFileChooser();   	
+//    	conexao.conectar();
+//		String query = "select cartaz from filme where idFilme = ?";
+//		PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
+//		pstm.setInt(1, idFilme);
+//		ResultSet rs = pstm.executeQuery();				
 //		while(rs.next()) {
 //			teste = arrayFilmes.add(rs.getString("cartaz"));
 //			
 //			
-//		}
-    
-															
-		File file = new File("");
-		file = arquivo.getSelectedFile(); 
-		cartaz = teste;
-		ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
-		
-		return fotoFilme;
+//		}    															
+//		File file = new File("");
+//		file = arquivo.getSelectedFile(); 
+//		cartaz = teste;
+//		ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
+//		
+//		return fotoFilme;
 		
     	
     	
@@ -204,10 +233,7 @@ public class Filme{
 		
 	    		
     	
-    }
     
     
-    
-			
-
 }
+
