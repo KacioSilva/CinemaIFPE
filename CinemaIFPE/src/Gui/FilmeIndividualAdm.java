@@ -10,7 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import Core.Administrador;
 import Core.Filme;
-import Core.Imagem;
+
 import Database.Conexao;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
