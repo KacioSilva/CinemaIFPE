@@ -1,4 +1,4 @@
-package Midia;
+package Core;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,12 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Core.Filme;
-
 public class Imagem {
 private byte[] imagem;
 private int idFilme;
-private String nomeFilme;
+private String nomeImagem;
     
     public byte[] getImagem() {
     	return imagem;
@@ -30,14 +28,15 @@ private String nomeFilme;
     public void setIdFilme(int idFilme) {
         this.idFilme = idFilme;
     }
-    public String getNomeFilme() {
-    	return nomeFilme;
-    }
-    public void setNomeFilme(String nomeFilme) {
-    	this.nomeFilme = nomeFilme;
+    public String getNomeImagem() {
+    	return nomeImagem;
     }
     
-	private Connection conexao = null;
+    public void setNomeImagem(String nomeFilme) {
+    	this.nomeImagem = nomeFilme;
+    }
+}   
+	//private Connection conexao = null;
 		
 //		public void conectar() throws SQLException, ClassNotFoundException {
 //			String servidor = "jdbc:mysql://localhost:3306/cineif";

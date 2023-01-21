@@ -11,6 +11,8 @@ import javax.swing.border.EmptyBorder;
 
 import Core.Administrador;
 import Core.Filme;
+import Core.Imagem;
+import Database.Conexao;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -31,10 +33,12 @@ import java.awt.Toolkit;
 import java.awt.Color;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.JTable;
 
 
 public class FilmeIndividualAdm extends JFrame {
@@ -59,6 +63,9 @@ public class FilmeIndividualAdm extends JFrame {
 	private JTextField textLancamento;
 	private JTextArea txtSinopse;
 	private File f = null;
+	private JTable jtableImagem;
+	File file;
+	Conexao conexao = new Conexao();
 	
 	public String getNomeArquivo() {
 		return nomeArquivo;
@@ -197,11 +204,11 @@ public class FilmeIndividualAdm extends JFrame {
 	    
 	  
 	    
-	    JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
-	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
-	    labelFotoFilme.setBackground(new Color(128, 255, 255));
-	    labelFotoFilme.setBounds(354, 166, 217, 246);
-	    contentPane.add(labelFotoFilme);
+//	    JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
+//	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
+//	    labelFotoFilme.setBackground(new Color(128, 255, 255));
+//	    labelFotoFilme.setBounds(354, 166, 217, 246);
+//	    contentPane.add(labelFotoFilme);
 	    
 	    
 	    
@@ -217,7 +224,7 @@ public class FilmeIndividualAdm extends JFrame {
 	    		textLancamento.setText("");
 	    		textFilme.setText("");
 	    		txtSinopse.setText("");
-	    		labelFotoFilme.setIcon(null);
+	    		//labelFotoFilme.setIcon(null);
 	    		
 	    		
 	    		
@@ -246,13 +253,13 @@ public class FilmeIndividualAdm extends JFrame {
 	    		
 	    		if(op == JFileChooser.APPROVE_OPTION) { // Verificando se o usuário escolheu algum arquivo
 	    			
-	    			File file = new File("");
+	    			file = new File("");
 	    			file = arquivo.getSelectedFile(); //Pega o arquivo selecionado pelo usuário
 	    			nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
 	    			tfcaminhofoto.setText(nomeArquivo);
 	    			ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
-	    			labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
-	    					labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
+	    			//labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
+	    					//labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
 	    			
 	    		}
 	    	}
@@ -270,6 +277,8 @@ public class FilmeIndividualAdm extends JFrame {
 	    JButton salvar = new JButton("SALVAR");
 	  		salvar.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
+	  	    		
+	  	    		
 	  	    	
 	  	    		String idFilme = textId.getText();
 	  	    		String idadeIndicativa = txtClassificacao.getText();
@@ -283,27 +292,39 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    		String sinopse = txtSinopse.getText();
 	  	    		try{
 	  	    			
+	  	    			Filme filme = new Filme();
+		  	    		Imagem img = new Imagem();
+		  	    		
+		  	    		img.setNomeImagem(tfcaminhofoto.getText());
+		  	    		img.setImagem(Files.readAllBytes(file.toPath()));
+		  	    		if(filme.create(img)) {
+		  	    			System.out.println("Sucesso");
+		  	    		} else {
+		  	    			System.out.println("Falhou");
+		  	    		}
+	  	    			
+	  	    			
 	  	    			Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa);
                         
 	  	    			System.out.println("EDITOU");
 	  	    			lblConfirmacao.setText("TUDO CERTO!");
 	  	    			lblConfirmacao.setForeground(new Color(36, 187, 11));
-	                    lblConfirmacao.setText("Tudo certo!");
-	                    lblConfirmacao.setForeground(new Color(36, 187, 11));
 
 	                }catch (RuntimeException e1){
 	                	System.out.println("ERRO1 " + e1.getMessage());
-	                    lblConfirmacao.setText(e1.getMessage());
-	                    lblConfirmacao.setForeground(new Color(245, 13, 13, 255));
+	                    //lblConfirmacao.setText(e1.getMessage());
+	                    //lblConfirmacao.setForeground(new Color(245, 13, 13, 255));
 
 	                } catch (SQLException ex) {
 	                	System.out.println("ERRO2");
-	                    lblConfirmacao.setText("Erro de conexao!");
-	                    lblConfirmacao.setForeground(new Color(245, 13, 13, 255));
+	                    //lblConfirmacao.setText("Erro de conexao!");
+	                    //lblConfirmacao.setForeground(new Color(245, 13, 13, 255));
 	                    //throw new RuntimeException(ex);
 	                } catch (ClassNotFoundException e2) {
 	                	System.out.println("ERRO3");
-	                	lblConfirmacao.setText(e2.getMessage());
+	                	//lblConfirmacao.setText(e2.getMessage());
+					} catch(Exception e2) {
+						lblConfirmacao.setText("Erro na imagem");
 					}
 	  	    			  	    		
 	  	    	}
@@ -332,12 +353,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    sessao1.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
 	  	    		try {
-						filmeObj.conectar();
 						filmeObj.pegarFilmes(1);
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
+					} catch (Exception e1) {
+						lblConfirmacao.setText(e1.getMessage());
 					}
 	  	    		
 	  	  
@@ -363,12 +381,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    sessao2.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
 	  	    		try {
-						filmeObj.conectar();
 						filmeObj.pegarFilmes(2);
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
+					} catch (Exception e1) {
+						lblConfirmacao.setText(e1.getMessage());
 					}
 	  	    		
 	  	    		nomeFilme.setText(filmeObj.getNome());
@@ -391,12 +406,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    sessao3.addActionListener(new ActionListener() {
 		    	public void actionPerformed(ActionEvent e) {
 		    		try {
-						filmeObj.conectar();
 						filmeObj.pegarFilmes(3);
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
+					}catch (Exception e1) {
+						lblConfirmacao.setText(e1.getMessage());
 					}
 		    		nomeFilme.setText(filmeObj.getNome());
 		    		textId.setText("3");	  	    		
@@ -417,12 +429,9 @@ public class FilmeIndividualAdm extends JFrame {
 		    sessao4.addActionListener(new ActionListener() {
 		    	public void actionPerformed(ActionEvent e) {
 		    		try {
-						filmeObj.conectar();
 						filmeObj.pegarFilmes(4);
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
+					} catch (Exception e1) {
+						lblConfirmacao.setText(e1.getMessage());
 					}
 		    		nomeFilme.setText(filmeObj.getNome());
 		    		textId.setText("4");	  	    		
@@ -444,12 +453,10 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    sessao5.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
 	  	    		try {
-						filmeObj.conectar();
+	  	    			conexao.conectar();
 						filmeObj.pegarFilmes(5);
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
+					} catch (Exception e1) {
+						lblConfirmacao.setText(e1.getMessage());
 					}
 	  	    		nomeFilme.setText(filmeObj.getNome());
 	  	    		textId.setText("5");	  	    		
@@ -471,12 +478,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    sessao6.addActionListener(new ActionListener() {
 	  	    	public void actionPerformed(ActionEvent e) {
 	  	    		try {
-						filmeObj.conectar();
 						filmeObj.pegarFilmes(6);
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (SQLException e1) {
-						e1.printStackTrace();
+					} catch (Exception e1) {
+						lblConfirmacao.setText(e1.getMessage());
 					}
 	  	    		nomeFilme.setText(filmeObj.getNome());
 	  	    		textId.setText("6");	  	    		
@@ -555,5 +559,9 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    lblDataLancamento.setFont(new Font("Arial", Font.BOLD, 12));
 	  	    lblDataLancamento.setBounds(39, 443, 144, 13);
 	  	    contentPane.add(lblDataLancamento);
+	  	    
+	  	    jtableImagem = new JTable();
+	  	    jtableImagem.setBounds(356, 213, 188, 214);
+	  	    contentPane.add(jtableImagem);
 	  	 }
 }

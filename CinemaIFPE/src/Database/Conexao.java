@@ -17,21 +17,30 @@ public class Conexao {
 	
 	private Connection conexao = null;
 	
-	public void conectar() throws SQLException, ClassNotFoundException {
+	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Fam1l1a..";
+		String senha = "Tt4189952";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
 			conexao = DriverManager.getConnection(servidor, usuario, senha);
 		}catch(SQLException e) {
-			throw new SQLException("Erro de acesso ao banco!");			
+			throw new SQLException("Erro de acesso ao banco!");
 		}catch(ClassNotFoundException e1){
 			throw new ClassNotFoundException("Erro inesperado!");
 		}
+		return conexao;
 	}
 	
+	public Connection getConexao() {
+		return conexao;
+	}
+
+	public void setConexao(Connection conexao) {
+		this.conexao = conexao;
+	}
+
 	public boolean estaConectado() {
 		if(this.conexao != null) {
 			return true;

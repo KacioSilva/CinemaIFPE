@@ -236,11 +236,10 @@ public class EditLanche extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					conexao.conectar();
+					lanche.pegarLanche(1);
 				} catch (Exception e1) {
 					confirmacao.setText(e1.getMessage());
-					//e1.printStackTrace();
 				}
-				lanche.pegarLanche(1);
 				
 				tfID.setText("1");
 				tfNome.setText(lanche.getNomeLanche());
@@ -258,11 +257,11 @@ public class EditLanche extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					conexao.conectar();
+					lanche.pegarLanche(2);
 				} catch (Exception e1) {
 					confirmacao.setText(e1.getMessage());
-					//e1.printStackTrace();
 				}
-				lanche.pegarLanche(2);
+				
 				
 				tfID.setText("2");
 					tfNome.setText(lanche.getNomeLanche());
@@ -280,11 +279,11 @@ public class EditLanche extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					conexao.conectar();
+					lanche.pegarLanche(3);
 				} catch (Exception e1) {
 					confirmacao.setText(e1.getMessage());
-					//e1.printStackTrace();
 				}
-				lanche.pegarLanche(3);
+				
 			
 				tfID.setText("3");
 				tfNome.setText(lanche.getNomeLanche());
@@ -302,11 +301,11 @@ public class EditLanche extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					conexao.conectar();
+					lanche.pegarLanche(4);
 				} catch (Exception e1) {
 					confirmacao.setText(e1.getMessage());
-					//e1.printStackTrace();
 				}
-				lanche.pegarLanche(4);
+				
 				
 				tfID.setText("4");
 				tfNome.setText(lanche.getNomeLanche());
@@ -324,11 +323,11 @@ public class EditLanche extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					conexao.conectar();
+					lanche.pegarLanche(5);
 				} catch (Exception e1) {
 					confirmacao.setText(e1.getMessage());
-					//e1.printStackTrace();
 				}
-				lanche.pegarLanche(5);
+				
 				
 			
 				tfID.setText("5");

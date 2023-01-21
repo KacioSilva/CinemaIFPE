@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import Database.Conexao;
+
 public class Lanche {
     private int idLanche;
     private String nome;
@@ -56,26 +58,13 @@ public class Lanche {
         this.quantidade = qtdEstoque;
     }
     
-    public void conectar() throws SQLException, ClassNotFoundException {
-		String servidor = "jdbc:mysql://localhost:3306/cineif";
-		String usuario = "root";
-		String senha = "Fam1l1a..";
-		String driver = "com.mysql.jdbc.Driver";
-		try {
-			Class.forName(driver);
-			conexao = DriverManager.getConnection(servidor, usuario, senha);
-		}catch(SQLException e) {
-			throw new SQLException("Erro de acesso ao banco!");			
-		}catch(ClassNotFoundException e1){
-			throw new ClassNotFoundException("Erro inesperado!");
-		}
-	}
     
-    public void pegarLanche(int idlancheh) {
+    public void pegarLanche(int idlancheh) throws Exception {
+    	Conexao conexao = new Conexao();
     	try {
-			conectar();
+    		conexao.conectar();
 			String query = "select * from lanche where idLanche = ?";
-			PreparedStatement resultset = conexao.prepareStatement(query);
+			PreparedStatement resultset = conexao.getConexao().prepareStatement(query);
 			resultset.setInt(1, idlancheh);
 			ResultSet rs = resultset.executeQuery();
 			
@@ -95,9 +84,8 @@ public class Lanche {
 
 
 			
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			throw new Exception("Erro de conexão!");
 		}	
     }
 }

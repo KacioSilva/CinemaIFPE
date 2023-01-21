@@ -19,7 +19,6 @@ import javax.swing.JTextField;
 
 import Database.Conexao;
 import Gui.FilmeIndividualAdm;
-import Midia.Imagem;
 
 public class Filme{
 	
@@ -118,27 +117,12 @@ public class Filme{
     }
     
     
-    public void conectar() throws SQLException, ClassNotFoundException {
-		String servidor = "jdbc:mysql://localhost:3306/cineif";
-		String usuario = "root";
-		String senha = "Fam1l1a..";
-		String driver = "com.mysql.jdbc.Driver";
-		try {
-			Class.forName(driver);
-			conexao = DriverManager.getConnection(servidor, usuario, senha);
-		}catch(SQLException e) {
-			throw new SQLException("Erro de acesso ao banco!");			
-		}catch(ClassNotFoundException e1){
-			throw new ClassNotFoundException("Erro inesperado!");
-		}
-	}
-    
-    
-    public void pegarFilmes(int i) throws SQLException{
+    public void pegarFilmes(int i) throws Exception{
+    	Conexao conexao = new Conexao();
 		try {	
-				conectar();
+				conexao.conectar();
 				String query = "select * from filme where idFilme = ?";
-				PreparedStatement pstm = conexao.prepareStatement(query);
+				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
 				pstm.setInt(1, i);
 				ResultSet rs = pstm.executeQuery();
 				while(rs.next()){
@@ -171,11 +155,9 @@ public class Filme{
 				System.out.println(arrayFilmes);
 				arrayFilmes.clear();
 
-			} catch (SQLException | ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (Exception e) {
+				throw new Exception("Erro de conexão!");
 			}
-		
 		
     	}
 			public List<Imagem> findAll(){
@@ -187,12 +169,27 @@ public class Filme{
 				while(rs.next()){
 					Imagem imagensObj = new Imagem();
 					imagensObj.setIdFilme(rs.getInt("idImagem"));
-					imagensObj.setNomeFilme(rs.getString("nomeFilme"));
+					imagensObj.setNomeImagem(rs.getString("nomeFilme"));
 					imagensObj.setImagem(rs.getBytes("foto"));
 				}		  			
 			}catch(Exception e) {
 				imagens = null;
 			}
 			return imagens;
+		}
+			
+			
+		public boolean create(Imagem imagem){
+			try {
+				PreparedStatement pstm = conexao
+						.prepareStatement("insert into imagem (foto, nomeImagem, Filme_idFilme, Filme_nome) values(?, ?, ?, ?)");
+				pstm.setString(1, imagem.getNomeImagem());
+				pstm.setBytes(2, imagem.getImagem());
+				pstm.setInt(3, 1);
+				pstm.setString(4, "Filme");
+				return pstm.executeUpdate() > 0;
+			}catch(Exception e) {
+				return false;
+			}
 		}
 }
