@@ -21,7 +21,11 @@ import Database.Conexao;
 
 public class TelaInicial extends JFrame {
 	Filme filme = new Filme();
+	private int idFilme;
 	
+	public int getIdFilme() {
+		return idFilme;
+	}
 	
 
 	//-------CRIANDO A TELA
@@ -38,6 +42,7 @@ public class TelaInicial extends JFrame {
 		});
 	}
 	public TelaInicial() throws Exception {
+		
 		
 		setTitle("CineIF Paulista");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaInicial.class.getResource("/Midia/ifpe.png")));
@@ -110,12 +115,20 @@ public class TelaInicial extends JFrame {
       getContentPane().add(ifpe);
       ifpe.setBounds(0,0,284,281);
       
-      JLabel Filme1 = new JLabel("");
+      JLabel Filme1 = new JLabel();
       Filme1.addMouseListener(new MouseAdapter() {
       	@Override
       	public void mouseClicked(MouseEvent e) {
-      		TelaAdm adm = new TelaAdm();
-      		adm.setVisible(true);
+      		InfoFilme infoFilme;
+      		idFilme = 1;
+			try {
+				infoFilme = new InfoFilme();
+				infoFilme.setVisible(true);
+				
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
       		dispose();
       		
       	}
@@ -132,8 +145,14 @@ public class TelaInicial extends JFrame {
       Filme2.addMouseListener(new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
-        	TelaAdm adm = new TelaAdm();
-        	adm.setVisible(true);
+        	try {
+				idFilme = 2;
+				InfoFilme infoFilme = new InfoFilme();
+	        	infoFilme.setVisible(true);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         	dispose();
         }
        });
