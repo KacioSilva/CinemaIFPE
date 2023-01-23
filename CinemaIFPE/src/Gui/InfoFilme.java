@@ -5,7 +5,7 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -43,11 +43,15 @@ public class InfoFilme extends JFrame {
 	private JLabel lblNewLabel_7;
 	private JButton help;
 	private JButton voltar;
+	public int imagem;
+	private JLabel nomeFilme;
+	
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -61,15 +65,20 @@ public class InfoFilme extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 * @throws Exception 
-	 */
-	public InfoFilme() throws Exception {
+	public InfoFilme(){
 		Filme filme = new Filme();
 		
-		filme.pegarFilmes(1);
-		
+		try {
+			filme.pegarFilmes(TelaInicial.getIdFilme());
+		} catch (Exception e2) {
+			txtSinopse.setText("erro de conexão");
+			genero.setText("erro de conexão");
+			duracao.setText("erro de conexão");
+			dataLancamento.setText("erro de conexão");
+			diretor.setText("erro de conexão");
+			classificacaoIndicativa.setText("erro de conexão");
+			nomeFilme.setText("erro de conexão");
+		}
 		
 	
 		
@@ -80,7 +89,6 @@ public class InfoFilme extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-
 		
 		contentPane.setLayout(null);
 		txtSinopse = new JTextArea();
@@ -90,24 +98,22 @@ public class InfoFilme extends JFrame {
 		txtSinopse.setForeground(SystemColor.infoText);
 	  	txtSinopse.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 15));
 	  
-	  	txtSinopse.setText((filme.getSinopse()));
+	  	txtSinopse.setText(filme.getSinopse());
 	  
-	  	
 	  	//------CRIANDO O SCROLLPANE
 	  	JScrollPane scroll = new JScrollPane(txtSinopse, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	  	scroll.setBounds(722, 185, 240, 230);
 	  	contentPane.add(scroll);
 	  	
+
 	  	Filme = new JLabel();
 	  	Filme.setBounds(354, 137, 214, 255);
-	  	String buscarfoto = new Filme().buscarCartaz(1);
+	  	String buscarfoto = new Filme().buscarCartaz(TelaInicial.getIdFilme());
 	    String nomedoarquivo = buscarfoto;
 	  	Filme.setIcon(new ImageIcon(nomedoarquivo));
 	  	Filme.setText(buscarfoto);
 
 	  	contentPane.add(Filme);
-	  	
-	  	
 	  	
 	  	JPanel panel = new JPanel();
 	  	panel.setBounds(27, 130, 160, 49);
@@ -211,13 +217,8 @@ public class InfoFilme extends JFrame {
 		JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaInicial voltar = null;
-				try {
-					voltar = new TelaInicial();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				TelaDeFilmes voltar = null;
+				voltar = new TelaDeFilmes();
 		        voltar.setVisible(true);
 		        dispose();
 			}

@@ -112,7 +112,7 @@ public class Filme{
     }
     
     
-    public void pegarFilmes(int i) throws Exception{
+    public void pegarFilmes(int i) throws SQLException, ClassNotFoundException{
     	Conexao conexao = new Conexao();
 		try {	
 				conexao.conectar();
@@ -149,8 +149,8 @@ public class Filme{
 				System.out.println(arrayFilmes);
 				arrayFilmes.clear();
 
-			} catch (Exception e) {
-				throw new Exception("Erro de conexão!");
+			} catch (SQLException e) {
+				throw new SQLException("Erro de conexão!");
 			}
     	}
     

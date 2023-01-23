@@ -16,15 +16,20 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+
 import Database.Conexao;
 
 
-public class TelaInicial extends JFrame {
+public class TelaInicial extends JFrame{
 	Filme filme = new Filme();
-	private int idFilme;
+	static int idFilme;
 	
-	public int getIdFilme() {
+	public static int getIdFilme() {
 		return idFilme;
+	}
+	public static void setIdFilme(int valor) {
+		idFilme = valor;
 	}
 	
 
@@ -41,7 +46,7 @@ public class TelaInicial extends JFrame {
 			}
 		});
 	}
-	public TelaInicial() throws Exception {
+	public TelaInicial() {
 		
 		
 		setTitle("CineIF Paulista");
@@ -114,25 +119,20 @@ public class TelaInicial extends JFrame {
       JLabel ifpe = new JLabel(logo_ifpe);
       getContentPane().add(ifpe);
       ifpe.setBounds(0,0,284,281);
+     
       
       JLabel Filme1 = new JLabel();
       Filme1.addMouseListener(new MouseAdapter() {
       	@Override
       	public void mouseClicked(MouseEvent e) {
+      		setIdFilme(1);
       		InfoFilme infoFilme;
-      		idFilme = 1;
-			try {
-				infoFilme = new InfoFilme();
-				infoFilme.setVisible(true);
-				
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			infoFilme = new InfoFilme();
+			infoFilme.setVisible(true);
       		dispose();
-      		
       	}
       });
+      
       String buscarfoto1 = new Filme().buscarCartaz(1);
       Filme1.setBounds(70, 316, 214, 255);
       String nomedoarquivo1 = buscarfoto1;
@@ -145,14 +145,9 @@ public class TelaInicial extends JFrame {
       Filme2.addMouseListener(new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
-        	try {
-				idFilme = 2;
-				InfoFilme infoFilme = new InfoFilme();
-	        	infoFilme.setVisible(true);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+        	setIdFilme(2);
+			InfoFilme infoFilme = new InfoFilme();
+	        infoFilme.setVisible(true);
         	dispose();
         }
        });
@@ -167,8 +162,9 @@ public class TelaInicial extends JFrame {
       Filme3.addMouseListener(new MouseAdapter() {
         @Override
          public void mouseClicked(MouseEvent e) {
-        	TelaAdm adm = new TelaAdm();
-        	adm.setVisible(true);
+        	setIdFilme(3);
+        	InfoFilme infoFilme = new InfoFilme();
+        	infoFilme.setVisible(true);
         	dispose();
         	
         }
@@ -181,10 +177,17 @@ public class TelaInicial extends JFrame {
 		contentPane.add(Filme3);
 		
 		
-		
 		JLabel nomeFilme1 = new JLabel();
 		nomeFilme1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		filme.pegarFilmes(1);
+		try {
+			filme.pegarFilmes(1);
+		} catch (ClassNotFoundException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		} catch (SQLException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
 		nomeFilme1.setText(filme.getNome());
 		nomeFilme1.setBounds(70, 570, 199, 27);
 		contentPane.add(nomeFilme1);
@@ -192,14 +195,30 @@ public class TelaInicial extends JFrame {
 	
 		JLabel nomeFilme2 = new JLabel("NomeFilme2");
 		nomeFilme2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		filme.pegarFilmes(2);
+		try {
+			filme.pegarFilmes(2);
+		} catch (ClassNotFoundException e2) {
+			
+			e2.printStackTrace();
+		} catch (SQLException e2) {
+			
+			e2.printStackTrace();
+		}
 		nomeFilme2.setText(filme.getNome());
 		nomeFilme2.setBounds(373, 570, 199, 27);
 		contentPane.add(nomeFilme2);
 		
 		JLabel nomeFilme3 = new JLabel("");
 		nomeFilme3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		filme.pegarFilmes(3);
+		try {
+			filme.pegarFilmes(3);
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		nomeFilme3.setText(filme.getNome());
 		nomeFilme3.setBounds(737, 570, 199, 27);
 		contentPane.add(nomeFilme3);

@@ -71,15 +71,12 @@ public class TelaDeFilmes extends JFrame {
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial voltar = null;
-				try {
-					voltar = new TelaInicial();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
+				voltar = new TelaInicial();
 		        voltar.setVisible(true);
 		        dispose();
-			}
+		        }
+			
 		});
 		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 		voltar.setBounds(10, 22, 75, 35);
@@ -102,8 +99,10 @@ public class TelaDeFilmes extends JFrame {
 		Filme1.addMouseListener(new MouseAdapter() {
 	        @Override
 	        public void mouseClicked(MouseEvent e) {
-	        	TelaAdm adm = new TelaAdm();
-	        	adm.setVisible(true);
+	      
+	        	TelaInicial.setIdFilme(1);
+				InfoFilme infoFilme = new InfoFilme();
+		        infoFilme.setVisible(true);
 	        	dispose();
 	        }
 	       });
@@ -118,8 +117,9 @@ public class TelaDeFilmes extends JFrame {
 		Filme2.addMouseListener(new MouseAdapter() {
 	        @Override
 	        public void mouseClicked(MouseEvent e) {
-	        	TelaAdm adm = new TelaAdm();
-	        	adm.setVisible(true);
+	        	TelaInicial.setIdFilme(2);
+				InfoFilme infoFilme = new InfoFilme();
+		        infoFilme.setVisible(true);
 	        	dispose();
 	        }
 	       });
@@ -136,8 +136,9 @@ public class TelaDeFilmes extends JFrame {
 		Filme3.addMouseListener(new MouseAdapter() {
 	        @Override
 	        public void mouseClicked(MouseEvent e) {
-	        	TelaAdm adm = new TelaAdm();
-	        	adm.setVisible(true);
+	        	TelaInicial.setIdFilme(3);
+				InfoFilme infoFilme = new InfoFilme();
+		        infoFilme.setVisible(true);
 	        	dispose();
 	        }
 	       });
@@ -154,8 +155,9 @@ public class TelaDeFilmes extends JFrame {
 		Filme6.addMouseListener(new MouseAdapter() {
 	        @Override
 	        public void mouseClicked(MouseEvent e) {
-	        	TelaAdm adm = new TelaAdm();
-	        	adm.setVisible(true);
+	        	TelaInicial.setIdFilme(6);
+				InfoFilme infoFilme = new InfoFilme();
+		        infoFilme.setVisible(true);
 	        	dispose();
 	        }
 	       });
@@ -173,8 +175,9 @@ public class TelaDeFilmes extends JFrame {
 		Filme5.addMouseListener(new MouseAdapter() {
 	        @Override
 	        public void mouseClicked(MouseEvent e) {
-	        	TelaAdm adm = new TelaAdm();
-	        	adm.setVisible(true);
+	        	TelaInicial.setIdFilme(5);
+				InfoFilme infoFilme = new InfoFilme();
+		        infoFilme.setVisible(true);
 	        	dispose();
 	        }
 	       });
@@ -191,8 +194,9 @@ public class TelaDeFilmes extends JFrame {
 		Filme4.addMouseListener(new MouseAdapter() {
 	        @Override
 	        public void mouseClicked(MouseEvent e) {
-	        	TelaAdm adm = new TelaAdm();
-	        	adm.setVisible(true);
+	        	TelaInicial.setIdFilme(4);
+				InfoFilme infoFilme = new InfoFilme();
+		        infoFilme.setVisible(true);
 	        	dispose();
 	        }
 	       });
