@@ -205,44 +205,7 @@ public class FilmeIndividualAdm extends JFrame {
 		    
 		    
 		    
-		JButton salvar = new JButton("SALVAR");
-		salvar.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {    		
-			String idFilme = textId.getText();
-		  	String idadeIndicativa = txtClassificacao.getText();
-		  	String nome = textFilme.getText();
-		  	String cartaz = tfcaminhofoto.getText();
-		  	String trailer = "trailer";
-		  	String diretor = txtDiretor.getText();
-		  	String duracao = txtDuracao.getText();
-		  	String genero = txtGenero.getText();
-		  	String lancamento = textLancamento.getText();
-		  	String sinopse = txtSinopse.getText();
-		  	try{
-		  	    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa);
-	                        
-		  	    System.out.println("EDITOU");
-		  	    lblConfirmacao.setText("TUDO CERTO!");
-		  	    lblConfirmacao.setForeground(new Color(36, 187, 11));
-
-		    }catch (RuntimeException e1){
-		    	System.out.println("ERRO1 " + e1.getMessage());
-		                    
-
-		    } catch (SQLException ex) {
-		        System.out.println("ERRO2");      
-		        throw new RuntimeException(ex);
-		        
-		    } catch (ClassNotFoundException e2) {
-		        System.out.println("ERRO3");
-		                	
-			} catch(Exception e2) {
-				System.out.println(e2.getMessage());
-						}	    		
-		  	    	}
-		  	    });
-		  	salvar.setBounds(354, 584, 103, 29);
-		  	contentPane.add(salvar);
+		
 		  	
 		  	
 		  	limparCampos = new JButton("LIMPAR");
@@ -257,6 +220,9 @@ public class FilmeIndividualAdm extends JFrame {
 		    		textLancamento.setText("");
 		    		textFilme.setText("");
 		    		txtSinopse.setText("");
+		    		lblConfirmacao.setText("");
+		    		labelFotoFilme.setIcon(null);
+		    		nomeFilme.setText("NOME DO FILME");
 		    		
 		    	}
 		    });
@@ -535,5 +501,49 @@ public class FilmeIndividualAdm extends JFrame {
 	  	JScrollPane scroll = new JScrollPane(txtSinopse, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	  	scroll.setBounds(698, 131, 240, 230);
 	  	contentPane.add(scroll);
+	  	
+	  	
+	  	
+	  	JButton salvar = new JButton("SALVAR");
+		salvar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {    		
+			String idFilme = textId.getText();
+		  	String idadeIndicativa = txtClassificacao.getText();
+		  	String nome = textFilme.getText();
+		  	String cartaz = tfcaminhofoto.getText();
+		  	String trailer = "trailer";
+		  	String diretor = txtDiretor.getText();
+		  	String duracao = txtDuracao.getText();
+		  	String genero = txtGenero.getText();
+		  	String lancamento = textLancamento.getText();
+		  	String sinopse = txtSinopse.getText();
+		  	String pegarNomeFilme = textFilme.getText();
+		  	nomeFilme.setText(pegarNomeFilme);
+		  
+		  	try{
+		  	    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa);
+	                        
+		  	    System.out.println("EDITOU");
+		  	    lblConfirmacao.setText("TUDO CERTO!");
+		  	    lblConfirmacao.setForeground(new Color(36, 187, 11));
+
+		    }catch (RuntimeException e1){
+		    	System.out.println("ERRO1 " + e1.getMessage());
+		                    
+
+		    } catch (SQLException ex) {
+		        System.out.println("ERRO2");      
+		        throw new RuntimeException(ex);
+		        
+		    } catch (ClassNotFoundException e2) {
+		        System.out.println("ERRO3");
+		                	
+			} catch(Exception e2) {
+				System.out.println(e2.getMessage());
+						}	    		
+		  	    	}
+		  	    });
+		  	salvar.setBounds(354, 584, 103, 29);
+		  	contentPane.add(salvar);
 	}
 }

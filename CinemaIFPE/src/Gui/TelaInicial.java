@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
 import Database.Conexao;
+import javax.swing.SwingConstants;
 
 
 public class TelaInicial extends JFrame{
@@ -178,6 +179,7 @@ public class TelaInicial extends JFrame{
 		
 		
 		JLabel nomeFilme1 = new JLabel();
+		nomeFilme1.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeFilme1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		try {
 			filme.pegarFilmes(1);
@@ -194,6 +196,7 @@ public class TelaInicial extends JFrame{
 		
 	
 		JLabel nomeFilme2 = new JLabel("NomeFilme2");
+		nomeFilme2.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeFilme2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		try {
 			filme.pegarFilmes(2);
@@ -209,6 +212,7 @@ public class TelaInicial extends JFrame{
 		contentPane.add(nomeFilme2);
 		
 		JLabel nomeFilme3 = new JLabel("");
+		nomeFilme3.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeFilme3.setFont(new Font("Tahoma", Font.BOLD, 15));
 		try {
 			filme.pegarFilmes(3);
@@ -220,7 +224,7 @@ public class TelaInicial extends JFrame{
 			e1.printStackTrace();
 		}
 		nomeFilme3.setText(filme.getNome());
-		nomeFilme3.setBounds(737, 570, 199, 27);
+		nomeFilme3.setBounds(694, 570, 199, 27);
 		contentPane.add(nomeFilme3);
       
       }

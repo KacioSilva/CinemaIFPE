@@ -1,27 +1,58 @@
 package Core;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import Database.Conexao;
+
 public class ControlePoltrona {
-    private int linha;
-    private String coluna;
-
-    public ControlePoltrona(int linha, String coluna) {
-        this.linha = linha;
-        this.coluna = coluna;
-    }
-
-    public int getLinha() {
-        return linha;
-    }
-
-    public void setLinha(int linha) {
-        this.linha = linha;
-    }
-
-    public String getColuna() {
-        return coluna;
-    }
-
-    public void setColuna(String coluna) {
-        this.coluna = coluna;
-    }
+   private String nome;
+   private int preco = 0;
+    
+   
+    
+    
+public String getNome() {
+	return nome;
 }
+
+
+
+
+public void setNome(String nome) {
+	this.nome = nome;
+}
+
+
+
+
+public int getPreco() {
+	return preco;
+}
+
+
+
+
+public void setPreco(int preco) {
+	this.preco = preco;
+}
+
+
+
+public void subtracao(int preco) {
+	this.preco -= preco;
+}
+
+public void soma(int preco) {
+	this.preco += preco;
+}
+    
+    
+    
+    
+    
+    
+    
+    
+}
+

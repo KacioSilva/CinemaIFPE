@@ -45,7 +45,19 @@ public class InfoFilme extends JFrame {
 	private JButton voltar;
 	public int imagem;
 	private JLabel nomeFilme;
+	private static String nomePoltrona;
 	
+	
+	
+	
+
+	public static Object getNomePoltrona() {
+		return nomePoltrona;
+	}
+
+	public void setNomePoltrona(String nomePoltrona) {
+		this.nomePoltrona = nomePoltrona;
+	}
 
 	/**
 	 * Launch the application.
@@ -126,6 +138,8 @@ public class InfoFilme extends JFrame {
 	  	nomeFilme.setBounds(32, 11, 118, 27);
 	  	panel.add(nomeFilme);
 	  	
+	  	setNomePoltrona(filme.getNome());
+	  	
 	  	panel_1 = new JPanel();
 	  	panel_1.setLayout(null);
 	  	panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Classifica\u00E7\u00E3o Indicativa", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -182,13 +196,22 @@ public class InfoFilme extends JFrame {
 	  	panel_5.add(diretor);
 	  	
 	  	btnNewButton = new JButton("Comprar Ingresso");
+	  	btnNewButton.addActionListener(new ActionListener() {
+	  		public void actionPerformed(ActionEvent e) {
+	  			Poltronas poltronas = new Poltronas();
+	  			poltronas.setVisible(true);
+	  			dispose();
+	  			
+	  		}
+	  	});
 	  	btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-	  	btnNewButton.setBounds(363, 581, 171, 40);
+	  	btnNewButton.setBounds(364, 569, 204, 40);
 	  	contentPane.add(btnNewButton);
 	  	
 	  	lblNewLabel_6 = new JLabel("Sessão Disponível");
+	  	lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
 	  	lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	  	lblNewLabel_6.setBounds(349, 451, 214, 28);
+	  	lblNewLabel_6.setBounds(354, 451, 214, 28);
 	  	contentPane.add(lblNewLabel_6);
 	  	
 	  	cineifPaulista = new JLabel("CineIF Paulista");
@@ -198,9 +221,10 @@ public class InfoFilme extends JFrame {
 	  	contentPane.add(cineifPaulista);
 	  	
 	  	lblNewLabel_7 = new JLabel("8:00 A.M ");
+	  	lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 	  	lblNewLabel_7.setForeground(Color.RED);
 	  	lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 17));
-	  	lblNewLabel_7.setBounds(407, 493, 108, 37);
+	  	lblNewLabel_7.setBounds(364, 499, 204, 37);
 	  	contentPane.add(lblNewLabel_7);
 	  	
 	  	JButton help = new JButton("Help");

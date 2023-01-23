@@ -22,6 +22,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Toolkit;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.EtchedBorder;
 
 public class TelaDeFilmes extends JFrame {
 
@@ -182,7 +187,7 @@ public class TelaDeFilmes extends JFrame {
 	        }
 	       });
 		String buscarfoto5 = new Filme().buscarCartaz(5);
-		Filme5.setBounds(382, 426, 214, 255);
+		Filme5.setBounds(382, 415, 215, 255);
 	    String nomedoarquivo5 = buscarfoto5;
 	    Filme5.setIcon(new ImageIcon(nomedoarquivo5));
 	    Filme5.setText(buscarfoto5);
@@ -206,5 +211,41 @@ public class TelaDeFilmes extends JFrame {
 	    Filme4.setIcon(new ImageIcon(nomedoarquivo4));
 	    Filme4.setText(buscarfoto4);
 	    contentPane.add(Filme4);
+	    
+	    JPanel panel = new JPanel();
+	    panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+	    panel.setBounds(5, 119, 224, 264);
+	    contentPane.add(panel);
+	    panel.setLayout(null);
+	    
+	    JPanel panel_1 = new JPanel();
+	    panel_1.setLayout(null);
+	    panel_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+	    panel_1.setBounds(378, 119, 222, 264);
+	    contentPane.add(panel_1);
+	    
+	    JPanel panel_1_1 = new JPanel();
+	    panel_1_1.setLayout(null);
+	    panel_1_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+	    panel_1_1.setBounds(755, 119, 224, 264);
+	    contentPane.add(panel_1_1);
+	    
+	    JPanel panel_1_1_1 = new JPanel();
+	    panel_1_1_1.setLayout(null);
+	    panel_1_1_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+	    panel_1_1_1.setBounds(5, 409, 227, 268);
+	    contentPane.add(panel_1_1_1);
+	    
+	    JPanel panel_1_1_1_1 = new JPanel();
+	    panel_1_1_1_1.setLayout(null);
+	    panel_1_1_1_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+	    panel_1_1_1_1.setBounds(378, 408, 223, 272);
+	    contentPane.add(panel_1_1_1_1);
+	    
+	    JPanel panel_1_1_1_2 = new JPanel();
+	    panel_1_1_1_2.setLayout(null);
+	    panel_1_1_1_2.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+	    panel_1_1_1_2.setBounds(752, 409, 227, 268);
+	    contentPane.add(panel_1_1_1_2);
 	}
 }
