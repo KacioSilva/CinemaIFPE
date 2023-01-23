@@ -272,7 +272,7 @@ public class FilmeIndividualAdm extends JFrame {
 					lblConfirmacao.setText(e1.getMessage());
 				}
 	  	    		
-	  	  
+	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
 	  	    	textId.setText("1");	
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
@@ -302,7 +302,8 @@ public class FilmeIndividualAdm extends JFrame {
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 				}
-	  	    		
+	  	    	
+	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
 	  	    	textId.setText("2");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
@@ -330,6 +331,7 @@ public class FilmeIndividualAdm extends JFrame {
 				}catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
+		    	lblConfirmacao.setText("");
 		    	nomeFilme.setText(filmeObj.getNome());
 		    	textId.setText("3");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
@@ -356,6 +358,7 @@ public class FilmeIndividualAdm extends JFrame {
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
+		    	lblConfirmacao.setText("");
 		    	nomeFilme.setText(filmeObj.getNome());
 		    	textId.setText("4");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
@@ -384,6 +387,7 @@ public class FilmeIndividualAdm extends JFrame {
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
+	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
 	  	    	textId.setText("5");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
@@ -411,6 +415,7 @@ public class FilmeIndividualAdm extends JFrame {
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
+	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
 	  	    	textId.setText("6");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
