@@ -6,6 +6,10 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.time.Duration;
+import java.time.LocalTime;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -46,15 +50,13 @@ public class InfoFilme extends JFrame {
 	private JLabel lblHorario;
 	private JButton help;
 	private JButton voltar;
-	public int imagem;
 	private JLabel nomeFilme;
 	private static String nomePoltrona;
-	private Sessao sessao = new Sessao();
 	private static String horarioPoltrona;
 	private static String minutoPoltrona;
 	private static String segundoPoltrona;
 	
-	
+	private Sessao sessao = new Sessao();
 
 	public static Object getMinutoPoltrona() {
 		return minutoPoltrona;
@@ -89,9 +91,6 @@ public class InfoFilme extends JFrame {
 		this.horarioPoltrona = horarioPoltrona;
 	}
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		
 		
@@ -106,8 +105,23 @@ public class InfoFilme extends JFrame {
 			}
 		});
 	}
-
+	
 	public InfoFilme(){
+		try {
+			sessao.pegarSessao(TelaInicial.getIdFilme());
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		int horas = Integer.parseInt(sessao.getHoras());
+		int minutos = Integer.parseInt(sessao.getMinutos());
+		int segundos = Integer.parseInt(sessao.getSegundos());
+		LocalTime tempoAtual = LocalTime.now();
+		LocalTime tempoBD = LocalTime.of(horas, minutos, segundos);
+		Duration tempoDiferenca = Duration.between(tempoAtual, tempoBD);
+		System.out.println(tempoDiferenca);
 
 		
 		setTitle("Informações sobre o filme");
@@ -126,8 +140,6 @@ public class InfoFilme extends JFrame {
 			classificacaoIndicativa.setText("erro de conexão");
 			nomeFilme.setText("erro de conexão");
 		}
-		
-	
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 720);
@@ -231,6 +243,10 @@ public class InfoFilme extends JFrame {
 	  	panel_5.add(diretor);
 	  	
 	  	btnNewButton = new JButton("Comprar Ingresso");
+	  	if(tempoDiferenca.isNegative()) {
+	  		btnNewButton.setEnabled(false);
+		}
+		
 	  	btnNewButton.addActionListener(new ActionListener() {
 	  		public void actionPerformed(ActionEvent e) {
 	  			Poltronas poltronas = new Poltronas();
@@ -243,10 +259,15 @@ public class InfoFilme extends JFrame {
 	  	btnNewButton.setBounds(364, 569, 204, 40);
 	  	contentPane.add(btnNewButton);
 	  	
+	  	
 	  	lblNewLabel_6 = new JLabel("Sessão Disponível");
+	  	if(tempoDiferenca.isNegative()) {
+	  		lblNewLabel_6.setText("Sessão Indisposnível");
+		}
+	  	
 	  	lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
 	  	lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	  	lblNewLabel_6.setBounds(354, 451, 214, 28);
+	  	lblNewLabel_6.setBounds(354, 451, 278, 28);
 	  	contentPane.add(lblNewLabel_6);
 	  	
 	  	cineifPaulista = new JLabel("CineIF Paulista");

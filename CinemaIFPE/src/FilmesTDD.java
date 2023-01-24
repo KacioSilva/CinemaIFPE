@@ -22,8 +22,19 @@ public static void main(String[] args) throws ClassNotFoundException {
 	  //  Administrador.funcEditarFilme("1", "kacio", "cartaz", "teste1", "teste2", "teste3", "225", "teste5", "2004/05/29", "18");
 	
 		LocalTime tNow = LocalTime.now();
-		LocalTime t = LocalTime.of(14, 30, 00);
-		Duration between = Duration.between(t, tNow);
+		
+		int horas = Integer.parseInt(sessao.getHoras());
+		int minutos = Integer.parseInt(sessao.getMinutos());
+		int segundos = Integer.parseInt(sessao.getSegundos());
+		
+		LocalTime t = LocalTime.of(horas, minutos, segundos);
+		Duration between = Duration.between(tNow, t);
+		if(between.isNegative()) {
+			System.out.println("negativo");
+		}
+		else {
+			System.out.println("positivo");
+		}
 		System.out.println(between);
 			
 	} catch (SQLException e) {
