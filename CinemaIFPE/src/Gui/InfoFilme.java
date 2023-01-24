@@ -20,6 +20,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Toolkit;
 
 
 public class InfoFilme extends JFrame {
@@ -78,6 +79,9 @@ public class InfoFilme extends JFrame {
 	}
 
 	public InfoFilme(){
+		
+		setTitle("Informações sobre o filme");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(InfoFilme.class.getResource("/Midia/ifpe.png")));
 		Filme filme = new Filme();
 		
 		try {
@@ -135,7 +139,7 @@ public class InfoFilme extends JFrame {
 	  	
 	  	JLabel nomeFilme = new JLabel("Nome");
 	  	nomeFilme.setText(filme.getNome());
-	  	nomeFilme.setBounds(32, 11, 118, 27);
+	  	nomeFilme.setBounds(10, 11, 140, 27);
 	  	panel.add(nomeFilme);
 	  	
 	  	setNomePoltrona(filme.getNome());
@@ -250,5 +254,11 @@ public class InfoFilme extends JFrame {
 		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 		voltar.setBounds(10, 22, 75, 35);
 		contentPane.add(voltar);	
+		
+		JLabel lblNewLabel = new JLabel("SINOPSE");
+		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 15));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(722, 152, 240, 23);
+		contentPane.add(lblNewLabel);
 	}  	
 }
