@@ -43,14 +43,14 @@ public class InfoFilme extends JFrame {
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_6;
 	private JLabel cineifPaulista;
-	private JLabel lblNewLabel_7;
+	private JLabel lblHorario;
 	private JButton help;
 	private JButton voltar;
 	public int imagem;
 	private JLabel nomeFilme;
 	private static String nomePoltrona;
-
-	
+	private Sessao sessao = new Sessao();
+	private static String horarioPoltrona;
 	
 	
 
@@ -62,6 +62,14 @@ public class InfoFilme extends JFrame {
 		this.nomePoltrona = nomePoltrona;
 	}
 
+	
+	public static Object getHorarioPoltrona() {
+		return horarioPoltrona;
+	}
+
+	public void setHorarioPoltrona(String horarioPoltrona) {
+		this.horarioPoltrona = horarioPoltrona;
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -89,6 +97,7 @@ public class InfoFilme extends JFrame {
 		
 		try {
 			filme.pegarFilmes(TelaInicial.getIdFilme());
+			sessao.pegarSessao(TelaInicial.getIdFilme());
 		} catch (Exception e2) {
 			txtSinopse.setText("erro de conexão");
 			genero.setText("erro de conexão");
@@ -227,13 +236,17 @@ public class InfoFilme extends JFrame {
 	  	cineifPaulista.setBounds(268, 22, 445, 85);
 	  	contentPane.add(cineifPaulista);
 	  	
-	  	Sessao sessao = new Sessao();
-	  	lblNewLabel_7 = new JLabel();
-	  	lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
-	  	lblNewLabel_7.setForeground(Color.RED);
-	  	lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 17));
-	  	lblNewLabel_7.setBounds(364, 499, 204, 37);
-	  	contentPane.add(lblNewLabel_7);
+	  	
+	  	lblHorario = new JLabel();
+	  	lblHorario.setHorizontalAlignment(SwingConstants.CENTER);
+	  	lblHorario.setForeground(Color.RED);
+	  	lblHorario.setFont(new Font("Tahoma", Font.BOLD, 17));
+	  	lblHorario.setBounds(364, 499, 204, 37);
+	  	lblHorario.setText(sessao.getDataHora());
+	  	contentPane.add(lblHorario);
+	  	
+	  	//pegando horario sessão
+	  	setHorarioPoltrona(sessao.getDataHora());
 	  	
 	  	JButton help = new JButton("Help");
 		help.addActionListener(new ActionListener() {

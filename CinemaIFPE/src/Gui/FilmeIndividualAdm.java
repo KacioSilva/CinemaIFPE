@@ -243,7 +243,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    public void actionPerformed(ActionEvent e) {
 	  	    	try {
 	  	    		filmeObj.pegarFilmes(1);
-	  	    		sessao.pegarSessao("1");
+	  	    		sessao.pegarSessao(1);
 					
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
@@ -278,7 +278,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    public void actionPerformed(ActionEvent e) {
 	  	    	try {
 					filmeObj.pegarFilmes(2);
-					sessao.pegarSessao("2");
+					sessao.pegarSessao(2);
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 				}
@@ -310,7 +310,7 @@ public class FilmeIndividualAdm extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		    	try {
 					filmeObj.pegarFilmes(3);
-					sessao.pegarSessao("3");
+					sessao.pegarSessao(3);
 				}catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -340,7 +340,7 @@ public class FilmeIndividualAdm extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		    	try {
 					filmeObj.pegarFilmes(4);
-					sessao.pegarSessao("4");
+					sessao.pegarSessao(4);
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -372,7 +372,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    	try {
 	  	    		
 					filmeObj.pegarFilmes(5);
-					sessao.pegarSessao("5");
+					sessao.pegarSessao(5);
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -403,7 +403,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    public void actionPerformed(ActionEvent e) {
 	  	    	try {
 					filmeObj.pegarFilmes(6);
-					sessao.pegarSessao("6");
+					sessao.pegarSessao(6);
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}

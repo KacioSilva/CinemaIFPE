@@ -14,7 +14,7 @@ public static void main(String[] args) throws ClassNotFoundException {
 	Sessao sessao = new Sessao();
 	try {
 		
-		sessao.pegarSessao("2");
+		sessao.pegarSessao(1);
 	
 	   // conexao.editarFilme();
 	  //  Administrador.funcEditarFilme("1", "kacio", "cartaz", "teste1", "teste2", "teste3", "225", "teste5", "2004/05/29", "18");

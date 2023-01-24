@@ -42,13 +42,13 @@ public class Sessao {
     }
     
     
-    public void pegarSessao(String i) throws SQLException, ClassNotFoundException{
+    public void pegarSessao(int i) throws SQLException, ClassNotFoundException{
     	Conexao conexao = new Conexao();
 		try {	
 				conexao.conectar();
 				String query = "select * from sessão where sessao = ?";
 				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
-				pstm.setString(1, i);
+				pstm.setInt(1, i);
 				ResultSet rs = pstm.executeQuery();
 				while(rs.next()){
 					arraySessao.add(rs.getString("dataHorario"));
