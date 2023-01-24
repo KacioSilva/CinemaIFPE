@@ -12,6 +12,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import Core.Filme;
+import Core.Sessao;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -47,7 +49,7 @@ public class InfoFilme extends JFrame {
 	public int imagem;
 	private JLabel nomeFilme;
 	private static String nomePoltrona;
-	
+
 	
 	
 	
@@ -79,6 +81,7 @@ public class InfoFilme extends JFrame {
 	}
 
 	public InfoFilme(){
+
 		
 		setTitle("Informações sobre o filme");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(InfoFilme.class.getResource("/Midia/ifpe.png")));
@@ -224,7 +227,8 @@ public class InfoFilme extends JFrame {
 	  	cineifPaulista.setBounds(268, 22, 445, 85);
 	  	contentPane.add(cineifPaulista);
 	  	
-	  	lblNewLabel_7 = new JLabel("8:00 A.M ");
+	  	Sessao sessao = new Sessao();
+	  	lblNewLabel_7 = new JLabel();
 	  	lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
 	  	lblNewLabel_7.setForeground(Color.RED);
 	  	lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 17));

@@ -35,7 +35,6 @@ public class Filme{
 	private JTextField tfcaminhofoto;
 	private Filme filme;
 	private String nomeArquivo;
-	private String teste;
 	
 
     
@@ -177,5 +176,6 @@ public class Filme{
         } 
     	return cartaz;
     }
+    
 }
 

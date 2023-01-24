@@ -22,6 +22,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Poltronas extends JFrame {
 
@@ -29,9 +31,7 @@ public class Poltronas extends JFrame {
 	private int preco;
 	
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,9 +45,7 @@ public class Poltronas extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public Poltronas() {
 		
 		ControlePoltrona cp = new ControlePoltrona();
@@ -175,12 +173,8 @@ public class Poltronas extends JFrame {
 	                    cont = 0;
 	                    if(cp.getPreco() == 0) {
 	                    	
-	                    	totalPoltronas.setText("");
-	                    	
-	                    	
-	                    }
-	                    
-	                   
+	                    	totalPoltronas.setText("");	           
+	                    }	                   	                   
 			}
 		}});
 		D3.setBounds(328, 42, 55, 40);
@@ -213,11 +207,9 @@ public class Poltronas extends JFrame {
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
-	                    	
-	                    	
-	                    }
 	                    
-	                   
+	                    }
+	                
 			}
 		}});
 		D4.setBounds(463, 42, 55, 40);
@@ -249,9 +241,7 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
-	                    
 	                   
 			}
 		}});
@@ -283,10 +273,8 @@ public class Poltronas extends JFrame {
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
-	                    	
-	                    	
+	
 	                    }
-	                    
 	                   
 			}
 		}});
@@ -319,10 +307,8 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
 	                    
-	                   
 			}
 		}});
 		C2.setBounds(183, 133, 55, 40);
@@ -354,9 +340,7 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
-	                    
 	                   
 			}
 		}});
@@ -389,9 +373,7 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
-	                    
 	                   
 			}
 		}});
@@ -424,9 +406,7 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
-	                    
 	                   
 			}
 		}});
@@ -459,10 +439,8 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
 	                    
-	                   
 			}
 		}});
 		B5.setBounds(588, 234, 55, 40);
@@ -494,9 +472,7 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
-	                    
 	                   
 			}
 		}});
@@ -529,9 +505,7 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
-	                    
 	                   
 			}
 		}});
@@ -564,9 +538,7 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
-	                    
 	                   
 			}
 		}});
@@ -599,10 +571,8 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
 	                    
-	                   
 			}
 		}});
 		B1.setBounds(41, 234, 55, 40);
@@ -634,10 +604,8 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
 	                    
-	                   
 			}
 		}});
 		A1.setBounds(41, 326, 55, 40);
@@ -669,10 +637,8 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
 	                    
-	                   
 			}
 		}});
 		A2.setBounds(183, 326, 55, 40);
@@ -704,10 +670,8 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
 	                    
-	                   
 			}
 		}});
 		A3.setBounds(328, 326, 55, 40);
@@ -739,10 +703,8 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
 	                    
-	                   
 			}
 		}});
 		A4.setBounds(463, 326, 55, 40);
@@ -774,10 +736,8 @@ public class Poltronas extends JFrame {
 	                    	
 	                    	totalPoltronas.setText("");
 	                    	
-	                    	
 	                    }
 	                    
-	                   
 			}
 		}});
 		A5.setBounds(588, 326, 55, 40);
@@ -854,15 +814,13 @@ public class Poltronas extends JFrame {
 		JButton botaoContinuar = new JButton("continuar");
 		botaoContinuar.setBounds(421, 641, 130, 32);
 		contentPane.add(botaoContinuar);
+		botaoContinuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		
-		
-//		ControlePoltrona controle = new ControlePoltrona();
-//	  	String nome = new ControlePoltrona().buscarNomeFilme(InfoFilme.getName());
-//	    String nomedoarquivo = buscarfoto;
-//	  	
-//	  	Filme.setText(buscarfoto);
-		
-		
+	
 		
 		JLabel labelFilme = new JLabel("");
 		labelFilme.setFont(new Font("Arial", Font.BOLD, 15));
@@ -889,8 +847,6 @@ public class Poltronas extends JFrame {
 		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 		voltar.setBounds(20, 25, 75, 35);
 		contentPane.add(voltar);
-		
-		
 		
 		
 	}

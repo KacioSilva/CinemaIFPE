@@ -28,6 +28,7 @@ public class TelaInicial extends JFrame{
 	
 	public static int getIdFilme() {
 		return idFilme;
+		
 	}
 	public static void setIdFilme(int valor) {
 		idFilme = valor;

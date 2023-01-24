@@ -18,7 +18,7 @@ public class Conexao {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "203040lL";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -99,6 +99,23 @@ public class Conexao {
 				e.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}		
+			}
 	}
-}
+	
+	public void editarSessao(String horario, String sessao) throws SQLException{
+			try {
+				conectar();
+				String inserirFilmes = "UPDATE sessao SET dataHorario = ? WHERE sessao = ?";
+				PreparedStatement pstmt = conexao.prepareStatement(inserirFilmes);
+				pstmt.setString(1, horario);
+				pstmt.setString(2, sessao);
+			
+				pstmt.execute();
+
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
