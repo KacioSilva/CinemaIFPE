@@ -62,7 +62,7 @@ public class FilmeIndividualAdm extends JFrame {
 	File file;
 	Conexao conexao = new Conexao();
 	private JTextField textSessao;
-	private String idSessao = "1";
+	private String idSessao;
 	
 	
 	public String getIdSessao(){
@@ -242,13 +242,14 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    sessao1.addActionListener(new ActionListener() {
 	  	    public void actionPerformed(ActionEvent e) {
 	  	    	try {
+	  	    		filmeObj.pegarFilmes(1);
 	  	    		sessao.pegarSessao("1");
-					filmeObj.pegarFilmes(1);
 					
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 				}
 	  	    		
+	  	    	setIdSessao("1");
 	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
 	  	    	textId.setText("1");	
@@ -261,8 +262,7 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    	txtSinopse.setText(filmeObj.getSinopse());
 	  	    	textLancamento.setText(filmeObj.getAnoLancamento());
 	  	    	textSessao.setText(sessao.getDataHora());
-	  	    	setIdSessao("1");
-	  	  
+	  	    	
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
 	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 						
