@@ -719,25 +719,18 @@ public class Poltronas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				 cont = cont + 1;
-	                if(cont == 1) {
-	                	
+	                if(cont == 1) {         	
 	                    A5.setBackground(Color.blue);
-	                    
 	                    cp.soma(20);
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
-	                	A5.setBackground(new Color(240,240,240,240));
-	                	
+	                	A5.setBackground(new Color(240,240,240,240));    	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
 	                    if(cp.getPreco() == 0) {
-	                    	
 	                    	totalPoltronas.setText("");
-	                    	
-	                    }
-	                    
+	                    }    
 			}
 		}});
 		A5.setBounds(588, 326, 55, 40);

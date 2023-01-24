@@ -46,7 +46,7 @@ public class Sessao {
     	Conexao conexao = new Conexao();
 		try {	
 				conexao.conectar();
-				String query = "select * from sessão where sessao = ?";
+				String query = "select * from sessao where sessao = ?";
 				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
 				pstm.setInt(1, i);
 				ResultSet rs = pstm.executeQuery();
