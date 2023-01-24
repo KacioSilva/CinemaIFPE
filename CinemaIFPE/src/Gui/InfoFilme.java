@@ -51,8 +51,26 @@ public class InfoFilme extends JFrame {
 	private static String nomePoltrona;
 	private Sessao sessao = new Sessao();
 	private static String horarioPoltrona;
+	private static String minutoPoltrona;
+	private static String segundoPoltrona;
 	
 	
+
+	public static Object getMinutoPoltrona() {
+		return minutoPoltrona;
+	}
+
+	public static void setMinutoPoltrona(String minutoPoltrona) {
+		InfoFilme.minutoPoltrona = minutoPoltrona;
+	}
+
+	public static Object getSegundoPoltrona() {
+		return segundoPoltrona;
+	}
+
+	public static void setSegundoPoltrona(String segundoPoltrona) {
+		InfoFilme.segundoPoltrona = segundoPoltrona;
+	}
 
 	public static Object getNomePoltrona() {
 		return nomePoltrona;
@@ -70,6 +88,7 @@ public class InfoFilme extends JFrame {
 	public void setHorarioPoltrona(String horarioPoltrona) {
 		this.horarioPoltrona = horarioPoltrona;
 	}
+	
 	/**
 	 * Launch the application.
 	 */
@@ -242,12 +261,15 @@ public class InfoFilme extends JFrame {
 	  	lblHorario.setForeground(Color.RED);
 	  	lblHorario.setFont(new Font("Tahoma", Font.BOLD, 17));
 	  	lblHorario.setBounds(364, 499, 204, 37);
-	  	lblHorario.setText(sessao.getDataHora());
+	  	lblHorario.setText(sessao.getHoras() + ":" + sessao.getMinutos() + ":" + sessao.getSegundos());
 	  	contentPane.add(lblHorario);
 	  	
 	  	//pegando horario sessão
-	  	setHorarioPoltrona(sessao.getDataHora());
+	  	setHorarioPoltrona(sessao.getHoras());
+	  	setMinutoPoltrona(sessao.getMinutos());
+	  	setSegundoPoltrona(sessao.getSegundos());
 	  	
+	  
 	  	JButton help = new JButton("Help");
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {

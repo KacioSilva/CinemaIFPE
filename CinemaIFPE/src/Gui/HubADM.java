@@ -71,7 +71,7 @@ public class HubADM extends JFrame {
 		filmes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				FilmeIndividualAdm telafilme = new FilmeIndividualAdm();
+				EditFilme telafilme = new EditFilme();
 				telafilme.setVisible(true);
 				dispose();
 			}

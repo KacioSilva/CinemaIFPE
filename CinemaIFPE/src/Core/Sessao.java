@@ -8,29 +8,45 @@ import java.util.ArrayList;
 import Database.Conexao;
 
 public class Sessao {
-    private String dataHora;
+    private String horas;
+    private String minutos;
+    private String segundos;
     private String sessao;
     private String Sala_numeroSala;
+    
     
     private static ArrayList<String> arraySessao = new ArrayList<String>();
     public Sessao() {
         
     }
 
-    public String getDataHora() {
-        return dataHora;
+    public String getHoras() {
+        return horas;
     }
 
-    public void setDataHora(String dataHora) {
-        this.dataHora = dataHora;
+    public void setHoras(String horas) {
+        this.horas = horas;
+    }
+    
+    public String getMinutos() {
+    	return minutos;
+    }
+    public void setMinutos(String minutos) {
+    	this.minutos = minutos;
+    }
+    public String getSegundos() {
+    	return segundos;
+    }
+    public void setSegundos(String segundos) {
+    	this.segundos = segundos;
     }
 
     public String getSessao() {
         return sessao;
     }
 
-    public void setSessao(String tipoSessao) {
-        this.sessao = tipoSessao;
+    public void setSessao(String Sessao) {
+        this.sessao = Sessao;
     }
     
     public String getSala_numeroSala() {
@@ -42,6 +58,7 @@ public class Sessao {
     }
     
     
+    
     public void pegarSessao(int i) throws SQLException, ClassNotFoundException{
     	Conexao conexao = new Conexao();
 		try {	
@@ -51,14 +68,17 @@ public class Sessao {
 				pstm.setInt(1, i);
 				ResultSet rs = pstm.executeQuery();
 				while(rs.next()){
-					arraySessao.add(rs.getString("dataHorario"));
+					arraySessao.add(rs.getString("horas"));
+					arraySessao.add(rs.getString("minutos"));
+					arraySessao.add(rs.getString("segundos"));
 					arraySessao.add(rs.getString("sessao"));
 					arraySessao.add(rs.getString("Sala_numeroSala"));	
 				}
-				dataHora = arraySessao.get(0);
-				sessao = arraySessao.get(1);
-				Sala_numeroSala = arraySessao.get(2);
-				
+				horas = arraySessao.get(0);
+				minutos = arraySessao.get(1);
+				segundos = arraySessao.get(2);
+				sessao = arraySessao.get(3);
+				Sala_numeroSala = arraySessao.get(4);
 				
 				System.out.println(arraySessao);
 				arraySessao.clear();

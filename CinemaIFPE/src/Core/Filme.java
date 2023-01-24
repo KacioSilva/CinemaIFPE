@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import Database.Conexao;
-import Gui.FilmeIndividualAdm;
+import Gui.EditFilme;
 
 public class Filme{
 	

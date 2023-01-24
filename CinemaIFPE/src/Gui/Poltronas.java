@@ -826,7 +826,7 @@ public class Poltronas extends JFrame {
 		labelHorario.setFont(new Font("Arial", Font.BOLD, 15));
 		labelHorario.setHorizontalAlignment(SwingConstants.CENTER);
 		labelHorario.setBounds(522, 559, 320, 32);
-		labelHorario.setText(String.valueOf(InfoFilme.getHorarioPoltrona()));
+		labelHorario.setText(String.valueOf(InfoFilme.getHorarioPoltrona() +":" + InfoFilme.getMinutoPoltrona() + ":" + InfoFilme.getSegundoPoltrona()));
 		contentPane.add(labelHorario);
 		
 		JButton voltar = new JButton("Voltar");
@@ -841,7 +841,6 @@ public class Poltronas extends JFrame {
 		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 		voltar.setBounds(20, 25, 75, 35);
 		contentPane.add(voltar);
-		
 		
 	}
 }

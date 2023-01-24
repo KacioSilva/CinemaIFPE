@@ -2,7 +2,6 @@ package Core;
 
 import java.sql.SQLException;
 
-import Database.FuncionarioData;
 
 public class Funcionario extends Pessoa{
     private String nome;
@@ -54,17 +53,4 @@ public class Funcionario extends Pessoa{
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
-
-//    public static boolean funcEditarLanche(String nome, String preco, String marca, String Quantidade, String ID) throws SQLException {
-//        FuncionarioData lancheadm = new FuncionarioData();
-//
-//        if (nome.isEmpty() || preco.isEmpty() || marca.isEmpty() || Quantidade.isEmpty() || ID.isEmpty() ){
-//            throw new RuntimeException("Campos vazios");
-//    }else{
-//            lancheadm.editarGeral(Integer.parseInt(ID),nome,marca,Integer.parseInt(preco),Integer.parseInt(Quantidade));
-//            //lancheadm.editarGeral(1, "kacio", "luciano", 12, 2);
-//            return true;
-//        }
-//}
 }

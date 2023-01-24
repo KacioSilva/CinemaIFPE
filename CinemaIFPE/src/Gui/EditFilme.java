@@ -37,7 +37,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.JTable;
 
 
-public class FilmeIndividualAdm extends JFrame {
+public class EditFilme extends JFrame {
 	
 	private JPanel contentPane;
 	private String alterarimagem;
@@ -61,8 +61,10 @@ public class FilmeIndividualAdm extends JFrame {
 	private JTable jtableImagem;
 	File file;
 	Conexao conexao = new Conexao();
-	private JTextField textSessao;
 	private String idSessao;
+	private JTextField textHoras;
+	private JTextField textMinutos;
+	private JTextField textSegundos;
 	
 	
 	public String getIdSessao(){
@@ -81,7 +83,7 @@ public class FilmeIndividualAdm extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FilmeIndividualAdm frame = new FilmeIndividualAdm();
+					EditFilme frame = new EditFilme();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -90,10 +92,10 @@ public class FilmeIndividualAdm extends JFrame {
 		});
 	}
 	
-	public FilmeIndividualAdm() {
+	public EditFilme() {
 		Sessao sessao = new Sessao();
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(FilmeIndividualAdm.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EditFilme.class.getResource("/Midia/ifpe.png")));
 		
 		setTitle("ALTERAR FILMES - ADM");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -261,7 +263,10 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    	textFilme.setText(filmeObj.getNome());
 	  	    	txtSinopse.setText(filmeObj.getSinopse());
 	  	    	textLancamento.setText(filmeObj.getAnoLancamento());
-	  	    	textSessao.setText(sessao.getDataHora());
+	  	    	textHoras.setText(sessao.getHoras());
+	  	    	textMinutos.setText(sessao.getMinutos());
+	  	    	textSegundos.setText(sessao.getSegundos());
+
 	  	    	
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
 	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
@@ -294,7 +299,10 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    	textFilme.setText(filmeObj.getNome());
 	  	    	txtSinopse.setText(filmeObj.getSinopse());
 	  	    	textLancamento.setText(filmeObj.getAnoLancamento());
-	  	    	textSessao.setText(sessao.getDataHora());
+	  	    	textHoras.setText(sessao.getHoras());
+	  	    	textMinutos.setText(sessao.getMinutos());
+	  	    	textSegundos.setText(sessao.getSegundos());
+
 	  	    	setIdSessao("2");
 	  	    		
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -325,7 +333,10 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    	textFilme.setText(filmeObj.getNome());
 	  	    	txtSinopse.setText(filmeObj.getSinopse());
 	  	    	textLancamento.setText(filmeObj.getAnoLancamento());
-	  	    	textSessao.setText(sessao.getDataHora());
+	  	    	textHoras.setText(sessao.getHoras());
+	  	    	textMinutos.setText(sessao.getMinutos());
+	  	    	textSegundos.setText(sessao.getSegundos());
+
 	  	    	setIdSessao("3");
 	  	    		
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -355,7 +366,10 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    	textFilme.setText(filmeObj.getNome());
 	  	    	txtSinopse.setText(filmeObj.getSinopse());
 	  	    	textLancamento.setText(filmeObj.getAnoLancamento());
-	  	    	textSessao.setText(sessao.getDataHora());
+	  	    	textHoras.setText(sessao.getHoras());
+	  	    	textMinutos.setText(sessao.getMinutos());
+	  	    	textSegundos.setText(sessao.getSegundos());
+
 	  	    	setIdSessao("4");
 	  	    		
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -387,7 +401,10 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    	textFilme.setText(filmeObj.getNome());
 	  	    	txtSinopse.setText(filmeObj.getSinopse());
 	  	    	textLancamento.setText(filmeObj.getAnoLancamento());
-	  	    	textSessao.setText(sessao.getDataHora());
+	  	    	textHoras.setText(sessao.getHoras());
+	  	    	textMinutos.setText(sessao.getMinutos());
+	  	    	textSegundos.setText(sessao.getSegundos());
+
 	  	    	setIdSessao("5");
 	  	    		
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -418,7 +435,12 @@ public class FilmeIndividualAdm extends JFrame {
 	  	    	textFilme.setText(filmeObj.getNome());
 	  	    	txtSinopse.setText(filmeObj.getSinopse());
 	  	    	textLancamento.setText(filmeObj.getAnoLancamento());
-	  	    	textSessao.setText(sessao.getDataHora());
+	  	    	textHoras.setText(sessao.getHoras());
+	  	    	textMinutos.setText(sessao.getMinutos());
+	  	    	textSegundos.setText(sessao.getSegundos());
+
+
+
 	  	    	setIdSessao("6");
 	  	    		
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -546,14 +568,17 @@ public class FilmeIndividualAdm extends JFrame {
 		  	String lancamento = textLancamento.getText();
 		  	String sinopse = txtSinopse.getText();
 		  	String pegarNomeFilme = textFilme.getText();
-		  	String horario = textSessao.getText();
+		  	String horas = textHoras.getText();
+		  	String minutos = textMinutos.getText();
+		  	String segundos = textSegundos.getText();
 		  	String idSessao = getIdSessao();
 		  	
 		  	nomeFilme.setText(pegarNomeFilme);
 		  
 		  	try{
-		  	    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa, horario, idSessao);
+		  	    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa, horas, minutos, segundos, idSessao);
 	                        
+		  	    
 		  	    System.out.println("EDITOU");
 		  	    lblConfirmacao.setText("TUDO CERTO!");
 		  	    lblConfirmacao.setForeground(new Color(36, 187, 11));
@@ -578,13 +603,38 @@ public class FilmeIndividualAdm extends JFrame {
 		  	contentPane.add(salvar);
 		  	
 		  	JLabel lblsessao = new JLabel("Horário da Sessão: ");
-		  	lblsessao.setFont(new Font("Arial", Font.BOLD, 12));
-		  	lblsessao.setBounds(44, 614, 144, 13);
+		  	lblsessao.setFont(new Font("Arial", Font.BOLD, 15));
+		  	lblsessao.setBounds(56, 591, 144, 13);
 		  	contentPane.add(lblsessao);
 		  	
-		  	textSessao = new JTextField();
-		  	textSessao.setColumns(10);
-		  	textSessao.setBounds(10, 638, 209, 19);
-		  	contentPane.add(textSessao);
+		  	textHoras = new JTextField();
+		  	textHoras.setColumns(10);
+		  	textHoras.setBounds(39, 625, 52, 19);
+		  	contentPane.add(textHoras);
+		  	
+		  	textMinutos = new JTextField();
+		  	textMinutos.setColumns(10);
+		  	textMinutos.setBounds(101, 625, 52, 19);
+		  	contentPane.add(textMinutos);
+		  	
+		  	textSegundos = new JTextField();
+		  	textSegundos.setColumns(10);
+		  	textSegundos.setBounds(170, 625, 52, 19);
+		  	contentPane.add(textSegundos);
+		  	
+		  	JLabel lblNewLabel = new JLabel("Horas");
+		  	lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		  	lblNewLabel.setBounds(39, 610, 45, 14);
+		  	contentPane.add(lblNewLabel);
+		  	
+		  	JLabel lblMinutos = new JLabel("Minutos");
+		  	lblMinutos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		  	lblMinutos.setBounds(101, 610, 65, 14);
+		  	contentPane.add(lblMinutos);
+		  	
+		  	JLabel lblSegundos = new JLabel("Segundos");
+		  	lblSegundos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		  	lblSegundos.setBounds(170, 604, 65, 27);
+		  	contentPane.add(lblSegundos);
 	}
 }
