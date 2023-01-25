@@ -24,6 +24,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 public class Poltronas extends JFrame {
 
@@ -31,6 +32,8 @@ public class Poltronas extends JFrame {
 	private int preco;
 	private int pegarSoma;
 	private int pegandoCPsoma;
+	private ControlePoltrona controle = new ControlePoltrona();
+	private int idFilme = 5;
 	
 
 
@@ -97,6 +100,29 @@ public class Poltronas extends JFrame {
 		
 		
 		JButton D1 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasD1("D1");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+		
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5D1().equals("0")){
+            	D1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D1().equals("1")){
+            	D1.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6D1().equals("0")){
+                D1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6D1().equals("1")){
+                D1.setEnabled(false);
+            }
+        }
+		
+		
 		D1.setBorderPainted(false);
 		D1.setFocusPainted(false);
 		D1.setBackground(new Color(240,240,240,240));
@@ -135,6 +161,28 @@ public class Poltronas extends JFrame {
 		  
 		
 		JButton D2 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasD2("D2");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5D2().equals("0")){
+                D2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D2().equals("1")){
+                D2.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6D2().equals("0")){
+                D2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6D2().equals("1")){
+                D2.setEnabled(false);
+            }
+        }
+		
+		
 		D2.setBorderPainted(false);
 		D2.setFocusPainted(false);
 		D2.setBackground(new Color(240,240,240,240));
@@ -173,6 +221,28 @@ public class Poltronas extends JFrame {
 		
 		
 		JButton D3 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasD3("D3");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5D3().equals("0")){
+                D3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D3().equals("1")){
+                D3.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6D3().equals("0")){
+                D3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6D3().equals("1")){
+                D3.setEnabled(false);
+            }
+        }
+		
+		
 		D3.setBorderPainted(false);
 		D3.setFocusPainted(false);
 		D3.setBackground(new Color(240,240,240,240));
@@ -211,6 +281,28 @@ public class Poltronas extends JFrame {
 		
 		
 		JButton D4 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasD4("D4");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5D4().equals("0")){
+            	D4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D4().equals("1")){
+            	D4.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6D4().equals("0")){
+            	D4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6D4().equals("1")){
+            	D4.setEnabled(false);
+            }
+        }
+		
+		
 		D4.setBorderPainted(false);
 		D4.setFocusPainted(false);
 		D4.setBackground(new Color(240,240,240,240));
@@ -247,6 +339,28 @@ public class Poltronas extends JFrame {
 		panel.add(D4);
 		
 		JButton D5 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasD5("D5");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5D5().equals("0")){
+            	D5.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D5().equals("1")){
+            	D5.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6D5().equals("0")){
+            	D5.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6D5().equals("1")){
+            	D5.setEnabled(false);
+            }
+        }
+		
+		
 		D5.setBorderPainted(false);
 		D5.setFocusPainted(false);
 		D5.setBackground(new Color(240,240,240,240));
@@ -283,6 +397,28 @@ public class Poltronas extends JFrame {
 		panel.add(D5);
 		
 		JButton C1 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasC1("C1");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5C1().equals("0")){
+                C1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C1().equals("1")){
+                C1.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6C1().equals("0")){
+                C1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6C1().equals("1")){
+                C1.setEnabled(false);
+            }
+        }
+		
+		
 		C1.setBorderPainted(false);
 		C1.setFocusPainted(false);
 		C1.setBackground(new Color(240,240,240,240));
@@ -319,6 +455,27 @@ public class Poltronas extends JFrame {
 		panel.add(C1);
 		
 		JButton C2 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasC2("C2");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5C2().equals("0")){
+                C2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C2().equals("1")){
+                C2.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6C2().equals("0")){
+                C2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6C2().equals("1")){
+                C2.setEnabled(false);
+            }
+        }
+		
 		C2.setBorderPainted(false);
 		C2.setFocusPainted(false);
 		C2.setBackground(new Color(240,240,240,240));
@@ -355,6 +512,29 @@ public class Poltronas extends JFrame {
 		panel.add(C2);
 		
 		JButton C3 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasC3("C3");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5C3().equals("0")){
+                C3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C3().equals("1")){
+                C3.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6C3().equals("0")){
+                C3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6C3().equals("1")){
+                C3.setEnabled(false);
+            }
+        }
+
+		
+		
 		C3.setBorderPainted(false);
 		C3.setFocusPainted(false);
 		C3.setBackground(new Color(240,240,240,240));
@@ -391,6 +571,29 @@ public class Poltronas extends JFrame {
 		panel.add(C3);
 		
 		JButton C4 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasC4("C4");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5C4().equals("0")){
+                C4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C4().equals("1")){
+                C4.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6C4().equals("0")){
+                C4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6C4().equals("1")){
+                C4.setEnabled(false);
+            }
+        }
+		
+		
+		
 		C4.setBorderPainted(false);
 		C4.setFocusPainted(false);
 		C4.setBackground(new Color(240,240,240,240));
@@ -427,6 +630,29 @@ public class Poltronas extends JFrame {
 		panel.add(C4);
 		
 		JButton C5 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+            controle.pegarPoltronasC5("C5");
+        } catch (ClassNotFoundException | SQLException e1) {
+            e1.printStackTrace();
+        }
+        if(TelaInicial.getIdFilme() == 5){
+            if(controle.getPoltronaLivreS5C5().equals("0")){
+                C5.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C5().equals("1")){
+                C5.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 6){
+            if(controle.getPoltronaLivreS6C5().equals("0")){
+            	C5.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6C5().equals("1")){
+            	C5.setEnabled(false);
+            }
+        }
+		
+		
+		
 		C5.setBorderPainted(false);
 		C5.setFocusPainted(false);
 		C5.setBackground(new Color(240,240,240,240));
@@ -463,6 +689,28 @@ public class Poltronas extends JFrame {
 		panel.add(C5);
 		
 		JButton B5 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+			controle.pegarPoltronasB5("B5");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5B5().equals("0")){
+				B5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B5().equals("1")){
+				B5.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6B5().equals("0")){
+				B5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6B5().equals("1")){
+				B5.setEnabled(false);
+			}
+		}
+		
+		
 		B5.setBorderPainted(false);
 		B5.setFocusPainted(false);
 		B5.setBackground(new Color(240,240,240,240));
@@ -499,6 +747,28 @@ public class Poltronas extends JFrame {
 		panel.add(B5);
 		
 		JButton B4 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+			controle.pegarPoltronasB4("B4");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5B4().equals("0")){
+				B4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B4().equals("1")){
+				B4.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6B4().equals("0")){
+				B4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6B4().equals("1")){
+				B4.setEnabled(false);
+			}
+		}
+		
+		
 		B4.setBorderPainted(false);
 		B4.setFocusPainted(false);
 		B4.setBackground(new Color(240,240,240,240));
@@ -534,7 +804,30 @@ public class Poltronas extends JFrame {
 		B4.setBounds(463, 234, 55, 40);
 		panel.add(B4);
 		
+		
 		JButton B3 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+			controle.pegarPoltronasB3("B3");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5B3().equals("0")){
+				B3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B3().equals("1")){
+				B3.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6B3().equals("0")){
+				B3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6B3().equals("1")){
+				B3.setEnabled(false);
+			}
+		}
+		
+		
 		B3.setBorderPainted(false);
 		B3.setFocusPainted(false);
 		B3.setBackground(new Color(240,240,240,240));
@@ -570,6 +863,28 @@ public class Poltronas extends JFrame {
 		panel.add(B3);
 		
 		JButton B2 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+			controle.pegarPoltronasB2("B2");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5B2().equals("0")){
+				B2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B2().equals("1")){
+				B2.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6B2().equals("0")){
+				B2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6B2().equals("1")){
+				B2.setEnabled(false);
+			}
+		}
+		
+		
 		B2.setBorderPainted(false);
 		B2.setFocusPainted(false);
 		B2.setBackground(new Color(240,240,240,240));
@@ -605,7 +920,31 @@ public class Poltronas extends JFrame {
 		B2.setBounds(183, 234, 55, 40);
 		panel.add(B2);
 		
+		
+		
 		JButton B1 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+			controle.pegarPoltronasB1("B1");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5B1().equals("0")){
+				B1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B1().equals("1")){
+				B1.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6B1().equals("0")){
+				B1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6B1().equals("1")){
+				B1.setEnabled(false);
+			}
+		}
+		
+		
 		B1.setBorderPainted(false);
 		B1.setFocusPainted(false);
 		B1.setBackground(new Color(240,240,240,240));
@@ -642,6 +981,27 @@ public class Poltronas extends JFrame {
 		panel.add(B1);
 		
 		JButton A1 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+			controle.pegarPoltronas("A1");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5().equals("0")){
+				A1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5().equals("1")){
+				A1.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6().equals("0")){
+				A1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6().equals("1")){
+				A1.setEnabled(false);
+			}
+		}
+		
 		A1.setBorderPainted(false);
 		A1.setFocusPainted(false);
 		A1.setBackground(new Color(240,240,240,240));
@@ -678,6 +1038,26 @@ public class Poltronas extends JFrame {
 		panel.add(A1);
 		
 		JButton A2 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		try {
+			controle.pegarPoltronasA2("A2");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5A2().equals("0")){
+				A2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A2().equals("1")){
+				A2.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6A2().equals("0")){
+				A2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6A2().equals("1")){
+				A2.setEnabled(false);
+			}
+		}
 		A2.setBorderPainted(false);
 		A2.setFocusPainted(false);
 		A2.setBackground(new Color(240,240,240,240));
@@ -714,6 +1094,28 @@ public class Poltronas extends JFrame {
 		panel.add(A2);
 		
 		JButton A3 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		try {
+			controle.pegarPoltronasA3("A3");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5A3().equals("0")){
+				A3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A3().equals("1")){
+				A3.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6A3().equals("0")){
+				A3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6A3().equals("1")){
+				A3.setEnabled(false);
+			}
+		}
+		
 		A3.setBorderPainted(false);
 		A3.setFocusPainted(false);
 		A3.setBackground(new Color(240,240,240,240));
@@ -750,6 +1152,30 @@ public class Poltronas extends JFrame {
 		panel.add(A3);
 		
 		JButton A4 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		
+		try {
+			controle.pegarPoltronasA4("A4");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5A4().equals("0")){
+				A4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A4().equals("1")){
+				A4.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6A4().equals("0")){
+				A4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6A4().equals("1")){
+				A4.setEnabled(false);
+			}
+		}
+		
+		
 		A4.setBorderPainted(false);
 		A4.setFocusPainted(false);
 		A4.setBackground(new Color(240,240,240,240));
@@ -786,6 +1212,30 @@ public class Poltronas extends JFrame {
 		panel.add(A4);
 		
 		JButton A5 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
+		
+		
+		try {
+			controle.pegarPoltronasA5("A5");
+		} catch (ClassNotFoundException | SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		if(TelaInicial.getIdFilme() == 5){
+			if(controle.getPoltronaLivreS5A5().equals("0")){
+				A5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A5().equals("1")){
+				A5.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 6){
+			if(controle.getPoltronaLivreS6A5().equals("0")){
+				A5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS6A5().equals("1")){
+				A5.setEnabled(false);
+			}
+		}
+		
+		
 		A5.setBorderPainted(false);
 		A5.setFocusPainted(false);
 		A5.setBackground(new Color(240,240,240,240));
