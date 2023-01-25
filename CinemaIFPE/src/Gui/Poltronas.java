@@ -29,6 +29,8 @@ public class Poltronas extends JFrame {
 
 	private JPanel contentPane;
 	private int preco;
+	private int pegarSoma;
+	private int pegandoCPsoma;
 	
 
 
@@ -47,6 +49,8 @@ public class Poltronas extends JFrame {
 
 	
 	public Poltronas() {
+		
+		
 		
 		ControlePoltrona cp = new ControlePoltrona();
 		
@@ -79,6 +83,19 @@ public class Poltronas extends JFrame {
 		totalPoltronas.setBounds(421, 606, 130, 25);
 		contentPane.add(totalPoltronas);
 		
+		
+		JButton botaoContinuar = new JButton("continuar");
+		botaoContinuar.setEnabled(false);
+	
+		botaoContinuar.setBounds(421, 641, 130, 32);
+		contentPane.add(botaoContinuar);
+		botaoContinuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		
+			}
+		});
+		
+		
 		JButton D1 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
 		D1.setBorderPainted(false);
 		D1.setFocusPainted(false);
@@ -90,27 +107,32 @@ public class Poltronas extends JFrame {
 				 cont = cont + 1;
 	                if(cont == 1) {
 	                    D1.setBackground(Color.blue);
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
 	                	D1.setBackground(new Color(240,240,240,240));
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
 	                    	
 	                    	
 	                    }
-	                    
+	          
 	                   
 			}
 		}});
 		D1.setBounds(41, 42, 55, 40);
 		panel.add(D1);
 		
-		
+		  
 		
 		JButton D2 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
 		D2.setBorderPainted(false);
@@ -122,25 +144,26 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    D2.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	D2.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
 	                    	
 	                    	
 	                    }
-	                    
+	          
 	                   
 			}
 		}});
@@ -159,22 +182,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    D3.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	D3.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
-	                    	totalPoltronas.setText("");	           
-	                    }	                   	                   
+	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
+	                    	
+	                    }
+	          
+	                   
 			}
 		}});
 		D3.setBounds(328, 42, 55, 40);
@@ -192,24 +220,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    D4.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	D4.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
-	                    
+	                    	botaoContinuar.setEnabled(false);
+	                    	
+	                    	
 	                    }
-	                
+	          
+	                   
 			}
 		}});
 		D4.setBounds(463, 42, 55, 40);
@@ -225,23 +256,26 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    D5.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	D5.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
+	          
 	                   
 			}
 		}});
@@ -258,23 +292,26 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    C1.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	C1.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
-	
+	                    	botaoContinuar.setEnabled(false);
+	                    	
+	                    	
 	                    }
+	          
 	                   
 			}
 		}});
@@ -291,24 +328,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    C2.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	C2.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
-	                    
+	          
+	                   
 			}
 		}});
 		C2.setBounds(183, 133, 55, 40);
@@ -324,23 +364,26 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    C3.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	C3.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
+	          
 	                   
 			}
 		}});
@@ -357,23 +400,26 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    C4.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	C4.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
+	          
 	                   
 			}
 		}});
@@ -390,23 +436,26 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    C5.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	C5.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
+	          
 	                   
 			}
 		}});
@@ -423,24 +472,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    B5.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	B5.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
-	                    
+	          
+	                   
 			}
 		}});
 		B5.setBounds(588, 234, 55, 40);
@@ -456,23 +508,26 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    B4.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	B4.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
+	          
 	                   
 			}
 		}});
@@ -489,27 +544,29 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    B3.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	B3.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
+	          
 	                   
 			}
-		}});
-		B3.setBounds(328, 234, 55, 40);
+		}});		B3.setBounds(328, 234, 55, 40);
 		panel.add(B3);
 		
 		JButton B2 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
@@ -522,23 +579,26 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    B2.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	B2.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
+	          
 	                   
 			}
 		}});
@@ -555,24 +615,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    B1.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	B1.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
-	                    
+	          
+	                   
 			}
 		}});
 		B1.setBounds(41, 234, 55, 40);
@@ -588,24 +651,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    A1.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	A1.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
-	                    
+	          
+	                   
 			}
 		}});
 		A1.setBounds(41, 326, 55, 40);
@@ -621,24 +687,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    A2.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	A2.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
-	                    
+	          
+	                   
 			}
 		}});
 		A2.setBounds(183, 326, 55, 40);
@@ -654,24 +723,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    A3.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	A3.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
-	                    
+	          
+	                   
 			}
 		}});
 		A3.setBounds(328, 326, 55, 40);
@@ -687,24 +759,27 @@ public class Poltronas extends JFrame {
 				
 				 cont = cont + 1;
 	                if(cont == 1) {
-	                	
 	                    A4.setBackground(Color.blue);
-	                    
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	
 	                	A4.setBackground(new Color(240,240,240,240));
-	                	
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
 	                    	totalPoltronas.setText("");
+	                    	botaoContinuar.setEnabled(false);
+	                    	
 	                    	
 	                    }
-	                    
+	          
+	                   
 			}
 		}});
 		A4.setBounds(463, 326, 55, 40);
@@ -719,18 +794,28 @@ public class Poltronas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				 cont = cont + 1;
-	                if(cont == 1) {         	
+	                if(cont == 1) {
 	                    A5.setBackground(Color.blue);
-	                    cp.soma(20);
+	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    botaoContinuar.setEnabled(true);
+	                    	                    
+	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
-	                	A5.setBackground(new Color(240,240,240,240));    	
+	                	A5.setBackground(new Color(240,240,240,240));
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    cont = 0;
+	                    
 	                    if(cp.getPreco() == 0) {
+	                    	
 	                    	totalPoltronas.setText("");
-	                    }    
+	                    	botaoContinuar.setEnabled(false);
+	                    	
+	                    	
+	                    }
+	          
+	                   
 			}
 		}});
 		A5.setBounds(588, 326, 55, 40);
@@ -804,17 +889,6 @@ public class Poltronas extends JFrame {
 		lblColuna5.setBounds(752, 63, 45, 17);
 		contentPane.add(lblColuna5);
 		
-		JButton botaoContinuar = new JButton("continuar");
-		botaoContinuar.setBounds(421, 641, 130, 32);
-		contentPane.add(botaoContinuar);
-		botaoContinuar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		
-	
-		
 		JLabel labelFilme = new JLabel("");
 		labelFilme.setFont(new Font("Arial", Font.BOLD, 15));
 		labelFilme.setHorizontalAlignment(SwingConstants.CENTER);
@@ -826,7 +900,7 @@ public class Poltronas extends JFrame {
 		labelHorario.setFont(new Font("Arial", Font.BOLD, 15));
 		labelHorario.setHorizontalAlignment(SwingConstants.CENTER);
 		labelHorario.setBounds(522, 559, 320, 32);
-		labelHorario.setText(String.valueOf(InfoFilme.getHorarioPoltrona() +":" + InfoFilme.getMinutoPoltrona() + ":" + InfoFilme.getSegundoPoltrona()));
+		labelHorario.setText(String.valueOf(InfoFilme.getHorarioPoltrona() +" Horas " + InfoFilme.getMinutoPoltrona() + " Minutos " ));
 		contentPane.add(labelHorario);
 		
 		JButton voltar = new JButton("Voltar");
@@ -841,6 +915,8 @@ public class Poltronas extends JFrame {
 		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 		voltar.setBounds(20, 25, 75, 35);
 		contentPane.add(voltar);
+	 
 		
+	System.out.println(pegarSoma);	
 	}
 }

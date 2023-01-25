@@ -7,7 +7,7 @@ import Database.Conexao;
 
 public class ControlePoltrona {
    private String nome;
-   private int preco = 0;
+   private int preco;
     
    
     
@@ -43,8 +43,8 @@ public void subtracao(int preco) {
 	this.preco -= preco;
 }
 
-public void soma(int preco) {
-	this.preco += preco;
+public int soma(int preco) {
+	return this.preco += preco;
 }
     
     

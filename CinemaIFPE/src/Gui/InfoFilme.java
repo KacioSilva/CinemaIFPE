@@ -256,7 +256,7 @@ public class InfoFilme extends JFrame {
 	  		}
 	  	});
 	  	btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-	  	btnNewButton.setBounds(364, 569, 204, 40);
+	  	btnNewButton.setBounds(354, 572, 278, 40);
 	  	contentPane.add(btnNewButton);
 	  	
 	  	
@@ -281,8 +281,8 @@ public class InfoFilme extends JFrame {
 	  	lblHorario.setHorizontalAlignment(SwingConstants.CENTER);
 	  	lblHorario.setForeground(Color.RED);
 	  	lblHorario.setFont(new Font("Tahoma", Font.BOLD, 17));
-	  	lblHorario.setBounds(364, 499, 204, 37);
-	  	lblHorario.setText(sessao.getHoras() + ":" + sessao.getMinutos() + ":" + sessao.getSegundos());
+	  	lblHorario.setBounds(354, 499, 278, 37);
+	  	lblHorario.setText(sessao.getHoras()+" Horas" + " " + sessao.getMinutos()+ " Minutos");
 	  	contentPane.add(lblHorario);
 	  	
 	  	//pegando horario sessão

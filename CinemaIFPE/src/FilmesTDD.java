@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.SQLException;
 import Core.Administrador;
+import Core.ControlePoltrona;
 import Core.Filme;
 import Core.Sessao;
 import Database.Conexao;
@@ -14,6 +15,34 @@ public static void main(String[] args) throws ClassNotFoundException {
 	Conexao conexao = new Conexao();
 	Filme filme = new Filme();
 	Sessao sessao = new Sessao();
+	
+	
+	ControlePoltrona cp = new ControlePoltrona();
+	
+	cp.setPreco(20);
+	
+	System.out.println(cp.getPreco());
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	try {
 		
 		sessao.pegarSessao(1);
