@@ -161,14 +161,7 @@ public class EditLanche extends JFrame {
 		
 		tfPreco = new JTextField();
 		tfPreco.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-				char c = e.getKeyChar();
-				if(!Character.isDigit(c)) {
-					e.consume();
-				}
-			}
+			
 		});
 		tfPreco.setHorizontalAlignment(SwingConstants.CENTER);
 		tfPreco.setBounds(702, 328, 214, 19);

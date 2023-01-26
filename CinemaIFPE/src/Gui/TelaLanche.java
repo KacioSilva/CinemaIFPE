@@ -106,22 +106,23 @@ public class TelaLanche extends JFrame {
 		JLabel fotoLanche1 = new JLabel("SELECIONE UMA FOTO");
 		fotoLanche1.setHorizontalAlignment(SwingConstants.CENTER);
 		fotoLanche1.setBackground(new Color(128, 255, 255));
-		fotoLanche1.setBounds(21, 184, 159, 167);		
+		fotoLanche1.setBounds(21, 184, 159, 167);	
 		String buscarfoto1;
-		try {
-			buscarfoto1 = new Lanche().buscarFotoLanche(1);
-			String nomedoarquivo1 = buscarfoto1;
-		  	fotoLanche1.setIcon(new ImageIcon(nomedoarquivo1));
-		  	fotoLanche1.setText(buscarfoto1);		
-			contentPane.add(fotoLanche1);
-		} catch (ClassNotFoundException e2) {
-			
-			e2.printStackTrace();
-		} catch (SQLException e2) {
-			
-			e2.printStackTrace();
-		}	      
-	    
+		
+			try {
+				buscarfoto1 = new Lanche().buscarFotoLanche(1);
+			    String nomedoarquivo1 = buscarfoto1;
+			    fotoLanche1.setIcon(new ImageIcon(nomedoarquivo1));
+			  	fotoLanche1.setText(buscarfoto1);
+			  	contentPane.add(fotoLanche1);
+			} catch (ClassNotFoundException e4) {
+				lblConfirmacao.setText("Erro de conexão");
+			} catch (SQLException e4) {
+				lblConfirmacao.setText("Erro de conexão");
+			}
+
+		
+		
 		
 		JLabel fotoLanche2 = new JLabel("SELECIONE UMA FOTO");
 		fotoLanche2.setHorizontalAlignment(SwingConstants.CENTER);

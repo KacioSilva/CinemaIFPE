@@ -94,6 +94,10 @@ public class Poltronas extends JFrame {
 		contentPane.add(botaoContinuar);
 		botaoContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				TelaLanche telalanche = new TelaLanche();
+				telalanche.setVisible(true);
+				dispose();
 		
 			}
 		});

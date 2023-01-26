@@ -116,11 +116,19 @@ public class Lanche {
             while(rs.next()) {
                 caminhoFoto = rs.getString(1);
             }
-          
+            return caminhoFoto;
         }finally {
         	if(conexao != null) {
         	conexao.getConexao().close();
         	}
-        }return caminhoFoto;
+        }
     }
 }
+
+
+
+
+
+
+
+
