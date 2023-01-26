@@ -18,7 +18,7 @@ public class Conexao {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Tt4189952";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -42,8 +42,8 @@ public class Conexao {
 		}
 	}
 	
-	public void editarGeral(int idLanche,String nome, String marca, int preco, int quantidadeEstoque) throws SQLException{
-        String editarGeralUp = "update lanche set nome=?, marca=?, preco=?, quantidadeEstoque=? where idlanche = ?";
+	public void editarGeral(int idLanche ,String nome, String marca, int preco, int quantidadeEstoque, String caminhoFoto) throws SQLException{
+        String editarGeralUp = "update lanche set nome=?, marca=?, preco=?, quantidadeEstoque=?, caminhofoto=? where idlanche = ?";
         try {
 
             PreparedStatement pstmt = conexao.prepareStatement(editarGeralUp);
@@ -51,7 +51,8 @@ public class Conexao {
             pstmt.setString(2, marca);
             pstmt.setInt(3, preco);
             pstmt.setInt(4, quantidadeEstoque);
-            pstmt.setInt(5, idLanche);
+            pstmt.setString(5, caminhoFoto);
+            pstmt.setInt(6, idLanche);
 
             pstmt.executeUpdate();
 
@@ -64,6 +65,7 @@ public class Conexao {
                 System.out.println(rs.getString("marca"));
                 System.out.println(rs.getString("preco"));
                 System.out.println(rs.getString("quantidadeEstoque"));
+                System.out.println(rs.getString("caminhoFoto"));
             }
         }
         catch(SQLException e){

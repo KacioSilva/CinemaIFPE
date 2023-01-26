@@ -58,7 +58,6 @@ public class EditFilme extends JFrame {
 	private JTextField textId;
 	private JTextField textLancamento;
 	private JTextArea txtSinopse;
-	private JTable jtableImagem;
 	File file;
 	Conexao conexao = new Conexao();
 	private String idSessao;
@@ -579,7 +578,6 @@ public class EditFilme extends JFrame {
 		  	    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa, horas, minutos, segundos, idSessao);
 	                        
 		  	    
-		  	    System.out.println("EDITOU");
 		  	    lblConfirmacao.setText("TUDO CERTO!");
 		  	    lblConfirmacao.setForeground(new Color(36, 187, 11));
 

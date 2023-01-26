@@ -1518,11 +1518,6 @@ public void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
 			}
     	}
 	
-	
-
-
-
-
 
     public void pegarPoltronasB1(String i) throws SQLException, ClassNotFoundException{
          Conexao conexao = new Conexao();

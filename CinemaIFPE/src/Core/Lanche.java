@@ -15,7 +15,18 @@ public class Lanche {
     private String marca;
     private String preco;
     private String quantidade;
-    private static Connection conexao = null;
+    private String caminhoFoto;
+    
+    public String getCaminhoFoto() {
+		return caminhoFoto;
+	}
+
+	public void setCaminhoFoto(String caminhoFoto) {
+		this.caminhoFoto = caminhoFoto;
+	}
+
+
+	private static Connection conexao = null;
     private ArrayList<String> arrayLanche = new ArrayList<String>();
 
     public int getIdLanche() {
@@ -74,16 +85,17 @@ public class Lanche {
                 arrayLanche.add(rs.getString("marca"));
                 arrayLanche.add(rs.getString("preco"));
                 arrayLanche.add(rs.getString("quantidadeEstoque"));
+                arrayLanche.add(rs.getString("caminhofoto"));
 			}
 			nome = arrayLanche.get(1);
 			marca = arrayLanche.get(2);
 			preco = arrayLanche.get(3);
 			quantidade = arrayLanche.get(4);
+			caminhoFoto = arrayLanche.get(5);
 			System.out.println(arrayLanche);
-			arrayLanche.clear();
-
-
 			
+			arrayLanche.clear();
+	
 		} catch (Exception e) {
 			throw new Exception("Erro de conexão!");
 		}	

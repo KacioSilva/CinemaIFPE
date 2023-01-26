@@ -10,13 +10,19 @@ import Database.Conexao;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.sql.SQLException;
 import java.awt.Toolkit;
 
@@ -35,6 +41,11 @@ public class EditLanche extends JFrame {
 	private String marca;
 	private String preco;
 	private String quantidade;
+	private String caminhoFoto;
+	private File file;
+	private JTextField tfcaminhofoto;
+	private String nomeArquivo;
+	
 
 	//-------CRIANDO TELA
 	public static void main(String[] args) {
@@ -65,39 +76,52 @@ public class EditLanche extends JFrame {
 		contentPane.setLayout(null);
 		
 		//-------CRIANDO OS LABELS
+		
+		JLabel labelFotoFilme = new JLabel("SELECIONE UMA FOTO");
+	    labelFotoFilme.setHorizontalAlignment(SwingConstants.CENTER);
+	    labelFotoFilme.setBackground(new Color(128, 255, 255));
+	    labelFotoFilme.setBounds(356, 153, 217, 246);
+	    contentPane.add(labelFotoFilme);
+	    
 		JLabel lblNewLabel = new JLabel("ID:");
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel.setBounds(510, 71, 45, 13);
+		lblNewLabel.setBounds(702, 27, 45, 13);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("NOME:");
+		JLabel lblNewLabel_1 = new JLabel("Nome:");
 		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(510, 162, 67, 13);
+		lblNewLabel_1.setBounds(702, 118, 67, 13);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("MARCA:");
+		JLabel lblNewLabel_2 = new JLabel("Marca:");
 		lblNewLabel_2.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_2.setBounds(510, 254, 67, 13);
+		lblNewLabel_2.setBounds(702, 210, 67, 13);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("PREÇO:");
+		JLabel lblNewLabel_3 = new JLabel("Preço:");
 		lblNewLabel_3.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(510, 346, 85, 13);
+		lblNewLabel_3.setBounds(702, 302, 85, 13);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Quantidade no Estoque:");
 		lblNewLabel_4.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_4.setBounds(510, 439, 186, 13);
+		lblNewLabel_4.setBounds(702, 395, 186, 13);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel confirmacao = new JLabel("");
 		confirmacao.setHorizontalAlignment(SwingConstants.CENTER);
-		confirmacao.setBounds(510, 530, 229, 13);
+		confirmacao.setBounds(702, 545, 229, 13);
 		contentPane.add(confirmacao);
 		
 		
 		
 		//-------CRIANDO OS TEXTFIELDS	
+		 tfcaminhofoto = new JTextField();
+		 tfcaminhofoto.setBounds(702, 496, 214, 19);
+		 contentPane.add(tfcaminhofoto);
+		 tfcaminhofoto.setColumns(10);
+		 
+		    
 		tfID = new JTextField();
 		tfID.setBackground(new Color(0, 0, 0));
 		tfID.setForeground(new Color(0, 0, 0));
@@ -114,7 +138,7 @@ public class EditLanche extends JFrame {
 			}
 		});
 		tfID.setHorizontalAlignment(SwingConstants.CENTER);
-		tfID.setBounds(510, 94, 214, 19);
+		tfID.setBounds(702, 50, 214, 19);
 		contentPane.add(tfID);
 		tfID.setColumns(10);
 		
@@ -122,14 +146,14 @@ public class EditLanche extends JFrame {
 		
 		tfNome = new JTextField();
 		tfNome.setHorizontalAlignment(SwingConstants.CENTER);
-		tfNome.setBounds(510, 185, 214, 19);
+		tfNome.setBounds(702, 141, 214, 19);
 		contentPane.add(tfNome);
 		tfNome.setColumns(10);
 		
-		
+	
 		tfMarca = new JTextField();
 		tfMarca.setHorizontalAlignment(SwingConstants.CENTER);
-		tfMarca.setBounds(510, 281, 214, 19);
+		tfMarca.setBounds(702, 237, 214, 19);
 		contentPane.add(tfMarca);
 		tfMarca.setColumns(10);
 		
@@ -147,7 +171,7 @@ public class EditLanche extends JFrame {
 			}
 		});
 		tfPreco.setHorizontalAlignment(SwingConstants.CENTER);
-		tfPreco.setBounds(510, 372, 214, 19);
+		tfPreco.setBounds(702, 328, 214, 19);
 		contentPane.add(tfPreco);
 		tfPreco.setColumns(10);
 		
@@ -164,7 +188,7 @@ public class EditLanche extends JFrame {
 			}
 		});
 		tfQuantidade.setHorizontalAlignment(SwingConstants.CENTER);
-		tfQuantidade.setBounds(510, 462, 214, 19);
+		tfQuantidade.setBounds(702, 418, 214, 19);
 		contentPane.add(tfQuantidade);
 		tfQuantidade.setColumns(10);
 		
@@ -174,6 +198,34 @@ public class EditLanche extends JFrame {
 		
 		
 		//-------CRIANDO OS BOTÕES
+		
+		JButton adicionarImagem = new JButton("add imagem");
+		adicionarImagem.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			 
+		   JFileChooser arquivo = new JFileChooser();
+		   arquivo.setDialogTitle("Selecione uma imagem"); //título da tela de escolha de arquivos
+		   arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY); //setando para escolher apenas arquivos
+		   int op = arquivo.showOpenDialog(getComponent(0)); //Abrindo tela de escolha de arquivos
+		    		
+		   if(op == JFileChooser.APPROVE_OPTION) { // Verificando se o usuário escolheu algum arquivo
+			   labelFotoFilme.setIcon(null);
+		  	
+			   file = new File("");
+			   file = arquivo.getSelectedFile(); //Pega o arquivo selecionado pelo usuário
+			   nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
+			   tfcaminhofoto.setText(nomeArquivo);
+			   ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
+			   labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
+					   labelFotoFilme.getHeight(), Image.SCALE_DEFAULT)));
+		    			
+		    	String nomedoarquivo = tfcaminhofoto.getText();
+		  	    labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));	
+		    }
+		   }
+		 });
+		 adicionarImagem.setBounds(398, 463, 144, 38);
+		    contentPane.add(adicionarImagem);
 		JButton salvar = new JButton("SALVAR");
 		salvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -182,8 +234,9 @@ public class EditLanche extends JFrame {
 				marca = tfMarca.getText();
 				preco = tfPreco.getText();
 				quantidade = tfQuantidade.getText();
+				caminhoFoto = tfcaminhofoto.getText();
 				try{
-                    Administrador.funcEditarLanche(nome, preco,marca, quantidade, ID);
+                    Administrador.funcEditarLanche(nome, preco, marca, quantidade, ID, caminhoFoto);
                     
                     confirmacao.setText("Tudo certo!");
                     confirmacao.setForeground(new Color(36, 187, 11));
@@ -202,20 +255,22 @@ public class EditLanche extends JFrame {
 				}
 			}
 		});
-		salvar.setBounds(510, 582, 85, 32);
+		salvar.setBounds(702, 597, 85, 32);
 		contentPane.add(salvar);
 		
 		JButton limpar = new JButton("LIMPAR");
 		limpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				labelFotoFilme.setIcon(null);
 				tfNome.setText("");
 				tfMarca.setText("");
 				tfPreco.setText("");
 				tfQuantidade.setText("");
+				tfcaminhofoto.setText("");
 				confirmacao.setText("");
 			}
 		});
-		limpar.setBounds(639, 582, 85, 32);
+		limpar.setBounds(831, 597, 85, 32);
 		contentPane.add(limpar);
 		
 		JButton voltar = new JButton("VOLTAR");
@@ -246,7 +301,10 @@ public class EditLanche extends JFrame {
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
 				tfQuantidade.setText(lanche.getQuantidade());
-				System.out.println(lanche.getNomeLanche());
+				tfcaminhofoto.setText(lanche.getCaminhoFoto());
+
+	  	    	String nomedoarquivo = tfcaminhofoto.getText();
+	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 			}
 		});
 		lanche1.setBounds(55, 159, 227, 21);
@@ -268,6 +326,11 @@ public class EditLanche extends JFrame {
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
 				tfQuantidade.setText(lanche.getQuantidade());
+				tfcaminhofoto.setText(lanche.getCaminhoFoto());
+				
+
+	  	    	String nomedoarquivo = tfcaminhofoto.getText();
+	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 			
 			}
 		});
@@ -290,6 +353,11 @@ public class EditLanche extends JFrame {
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
 				tfQuantidade.setText(lanche.getQuantidade());
+				tfcaminhofoto.setText(lanche.getCaminhoFoto());
+				
+
+	  	    	String nomedoarquivo = tfcaminhofoto.getText();
+	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 				
 			}
 		});
@@ -312,6 +380,11 @@ public class EditLanche extends JFrame {
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
 				tfQuantidade.setText(lanche.getQuantidade());
+				tfcaminhofoto.setText(lanche.getCaminhoFoto());
+				
+
+	  	    	String nomedoarquivo = tfcaminhofoto.getText();
+	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 				
 			}
 		});
@@ -328,16 +401,25 @@ public class EditLanche extends JFrame {
 					confirmacao.setText(e1.getMessage());
 				}
 				
-				
 			
 				tfID.setText("5");
 				tfNome.setText(lanche.getNomeLanche());
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
 				tfQuantidade.setText(lanche.getQuantidade());
+				tfcaminhofoto.setText(lanche.getCaminhoFoto());
+				
+
+	  	    	String nomedoarquivo = tfcaminhofoto.getText();
+	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
 			}
 		});
 		lanche5.setBounds(55, 530, 227, 21);
 		contentPane.add(lanche5);
+		
+		JLabel lblNewLabel_4_1 = new JLabel("Caminho da Foto:");
+		lblNewLabel_4_1.setFont(new Font("Arial", Font.BOLD, 15));
+		lblNewLabel_4_1.setBounds(702, 475, 186, 13);
+		contentPane.add(lblNewLabel_4_1);
 	}
 }
