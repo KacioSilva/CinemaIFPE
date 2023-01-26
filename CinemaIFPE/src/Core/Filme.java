@@ -1,6 +1,7 @@
 package Core;
 
 import java.awt.Image;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,6 +18,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import Database.Conexao;
 import Gui.EditFilme;
+import java.lang.NullPointerException;
 
 public class Filme{
 	
@@ -35,6 +37,7 @@ public class Filme{
 	private JTextField tfcaminhofoto;
 	private Filme filme;
 	private String nomeArquivo;
+
 	
 
     
@@ -144,17 +147,20 @@ public class Filme{
 				 anoLancamento=  arrayFilmes.get(8);
 				 classIndicativa=  arrayFilmes.get(9);
 				
-				
-				System.out.println(arrayFilmes);
 				arrayFilmes.clear();
 
-			} catch (SQLException e) {
-				throw new SQLException("Erro de conexão!");
+			}catch(NullPointerException e1) {
+				e1.getMessage();
+				System.out.println("testando");
 			}
+					finally {
+	        	if(conexao != null) {
+	        	conexao.getConexao().close();
+	        	}
+	        }
     	}
     
-    public String buscarCartaz(int idFilme)  {
-    	
+    public String buscarCartaz(int idFilme) throws ClassNotFoundException, SQLException  {
     	Conexao conexao = new Conexao();
     	try {
 			conexao.conectar();
@@ -168,14 +174,12 @@ public class Filme{
     			cartaz = rs.getString(1);
     			return cartaz;
     		}
-    		
-    	}catch (java.sql.SQLException a) {
-    		a.getMessage();
-        } catch(ClassNotFoundException e) {
-        	e.getMessage();
-        } 
-    	return cartaz;
+    	}finally {
+        	if(conexao != null) {
+        	conexao.getConexao().close();
+        	}
+        } return cartaz;
+        
     }
-    
 }
 

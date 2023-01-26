@@ -167,13 +167,21 @@ public class InfoFilme extends JFrame {
 
 	  	Filme = new JLabel();
 	  	Filme.setBounds(354, 137, 214, 255);
-	  	String buscarfoto = new Filme().buscarCartaz(TelaInicial.getIdFilme());
-	    String nomedoarquivo = buscarfoto;
-	  	Filme.setIcon(new ImageIcon(nomedoarquivo));
-	  	Filme.setText(buscarfoto);
+	  	String buscarfoto;
+		try {
+			buscarfoto = new Filme().buscarCartaz(TelaInicial.getIdFilme());
+			String nomedoarquivo = buscarfoto;
+			Filme.setIcon(new ImageIcon(nomedoarquivo));
+			Filme.setText(buscarfoto);
+			contentPane.add(Filme);
+			  	
+		} catch (ClassNotFoundException e1) {
+			lblHorario.setText("Erro de Conexao");
 
-	  	contentPane.add(Filme);
-	  	
+		} catch (SQLException e1) {
+			lblHorario.setText("Erro de Conexao");	
+		}
+	   
 	  	JPanel panel = new JPanel();
 	  	panel.setBounds(27, 130, 160, 49);
 	  	panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Nome", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));

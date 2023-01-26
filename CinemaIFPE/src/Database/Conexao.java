@@ -37,15 +37,14 @@ public class Conexao {
 	public boolean estaConectado() {
 		if(this.conexao != null) {
 			return true;
-		} else{
-			return false;
-		}
+		
+		}return false;
 	}
 	
-	public void editarGeral(int idLanche ,String nome, String marca, int preco, int quantidadeEstoque, String caminhoFoto) throws SQLException{
+	public void editarGeral(int idLanche ,String nome, String marca, int preco, int quantidadeEstoque, String caminhoFoto) throws SQLException, ClassNotFoundException{
         String editarGeralUp = "update lanche set nome=?, marca=?, preco=?, quantidadeEstoque=?, caminhofoto=? where idlanche = ?";
         try {
-
+        	conectar();
             PreparedStatement pstmt = conexao.prepareStatement(editarGeralUp);
             pstmt.setString(1, nome);
             pstmt.setString(2, marca);
@@ -59,26 +58,16 @@ public class Conexao {
             PreparedStatement statement = conexao.prepareStatement("select * from lanche");
 
             ResultSet rs = statement.executeQuery();
-            while(rs.next()){
-                System.out.println(rs.getString("idLanche"));
-                System.out.println(rs.getString("nome"));
-                System.out.println(rs.getString("marca"));
-                System.out.println(rs.getString("preco"));
-                System.out.println(rs.getString("quantidadeEstoque"));
-                System.out.println(rs.getString("caminhoFoto"));
-            }
+        
+        }finally {
+        	if(conexao != null) {
+        	conexao.close();
+        	}
         }
-        catch(SQLException e){
-            throw new SQLException("Erro ao conectar com o banco!");
-        }
-        finally {
-            conexao.close();
-        }
-    }
-	
+}
 	
 	public void editarFilme(int idFilme, String nome, String cartaz, String trailer, String sinopse, String diretor, int duracao, String genero, 
-			String anoLancamento, int classificacaoIndicativa ) throws SQLException{
+			String anoLancamento, int classificacaoIndicativa ) throws SQLException, ClassNotFoundException{
 			try {
 				conectar();
 				String inserirFilmes = "UPDATE filme SET nome = ?, cartaz = ?, trailer = ?, sinopse = ?, diretor = ?, duracao = ?, genero = ?, anoLancamento = ?, classificacaoIndicativa = ? WHERE idFilme = ?";
@@ -94,17 +83,15 @@ public class Conexao {
 				pstmt.setInt(9, classificacaoIndicativa);
 				pstmt.setInt(10, idFilme);
 				pstmt.execute();
-
-				
-				
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			
+			}finally {
+	        	if(conexao != null) {
+	        	conexao.close();
+	        	}
+	        }
 	}
 	
-	public void editarSessao(int horas, int minutos, int segundos, int sessao) throws SQLException{
+	public void editarSessao(int horas, int minutos, int segundos, int sessao) throws SQLException, ClassNotFoundException{
 			try {
 				conectar();
 				String inserirFilmes = "UPDATE sessao SET horas = ?, minutos = ?, segundos = ?  WHERE sessao = ?";
@@ -116,10 +103,10 @@ public class Conexao {
 		
 				pstmt.execute();
 
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+			}finally {
+	        	if(conexao != null) {
+	        	conexao.close();
+	        	}
+	        }
 	}
+}

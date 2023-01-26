@@ -64,6 +64,57 @@ public class TelaInicial extends JFrame{
 		
 		
 		//-------CRIANDO OS LABELS
+		
+		JLabel nomeFilme1 = new JLabel();
+		nomeFilme1.setHorizontalAlignment(SwingConstants.CENTER);
+		nomeFilme1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		try {
+			filme.pegarFilmes(1);
+		} catch (ClassNotFoundException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		} catch (SQLException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		nomeFilme1.setText(filme.getNome());
+		nomeFilme1.setBounds(70, 570, 199, 27);
+		contentPane.add(nomeFilme1);
+		
+	
+		JLabel nomeFilme2 = new JLabel("NomeFilme2");
+		nomeFilme2.setHorizontalAlignment(SwingConstants.CENTER);
+		nomeFilme2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		try {
+			filme.pegarFilmes(2);
+		} catch (ClassNotFoundException e2) {
+			
+			e2.printStackTrace();
+		} catch (SQLException e2) {
+			
+			e2.printStackTrace();
+		}
+		nomeFilme2.setText(filme.getNome());
+		nomeFilme2.setBounds(373, 570, 199, 27);
+		contentPane.add(nomeFilme2);
+		
+		JLabel nomeFilme3 = new JLabel("");
+		nomeFilme3.setHorizontalAlignment(SwingConstants.CENTER);
+		nomeFilme3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		try {
+			filme.pegarFilmes(3);
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		nomeFilme3.setText(filme.getNome());
+		nomeFilme3.setBounds(694, 570, 199, 27);
+		contentPane.add(nomeFilme3);
+      
+      
 		JLabel cineifPaulista = new JLabel("CineIF Paulista");
 		cineifPaulista.setForeground(new Color(63, 164, 13, 236));
 		cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
@@ -135,12 +186,20 @@ public class TelaInicial extends JFrame{
       	}
       });
       
-      String buscarfoto1 = new Filme().buscarCartaz(1);
-      Filme1.setBounds(70, 316, 214, 255);
-      String nomedoarquivo1 = buscarfoto1;
-  		Filme1.setIcon(new ImageIcon(nomedoarquivo1));
-  		Filme1.setText(buscarfoto1);
-  		contentPane.add(Filme1);
+      String buscarfoto1;
+	try {
+		buscarfoto1 = new Filme().buscarCartaz(1);
+		Filme1.setBounds(70, 316, 214, 255);
+	    String nomedoarquivo1 = buscarfoto1;
+	    Filme1.setIcon(new ImageIcon(nomedoarquivo1));
+	  	Filme1.setText(buscarfoto1);
+	  	contentPane.add(Filme1);
+	} catch (ClassNotFoundException e4) {
+		Filme1.setText("Erro de conexão");
+	} catch (SQLException e4) {
+		Filme1.setText("Erro de conexão");
+	}
+      
      
       
       JLabel Filme2 = new JLabel("");
@@ -153,12 +212,20 @@ public class TelaInicial extends JFrame{
         	dispose();
         }
        });
-      String buscarfoto2 = new Filme().buscarCartaz(2);
-      Filme2.setBounds(373, 316, 214, 255);
-      String nomedoarquivo2 = buscarfoto2;
-      Filme2.setIcon(new ImageIcon(nomedoarquivo2));
-      Filme2.setText(buscarfoto2);
-		contentPane.add(Filme2);
+      String buscarfoto2;
+	try {
+		buscarfoto2 = new Filme().buscarCartaz(2);
+		Filme2.setBounds(373, 316, 214, 255);
+	    String nomedoarquivo2 = buscarfoto2;
+	    Filme2.setIcon(new ImageIcon(nomedoarquivo2));
+	    Filme2.setText(buscarfoto2);
+	    contentPane.add(Filme2);
+	} catch (ClassNotFoundException e4) {
+		Filme2.setText("Erro de conexão");
+	} catch (SQLException e4) {
+		Filme2.setText("Erro de conexão");
+	}
+     
       
       JLabel Filme3 = new JLabel("aaaa");
       Filme3.addMouseListener(new MouseAdapter() {
@@ -172,61 +239,20 @@ public class TelaInicial extends JFrame{
         }
        });
       Filme3.setBounds(694, 316, 214, 255);
-      String buscarfoto3 = new Filme().buscarCartaz(3);
-      String nomedoarquivo3 = buscarfoto3;
-      Filme3.setIcon(new ImageIcon(nomedoarquivo3));
-      Filme3.setText(buscarfoto3);
+      String buscarfoto3;
+	try {
+		buscarfoto3 = new Filme().buscarCartaz(3);
+		String nomedoarquivo3 = buscarfoto3;
+	    Filme3.setIcon(new ImageIcon(nomedoarquivo3));
+	    Filme3.setText(buscarfoto3);
 		contentPane.add(Filme3);
-		
-		
-		JLabel nomeFilme1 = new JLabel();
-		nomeFilme1.setHorizontalAlignment(SwingConstants.CENTER);
-		nomeFilme1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		try {
-			filme.pegarFilmes(1);
-		} catch (ClassNotFoundException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
-		} catch (SQLException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
-		}
-		nomeFilme1.setText(filme.getNome());
-		nomeFilme1.setBounds(70, 570, 199, 27);
-		contentPane.add(nomeFilme1);
-		
+	} catch (ClassNotFoundException e4) {
+		Filme3.setText("Erro de conexão");
+	} catch (SQLException e4) {
+		Filme3.setText("Erro de conexão");
+	}
+     
 	
-		JLabel nomeFilme2 = new JLabel("NomeFilme2");
-		nomeFilme2.setHorizontalAlignment(SwingConstants.CENTER);
-		nomeFilme2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		try {
-			filme.pegarFilmes(2);
-		} catch (ClassNotFoundException e2) {
-			
-			e2.printStackTrace();
-		} catch (SQLException e2) {
-			
-			e2.printStackTrace();
-		}
-		nomeFilme2.setText(filme.getNome());
-		nomeFilme2.setBounds(373, 570, 199, 27);
-		contentPane.add(nomeFilme2);
 		
-		JLabel nomeFilme3 = new JLabel("");
-		nomeFilme3.setHorizontalAlignment(SwingConstants.CENTER);
-		nomeFilme3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		try {
-			filme.pegarFilmes(3);
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		nomeFilme3.setText(filme.getNome());
-		nomeFilme3.setBounds(694, 570, 199, 27);
-		contentPane.add(nomeFilme3);
-      
-      }
+	}	
 }

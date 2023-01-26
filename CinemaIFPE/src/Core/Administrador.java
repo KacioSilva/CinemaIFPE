@@ -32,12 +32,9 @@ public class Administrador {
 		lancheadm.editarGeral(Integer.parseInt(ID),nome,marca,Integer.parseInt(preco),Integer.parseInt(Quantidade), caminhoFoto);
 		return true;
 		}   
-
 	}
-	
-
 		public static boolean funcEditarFilme(String idFilme ,String nome, String cartaz, String trailer, String sinopse, String diretor, String duracao, String genero, 
-				String anoLancamento, String classificacaoIndicativa, String horas, String minutos, String segundos, String sessao) throws SQLException, ClassNotFoundException  {
+				String anoLancamento, String classificacaoIndicativa, String horas, String minutos, String segundos, String sessao) throws SQLException, ClassNotFoundException{
 		    Conexao filmeadm = new Conexao();
 			filmeadm.conectar();
 			

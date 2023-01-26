@@ -19,6 +19,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -61,6 +62,11 @@ public class TelaDeFilmes extends JFrame {
 		contentPane.setLayout(null);
 		
 		//-------CRIANDO OS LABELS
+		JLabel lblConfirmacao = new JLabel("New label");
+		lblConfirmacao.setBounds(664, 86, 93, 14);
+		contentPane.add(lblConfirmacao);
+		
+		
 		JLabel catalogo = new JLabel("Catálogo de Filmes");
 		catalogo.setForeground(new Color(63, 164, 13, 236));
 		catalogo.setFont(new Font("Sitka Heading", Font.PLAIN, 50));
@@ -111,13 +117,24 @@ public class TelaDeFilmes extends JFrame {
 	        	dispose();
 	        }
 	       });
-		String buscarfoto1 = new Filme().buscarCartaz(1);
-	      Filme1.setBounds(10, 123, 214, 255);
-	      String nomedoarquivo1 = buscarfoto1;
-	      Filme1.setIcon(new ImageIcon(nomedoarquivo1));
-	      Filme1.setText(buscarfoto1);
-	      contentPane.add(Filme1);
+		String buscarfoto1;
+		try {
+			buscarfoto1 = new Filme().buscarCartaz(1);
+			String nomedoarquivo1 = buscarfoto1;
+		    Filme1.setIcon(new ImageIcon(nomedoarquivo1));
+		    Filme1.setText(buscarfoto1);
+		    contentPane.add(Filme1);
+		    Filme1.setBounds(10, 123, 214, 255);
+			
+		} catch (ClassNotFoundException e1) {
+			lblConfirmacao.setText("Erro de conexão");
+		}
+		catch (SQLException e1) {
+			lblConfirmacao.setText("Erro de conexão");
 		
+		}
+	      
+	      
 		JLabel Filme2 = new JLabel("C:\\Users\\kacio\\Desktop\\ifpe.png");
 		Filme2.addMouseListener(new MouseAdapter() {
 	        @Override
@@ -128,14 +145,23 @@ public class TelaDeFilmes extends JFrame {
 	        	dispose();
 	        }
 	       });
-		String buscarfoto2 = new Filme().buscarCartaz(2);
-		Filme2.setBounds(382, 123, 214, 255);
-	    String nomedoarquivo2 = buscarfoto2;
-	    Filme2.setIcon(new ImageIcon(nomedoarquivo2));
-	    Filme2.setText(buscarfoto2);
-	    contentPane.add(Filme2);
+		String buscarfoto2;
+		try {
+			buscarfoto2 = new Filme().buscarCartaz(2);
+			String nomedoarquivo2 = buscarfoto2;
+		    Filme2.setIcon(new ImageIcon(nomedoarquivo2));
+		    Filme2.setText(buscarfoto2);
+		    contentPane.add(Filme2);
+		    Filme2.setBounds(382, 123, 214, 255);
+			
+		} catch (ClassNotFoundException e1) {
+			lblConfirmacao.setText("Erro de conexão");
+			
+		} catch (SQLException e1) {
+			lblConfirmacao.setText("Erro de conexão");
 		
-		
+			}
+			
 		
 		JLabel Filme3 = new JLabel("C:\\Users\\kacio\\Desktop\\ifpe.png");
 		Filme3.addMouseListener(new MouseAdapter() {
@@ -147,14 +173,25 @@ public class TelaDeFilmes extends JFrame {
 	        	dispose();
 	        }
 	       });
-		String buscarfoto3 = new Filme().buscarCartaz(3);
-		Filme3.setBounds(760, 123, 214, 255);
-	    String nomedoarquivo3 = buscarfoto3;
-	    Filme3.setIcon(new ImageIcon(nomedoarquivo3));
-	    Filme3.setText(buscarfoto3);
-	    contentPane.add(Filme3);
-	
+		String buscarfoto3;
 		
+	
+		try {
+			buscarfoto3 = new Filme().buscarCartaz(3);
+			String nomedoarquivo3 = buscarfoto3;
+			Filme3.setIcon(new ImageIcon(nomedoarquivo3));
+			Filme3.setText(buscarfoto3);
+			contentPane.add(Filme3);
+			Filme3.setBounds(760, 123, 214, 255);
+			
+			}catch (ClassNotFoundException e1) {
+				lblConfirmacao.setText("Erro de conexão");
+			
+			}catch (SQLException e1) {
+				lblConfirmacao.setText("Erro de conexão");
+		
+				}
+	
 		
 		JLabel Filme6 = new JLabel("C:\\Users\\kacio\\Desktop\\ifpe.png");
 		Filme6.addMouseListener(new MouseAdapter() {
@@ -166,16 +203,24 @@ public class TelaDeFilmes extends JFrame {
 	        	dispose();
 	        }
 	       });
-		String buscarfoto6 = new Filme().buscarCartaz(6);
-		Filme6.setBounds(760, 415, 214, 255);
-	    String nomedoarquivo6 = buscarfoto6;
-	    Filme6.setIcon(new ImageIcon(nomedoarquivo6));
-	    Filme6.setText(buscarfoto6);
-	    contentPane.add(Filme6);
+		String buscarfoto6;
+		try {
+			buscarfoto6 = new Filme().buscarCartaz(6);
+			String nomedoarquivo6 = buscarfoto6;
+		    Filme6.setIcon(new ImageIcon(nomedoarquivo6));
+		    Filme6.setText(buscarfoto6);
+		    contentPane.add(Filme6);
+		    Filme6.setBounds(760, 415, 214, 255);
+			
+		}catch (ClassNotFoundException e1) {
+			lblConfirmacao.setText("Erro de conexão");
+			
+		}catch (SQLException e1) {
+			lblConfirmacao.setText("Erro de conexão");
 		
-	
-	
+		}
 		
+	  
 		JLabel Filme5 = new JLabel("C:\\Users\\kacio\\Desktop\\ifpe.png");
 		Filme5.addMouseListener(new MouseAdapter() {
 	        @Override
@@ -186,15 +231,24 @@ public class TelaDeFilmes extends JFrame {
 	        	dispose();
 	        }
 	       });
-		String buscarfoto5 = new Filme().buscarCartaz(5);
-		Filme5.setBounds(382, 415, 215, 255);
-	    String nomedoarquivo5 = buscarfoto5;
-	    Filme5.setIcon(new ImageIcon(nomedoarquivo5));
-	    Filme5.setText(buscarfoto5);
-	    contentPane.add(Filme5);
+		String buscarfoto5;
+		try {
+			buscarfoto5 = new Filme().buscarCartaz(5);
+			String nomedoarquivo5 = buscarfoto5;
+		    Filme5.setIcon(new ImageIcon(nomedoarquivo5));
+		    Filme5.setText(buscarfoto5);
+		    contentPane.add(Filme5);
+		    Filme5.setBounds(382, 415, 215, 255);
+			
+		} catch (ClassNotFoundException e1) {
+			lblConfirmacao.setText("Erro de conexão");
+			
+		} catch (SQLException e1) {
+			lblConfirmacao.setText("Erro de conexão");
 		
+		}
 		
-		
+	    
 		JLabel Filme4 = new JLabel("C:\\Users\\kacio\\Desktop\\ifpe.png");
 		Filme4.addMouseListener(new MouseAdapter() {
 	        @Override
@@ -205,12 +259,24 @@ public class TelaDeFilmes extends JFrame {
 	        	dispose();
 	        }
 	       });
-		String buscarfoto4 = new Filme().buscarCartaz(4);
-		Filme4.setBounds(10, 415, 214, 255);
-	    String nomedoarquivo4 = buscarfoto4;
-	    Filme4.setIcon(new ImageIcon(nomedoarquivo4));
-	    Filme4.setText(buscarfoto4);
-	    contentPane.add(Filme4);
+		String buscarfoto4;
+		try {
+			buscarfoto4 = new Filme().buscarCartaz(4);
+			String nomedoarquivo4 = buscarfoto4;
+		    Filme4.setIcon(new ImageIcon(nomedoarquivo4));
+		    Filme4.setText(buscarfoto4);
+		    contentPane.add(Filme4);
+		    Filme4.setBounds(10, 415, 214, 255);	
+		} catch (ClassNotFoundException e1) {
+			lblConfirmacao.setText("Erro de conexão");
+			
+		} catch (SQLException e1) {
+			lblConfirmacao.setText("Erro de conexão");
+		
+		}
+		
+		
+	    
 	    
 	    JPanel panel = new JPanel();
 	    panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -247,5 +313,7 @@ public class TelaDeFilmes extends JFrame {
 	    panel_1_1_1_2.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 	    panel_1_1_1_2.setBounds(752, 409, 227, 268);
 	    contentPane.add(panel_1_1_1_2);
+	    
+	   
 	}
 }

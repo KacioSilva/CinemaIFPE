@@ -582,21 +582,20 @@ public class EditFilme extends JFrame {
 		  	    lblConfirmacao.setForeground(new Color(36, 187, 11));
 
 		    }catch (RuntimeException e1){
-		    	System.out.println("ERRO1 " + e1.getMessage());
+		    	lblConfirmacao.setText(e1.getMessage());
 		                    
 
 		    } catch (SQLException ex) {
-		        System.out.println("ERRO2");      
-		        throw new RuntimeException(ex);
+		       lblConfirmacao.setText("Erro de Conexão");      
+
 		        
 		    } catch (ClassNotFoundException e2) {
-		        System.out.println("ERRO3");
+		    	lblConfirmacao.setText("Erro de Conexão");      
+
 		                	
-			} catch(Exception e2) {
-				System.out.println(e2.getMessage());
-						}	    		
-		  	    	}
-		  	    });
+			} 	    		
+		  }
+		});
 		  	salvar.setBounds(354, 584, 103, 29);
 		  	contentPane.add(salvar);
 		  	

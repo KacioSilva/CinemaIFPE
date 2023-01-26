@@ -80,7 +80,6 @@ public class Sessao {
 				sessao = arraySessao.get(3);
 				Sala_numeroSala = arraySessao.get(4);
 				
-				System.out.println(arraySessao);
 				arraySessao.clear();
 
 			} catch (SQLException e) {

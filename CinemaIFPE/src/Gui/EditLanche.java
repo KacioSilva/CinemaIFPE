@@ -249,9 +249,8 @@ public class EditLanche extends JFrame {
                 } catch (SQLException ex) {
                     confirmacao.setText("Erro de conexao!");
                     confirmacao.setForeground(new Color(245, 13, 13, 255));
-                    //throw new RuntimeException(ex);
                 } catch (ClassNotFoundException e2) {
-                	confirmacao.setText(e2.getMessage());
+                	confirmacao.setText("Erro de conexão!");
 				}
 			}
 		});

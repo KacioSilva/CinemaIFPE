@@ -70,7 +70,7 @@ public class Lanche {
     }
     
     
-    public void pegarLanche(int idlancheh) throws Exception {
+    public void pegarLanche(int idlancheh) throws SQLException, ClassNotFoundException {
     	Conexao conexao = new Conexao();
     	try {
     		conexao.conectar();
@@ -92,12 +92,35 @@ public class Lanche {
 			preco = arrayLanche.get(3);
 			quantidade = arrayLanche.get(4);
 			caminhoFoto = arrayLanche.get(5);
-			System.out.println(arrayLanche);
 			
 			arrayLanche.clear();
 	
-		} catch (Exception e) {
-			throw new Exception("Erro de conexão!");
-		}	
+		}finally {
+        	if(conexao != null) {
+        	conexao.getConexao().close();
+        	}
+        }
+    	
+    }
+    public String buscarFotoLanche(int idLanche) throws SQLException, ClassNotFoundException{
+
+        Conexao conexao = new Conexao();
+        try {
+            conexao.conectar();
+            String caminhoFoto = "";
+            String comando = "select caminhofoto from lanche where idLanche = ?";
+            PreparedStatement pstmt = conexao.getConexao().prepareStatement(comando);
+            pstmt.setInt(1,idLanche);
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+                caminhoFoto = rs.getString(1);
+            }
+          
+        }finally {
+        	if(conexao != null) {
+        	conexao.getConexao().close();
+        	}
+        }return caminhoFoto;
     }
 }

@@ -23,26 +23,6 @@ public static void main(String[] args) throws ClassNotFoundException {
 	
 	System.out.println(cp.getPreco());
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	try {
 		
 		sessao.pegarSessao(1);
@@ -59,12 +39,12 @@ public static void main(String[] args) throws ClassNotFoundException {
 		LocalTime t = LocalTime.of(horas, minutos, segundos);
 		Duration between = Duration.between(tNow, t);
 		if(between.isNegative()) {
-			System.out.println("negativo");
+		//	System.out.println("negativo");
 		}
 		else {
-			System.out.println("positivo");
+			//System.out.println("positivo");
 		}
-		System.out.println(between);
+		//System.out.println(between);
 			
 	} catch (SQLException e) {
 	    // TODO Auto-generated catch block
