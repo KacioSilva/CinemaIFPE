@@ -62,7 +62,7 @@ public class TelaDeFilmes extends JFrame {
 		contentPane.setLayout(null);
 		
 		//-------CRIANDO OS LABELS
-		JLabel lblConfirmacao = new JLabel("New label");
+		JLabel lblConfirmacao = new JLabel("");
 		lblConfirmacao.setBounds(664, 86, 93, 14);
 		contentPane.add(lblConfirmacao);
 		

@@ -34,7 +34,18 @@ public class Poltronas extends JFrame {
 	private int pegandoCPsoma;
 	private ControlePoltrona controle = new ControlePoltrona();
 	private int idFilme = 5;
+	private String D1;
 	
+
+
+	public String getD1() {
+		return D1;
+	}
+
+
+	public void setD1(String d1) {
+		D1 = d1;
+	}
 
 
 	public static void main(String[] args) {
@@ -111,6 +122,35 @@ public class Poltronas extends JFrame {
             e1.printStackTrace();
         }
 		
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5D1().equals("0")){
+            	D1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D1().equals("1")){
+            	D1.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS5D1().equals("0")){
+            	D1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D1().equals("1")){
+            	D1.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS5D1().equals("0")){
+            	D1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D1().equals("1")){
+            	D1.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS5D1().equals("0")){
+            	D1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D1().equals("1")){
+            	D1.setEnabled(false);
+            }
+        }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5D1().equals("0")){
             	D1.setEnabled(true);
@@ -140,13 +180,15 @@ public class Poltronas extends JFrame {
 	                    cp.soma(20);	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
-	                    	                    
+	                    setD1("1");
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
 	                	D1.setBackground(new Color(240,240,240,240));
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    setD1("0");
 	                    cont = 0;
+	                    
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -170,6 +212,35 @@ public class Poltronas extends JFrame {
             controle.pegarPoltronasD2("D2");
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
+        }
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5D2().equals("0")){
+                D2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D2().equals("1")){
+                D2.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS6D2().equals("0")){
+                D2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6D2().equals("1")){
+                D2.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS6D2().equals("0")){
+                D2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6D2().equals("1")){
+                D2.setEnabled(false);
+            }
+        }
+        if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS6D2().equals("0")){
+                D2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS6D2().equals("1")){
+                D2.setEnabled(false);
+            }
         }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5D2().equals("0")){
@@ -231,6 +302,36 @@ public class Poltronas extends JFrame {
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
         }
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5D3().equals("0")){
+                D3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D3().equals("1")){
+                D3.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS5D3().equals("0")){
+                D3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D3().equals("1")){
+                D3.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS5D3().equals("0")){
+                D3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D3().equals("1")){
+                D3.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS5D3().equals("0")){
+                D3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D3().equals("1")){
+                D3.setEnabled(false);
+            }
+        }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5D3().equals("0")){
                 D3.setEnabled(true);
@@ -291,6 +392,36 @@ public class Poltronas extends JFrame {
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
         }
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5D4().equals("0")){
+            	D4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D4().equals("1")){
+            	D4.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS5D4().equals("0")){
+            	D4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D4().equals("1")){
+            	D4.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS5D4().equals("0")){
+            	D4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D4().equals("1")){
+            	D4.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS5D4().equals("0")){
+            	D4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5D4().equals("1")){
+            	D4.setEnabled(false);
+            }
+        }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5D4().equals("0")){
             	D4.setEnabled(true);
@@ -349,6 +480,36 @@ public class Poltronas extends JFrame {
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
         }
+		
+		
+		 if(TelaInicial.getIdFilme() == 1){
+	            if(controle.getPoltronaLivreS5D5().equals("0")){
+	            	D5.setEnabled(true);
+	            }else if(controle.getPoltronaLivreS5D5().equals("1")){
+	            	D5.setEnabled(false);
+	            }
+	        }
+		 if(TelaInicial.getIdFilme() == 2){
+	            if(controle.getPoltronaLivreS5D5().equals("0")){
+	            	D5.setEnabled(true);
+	            }else if(controle.getPoltronaLivreS5D5().equals("1")){
+	            	D5.setEnabled(false);
+	            }
+	        }
+		 if(TelaInicial.getIdFilme() == 3){
+	            if(controle.getPoltronaLivreS5D5().equals("0")){
+	            	D5.setEnabled(true);
+	            }else if(controle.getPoltronaLivreS5D5().equals("1")){
+	            	D5.setEnabled(false);
+	            }
+	        }
+		 if(TelaInicial.getIdFilme() == 4){
+	            if(controle.getPoltronaLivreS5D5().equals("0")){
+	            	D5.setEnabled(true);
+	            }else if(controle.getPoltronaLivreS5D5().equals("1")){
+	            	D5.setEnabled(false);
+	            }
+	        }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5D5().equals("0")){
             	D5.setEnabled(true);
@@ -406,6 +567,35 @@ public class Poltronas extends JFrame {
             controle.pegarPoltronasC1("C1");
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
+        }
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5C1().equals("0")){
+                C1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C1().equals("1")){
+                C1.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS5C1().equals("0")){
+                C1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C1().equals("1")){
+                C1.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS5C1().equals("0")){
+                C1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C1().equals("1")){
+                C1.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS5C1().equals("0")){
+                C1.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C1().equals("1")){
+                C1.setEnabled(false);
+            }
         }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5C1().equals("0")){
@@ -465,6 +655,36 @@ public class Poltronas extends JFrame {
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
         }
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5C2().equals("0")){
+                C2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C2().equals("1")){
+                C2.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS5C2().equals("0")){
+                C2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C2().equals("1")){
+                C2.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS5C2().equals("0")){
+                C2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C2().equals("1")){
+                C2.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS5C2().equals("0")){
+                C2.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C2().equals("1")){
+                C2.setEnabled(false);
+            }
+        }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5C2().equals("0")){
                 C2.setEnabled(true);
@@ -521,6 +741,36 @@ public class Poltronas extends JFrame {
             controle.pegarPoltronasC3("C3");
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
+        }
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5C3().equals("0")){
+                C3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C3().equals("1")){
+                C3.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS5C3().equals("0")){
+                C3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C3().equals("1")){
+                C3.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS5C3().equals("0")){
+                C3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C3().equals("1")){
+                C3.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS5C3().equals("0")){
+                C3.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C3().equals("1")){
+                C3.setEnabled(false);
+            }
         }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5C3().equals("0")){
@@ -581,6 +831,36 @@ public class Poltronas extends JFrame {
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
         }
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5C4().equals("0")){
+                C4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C4().equals("1")){
+                C4.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS5C4().equals("0")){
+                C4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C4().equals("1")){
+                C4.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS5C4().equals("0")){
+                C4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C4().equals("1")){
+                C4.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS5C4().equals("0")){
+                C4.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C4().equals("1")){
+                C4.setEnabled(false);
+            }
+        }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5C4().equals("0")){
                 C4.setEnabled(true);
@@ -639,6 +919,36 @@ public class Poltronas extends JFrame {
             controle.pegarPoltronasC5("C5");
         } catch (ClassNotFoundException | SQLException e1) {
             e1.printStackTrace();
+        }
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+            if(controle.getPoltronaLivreS5C5().equals("0")){
+                C5.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C5().equals("1")){
+                C5.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 2){
+            if(controle.getPoltronaLivreS5C5().equals("0")){
+                C5.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C5().equals("1")){
+                C5.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 3){
+            if(controle.getPoltronaLivreS5C5().equals("0")){
+                C5.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C5().equals("1")){
+                C5.setEnabled(false);
+            }
+        }
+		if(TelaInicial.getIdFilme() == 4){
+            if(controle.getPoltronaLivreS5C5().equals("0")){
+                C5.setEnabled(true);
+            }else if(controle.getPoltronaLivreS5C5().equals("1")){
+                C5.setEnabled(false);
+            }
         }
         if(TelaInicial.getIdFilme() == 5){
             if(controle.getPoltronaLivreS5C5().equals("0")){
@@ -699,6 +1009,37 @@ public class Poltronas extends JFrame {
 		} catch (ClassNotFoundException | SQLException e1) {
 			e1.printStackTrace();
 		}
+		
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5B5().equals("0")){
+				B5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B5().equals("1")){
+				B5.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5B5().equals("0")){
+				B5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B5().equals("1")){
+				B5.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5B5().equals("0")){
+				B5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B5().equals("1")){
+				B5.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5B5().equals("0")){
+				B5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B5().equals("1")){
+				B5.setEnabled(false);
+			}
+		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5B5().equals("0")){
 				B5.setEnabled(true);
@@ -756,6 +1097,36 @@ public class Poltronas extends JFrame {
 			controle.pegarPoltronasB4("B4");
 		} catch (ClassNotFoundException | SQLException e1) {
 			e1.printStackTrace();
+		}
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5B4().equals("0")){
+				B4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B4().equals("1")){
+				B4.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5B4().equals("0")){
+				B4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B4().equals("1")){
+				B4.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5B4().equals("0")){
+				B4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B4().equals("1")){
+				B4.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5B4().equals("0")){
+				B4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B4().equals("1")){
+				B4.setEnabled(false);
+			}
 		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5B4().equals("0")){
@@ -816,6 +1187,37 @@ public class Poltronas extends JFrame {
 		} catch (ClassNotFoundException | SQLException e1) {
 			e1.printStackTrace();
 		}
+		
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5B3().equals("0")){
+				B3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B3().equals("1")){
+				B3.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5B3().equals("0")){
+				B3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B3().equals("1")){
+				B3.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5B3().equals("0")){
+				B3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B3().equals("1")){
+				B3.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5B3().equals("0")){
+				B3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B3().equals("1")){
+				B3.setEnabled(false);
+			}
+		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5B3().equals("0")){
 				B3.setEnabled(true);
@@ -872,6 +1274,36 @@ public class Poltronas extends JFrame {
 			controle.pegarPoltronasB2("B2");
 		} catch (ClassNotFoundException | SQLException e1) {
 			e1.printStackTrace();
+		}
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5B2().equals("0")){
+				B2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B2().equals("1")){
+				B2.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5B2().equals("0")){
+				B2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B2().equals("1")){
+				B2.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5B2().equals("0")){
+				B2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B2().equals("1")){
+				B2.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5B2().equals("0")){
+				B2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B2().equals("1")){
+				B2.setEnabled(false);
+			}
 		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5B2().equals("0")){
@@ -933,6 +1365,36 @@ public class Poltronas extends JFrame {
 		} catch (ClassNotFoundException | SQLException e1) {
 			e1.printStackTrace();
 		}
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5B1().equals("0")){
+				B1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B1().equals("1")){
+				B1.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5B1().equals("0")){
+				B1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B1().equals("1")){
+				B1.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5B1().equals("0")){
+				B1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B1().equals("1")){
+				B1.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5B1().equals("0")){
+				B1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5B1().equals("1")){
+				B1.setEnabled(false);
+			}
+		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5B1().equals("0")){
 				B1.setEnabled(true);
@@ -985,11 +1447,42 @@ public class Poltronas extends JFrame {
 		panel.add(B1);
 		
 		JButton A1 = new JButton(new ImageIcon(Poltronas.class.getResource("/Midia/poltrona (1).png")));
-		
+		ControlePoltrona controleA1 = new ControlePoltrona();
 		try {
 			controle.pegarPoltronas("A1");
 		} catch (ClassNotFoundException | SQLException e1) {
 			e1.printStackTrace();
+		}
+		
+		
+
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5().equals("0")){
+				A1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5().equals("1")){
+				A1.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5().equals("0")){
+				A1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5().equals("1")){
+				A1.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5().equals("0")){
+				A1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5().equals("1")){
+				A1.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5().equals("0")){
+				A1.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5().equals("1")){
+				A1.setEnabled(false);
+			}
 		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5().equals("0")){
@@ -1048,6 +1541,36 @@ public class Poltronas extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5A2().equals("0")){
+				A2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A2().equals("1")){
+				A2.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5A2().equals("0")){
+				A2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A2().equals("1")){
+				A2.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5A2().equals("0")){
+				A2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A2().equals("1")){
+				A2.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5A2().equals("0")){
+				A2.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A2().equals("1")){
+				A2.setEnabled(false);
+			}
+		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5A2().equals("0")){
 				A2.setEnabled(true);
@@ -1105,6 +1628,35 @@ public class Poltronas extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5A3().equals("0")){
+				A3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A3().equals("1")){
+				A3.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5A3().equals("0")){
+				A3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A3().equals("1")){
+				A3.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5A3().equals("0")){
+				A3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A3().equals("1")){
+				A3.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5A3().equals("0")){
+				A3.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A3().equals("1")){
+				A3.setEnabled(false);
+			}
+		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5A3().equals("0")){
 				A3.setEnabled(true);
@@ -1164,6 +1716,35 @@ public class Poltronas extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5A4().equals("0")){
+				A4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A4().equals("1")){
+				A4.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5A4().equals("0")){
+				A4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A4().equals("1")){
+				A4.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5A4().equals("0")){
+				A4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A4().equals("1")){
+				A4.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5A4().equals("0")){
+				A4.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A4().equals("1")){
+				A4.setEnabled(false);
+			}
+		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5A4().equals("0")){
 				A4.setEnabled(true);
@@ -1224,6 +1805,35 @@ public class Poltronas extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		
+		if(TelaInicial.getIdFilme() == 1){
+			if(controle.getPoltronaLivreS5A5().equals("0")){
+				A5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A5().equals("1")){
+				A5.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 2){
+			if(controle.getPoltronaLivreS5A5().equals("0")){
+				A5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A5().equals("1")){
+				A5.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 3){
+			if(controle.getPoltronaLivreS5A5().equals("0")){
+				A5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A5().equals("1")){
+				A5.setEnabled(false);
+			}
+		}
+		if(TelaInicial.getIdFilme() == 4){
+			if(controle.getPoltronaLivreS5A5().equals("0")){
+				A5.setEnabled(true);
+			}else if(controle.getPoltronaLivreS5A5().equals("1")){
+				A5.setEnabled(false);
+			}
+		}
 		if(TelaInicial.getIdFilme() == 5){
 			if(controle.getPoltronaLivreS5A5().equals("0")){
 				A5.setEnabled(true);
