@@ -28,13 +28,30 @@ import Core.Lanche;
 
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.SpinnerNumberModel;
 import java.awt.event.KeyAdapter;
 
+import javax.swing.border.Border;
+import java.awt.SystemColor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.border.LineBorder;
+
 public class TelaLanche extends JFrame {
 
 	private JPanel contentPane;
+	private int qtdLanche1 = 0;
+	private int qtdLanche2 = 0;
+	private int qtdLanche3 = 0;
+	private int qtdLanche4 = 0;
+	private int qtdLanche5 = 0;
+	
+	
+	
+	
+		
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -50,6 +67,8 @@ public class TelaLanche extends JFrame {
 	}
 
 	public TelaLanche() {
+		
+		
 		
 		Lanche lanche = new Lanche();
 		
@@ -71,9 +90,10 @@ public class TelaLanche extends JFrame {
 		contentPane.add(lblConfirmacao);
 		
 		JLabel cineifPaulista = new JLabel("CineIF Paulista");
+		cineifPaulista.setHorizontalAlignment(SwingConstants.CENTER);
 		cineifPaulista.setForeground(new Color(63, 164, 13, 236));
 		cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
-		cineifPaulista.setBounds(249, 10, 445, 132);
+		cineifPaulista.setBounds(0, 10, 986, 132);
 		contentPane.add(cineifPaulista);
 		
 		JButton help = new JButton("Help");
@@ -102,20 +122,20 @@ public class TelaLanche extends JFrame {
 			}
 		});
 		botaoContinuar.setFont(new Font("Arial", Font.BOLD, 14));
-		botaoContinuar.setBounds(343, 639, 149, 39);
+		botaoContinuar.setBounds(352, 588, 149, 39);
 		contentPane.add(botaoContinuar);
 		
 		JLabel fotoLanche1 = new JLabel("SELECIONE UMA FOTO");
 		fotoLanche1.setHorizontalAlignment(SwingConstants.CENTER);
 		fotoLanche1.setBackground(new Color(128, 255, 255));
-		fotoLanche1.setBounds(21, 184, 159, 167);	
+		fotoLanche1.setBounds(54, 184, 159, 167);	
 		String buscarfoto1;
 		
 			try {
 				buscarfoto1 = new Lanche().buscarFotoLanche(1);
 			    String nomedoarquivo1 = buscarfoto1;
 			    fotoLanche1.setIcon(new ImageIcon(nomedoarquivo1));
-			  	fotoLanche1.setText(buscarfoto1);
+			  	fotoLanche1.setText("");
 			  	contentPane.add(fotoLanche1);
 			} catch (ClassNotFoundException e4) {
 				lblConfirmacao.setText("Erro de conexão");
@@ -129,13 +149,13 @@ public class TelaLanche extends JFrame {
 		JLabel fotoLanche2 = new JLabel("SELECIONE UMA FOTO");
 		fotoLanche2.setHorizontalAlignment(SwingConstants.CENTER);
 		fotoLanche2.setBackground(new Color(128, 255, 255));
-		fotoLanche2.setBounds(383, 184, 159, 167);		
+		fotoLanche2.setBounds(426, 184, 159, 167);		
 		String buscarfoto2;
 		try {
 			buscarfoto2 = new Lanche().buscarFotoLanche(2);
 			String nomedoarquivo2 = buscarfoto2;
 		  	fotoLanche2.setIcon(new ImageIcon(nomedoarquivo2));
-		  	fotoLanche2.setText(buscarfoto2);				
+		  	fotoLanche2.setText("");				
 			contentPane.add(fotoLanche2);
 		} catch (ClassNotFoundException e2) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -153,7 +173,7 @@ public class TelaLanche extends JFrame {
 			buscarfoto3 = new Lanche().buscarFotoLanche(3);
 			String nomedoarquivo3 = buscarfoto3;
 		  	fotoLanche3.setIcon(new ImageIcon(nomedoarquivo3));
-		  	fotoLanche3.setText(buscarfoto3);		
+		  	fotoLanche3.setText("");		
 			contentPane.add(fotoLanche3);
 		} catch (ClassNotFoundException e2) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -165,13 +185,13 @@ public class TelaLanche extends JFrame {
 		JLabel fotoLanche4 = new JLabel("SELECIONE UMA FOTO");
 		fotoLanche4.setHorizontalAlignment(SwingConstants.CENTER);
 		fotoLanche4.setBackground(new Color(128, 255, 255));
-		fotoLanche4.setBounds(21, 447, 159, 167);
+		fotoLanche4.setBounds(54, 447, 159, 167);
 		String buscarfoto4;
 		try {
 			buscarfoto4 = new Lanche().buscarFotoLanche(4);
 			 String nomedoarquivo4 = buscarfoto4;
 			 fotoLanche4.setIcon(new ImageIcon(nomedoarquivo4));
-			 fotoLanche4.setText(buscarfoto4);		
+			 fotoLanche4.setText("");		
 			 contentPane.add(fotoLanche4);
 		} catch (ClassNotFoundException e2) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -189,52 +209,13 @@ public class TelaLanche extends JFrame {
 			buscarfoto5 = new Lanche().buscarFotoLanche(5);
 			String nomedoarquivo5 = buscarfoto5;
 			fotoLanche5.setIcon(new ImageIcon(nomedoarquivo5));
-			fotoLanche5.setText(buscarfoto5);				
+			fotoLanche5.setText("");				
 			contentPane.add(fotoLanche5);
 		} catch (ClassNotFoundException e2) {
 			lblConfirmacao.setText("Erro de Conexão");
 		} catch (SQLException e2) {
 			lblConfirmacao.setText("Erro de Conexão");
-		}	      
-	   
-		
-		JSpinner spinner = new JSpinner();
-		spinner.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-					char c = e.getKeyChar();
-					if(!Character.isDigit(c)) {
-						e.consume();
-					}
-				}
-			
-		});
-		spinner.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spinner.setBounds(21, 399, 159, 20);
-		contentPane.add(spinner);
-		
-		
-		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spinner_1.setBounds(383, 399, 159, 20);
-		contentPane.add(spinner_1);
-		
-		JSpinner spinner_2 = new JSpinner();
-		spinner_2.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spinner_2.setBounds(770, 399, 159, 20);
-		contentPane.add(spinner_2);
-		
-		JSpinner spinner_3 = new JSpinner();
-		spinner_3.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spinner_3.setBounds(23, 653, 159, 20);
-		contentPane.add(spinner_3);
-		
-		JSpinner spinner_4 = new JSpinner();
-		spinner_4.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spinner_4.setBounds(770, 653, 159, 20);
-		contentPane.add(spinner_4);
+		}
 		
 		//////////////////////////////////////////////////////////////
 		JLabel lblLanche1 = new JLabel("nome lanche");
@@ -247,7 +228,7 @@ public class TelaLanche extends JFrame {
 				lblConfirmacao.setText("Erro de Conexão");
 			} 		
 		lblLanche1.setText(lanche.getNomeLanche());		
-		lblLanche1.setBounds(23, 361, 157, 28);
+		lblLanche1.setBounds(56, 361, 157, 28);
 		contentPane.add(lblLanche1);
 		//////////////////////////////////////////////////////////
 		
@@ -259,7 +240,7 @@ public class TelaLanche extends JFrame {
 		try {
 			lanche.pegarLanche(2);
 			lblLanche2.setText(lanche.getNomeLanche());
-			lblLanche2.setBounds(385, 361, 159, 28);
+			lblLanche2.setBounds(426, 361, 159, 28);
 			contentPane.add(lblLanche2);
 		} catch (Exception e1) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -290,8 +271,8 @@ public class TelaLanche extends JFrame {
 		
 		try {
 			lanche.pegarLanche(4);
-			lblLanche4.setText(lanche.getNomeLanche());
-			lblLanche4.setBounds(21, 615, 157, 28);
+			lblLanche4.setText("");
+			lblLanche4.setBounds(54, 615, 157, 28);
 			contentPane.add(lblLanche4);
 		} catch (Exception e1) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -318,34 +299,302 @@ public class TelaLanche extends JFrame {
 		JLabel lblTotalIngresso = new JLabel();
 		lblTotalIngresso.setText("TOTAL INGRESSO:" + "    " + "R$" + cp.getPreco());
 		lblTotalIngresso.setFont(new Font("Arial", Font.BOLD, 12));
-		lblTotalIngresso.setBounds(343, 512, 308, 25);
+		lblTotalIngresso.setBounds(352, 461, 308, 25);
 		contentPane.add(lblTotalIngresso);
 		
 		JLabel lblTotalLanches = new JLabel("TOTAL LANCHES: ");
 		lblTotalLanches.setFont(new Font("Arial", Font.BOLD, 12));
-		lblTotalLanches.setBounds(343, 547, 199, 25);
+		lblTotalLanches.setBounds(352, 496, 199, 25);
 		contentPane.add(lblTotalLanches);
 		
 		JLabel lblTotalGeral = new JLabel("TOTAL GERAL:");
 		lblTotalGeral.setFont(new Font("Arial", Font.BOLD, 12));
-		lblTotalGeral.setBounds(343, 582, 199, 25);
+		lblTotalGeral.setBounds(352, 531, 199, 25);
 		contentPane.add(lblTotalGeral);
 		
 		JButton botaoPular = new JButton("PULAR");
 		botaoPular.setFont(new Font("Arial", Font.BOLD, 14));
-		botaoPular.setBounds(502, 639, 149, 39);
+		botaoPular.setBounds(511, 588, 149, 39);
 		contentPane.add(botaoPular);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(371, 109, 149, 47);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JLabel lblQuantidade2 = new JLabel("0");
+		lblQuantidade2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuantidade2.setFont(new Font("Arial", Font.BOLD, 16));
+		lblQuantidade2.setBounds(451, 390, 87, 35);
+		contentPane.add(lblQuantidade2);
 		
-		JLabel lblNewLabel = new JLabel("Lanches");
-		lblNewLabel.setBounds(21, 0, 116, 44);
-		panel.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		JLabel lblQuantidade3 = new JLabel("0");
+		lblQuantidade3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuantidade3.setFont(new Font("Arial", Font.BOLD, 16));
+		lblQuantidade3.setBounds(804, 390, 81, 35);
+		contentPane.add(lblQuantidade3);
+		
+		JLabel lblQuantidade5 = new JLabel("0");
+		lblQuantidade5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuantidade5.setFont(new Font("Arial", Font.BOLD, 16));
+		lblQuantidade5.setBounds(804, 639, 81, 35);
+		contentPane.add(lblQuantidade5);
+		
+		JLabel lblQuantidade4 = new JLabel("0");
+		lblQuantidade4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuantidade4.setFont(new Font("Arial", Font.BOLD, 16));
+		lblQuantidade4.setBounds(88, 639, 81, 35);
+		contentPane.add(lblQuantidade4);
+		
+		
+		
+		
+		JLabel lblQuantidade1 = new JLabel();
+		lblQuantidade1.setText("0");
+		lblQuantidade1.setFont(new Font("Arial", Font.BOLD, 16));
+		lblQuantidade1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuantidade1.setBounds(88, 390, 81, 35);
+		//lblQuantidade1.setText(quantidade);
+		contentPane.add(lblQuantidade1);
+		
+		JButton adicionarLanche1 = new JButton("");
+		adicionarLanche1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});	
+		adicionarLanche1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(qtdLanche1 <= 9 ) {
+				qtdLanche1 +=1;
+				
+				}else if (qtdLanche1 == 10) {
+					qtdLanche1 = 0;
+				}
+				
+				lblQuantidade1.setText(Integer.toString(qtdLanche1));
+				
+			}
+		});
+		adicionarLanche1.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche1.setBorderPainted(false);
+		adicionarLanche1.setFocusPainted(false);		
+		adicionarLanche1.setBounds(158, 390, 55, 40);
+		adicionarLanche1.setBackground(new Color(240, 240, 240));
+		contentPane.add(adicionarLanche1);
+		
+		
+		
+		JButton subtrairLanche1 = new JButton("");
+		subtrairLanche1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(qtdLanche1 > 0) {
+					qtdLanche1 -=1;
+				}
+				
+				
+				lblQuantidade1.setText(Integer.toString(qtdLanche1));
+			}
+		});
+		subtrairLanche1.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche1.setBorderPainted(false);
+		subtrairLanche1.setFocusPainted(false);
+		subtrairLanche1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		subtrairLanche1.setBounds(43, 390, 55, 40);
+		subtrairLanche1.setBackground(new Color(240, 240, 240,240));
+		contentPane.add(subtrairLanche1);
+		
+		JButton adicionarLanche2 = new JButton("");
+		adicionarLanche2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(qtdLanche2 <= 9 ) {
+					qtdLanche2 +=1;
+					
+					}else if (qtdLanche2 == 10) {
+						qtdLanche2 = 0;
+					}
+					lblQuantidade2.setText(Integer.toString(qtdLanche2));
+					
+				
+			
+			}
+		});
+		
+		adicionarLanche2.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche2.setFocusPainted(false);
+		adicionarLanche2.setBorderPainted(false);
+		adicionarLanche2.setBackground(SystemColor.menu);
+		adicionarLanche2.setBounds(528, 390, 55, 40);
+		contentPane.add(adicionarLanche2);
+		
+		JButton subtrairLanche2 = new JButton("");
+		subtrairLanche2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(qtdLanche2 > 0) {
+					qtdLanche2 -=1;
+				}
+				lblQuantidade2.setText(Integer.toString(qtdLanche2));
+			}
+		});
+		subtrairLanche2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		subtrairLanche2.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche2.setFocusPainted(false);
+		subtrairLanche2.setBorderPainted(false);
+		subtrairLanche2.setBackground(new Color(240, 240, 240, 240));
+		subtrairLanche2.setBounds(412, 390, 55, 40);
+		contentPane.add(subtrairLanche2);
+		
+		JButton adicionarLanche3 = new JButton("");
+		adicionarLanche3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(qtdLanche3 <= 9 ) {
+					qtdLanche3 +=1;
+					
+					}else if (qtdLanche3 == 10) {
+						qtdLanche3 = 0;
+					}
+				lblQuantidade3.setText(Integer.toString(qtdLanche3));
+			}
+		});
+		adicionarLanche3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		adicionarLanche3.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche3.setFocusPainted(false);
+		adicionarLanche3.setBorderPainted(false);
+		adicionarLanche3.setBackground(SystemColor.menu);
+		adicionarLanche3.setBounds(874, 390, 55, 40);
+		contentPane.add(adicionarLanche3);
+		
+		JButton adicionarLanche5 = new JButton("");
+		adicionarLanche5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(qtdLanche5 <= 9 ) {
+					qtdLanche5 +=1;
+					
+					}else if (qtdLanche5 == 10) {
+						qtdLanche5 = 0;
+					}
+				lblQuantidade5.setText(Integer.toString(qtdLanche5));
+			}
+		});
+		adicionarLanche5.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche5.setFocusPainted(false);
+		adicionarLanche5.setBorderPainted(false);
+		adicionarLanche5.setBackground(SystemColor.menu);
+		adicionarLanche5.setBounds(874, 638, 55, 40);
+		contentPane.add(adicionarLanche5);
+		
+		JButton adicionarLanche4 = new JButton("");
+		adicionarLanche4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+				if(qtdLanche4 <= 9 ) {
+					qtdLanche4 +=1;
+					
+					}else if (qtdLanche4 == 10) {
+						qtdLanche4 = 0;
+					}
+				lblQuantidade4.setText(Integer.toString(qtdLanche4));
+			}
+		});
+		adicionarLanche4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		adicionarLanche4.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche4.setFocusPainted(false);
+		adicionarLanche4.setBorderPainted(false);
+		adicionarLanche4.setBackground(SystemColor.menu);
+		adicionarLanche4.setBounds(158, 638, 55, 40);
+		contentPane.add(adicionarLanche4);
+		
+		JButton subtrairLanche4 = new JButton("");
+		subtrairLanche4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+
+				if(qtdLanche4 > 0) {
+					qtdLanche4 -=1;
+				}
+				lblQuantidade4.setText(Integer.toString(qtdLanche4));
+			}
+		});
+		subtrairLanche4.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche4.setFocusPainted(false);
+		subtrairLanche4.setBorderPainted(false);
+		subtrairLanche4.setBackground(new Color(240, 240, 240, 240));
+		subtrairLanche4.setBounds(43, 639, 55, 40);
+		contentPane.add(subtrairLanche4);
+		
+		JButton subtrairLanche3 = new JButton("");
+		subtrairLanche3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+
+				if(qtdLanche3 > 0) {
+					qtdLanche3 -=1;
+				}
+				lblQuantidade3.setText(Integer.toString(qtdLanche3));
+			}
+		});
+		subtrairLanche3.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche3.setFocusPainted(false);
+		subtrairLanche3.setBorderPainted(false);
+		subtrairLanche3.setBackground(new Color(240, 240, 240, 240));
+		subtrairLanche3.setBounds(759, 390, 55, 40);
+		contentPane.add(subtrairLanche3);
+		
+		JButton subtrairLanche5 = new JButton("");
+		subtrairLanche5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+
+				if(qtdLanche5 > 0) {
+					qtdLanche5 -=1;
+				}
+				lblQuantidade5.setText(Integer.toString(qtdLanche5));
+			}
+		});
+		subtrairLanche5.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche5.setFocusPainted(false);
+		subtrairLanche5.setBorderPainted(false);
+		subtrairLanche5.setBackground(new Color(240, 240, 240, 240));
+		subtrairLanche5.setBounds(759, 638, 55, 40);
+		contentPane.add(subtrairLanche5);
+		
+		JLabel tituloLanches = new JLabel("LANCHES");
+		tituloLanches.setForeground(new Color(63, 164, 13));
+		tituloLanches.setHorizontalAlignment(SwingConstants.CENTER);
+		tituloLanches.setFont(new Font("Arial", Font.BOLD, 25));
+		tituloLanches.setBounds(0, 129, 998, 45);
+		contentPane.add(tituloLanches);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_1.setBounds(337, 454, 337, 189);
+		contentPane.add(panel_1);
+		
+		
 		
 		
 	}
