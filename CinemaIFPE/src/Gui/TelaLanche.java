@@ -84,9 +84,11 @@ public class TelaLanche extends JFrame {
 		JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Poltronas poltrona = new Poltronas();
+				ControlePoltrona cp = new ControlePoltrona();
+				cp.setPreco(0);
+				SelecaoPoltronas poltrona = new SelecaoPoltronas();
 				poltrona.setVisible(true);
+				
 				dispose();
 			}
 		});
@@ -201,7 +203,6 @@ public class TelaLanche extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				
-				
 					char c = e.getKeyChar();
 					if(!Character.isDigit(c)) {
 						e.consume();
@@ -313,20 +314,22 @@ public class TelaLanche extends JFrame {
 		} 
 		
 		/////////////////////////////////////////////////////////////////////////
-		JLabel lblTotIngresso = new JLabel("TOTAL INGRESSO:");
-		lblTotIngresso.setFont(new Font("Arial", Font.BOLD, 12));
-		lblTotIngresso.setBounds(343, 512, 308, 25);
-		contentPane.add(lblTotIngresso);
+		ControlePoltrona cp = new ControlePoltrona();
+		JLabel lblTotalIngresso = new JLabel();
+		lblTotalIngresso.setText("TOTAL INGRESSO:" + "    " + "R$" + cp.getPreco());
+		lblTotalIngresso.setFont(new Font("Arial", Font.BOLD, 12));
+		lblTotalIngresso.setBounds(343, 512, 308, 25);
+		contentPane.add(lblTotalIngresso);
 		
-		JLabel lblTotLanches = new JLabel("TOTAL LANCHES:");
-		lblTotLanches.setFont(new Font("Arial", Font.BOLD, 12));
-		lblTotLanches.setBounds(343, 547, 199, 25);
-		contentPane.add(lblTotLanches);
+		JLabel lblTotalLanches = new JLabel("TOTAL LANCHES: ");
+		lblTotalLanches.setFont(new Font("Arial", Font.BOLD, 12));
+		lblTotalLanches.setBounds(343, 547, 199, 25);
+		contentPane.add(lblTotalLanches);
 		
-		JLabel lblTotGeral = new JLabel("TOTAL GERAL:");
-		lblTotGeral.setFont(new Font("Arial", Font.BOLD, 12));
-		lblTotGeral.setBounds(343, 582, 199, 25);
-		contentPane.add(lblTotGeral);
+		JLabel lblTotalGeral = new JLabel("TOTAL GERAL:");
+		lblTotalGeral.setFont(new Font("Arial", Font.BOLD, 12));
+		lblTotalGeral.setBounds(343, 582, 199, 25);
+		contentPane.add(lblTotalGeral);
 		
 		JButton botaoPular = new JButton("PULAR");
 		botaoPular.setFont(new Font("Arial", Font.BOLD, 14));

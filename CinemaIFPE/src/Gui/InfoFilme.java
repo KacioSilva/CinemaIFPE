@@ -257,7 +257,7 @@ public class InfoFilme extends JFrame {
 		
 	  	btnNewButton.addActionListener(new ActionListener() {
 	  		public void actionPerformed(ActionEvent e) {
-	  			Poltronas poltronas = new Poltronas();
+	  			SelecaoPoltronas poltronas = new SelecaoPoltronas();
 	  			poltronas.setVisible(true);
 	  			dispose();
 	  			
@@ -313,8 +313,8 @@ public class InfoFilme extends JFrame {
 		JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaDeFilmes voltar = null;
-				voltar = new TelaDeFilmes();
+				TelaTodosFilmes voltar = null;
+				voltar = new TelaTodosFilmes();
 		        voltar.setVisible(true);
 		        dispose();
 			}

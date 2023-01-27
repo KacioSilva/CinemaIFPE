@@ -1,6 +1,6 @@
 package Core;
 
-public class Cliente extends Pessoa{
+public class Cliente{
     private String cpf;
 
     public Cliente(String cpf){
@@ -12,12 +12,10 @@ public class Cliente extends Pessoa{
 
     }
 
-    @Override
     public String getCpf() {
         return this.cpf;
     }
 
-    @Override
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }

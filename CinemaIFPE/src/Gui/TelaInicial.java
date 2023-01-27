@@ -157,7 +157,7 @@ public class TelaInicial extends JFrame{
 		JButton verTodosFilmes = new JButton("Ver Todos os Filmes");
 		verTodosFilmes.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
-	      		TelaDeFilmes telalogin = new TelaDeFilmes();
+	      		TelaTodosFilmes telalogin = new TelaTodosFilmes();
 		        telalogin.setVisible(true);
 		        dispose();
 	      	}

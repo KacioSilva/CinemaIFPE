@@ -29,7 +29,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.EtchedBorder;
 
-public class TelaDeFilmes extends JFrame {
+public class TelaTodosFilmes extends JFrame {
 
 	private JPanel contentPane;
 
@@ -38,7 +38,7 @@ public class TelaDeFilmes extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaDeFilmes frame = new TelaDeFilmes();
+					TelaTodosFilmes frame = new TelaTodosFilmes();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,10 +47,10 @@ public class TelaDeFilmes extends JFrame {
 		});
 	}
 
-	public TelaDeFilmes() {
+	public TelaTodosFilmes() {
 		
 		setTitle("Escolha de filmes");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaDeFilmes.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaTodosFilmes.class.getResource("/Midia/ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 720);
