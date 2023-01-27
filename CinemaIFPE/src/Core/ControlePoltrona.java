@@ -6,9 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Database.Conexao;
+import Database.SelectPoltronas;
 
 public class ControlePoltrona {
-   private String nome;
+   private static String nome;
    private int preco;
    private static ArrayList<String> arrayA1 = new ArrayList<String>();
    private static ArrayList<String> arrayA2 = new ArrayList<String>();
@@ -33,20 +34,20 @@ public class ControlePoltrona {
 
 
 
-   private String PoltronaLivreS1;
-   private String PoltronaLivreS2;
-   private String PoltronaLivreS3;
-   private String PoltronaLivreS4;
-   private String PoltronaLivreS5;
-   private String PoltronaLivreS6;
+   private static String PoltronaLivreS1;
+   private static String PoltronaLivreS2;
+   private static String PoltronaLivreS3;
+   private static String PoltronaLivreS4;
+   private static String PoltronaLivreS5;
+   private static String PoltronaLivreS6;
    
-   private String nome2;
-   private String PoltronaLivreS1A2;
-   private String PoltronaLivreS2A2;
-   private String PoltronaLivreS3A2;
-   private String PoltronaLivreS4A2;
-   private String PoltronaLivreS5A2;
-   private String PoltronaLivreS6A2;
+   private static String nome2;
+   private static String PoltronaLivreS1A2;
+   private static String PoltronaLivreS2A2;
+   private static String PoltronaLivreS3A2;
+   private static String PoltronaLivreS4A2;
+   private static String PoltronaLivreS5A2;
+   private static String PoltronaLivreS6A2;
    
    private String PoltronaLivreS1A3;
    private String PoltronaLivreS2A3;
@@ -1215,117 +1216,117 @@ public void setPoltronaLivreS6A3(String poltronaLivreS6A3) {
 	PoltronaLivreS6A3 = poltronaLivreS6A3;
 }
 
-public String getNome2() {
+public static String getNome2() {
 	   return nome2;
    }
 
-   public void setNome2(String nome2) {
-	   this.nome2 = nome2;
+   public static void setNome2(String nome2) {
+	   ControlePoltrona.nome2 = nome2;
    }
 
     
-	public String getPoltronaLivreS1A2() {
+	public static String getPoltronaLivreS1A2() {
 	return PoltronaLivreS1A2;
 }
 
-public void setPoltronaLivreS1A2(String poltronaLivreS1A2) {
+public static void setPoltronaLivreS1A2(String poltronaLivreS1A2) {
 	PoltronaLivreS1A2 = poltronaLivreS1A2;
 }
 
-public String getPoltronaLivreS2A2() {
+public static String getPoltronaLivreS2A2() {
 	return PoltronaLivreS2A2;
 }
 
-public void setPoltronaLivreS2A2(String poltronaLivreS2A2) {
+public static void setPoltronaLivreS2A2(String poltronaLivreS2A2) {
 	PoltronaLivreS2A2 = poltronaLivreS2A2;
 }
 
-public String getPoltronaLivreS3A2() {
+public static String getPoltronaLivreS3A2() {
 	return PoltronaLivreS3A2;
 }
 
-public void setPoltronaLivreS3A2(String poltronaLivreS3A2) {
+public static void setPoltronaLivreS3A2(String poltronaLivreS3A2) {
 	PoltronaLivreS3A2 = poltronaLivreS3A2;
 }
 
-public String getPoltronaLivreS4A2() {
+public static String getPoltronaLivreS4A2() {
 	return PoltronaLivreS4A2;
 }
 
-public void setPoltronaLivreS4A2(String poltronaLivreS4A2) {
+public static void setPoltronaLivreS4A2(String poltronaLivreS4A2) {
 	PoltronaLivreS4A2 = poltronaLivreS4A2;
 }
 
-public String getPoltronaLivreS5A2() {
-	return PoltronaLivreS5A2;
+public static String getPoltronaLivreS5A2() {
+	return ControlePoltrona.PoltronaLivreS5A2;
 }
 
-public void setPoltronaLivreS5A2(String poltronaLivreS5A2) {
-	PoltronaLivreS5A2 = poltronaLivreS5A2;
+public static void setPoltronaLivreS5A2(String poltronaLivreS5A2) {
+	ControlePoltrona.PoltronaLivreS5A2 = poltronaLivreS5A2;
 }
 
-public String getPoltronaLivreS6A2() {
+public static String getPoltronaLivreS6A2() {
 	return PoltronaLivreS6A2;
 }
 
-public void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
+public static void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
 	PoltronaLivreS6A2 = poltronaLivreS6A2;
 }
 
-	public String getPoltronaLivreS1() {
+	public static String getPoltronaLivreS1() {
 		return PoltronaLivreS1;
 	}
 
-	public void setPoltronaLivreS1(String poltronaLivreS1) {
+	public static void setPoltronaLivreS1(String poltronaLivreS1) {
 		PoltronaLivreS1 = poltronaLivreS1;
 	}
 	
-	public String getPoltronaLivreS2() {
+	public static String getPoltronaLivreS2() {
 		return PoltronaLivreS2;
 	}
 	
-	public void setPoltronaLivreS2(String poltronaLivreS2) {
+	public static void  setPoltronaLivreS2(String poltronaLivreS2) {
 		PoltronaLivreS2 = poltronaLivreS2;
 	}
 	
-	public String getPoltronaLivreS3() {
+	public static String getPoltronaLivreS3() {
 		return PoltronaLivreS3;
 	}
 	
-	public void setPoltronaLivreS3(String poltronaLivreS3) {
+	public static void setPoltronaLivreS3(String poltronaLivreS3) {
 		PoltronaLivreS3 = poltronaLivreS3;
 	}
 	
-	public String getPoltronaLivreS4() {
+	public static String getPoltronaLivreS4() {
 		return PoltronaLivreS4;
 	}
 	
-	public void setPoltronaLivreS4(String poltronaLivreS4) {
+	public static void setPoltronaLivreS4(String poltronaLivreS4) {
 		PoltronaLivreS4 = poltronaLivreS4;
 	}
 	
-	public String getPoltronaLivreS5() {
+	public static String getPoltronaLivreS5() {
 		return PoltronaLivreS5;
 	}
 	
-	public void setPoltronaLivreS5(String poltronaLivreS5) {
+	public static void setPoltronaLivreS5(String poltronaLivreS5) {
 		PoltronaLivreS5 = poltronaLivreS5;
 	}
 	
-	public String getPoltronaLivreS6() {
+	public static String getPoltronaLivreS6() {
 		return PoltronaLivreS6;
 	}
 	
-	public void setPoltronaLivreS6(String poltronaLivreS6) {
+	public static void setPoltronaLivreS6(String poltronaLivreS6) {
 		PoltronaLivreS6 = poltronaLivreS6;
 	}
 
-	public String getNome() {
+	public static String getNome() {
 		return nome;
 	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
+	public static void setNome(String nome) {
+		ControlePoltrona.nome = nome;
 	}
 	
 	public int getPreco() {
@@ -1345,76 +1346,17 @@ public void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
 	}
 	
 	public void pegarPoltronas(String i) throws SQLException, ClassNotFoundException{
-    	Conexao conexao = new Conexao();
-		try {	
-				conexao.conectar();
-				String query = "select * from poltrona where numeroPoltrona = ?";
-				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
-				pstm.setString(1, i);
-				ResultSet rs = pstm.executeQuery();
-				while(rs.next()) {
-					arrayA1.add(rs.getString("numeroPoltrona"));
-					arrayA1.add(rs.getString("PoltronaLivreS1"));
-					arrayA1.add(rs.getString("PoltronaLivreS2"));
-					arrayA1.add(rs.getString("PoltronaLivreS3"));
-					arrayA1.add(rs.getString("PoltronaLivreS4"));
-					arrayA1.add(rs.getString("PoltronaLivreS5"));
-					arrayA1.add(rs.getString("PoltronaLivreS6"));				
-				}		  			
-			  
-				
-				nome = arrayA1.get(0);
-				PoltronaLivreS1 = arrayA1.get(1);
-				PoltronaLivreS2 = arrayA1.get(2);
-				PoltronaLivreS3=  arrayA1.get(3);
-				PoltronaLivreS4 = arrayA1.get(4);
-				PoltronaLivreS5 =arrayA1.get(5);
-				PoltronaLivreS6 = arrayA1.get(6);
-				
-				
-				System.out.println(arrayA1);
-				arrayA1.clear();
-
-			} catch (SQLException e) {
-				throw new SQLException("Erro de conexão!");
-			}
+    	SelectPoltronas poltrona = new SelectPoltronas();
+    	
+    	poltrona.pegarPoltronas(i);
+    	
     	}
 	
 	
 	public void pegarPoltronasA2(String i) throws SQLException, ClassNotFoundException{
-    	Conexao conexao = new Conexao();
-		try {	
-				conexao.conectar();
-				String query = "select * from poltrona where numeroPoltrona = ?";
-				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
-				pstm.setString(1, i);
-				ResultSet rs = pstm.executeQuery();
-				while(rs.next()){
-					arrayA2.add(rs.getString("numeroPoltrona"));
-					arrayA2.add(rs.getString("PoltronaLivreS1"));
-					arrayA2.add(rs.getString("PoltronaLivreS2"));
-					arrayA2.add(rs.getString("PoltronaLivreS3"));
-					arrayA2.add(rs.getString("PoltronaLivreS4"));
-					arrayA2.add(rs.getString("PoltronaLivreS5"));
-					arrayA2.add(rs.getString("PoltronaLivreS6"));
-						
-				}		  			
-				
-				nome2 = arrayA2.get(0);
-				PoltronaLivreS1A2 = arrayA2.get(1);
-				PoltronaLivreS2A2 = arrayA2.get(2);
-				PoltronaLivreS3A2=  arrayA2.get(3);
-				PoltronaLivreS4A2 = arrayA2.get(4);
-				PoltronaLivreS5A2 =arrayA2.get(5);
-				PoltronaLivreS6A2 = arrayA2.get(6);
-				
-				
-				System.out.println(arrayA2);
-				arrayA2.clear();
-
-			} catch (SQLException e) {
-				throw new SQLException("Erro de conexão!");
-			}
+		SelectPoltronas poltrona2 = new SelectPoltronas();
+    	
+    	poltrona2.pegarPoltronas(i);
     	}
 	
 	public void pegarPoltronasA3(String i) throws SQLException, ClassNotFoundException{

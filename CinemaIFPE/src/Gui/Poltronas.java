@@ -181,6 +181,9 @@ public class Poltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    setD1("1");
+	                    if(TelaInicial.getIdFilme() == 1) {
+	                    	
+	                    }
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(20);
