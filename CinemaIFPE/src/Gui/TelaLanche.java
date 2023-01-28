@@ -6,9 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.Color;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -21,18 +21,15 @@ import javax.swing.SwingConstants;
 import javax.swing.JSpinner;
 import java.awt.Toolkit;
 import javax.swing.border.TitledBorder;
-
 import Core.ControlePoltrona;
 import Core.Filme;
 import Core.Lanche;
-
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.SpinnerNumberModel;
 import java.awt.event.KeyAdapter;
-
 import javax.swing.border.Border;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
@@ -48,10 +45,6 @@ public class TelaLanche extends JFrame {
 	private int qtdLanche4 = 0;
 	private int qtdLanche5 = 0;
 	
-	
-	
-	
-		
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -97,9 +90,17 @@ public class TelaLanche extends JFrame {
 		contentPane.add(cineifPaulista);
 		
 		JButton help = new JButton("Help");
+		help.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent e) {
+	    	JOptionPane.showMessageDialog(null, "Você pode selecionar os lanches que deseja comprar." + "\n" +
+	    "Você pode também pular sem comprar algum lanche.", "Help", JOptionPane.QUESTION_MESSAGE);
+	      	}
+	      });
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		help.setBounds(893, 26, 66, 29);
+
+		help.setBounds(881, 25, 66, 29);
 		contentPane.add(help);
+		
 		
 		JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
@@ -115,15 +116,6 @@ public class TelaLanche extends JFrame {
 		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 		voltar.setBounds(10, 26, 75, 35);
 		contentPane.add(voltar);
-		
-		JButton botaoContinuar = new JButton("CONTINUAR");
-		botaoContinuar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		botaoContinuar.setFont(new Font("Arial", Font.BOLD, 14));
-		botaoContinuar.setBounds(352, 588, 149, 39);
-		contentPane.add(botaoContinuar);
 		
 		JLabel fotoLanche1 = new JLabel("SELECIONE UMA FOTO");
 		fotoLanche1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -220,27 +212,27 @@ public class TelaLanche extends JFrame {
 		//////////////////////////////////////////////////////////////
 		JLabel lblLanche1 = new JLabel("nome lanche");
 		lblLanche1.setFont(new Font("Arial", Font.BOLD, 12));
-		lblLanche1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLanche1.setHorizontalAlignment(SwingConstants.LEFT);
 				
 			try {
 				lanche.pegarLanche(1);
 			} catch (Exception e1) {
 				lblConfirmacao.setText("Erro de Conexão");
 			} 		
-		lblLanche1.setText(lanche.getNomeLanche());		
-		lblLanche1.setBounds(56, 361, 157, 28);
+		lblLanche1.setText("R$: " + lanche.getPreco() + ",00 / " + lanche.getNomeLanche());		
+		lblLanche1.setBounds(56, 361, 199, 28);
 		contentPane.add(lblLanche1);
 		//////////////////////////////////////////////////////////
 		
 		///////////////////////////////////////////////////////////////
 		JLabel lblLanche2 = new JLabel("nome lanche");
-		lblLanche2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLanche2.setHorizontalAlignment(SwingConstants.LEFT);
 		lblLanche2.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		try {
 			lanche.pegarLanche(2);
-			lblLanche2.setText(lanche.getNomeLanche());
-			lblLanche2.setBounds(426, 361, 159, 28);
+			lblLanche2.setText("R$: " + lanche.getPreco() + ",00 / " + lanche.getNomeLanche());
+			lblLanche2.setBounds(426, 361, 199, 28);
 			contentPane.add(lblLanche2);
 		} catch (Exception e1) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -250,13 +242,13 @@ public class TelaLanche extends JFrame {
 		
 		/////////////////////////////////////////////////////////////////////
 		JLabel lblLanche3 = new JLabel("nome lanche");
-		lblLanche3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLanche3.setHorizontalAlignment(SwingConstants.LEFT);
 		lblLanche3.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		try {
 			lanche.pegarLanche(3);
-			lblLanche3.setText(lanche.getNomeLanche());
-			lblLanche3.setBounds(770, 361, 159, 28);
+			lblLanche3.setText("R$: " + lanche.getPreco() + ",00 / " + lanche.getNomeLanche());;
+			lblLanche3.setBounds(770, 361, 216, 28);
 			contentPane.add(lblLanche3);
 		} catch (Exception e1) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -266,13 +258,13 @@ public class TelaLanche extends JFrame {
 		
 		//////////////////////////////////////////////////////////////////////
 		JLabel lblLanche4 = new JLabel("nome lanche");
-		lblLanche4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLanche4.setHorizontalAlignment(SwingConstants.LEFT);
 		lblLanche4.setFont(new Font("Arial", Font.BOLD, 12));
 		
 		try {
 			lanche.pegarLanche(4);
-			lblLanche4.setText("");
-			lblLanche4.setBounds(54, 615, 157, 28);
+			lblLanche4.setText("R$: " + lanche.getPreco() + ",00 / " + lanche.getNomeLanche());
+			lblLanche4.setBounds(54, 615, 199, 28);
 			contentPane.add(lblLanche4);
 		} catch (Exception e1) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -283,12 +275,12 @@ public class TelaLanche extends JFrame {
 		//////////////////////////////////////////////////////////////////////
 		
 		JLabel lblLanche5 = new JLabel("nome lanche");
-		lblLanche5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLanche5.setHorizontalAlignment(SwingConstants.LEFT);
 		lblLanche5.setFont(new Font("Arial", Font.BOLD, 12));
 		try {
 			lanche.pegarLanche(5);
-			lblLanche5.setText(lanche.getNomeLanche());
-			lblLanche5.setBounds(770, 615, 157, 28);
+			lblLanche5.setText("R$: " + lanche.getPreco() + ",00 / " + lanche.getNomeLanche());
+			lblLanche5.setBounds(770, 615, 216, 28);
 			contentPane.add(lblLanche5);
 		} catch (Exception e1) {
 			lblConfirmacao.setText("Erro de Conexão");
@@ -311,11 +303,6 @@ public class TelaLanche extends JFrame {
 		lblTotalGeral.setFont(new Font("Arial", Font.BOLD, 12));
 		lblTotalGeral.setBounds(352, 531, 199, 25);
 		contentPane.add(lblTotalGeral);
-		
-		JButton botaoPular = new JButton("PULAR");
-		botaoPular.setFont(new Font("Arial", Font.BOLD, 14));
-		botaoPular.setBounds(511, 588, 149, 39);
-		contentPane.add(botaoPular);
 		
 		JLabel lblQuantidade2 = new JLabel("0");
 		lblQuantidade2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -360,9 +347,24 @@ public class TelaLanche extends JFrame {
 		adicionarLanche1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				if(qtdLanche1 <= 9 ) {
+				Lanche lanche1 = new Lanche();
+				try {
+					lanche1.pegarLanche(1);
+				} catch (ClassNotFoundException | SQLException e2) {
+					e2.printStackTrace();
+				}
+				try {
+					lanche1.pegarLanche(1);
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				if(qtdLanche1 <= 9) {
 				qtdLanche1 +=1;
+				System.out.println(lanche1.multiplicacaoLanche(qtdLanche1)); 
 				
 				}else if (qtdLanche1 == 10) {
 					qtdLanche1 = 0;
@@ -380,14 +382,21 @@ public class TelaLanche extends JFrame {
 		contentPane.add(adicionarLanche1);
 		
 		
-		
 		JButton subtrairLanche1 = new JButton("");
 		subtrairLanche1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				Lanche lanche1 = new Lanche();
+				try {
+					lanche1.pegarLanche(1);
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				if(qtdLanche1 > 0) {
 					qtdLanche1 -=1;
+					System.out.println(lanche1.subtracaoLanche(qtdLanche1));
+					
 				}
 				
 				
@@ -409,16 +418,21 @@ public class TelaLanche extends JFrame {
 		adicionarLanche2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				Lanche lanche2 = new Lanche();
+				try {
+					lanche2.pegarLanche(2);
+				} catch (ClassNotFoundException | SQLException e1) {
+					e1.printStackTrace();
+				}
 				if(qtdLanche2 <= 9 ) {
 					qtdLanche2 +=1;
+					System.out.println(lanche2.multiplicacaoLanche(qtdLanche2));  
 					
 					}else if (qtdLanche2 == 10) {
 						qtdLanche2 = 0;
 					}
 					lblQuantidade2.setText(Integer.toString(qtdLanche2));
 					
-				
 			
 			}
 		});
@@ -434,9 +448,15 @@ public class TelaLanche extends JFrame {
 		subtrairLanche2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				Lanche lanche2 = new Lanche();
+				try {
+					lanche2.pegarLanche(2);
+				} catch (ClassNotFoundException | SQLException e1) {
+					e1.printStackTrace();
+				}
 				if(qtdLanche2 > 0) {
 					qtdLanche2 -=1;
+					System.out.println(lanche2.subtracaoLanche(qtdLanche2));
 				}
 				lblQuantidade2.setText(Integer.toString(qtdLanche2));
 			}
@@ -456,9 +476,15 @@ public class TelaLanche extends JFrame {
 		adicionarLanche3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				Lanche lanche3 = new Lanche();
+				try {
+					lanche3.pegarLanche(3);
+				} catch (ClassNotFoundException | SQLException e1) {
+					e1.printStackTrace();
+				}
 				if(qtdLanche3 <= 9 ) {
 					qtdLanche3 +=1;
+					System.out.println(lanche3.multiplicacaoLanche(qtdLanche3));  
 					
 					}else if (qtdLanche3 == 10) {
 						qtdLanche3 = 0;
@@ -481,9 +507,15 @@ public class TelaLanche extends JFrame {
 		adicionarLanche5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				Lanche lanche5 = new Lanche();
+				try {
+					lanche5.pegarLanche(5);
+				} catch (ClassNotFoundException | SQLException e1) {
+					e1.printStackTrace();
+				}
 				if(qtdLanche5 <= 9 ) {
 					qtdLanche5 +=1;
+					System.out.println(lanche5.multiplicacaoLanche(qtdLanche5));
 					
 					}else if (qtdLanche5 == 10) {
 						qtdLanche5 = 0;
@@ -502,10 +534,16 @@ public class TelaLanche extends JFrame {
 		adicionarLanche4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				Lanche lanche4 = new Lanche();
+				try {
+					lanche4.pegarLanche(4);
+				} catch (ClassNotFoundException | SQLException e1) {
+					e1.printStackTrace();
+				}
 				
 				if(qtdLanche4 <= 9 ) {
 					qtdLanche4 +=1;
+					System.out.println(lanche4.multiplicacaoLanche(qtdLanche4));  
 					
 					}else if (qtdLanche4 == 10) {
 						qtdLanche4 = 0;
@@ -528,10 +566,16 @@ public class TelaLanche extends JFrame {
 		subtrairLanche4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				Lanche lanche4 = new Lanche();
+				try {
+					lanche4.pegarLanche(4);
+				} catch (ClassNotFoundException | SQLException e1) {
+					e1.printStackTrace();
+				}
 
 				if(qtdLanche4 > 0) {
 					qtdLanche4 -=1;
+					System.out.println(lanche4.subtracaoLanche(qtdLanche4));
 				}
 				lblQuantidade4.setText(Integer.toString(qtdLanche4));
 			}
@@ -547,11 +591,18 @@ public class TelaLanche extends JFrame {
 		subtrairLanche3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				Lanche lanche3 = new Lanche();
+				try {
+					lanche3.pegarLanche(3);
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 
 				if(qtdLanche3 > 0) {
 					qtdLanche3 -=1;
+					 System.out.println(lanche3.subtracaoLanche(qtdLanche3));
 				}
 				lblQuantidade3.setText(Integer.toString(qtdLanche3));
 			}
@@ -567,10 +618,15 @@ public class TelaLanche extends JFrame {
 		subtrairLanche5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-
+				Lanche lanche5 = new Lanche();
+				try {
+					lanche5.pegarLanche(5);
+				} catch (ClassNotFoundException | SQLException e1) {
+					e1.printStackTrace();
+				}
 				if(qtdLanche5 > 0) {
 					qtdLanche5 -=1;
+					System.out.println(lanche5.subtracaoLanche(qtdLanche5));
 				}
 				lblQuantidade5.setText(Integer.toString(qtdLanche5));
 			}
@@ -593,6 +649,16 @@ public class TelaLanche extends JFrame {
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setBounds(337, 454, 337, 189);
 		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JButton botaoContinuar = new JButton("CONTINUAR");
+		botaoContinuar.setBounds(78, 139, 179, 39);
+		panel_1.add(botaoContinuar);
+		botaoContinuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		botaoContinuar.setFont(new Font("Arial", Font.BOLD, 14));
 		
 		
 		

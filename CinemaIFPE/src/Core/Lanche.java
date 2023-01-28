@@ -68,6 +68,22 @@ public class Lanche {
     public void setQtdEstoque(String qtdEstoque) {
         this.quantidade = qtdEstoque;
     }
+    public int multiplicacaoLanche(int valor) {
+    	Integer precoLanche = Integer.parseInt(preco);
+    	return precoLanche * valor;
+    }
+    public int subtracaoLanche(int valor) {
+    	Integer precoLanche = Integer.parseInt(preco);
+    	return precoLanche + precoLanche * valor - precoLanche;
+    	
+    }
+//    public static void somaLanche(String valor){
+//    	ArrayList<String> arraySoma = new ArrayList<String>();
+//    	
+//    	arraySoma.add(valor);
+//    	System.out.println(arraySoma);
+//    }
+    
     
     
     public void pegarLanche(int idlancheh) throws SQLException, ClassNotFoundException {
@@ -102,6 +118,7 @@ public class Lanche {
         }
     	
     }
+    
     public String buscarFotoLanche(int idLanche) throws SQLException, ClassNotFoundException{
 
         Conexao conexao = new Conexao();
