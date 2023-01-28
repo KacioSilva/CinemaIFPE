@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JSpinner;
@@ -44,8 +45,12 @@ public class TelaLanche extends JFrame {
 	private int qtdLanche3 = 0;
 	private int qtdLanche4 = 0;
 	private int qtdLanche5 = 0;
-	
-	
+	private int valorLanche1;
+	private int valorLanche2;
+	private int valorLanche3;
+	private int valorLanche4;
+	private int valorLanche5;
+			
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -294,12 +299,12 @@ public class TelaLanche extends JFrame {
 		lblTotalIngresso.setBounds(352, 461, 308, 25);
 		contentPane.add(lblTotalIngresso);
 		
-		JLabel lblTotalLanches = new JLabel("TOTAL LANCHES: ");
+		JLabel lblTotalLanches = new JLabel("TOTAL LANCHES: " + "    "+ "R$ 0");
 		lblTotalLanches.setFont(new Font("Arial", Font.BOLD, 12));
 		lblTotalLanches.setBounds(352, 496, 199, 25);
 		contentPane.add(lblTotalLanches);
 		
-		JLabel lblTotalGeral = new JLabel("TOTAL GERAL:");
+		JLabel lblTotalGeral = new JLabel("TOTAL GERAL:"+ "          " + "R$" + cp.getPreco());
 		lblTotalGeral.setFont(new Font("Arial", Font.BOLD, 12));
 		lblTotalGeral.setBounds(352, 531, 199, 25);
 		contentPane.add(lblTotalGeral);
@@ -356,16 +361,16 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche1.pegarLanche(1);
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				if(qtdLanche1 <= 9) {
 				qtdLanche1 +=1;
-				System.out.println(lanche1.multiplicacaoLanche(qtdLanche1)); 
-				
+				int operacao = lanche1.multiplicacaoLanche(qtdLanche1);
+				valorLanche1 = operacao; 
+				lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+				lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 				}else if (qtdLanche1 == 10) {
 					qtdLanche1 = 0;
 				}
@@ -395,8 +400,10 @@ public class TelaLanche extends JFrame {
 				}
 				if(qtdLanche1 > 0) {
 					qtdLanche1 -=1;
-					System.out.println(lanche1.subtracaoLanche(qtdLanche1));
-					
+					int operacao = lanche1.subtracaoLanche(qtdLanche1);
+					valorLanche1 = operacao; 
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 				}
 				
 				
@@ -426,8 +433,10 @@ public class TelaLanche extends JFrame {
 				}
 				if(qtdLanche2 <= 9 ) {
 					qtdLanche2 +=1;
-					System.out.println(lanche2.multiplicacaoLanche(qtdLanche2));  
-					
+					int operacao = lanche2.multiplicacaoLanche(qtdLanche2);
+					valorLanche2 = operacao; 
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 					}else if (qtdLanche2 == 10) {
 						qtdLanche2 = 0;
 					}
@@ -456,8 +465,10 @@ public class TelaLanche extends JFrame {
 				}
 				if(qtdLanche2 > 0) {
 					qtdLanche2 -=1;
-					System.out.println(lanche2.subtracaoLanche(qtdLanche2));
-				}
+					int operacao = lanche2.subtracaoLanche(qtdLanche2); 
+					valorLanche2 = operacao; 
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+				}	lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 				lblQuantidade2.setText(Integer.toString(qtdLanche2));
 			}
 		});
@@ -484,8 +495,10 @@ public class TelaLanche extends JFrame {
 				}
 				if(qtdLanche3 <= 9 ) {
 					qtdLanche3 +=1;
-					System.out.println(lanche3.multiplicacaoLanche(qtdLanche3));  
-					
+					int operacao = lanche3.multiplicacaoLanche(qtdLanche3);
+					valorLanche3 = operacao;  
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 					}else if (qtdLanche3 == 10) {
 						qtdLanche3 = 0;
 					}
@@ -515,8 +528,10 @@ public class TelaLanche extends JFrame {
 				}
 				if(qtdLanche5 <= 9 ) {
 					qtdLanche5 +=1;
-					System.out.println(lanche5.multiplicacaoLanche(qtdLanche5));
-					
+					int operacao = lanche5.multiplicacaoLanche(qtdLanche5);
+					valorLanche5 = operacao; 
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 					}else if (qtdLanche5 == 10) {
 						qtdLanche5 = 0;
 					}
@@ -543,8 +558,10 @@ public class TelaLanche extends JFrame {
 				
 				if(qtdLanche4 <= 9 ) {
 					qtdLanche4 +=1;
-					System.out.println(lanche4.multiplicacaoLanche(qtdLanche4));  
-					
+					int operacao = lanche4.multiplicacaoLanche(qtdLanche4);
+					valorLanche4 = operacao; 
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 					}else if (qtdLanche4 == 10) {
 						qtdLanche4 = 0;
 					}
@@ -575,8 +592,10 @@ public class TelaLanche extends JFrame {
 
 				if(qtdLanche4 > 0) {
 					qtdLanche4 -=1;
-					System.out.println(lanche4.subtracaoLanche(qtdLanche4));
-				}
+					int operacao = lanche4.subtracaoLanche(qtdLanche4); 
+					valorLanche4 = operacao; 
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+				}	lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 				lblQuantidade4.setText(Integer.toString(qtdLanche4));
 			}
 		});
@@ -602,8 +621,10 @@ public class TelaLanche extends JFrame {
 
 				if(qtdLanche3 > 0) {
 					qtdLanche3 -=1;
-					 System.out.println(lanche3.subtracaoLanche(qtdLanche3));
-				}
+					int operacao = lanche3.subtracaoLanche(qtdLanche3);
+					valorLanche3 = operacao; 
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+				}	lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 				lblQuantidade3.setText(Integer.toString(qtdLanche3));
 			}
 		});
@@ -626,8 +647,10 @@ public class TelaLanche extends JFrame {
 				}
 				if(qtdLanche5 > 0) {
 					qtdLanche5 -=1;
-					System.out.println(lanche5.subtracaoLanche(qtdLanche5));
-				}
+					int operacao = lanche5.subtracaoLanche(qtdLanche5);
+					valorLanche5 = operacao; 
+					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
+				}	lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 				lblQuantidade5.setText(Integer.toString(qtdLanche5));
 			}
 		});
@@ -656,12 +679,9 @@ public class TelaLanche extends JFrame {
 		panel_1.add(botaoContinuar);
 		botaoContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println(valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5);
 			}
 		});
 		botaoContinuar.setFont(new Font("Arial", Font.BOLD, 14));
-		
-		
-		
-		
 	}
 }

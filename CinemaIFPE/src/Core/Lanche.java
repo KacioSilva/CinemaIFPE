@@ -77,15 +77,8 @@ public class Lanche {
     	return precoLanche + precoLanche * valor - precoLanche;
     	
     }
-//    public static void somaLanche(String valor){
-//    	ArrayList<String> arraySoma = new ArrayList<String>();
-//    	
-//    	arraySoma.add(valor);
-//    	System.out.println(arraySoma);
-//    }
-    
-    
-    
+ 
+      
     public void pegarLanche(int idlancheh) throws SQLException, ClassNotFoundException {
     	Conexao conexao = new Conexao();
     	try {
@@ -141,11 +134,3 @@ public class Lanche {
         }
     }
 }
-
-
-
-
-
-
-
-
