@@ -75,7 +75,6 @@ public class Lanche {
     public int subtracaoLanche(int valor) {
     	Integer precoLanche = Integer.parseInt(preco);
     	return precoLanche + precoLanche * valor - precoLanche;
-    	
     }
  
       

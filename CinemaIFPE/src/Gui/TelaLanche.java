@@ -371,8 +371,6 @@ public class TelaLanche extends JFrame {
 				valorLanche1 = operacao; 
 				lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 				lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
-				}else if (qtdLanche1 == 10) {
-					qtdLanche1 = 0;
 				}
 				
 				lblQuantidade1.setText(Integer.toString(qtdLanche1));
@@ -437,9 +435,8 @@ public class TelaLanche extends JFrame {
 					valorLanche2 = operacao; 
 					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
-					}else if (qtdLanche2 == 10) {
-						qtdLanche2 = 0;
 					}
+					
 					lblQuantidade2.setText(Integer.toString(qtdLanche2));
 					
 			
@@ -499,8 +496,6 @@ public class TelaLanche extends JFrame {
 					valorLanche3 = operacao;  
 					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
-					}else if (qtdLanche3 == 10) {
-						qtdLanche3 = 0;
 					}
 				lblQuantidade3.setText(Integer.toString(qtdLanche3));
 			}
@@ -532,8 +527,6 @@ public class TelaLanche extends JFrame {
 					valorLanche5 = operacao; 
 					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
-					}else if (qtdLanche5 == 10) {
-						qtdLanche5 = 0;
 					}
 				lblQuantidade5.setText(Integer.toString(qtdLanche5));
 			}
@@ -562,8 +555,6 @@ public class TelaLanche extends JFrame {
 					valorLanche4 = operacao; 
 					lblTotalLanches.setText("TOTAL LANCHES: " + "    " + "R$" + (valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
 					lblTotalGeral.setText("TOTAL GERAL: " + "          " + "R$" + (cp.getPreco() + valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5));
-					}else if (qtdLanche4 == 10) {
-						qtdLanche4 = 0;
 					}
 				lblQuantidade4.setText(Integer.toString(qtdLanche4));
 			}
