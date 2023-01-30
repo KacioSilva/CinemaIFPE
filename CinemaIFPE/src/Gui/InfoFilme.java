@@ -44,8 +44,8 @@ public class InfoFilme extends JFrame {
 	private JLabel dataLancamento;
 	private JPanel panel_5;
 	private JLabel diretor;
-	private JButton btnNewButton;
-	private JLabel lblNewLabel_6;
+	private JButton btnCompraIngresso;
+	private JLabel lblSessaoDisponivel;
 	private JLabel cineifPaulista;
 	private JLabel lblHorario;
 	private JButton help;
@@ -250,12 +250,12 @@ public class InfoFilme extends JFrame {
 	  	diretor.setBounds(32, 11, 118, 27);
 	  	panel_5.add(diretor);
 	  	
-	  	btnNewButton = new JButton("Comprar Ingresso");
+	  	btnCompraIngresso = new JButton("Comprar Ingresso");
 	  	if(tempoDiferenca.isNegative()) {
-	  		btnNewButton.setEnabled(false);
+	  		btnCompraIngresso.setEnabled(false);
 		}
 		
-	  	btnNewButton.addActionListener(new ActionListener() {
+	  	btnCompraIngresso.addActionListener(new ActionListener() {
 	  		public void actionPerformed(ActionEvent e) {
 	  			SelecaoPoltronas poltronas = new SelecaoPoltronas();
 	  			poltronas.setVisible(true);
@@ -263,20 +263,20 @@ public class InfoFilme extends JFrame {
 	  			
 	  		}
 	  	});
-	  	btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-	  	btnNewButton.setBounds(354, 572, 278, 40);
-	  	contentPane.add(btnNewButton);
+	  	btnCompraIngresso.setFont(new Font("Tahoma", Font.BOLD, 14));
+	  	btnCompraIngresso.setBounds(354, 572, 278, 40);
+	  	contentPane.add(btnCompraIngresso);
 	  	
 	  	
-	  	lblNewLabel_6 = new JLabel("Sessão Disponível");
+	  	lblSessaoDisponivel = new JLabel("Sessão Disponível");
 	  	if(tempoDiferenca.isNegative()) {
-	  		lblNewLabel_6.setText("Sessão Indisposnível");
+	  		lblSessaoDisponivel.setText("Sessão Indisposnível");
 		}
 	  	
-	  	lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
-	  	lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 25));
-	  	lblNewLabel_6.setBounds(354, 451, 278, 28);
-	  	contentPane.add(lblNewLabel_6);
+	  	lblSessaoDisponivel.setHorizontalAlignment(SwingConstants.CENTER);
+	  	lblSessaoDisponivel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+	  	lblSessaoDisponivel.setBounds(354, 451, 278, 28);
+	  	contentPane.add(lblSessaoDisponivel);
 	  	
 	  	cineifPaulista = new JLabel("CineIF Paulista");
 	  	cineifPaulista.setForeground(new Color(63, 164, 13, 236));

@@ -45,12 +45,12 @@ public class HubADM extends JFrame {
 		
 		
 		//-------CRIANDO LABELS
-		JLabel lblNewLabel = new JLabel("ESCOLHA A OPÇÃO QUE DESEJA ALTERAR");
-		lblNewLabel.setForeground(new Color(0, 128, 0));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Sitka Heading", Font.BOLD, 28));
-		lblNewLabel.setBounds(97, 66, 772, 120);
-		contentPane.add(lblNewLabel);
+		JLabel lbljEscolhaOpcao = new JLabel("ESCOLHA A OPÇÃO QUE DESEJA ALTERAR");
+		lbljEscolhaOpcao.setForeground(new Color(0, 128, 0));
+		lbljEscolhaOpcao.setHorizontalAlignment(SwingConstants.CENTER);
+		lbljEscolhaOpcao.setFont(new Font("Sitka Heading", Font.BOLD, 28));
+		lbljEscolhaOpcao.setBounds(97, 66, 772, 120);
+		contentPane.add(lbljEscolhaOpcao);
 		
 		
 		//------CRIANDO BOTÕES

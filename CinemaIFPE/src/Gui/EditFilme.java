@@ -55,7 +55,7 @@ public class EditFilme extends JFrame {
 	private Filme filme;
 	private String nomeArquivo;
 	private Filme filmeObj = new Filme();
-	private JTextField textId;
+	private JTextField txtIdFilme;
 	private JTextField textLancamento;
 	private JTextArea txtSinopse;
 	File file;
@@ -253,7 +253,7 @@ public class EditFilme extends JFrame {
 	  	    	setIdSessao("1");
 	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
-	  	    	textId.setText("1");	
+	  	    	txtIdFilme.setText("1");	
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    	txtDuracao.setText(filmeObj.getDuracao());
 	  	    	txtGenero.setText(filmeObj.getGenero());
@@ -289,7 +289,7 @@ public class EditFilme extends JFrame {
 	  	    	
 	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
-	  	    	textId.setText("2");	  	    		
+	  	    	txtIdFilme.setText("2");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    	txtDuracao.setText(filmeObj.getDuracao());
 	  	    	txtGenero.setText(filmeObj.getGenero());
@@ -323,7 +323,7 @@ public class EditFilme extends JFrame {
 					}
 		    	lblConfirmacao.setText("");
 		    	nomeFilme.setText(filmeObj.getNome());
-		    	textId.setText("3");	  	    		
+		    	txtIdFilme.setText("3");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    	txtDuracao.setText(filmeObj.getDuracao());
 	  	    	txtGenero.setText(filmeObj.getGenero());
@@ -356,7 +356,7 @@ public class EditFilme extends JFrame {
 					}
 		    	lblConfirmacao.setText("");
 		    	nomeFilme.setText(filmeObj.getNome());
-		    	textId.setText("4");	  	    		
+		    	txtIdFilme.setText("4");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    	txtDuracao.setText(filmeObj.getDuracao());
 	  	    	txtGenero.setText(filmeObj.getGenero());
@@ -391,7 +391,7 @@ public class EditFilme extends JFrame {
 					}
 	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
-	  	    	textId.setText("5");	  	    		
+	  	    	txtIdFilme.setText("5");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    	txtDuracao.setText(filmeObj.getDuracao());
 	  	    	txtGenero.setText(filmeObj.getGenero());
@@ -425,7 +425,7 @@ public class EditFilme extends JFrame {
 					}
 	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
-	  	    	textId.setText("6");	  	    		
+	  	    	txtIdFilme.setText("6");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    	txtDuracao.setText(filmeObj.getDuracao());
 	  	    	txtGenero.setText(filmeObj.getGenero());
@@ -514,8 +514,8 @@ public class EditFilme extends JFrame {
 	    contentPane.add(tfcaminhofoto);
 	    tfcaminhofoto.setColumns(10);
 	    
-	    textId = new JTextField();
-	  	textId.addKeyListener(new KeyAdapter() {
+	    txtIdFilme = new JTextField();
+	  	txtIdFilme.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {	
 			char c = e.getKeyChar();
@@ -524,13 +524,13 @@ public class EditFilme extends JFrame {
 				}
 			}
 		});
-	  	textId.setBackground(new Color(0, 0, 0));
-	  	textId.setFont(new Font("Arial", Font.BOLD, 14));
-	  	textId.setEnabled(false);
-	  	textId.setHorizontalAlignment(SwingConstants.CENTER);
-	  	textId.setBounds(39, 149, 144, 19);
-	  	contentPane.add(textId);
-	  	textId.setColumns(10);
+	  	txtIdFilme.setBackground(new Color(0, 0, 0));
+	  	txtIdFilme.setFont(new Font("Arial", Font.BOLD, 14));
+	  	txtIdFilme.setEnabled(false);
+	  	txtIdFilme.setHorizontalAlignment(SwingConstants.CENTER);
+	  	txtIdFilme.setBounds(39, 149, 144, 19);
+	  	contentPane.add(txtIdFilme);
+	  	txtIdFilme.setColumns(10);
 	  	
 	  	 
   	    textLancamento = new JTextField();
@@ -556,7 +556,7 @@ public class EditFilme extends JFrame {
 	  	JButton salvar = new JButton("SALVAR");
 		salvar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {    		
-			String idFilme = textId.getText();
+			String idFilme = txtIdFilme.getText();
 		  	String idadeIndicativa = txtClassificacao.getText();
 		  	String nome = textFilme.getText();
 		  	String cartaz = tfcaminhofoto.getText();
