@@ -1,5 +1,5 @@
 package Gui;
-import java.awt.Color;
+import java.awt.Color;  
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -9,7 +9,6 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalTime;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -17,7 +16,6 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import Core.Filme;
 import Core.Sessao;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -107,6 +105,7 @@ public class InfoFilme extends JFrame {
 	}
 	
 	public InfoFilme(){
+		setResizable(false);
 		try {
 			sessao.pegarSessao(TelaInicial.getIdFilme());
 		} catch (ClassNotFoundException e1) {
@@ -122,6 +121,7 @@ public class InfoFilme extends JFrame {
 		LocalTime tempoBD = LocalTime.of(horas, minutos, segundos);
 		Duration tempoDiferenca = Duration.between(tempoAtual, tempoBD);
 		System.out.println(tempoDiferenca);
+		
 
 		
 		setTitle("Informações sobre o filme");

@@ -66,6 +66,14 @@ public class EditFilme extends JFrame {
 	private JTextField textSegundos;
 	
 	
+	
+	private int teste;
+	private JTextField textField;
+	
+	
+	
+	
+	
 	public String getIdSessao(){
 		return this.idSessao;
 	}
@@ -109,6 +117,26 @@ public class EditFilme extends JFrame {
 		
 		
 		//-------CRIANDO OS LABELS	
+		JLabel lblNewLabel = new JLabel("Horas");
+	  	lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	  	lblNewLabel.setBounds(39, 610, 45, 14);
+	  	contentPane.add(lblNewLabel);
+	  	
+	  	JLabel lblMinutos = new JLabel("Minutos");
+	  	lblMinutos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	  	lblMinutos.setBounds(101, 610, 65, 14);
+	  	contentPane.add(lblMinutos);
+	  	
+	  	JLabel lblSegundos = new JLabel("Segundos");
+	  	lblSegundos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	  	lblSegundos.setBounds(170, 604, 65, 27);
+	  	contentPane.add(lblSegundos);
+	  	
+	  	JLabel lblpreco = new JLabel("Preço Ingresso");
+	  	lblpreco.setFont(new Font("Arial", Font.BOLD, 12));
+	  	lblpreco.setBounds(39, 526, 144, 13);
+	  	contentPane.add(lblpreco);
+	  	
 		JLabel nomeFilme = new JLabel("NOME DO FILME");
 		nomeFilme.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeFilme.setFont(new Font("Arial", Font.BOLD, 14));
@@ -117,34 +145,34 @@ public class EditFilme extends JFrame {
 		
 		JLabel lblClassIndicativa = new JLabel("Classificação indicativa:");
 	  	lblClassIndicativa.setFont(new Font("Arial", Font.BOLD, 12));
-	  	lblClassIndicativa.setBounds(39, 178, 149, 13);
+	  	lblClassIndicativa.setBounds(39, 144, 149, 13);
 	  	contentPane.add(lblClassIndicativa);
 	  	    
 	  	JLabel lblDuracao = new JLabel("Duração:");
 	  	lblDuracao.setHorizontalAlignment(SwingConstants.LEFT);
 	  	lblDuracao.setFont(new Font("Arial", Font.BOLD, 12));
-	  	lblDuracao.setBounds(39, 230, 144, 19);
+	  	lblDuracao.setBounds(39, 196, 144, 19);
 	  	contentPane.add(lblDuracao);
 	  	    
 	  	JLabel lblGenero = new JLabel("Genero:");
 	  	lblGenero.setFont(new Font("Arial", Font.BOLD, 12));
-	  	lblGenero.setBounds(39, 288, 144, 13);
+	  	lblGenero.setBounds(39, 254, 144, 13);
 	  	contentPane.add(lblGenero);
 	  	 
 	  	JLabel lblDiretor = new JLabel("Diretor:");
 	  	lblDiretor.setFont(new Font("Arial", Font.BOLD, 12));
-	  	lblDiretor.setBounds(39, 340, 144, 13);
+	  	lblDiretor.setBounds(39, 306, 144, 13);
 	  	contentPane.add(lblDiretor);
 	  	    
 	  	JLabel lblCaminhoFoto = new JLabel("Caminho da foto:");
 	  	lblCaminhoFoto.setHorizontalAlignment(SwingConstants.LEFT);
 	  	lblCaminhoFoto.setFont(new Font("Arial", Font.BOLD, 12));
-	  	lblCaminhoFoto.setBounds(39, 393, 144, 19);
+	  	lblCaminhoFoto.setBounds(39, 359, 144, 19);
 	  	contentPane.add(lblCaminhoFoto);
 	  	
 	  	JLabel lblnomeFilme = new JLabel("Nome do filme:");
 	    lblnomeFilme.setFont(new Font("Arial", Font.BOLD, 12));
-	    lblnomeFilme.setBounds(39, 503, 144, 13);
+	    lblnomeFilme.setBounds(39, 469, 144, 13);
 	    contentPane.add(lblnomeFilme);
 	    
 	   
@@ -158,20 +186,20 @@ public class EditFilme extends JFrame {
 	    
 	    JLabel lblID = new JLabel("ID:");
   	    lblID.setFont(new Font("Arial", Font.BOLD, 12));
-  	    lblID.setBounds(41, 127, 142, 13);
+  	    lblID.setBounds(41, 93, 142, 13);
   	    contentPane.add(lblID);
   	    
   	    
   	    JLabel lblDataLancamento = new JLabel("Data - Lançamento:");
 	    lblDataLancamento.setFont(new Font("Arial", Font.BOLD, 12));
-	    lblDataLancamento.setBounds(39, 443, 144, 13);
+	    lblDataLancamento.setBounds(39, 409, 144, 13);
 	    contentPane.add(lblDataLancamento);  
 	    
 	    
 	    JLabel lblConfirmacao = new JLabel("");
   	    lblConfirmacao.setFont(new Font("Arial", Font.BOLD, 15));
   	    lblConfirmacao.setHorizontalAlignment(SwingConstants.CENTER);
-  	    lblConfirmacao.setBounds(396, 526, 144, 29);
+  	    lblConfirmacao.setBounds(354, 526, 208, 29);
   	    contentPane.add(lblConfirmacao);
 	    
 	    
@@ -243,6 +271,7 @@ public class EditFilme extends JFrame {
 	  	    sessao1.addActionListener(new ActionListener() {
 	  	    public void actionPerformed(ActionEvent e) {
 	  	    	try {
+	  	    		
 	  	    		filmeObj.pegarFilmes(1);
 	  	    		sessao.pegarSessao(1);
 					
@@ -438,8 +467,6 @@ public class EditFilme extends JFrame {
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
 
-
-
 	  	    	setIdSessao("6");
 	  	    		
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -451,6 +478,12 @@ public class EditFilme extends JFrame {
 	  	    
 	  	    
 	 //-------CRIANDO OS TEXTFIELDS
+	  	  
+	  textField = new JTextField();
+	  textField.setHorizontalAlignment(SwingConstants.CENTER);
+	  textField.setColumns(10);
+	  textField.setBounds(39, 549, 144, 19);
+	  contentPane.add(textField);
 	    
 	  txtClassificacao = new JTextField();
 	  txtClassificacao.addKeyListener(new KeyAdapter() {
@@ -464,7 +497,7 @@ public class EditFilme extends JFrame {
 			}
 		});
 	    txtClassificacao.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtClassificacao.setBounds(39, 202, 144, 19);
+	    txtClassificacao.setBounds(39, 168, 144, 19);
 	    contentPane.add(txtClassificacao);
 	    txtClassificacao.setColumns(10);
 	    
@@ -481,36 +514,38 @@ public class EditFilme extends JFrame {
 			}
 		});
 	    txtDuracao.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtDuracao.setBounds(39, 260, 144, 19);
+	    txtDuracao.setBounds(39, 226, 144, 19);
 	    contentPane.add(txtDuracao);
 	    txtDuracao.setColumns(10);
 	    
 	    txtGenero = new JTextField();
 	    txtGenero.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtGenero.setBounds(39, 312, 144, 19);
+	    txtGenero.setBounds(39, 278, 144, 19);
 	    contentPane.add(txtGenero);
 	    txtGenero.setColumns(10);
 	
 	    txtDiretor = new JTextField();
 	    txtDiretor.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtDiretor.setBounds(39, 364, 144, 19);
+	    txtDiretor.setBounds(39, 330, 144, 19);
 	    contentPane.add(txtDiretor);
 	    txtDiretor.setColumns(10);
 	    
 	    
 	    textFilme = new JTextField();
+	    textFilme.setHorizontalAlignment(SwingConstants.CENTER);
 	    textFilme.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		
 	    	}
 	    });
-	    textFilme.setBounds(39, 526, 144, 19);
+	    textFilme.setBounds(39, 492, 144, 19);
 	    contentPane.add(textFilme);
 	    textFilme.setColumns(10);
 	    
 	   
 	    tfcaminhofoto = new JTextField();
-	    tfcaminhofoto.setBounds(39, 414, 144, 19);
+	    tfcaminhofoto.setHorizontalAlignment(SwingConstants.CENTER);
+	    tfcaminhofoto.setBounds(39, 380, 144, 19);
 	    contentPane.add(tfcaminhofoto);
 	    tfcaminhofoto.setColumns(10);
 	    
@@ -528,14 +563,15 @@ public class EditFilme extends JFrame {
 	  	textId.setFont(new Font("Arial", Font.BOLD, 14));
 	  	textId.setEnabled(false);
 	  	textId.setHorizontalAlignment(SwingConstants.CENTER);
-	  	textId.setBounds(39, 149, 144, 19);
+	  	textId.setBounds(39, 115, 144, 19);
 	  	contentPane.add(textId);
 	  	textId.setColumns(10);
 	  	
 	  	 
   	    textLancamento = new JTextField();
+  	    textLancamento.setHorizontalAlignment(SwingConstants.CENTER);
   	    textLancamento.setColumns(10);
-  	    textLancamento.setBounds(39, 466, 144, 19);
+  	    textLancamento.setBounds(39, 432, 144, 19);
   	    contentPane.add(textLancamento);
 	  	    
 	    
@@ -554,8 +590,10 @@ public class EditFilme extends JFrame {
 	  	
 	  	
 	  	JButton salvar = new JButton("SALVAR");
+	 
 		salvar.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {    		
+			
+		public void actionPerformed(ActionEvent e) {    	
 			String idFilme = textId.getText();
 		  	String idadeIndicativa = txtClassificacao.getText();
 		  	String nome = textFilme.getText();
@@ -566,34 +604,37 @@ public class EditFilme extends JFrame {
 		  	String genero = txtGenero.getText();
 		  	String lancamento = textLancamento.getText();
 		  	String sinopse = txtSinopse.getText();
-		  	String pegarNomeFilme = textFilme.getText();
 		  	String horas = textHoras.getText();
 		  	String minutos = textMinutos.getText();
 		  	String segundos = textSegundos.getText();
 		  	String idSessao = getIdSessao();
 		  	
-		  	nomeFilme.setText(pegarNomeFilme);
-		  
+		  	
+		 
 		  	try{
 		  	    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa, horas, minutos, segundos, idSessao);
 	                        
-		  	    
 		  	    lblConfirmacao.setText("TUDO CERTO!");
+		  	    nomeFilme.setText(nome);
 		  	    lblConfirmacao.setForeground(new Color(36, 187, 11));
 
-		    }catch (RuntimeException e1){
-		    	lblConfirmacao.setText(e1.getMessage());
-		                    
-
+		  	}catch(NumberFormatException e2) {
+		  		lblConfirmacao.setText("Caractere(s) Inválido(s)");
+		  		lblConfirmacao.setForeground(new Color(255,0,0));
+					
+			}catch (RuntimeException e1){
+					lblConfirmacao.setText("Há campos vazios");
+					lblConfirmacao.setForeground(new Color(255,0,0));
+		                   
 		    } catch (SQLException ex) {
-		       lblConfirmacao.setText("Erro de Conexão");      
+		       lblConfirmacao.setText("Erro de Conexão");  
+		       lblConfirmacao.setForeground(new Color(255,0,0));
 
 		        
 		    } catch (ClassNotFoundException e2) {
-		    	lblConfirmacao.setText("Erro de Conexão");      
-
-		                	
-			} 	    		
+		    	lblConfirmacao.setText("Erro de Conexão");  
+		    	lblConfirmacao.setForeground(new Color(255,0,0));
+			} 
 		  }
 		});
 		  	salvar.setBounds(354, 584, 103, 29);
@@ -605,33 +646,24 @@ public class EditFilme extends JFrame {
 		  	contentPane.add(lblsessao);
 		  	
 		  	textHoras = new JTextField();
+		  	textHoras.setHorizontalAlignment(SwingConstants.CENTER);
 		  	textHoras.setColumns(10);
 		  	textHoras.setBounds(39, 625, 52, 19);
 		  	contentPane.add(textHoras);
 		  	
 		  	textMinutos = new JTextField();
+		  	textMinutos.setHorizontalAlignment(SwingConstants.CENTER);
 		  	textMinutos.setColumns(10);
 		  	textMinutos.setBounds(101, 625, 52, 19);
 		  	contentPane.add(textMinutos);
 		  	
 		  	textSegundos = new JTextField();
+		  	textSegundos.setHorizontalAlignment(SwingConstants.CENTER);
 		  	textSegundos.setColumns(10);
 		  	textSegundos.setBounds(170, 625, 52, 19);
 		  	contentPane.add(textSegundos);
+		  
 		  	
-		  	JLabel lblNewLabel = new JLabel("Horas");
-		  	lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		  	lblNewLabel.setBounds(39, 610, 45, 14);
-		  	contentPane.add(lblNewLabel);
 		  	
-		  	JLabel lblMinutos = new JLabel("Minutos");
-		  	lblMinutos.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		  	lblMinutos.setBounds(101, 610, 65, 14);
-		  	contentPane.add(lblMinutos);
-		  	
-		  	JLabel lblSegundos = new JLabel("Segundos");
-		  	lblSegundos.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		  	lblSegundos.setBounds(170, 604, 65, 27);
-		  	contentPane.add(lblSegundos);
 	}
 }

@@ -58,6 +58,7 @@ public class SelecaoPoltronas extends JFrame {
 	}
 	
 	public SelecaoPoltronas() {
+		setResizable(false);
 		
 		ControlePoltrona cp = new ControlePoltrona();
 		
@@ -1944,6 +1945,7 @@ public class SelecaoPoltronas extends JFrame {
 				
 				InfoFilme voltarinfo = new InfoFilme();
 				voltarinfo.setVisible(true);
+				cp.setPreco(0);
 				dispose();
 			}
 		});

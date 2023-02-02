@@ -16,13 +16,10 @@ import java.time.Period;
 public class FilmesTDD {
 
 public static void main(String[] args) throws ClassNotFoundException, SQLException {
-	Conexao conexao = new Conexao();
-	Filme filme = new Filme();
 	Sessao sessao = new Sessao();	
-	Lanche lanche = new Lanche();
-	
-	lanche.pegarLanche(1);
-	System.out.println(lanche.getNomeLanche());
+	sessao.pegarHora();
+//	sessao.getHoras22();
+	sessao.getHoras22().forEach(adonai -> System.out.println(adonai));
 	}
 }
 	
