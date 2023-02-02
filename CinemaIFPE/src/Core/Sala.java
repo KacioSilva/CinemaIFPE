@@ -24,4 +24,6 @@ public class Sala {
     public void setQtdPoltronas(int qtdPoltronas) {
         this.qtdPoltronas = qtdPoltronas;
     }
+    
+    
 }
