@@ -14,8 +14,16 @@ public class Sessao {
     private String sessao;
     private String Sala_numeroSala;
     
+    private String teste;
     
     private static ArrayList<String> arraySessao = new ArrayList<String>();
+    private static ArrayList<String> arrayHora = new ArrayList<String>();
+    
+    public ArrayList getHoras22() {
+    	System.out.println(arrayHora);
+    	return this.arrayHora;
+  
+    }
     public Sessao() {
         
     }
@@ -73,6 +81,7 @@ public class Sessao {
 					arraySessao.add(rs.getString("segundos"));
 					arraySessao.add(rs.getString("sessao"));
 					arraySessao.add(rs.getString("Sala_numeroSala"));	
+				
 				}
 				horas = arraySessao.get(0);
 				minutos = arraySessao.get(1);
@@ -80,6 +89,25 @@ public class Sessao {
 				sessao = arraySessao.get(3);
 				Sala_numeroSala = arraySessao.get(4);
 				
+				arraySessao.clear();
+
+			} catch (SQLException e) {
+				throw new SQLException("Erro de conexão!");
+			}
+	
+    	}
+    public void pegarHora() throws SQLException, ClassNotFoundException{
+    	Conexao conexao = new Conexao();
+		try {	
+				conexao.conectar();
+				String query = "select horas from sessao";
+				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
+				ResultSet rs = pstm.executeQuery();
+				while(rs.next()){
+					arrayHora.add(rs.getString("horas"));
+				
+				}
+				System.out.println(arrayHora);
 				arraySessao.clear();
 
 			} catch (SQLException e) {

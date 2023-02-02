@@ -1940,8 +1940,9 @@ public class SelecaoPoltronas extends JFrame {
 		
 		JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-				
+				cp.setPreco(0);
 				InfoFilme voltarinfo = new InfoFilme();
 				voltarinfo.setVisible(true);
 				dispose();

@@ -18,7 +18,7 @@ public class Conexao {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Fam1l1a..";
+		String senha = "Tt4189952";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -41,17 +41,16 @@ public class Conexao {
 		}return false;
 	}
 	
-	public void editarGeral(int idLanche ,String nome, String marca, int preco, int quantidadeEstoque, String caminhoFoto) throws SQLException, ClassNotFoundException{
-        String editarGeralUp = "update lanche set nome=?, marca=?, preco=?, quantidadeEstoque=?, caminhofoto=? where idlanche = ?";
+	public void editarGeral(int idLanche ,String nome, String marca, int preco, String caminhoFoto) throws SQLException, ClassNotFoundException{
+        String editarGeralUp = "update lanche set nome=?, marca=?, preco=?, caminhofoto=? where idlanche = ?";
         try {
         	conectar();
             PreparedStatement pstmt = conexao.prepareStatement(editarGeralUp);
             pstmt.setString(1, nome);
             pstmt.setString(2, marca);
             pstmt.setInt(3, preco);
-            pstmt.setInt(4, quantidadeEstoque);
-            pstmt.setString(5, caminhoFoto);
-            pstmt.setInt(6, idLanche);
+            pstmt.setString(4, caminhoFoto);
+            pstmt.setInt(5, idLanche);
 
             pstmt.executeUpdate();
 

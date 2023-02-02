@@ -22,14 +22,14 @@ public class Administrador {
 	
 	//Método para o funcionário editar os lanches
 	
-	public static boolean funcEditarLanche(String nome, String preco, String marca, String Quantidade, String ID, String caminhoFoto) throws SQLException, ClassNotFoundException  {
+	public static boolean funcEditarLanche(String nome, String preco, String marca, String ID, String caminhoFoto) throws SQLException, ClassNotFoundException  {
 	    Conexao lancheadm = new Conexao();
 		lancheadm.conectar();
 
-	    if (nome.isEmpty() || preco.isEmpty() || marca.isEmpty() || Quantidade.isEmpty() || ID.isEmpty() || caminhoFoto.isEmpty()){
+	    if (nome.isEmpty() || preco.isEmpty() || marca.isEmpty()  || ID.isEmpty() || caminhoFoto.isEmpty()){
 	        throw new RuntimeException(" Há campos vazios");
 	}else{
-		lancheadm.editarGeral(Integer.parseInt(ID),nome,marca,Integer.parseInt(preco),Integer.parseInt(Quantidade), caminhoFoto);
+		lancheadm.editarGeral(Integer.parseInt(ID),nome,marca,Integer.parseInt(preco), caminhoFoto);
 		return true;
 		}   
 	}

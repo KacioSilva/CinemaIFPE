@@ -35,12 +35,10 @@ public class EditLanche extends JFrame {
 	private JTextField tfNome;
 	private JTextField tfMarca;
 	private JTextField tfPreco;
-	private JTextField tfQuantidade;
 	private String ID;
 	private String nome;
 	private String marca;
 	private String preco;
-	private String quantidade;
 	private String caminhoFoto;
 	private File file;
 	private JTextField tfcaminhofoto;
@@ -103,21 +101,18 @@ public class EditLanche extends JFrame {
 		lblNewLabel_3.setBounds(702, 302, 85, 13);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("Quantidade no Estoque:");
-		lblNewLabel_4.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_4.setBounds(702, 395, 186, 13);
-		contentPane.add(lblNewLabel_4);
-		
 		JLabel confirmacao = new JLabel("");
 		confirmacao.setHorizontalAlignment(SwingConstants.CENTER);
-		confirmacao.setBounds(702, 545, 229, 13);
+		confirmacao.setBounds(702, 480, 229, 13);
 		contentPane.add(confirmacao);
 		
 		
 		
 		//-------CRIANDO OS TEXTFIELDS	
 		 tfcaminhofoto = new JTextField();
-		 tfcaminhofoto.setBounds(702, 496, 214, 19);
+		 tfcaminhofoto.setEnabled(false);
+		 tfcaminhofoto.setHorizontalAlignment(SwingConstants.CENTER);
+		 tfcaminhofoto.setBounds(702, 422, 214, 19);
 		 contentPane.add(tfcaminhofoto);
 		 tfcaminhofoto.setColumns(10);
 		 
@@ -170,23 +165,6 @@ public class EditLanche extends JFrame {
 		
 		
 		
-		tfQuantidade = new JTextField();
-		tfQuantidade.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if(!Character.isDigit(c)) {
-					e.consume();
-				}
-			}
-		});
-		tfQuantidade.setHorizontalAlignment(SwingConstants.CENTER);
-		tfQuantidade.setBounds(702, 418, 214, 19);
-		contentPane.add(tfQuantidade);
-		tfQuantidade.setColumns(10);
-		
-		
-		
 		
 		
 		
@@ -226,28 +204,31 @@ public class EditLanche extends JFrame {
 				nome = tfNome.getText();
 				marca = tfMarca.getText();
 				preco = tfPreco.getText();
-				quantidade = tfQuantidade.getText();
 				caminhoFoto = tfcaminhofoto.getText();
 				try{
-                    Administrador.funcEditarLanche(nome, preco, marca, quantidade, ID, caminhoFoto);
+                    Administrador.funcEditarLanche(nome, preco, marca,  ID, caminhoFoto);
                     
                     confirmacao.setText("Tudo certo!");
                     confirmacao.setForeground(new Color(36, 187, 11));
 
-                }catch (RuntimeException e1){
-
+                } catch(NumberFormatException e2) {
+			  		confirmacao.setText("Caractere(s) Inválido(s)");
+			  		confirmacao.setForeground(new Color(255,0,0));
+						
+				}
+				catch (RuntimeException e1){
                     confirmacao.setText(e1.getMessage());
                     confirmacao.setForeground(new Color(245, 13, 13, 255));
-
                 } catch (SQLException ex) {
                     confirmacao.setText("Erro de conexao!");
-                    confirmacao.setForeground(new Color(245, 13, 13, 255));
+                    confirmacao.setForeground(new Color(255,0,0));
                 } catch (ClassNotFoundException e2) {
                 	confirmacao.setText("Erro de conexão!");
+                	confirmacao.setForeground(new Color(255,0,0));
 				}
 			}
 		});
-		salvar.setBounds(702, 597, 85, 32);
+		salvar.setBounds(702, 524, 85, 32);
 		contentPane.add(salvar);
 		
 		JButton limpar = new JButton("LIMPAR");
@@ -257,12 +238,11 @@ public class EditLanche extends JFrame {
 				tfNome.setText("");
 				tfMarca.setText("");
 				tfPreco.setText("");
-				tfQuantidade.setText("");
 				tfcaminhofoto.setText("");
 				confirmacao.setText("");
 			}
 		});
-		limpar.setBounds(831, 597, 85, 32);
+		limpar.setBounds(846, 524, 85, 32);
 		contentPane.add(limpar);
 		
 		JButton voltar = new JButton("VOLTAR");
@@ -282,6 +262,7 @@ public class EditLanche extends JFrame {
 		lanche1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					confirmacao.setText("");
 					conexao.conectar();
 					lanche.pegarLanche(1);
 				} catch (Exception e1) {
@@ -292,11 +273,11 @@ public class EditLanche extends JFrame {
 				tfNome.setText(lanche.getNomeLanche());
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
-				tfQuantidade.setText(lanche.getQuantidade());
 				tfcaminhofoto.setText(lanche.getCaminhoFoto());
 
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
 	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
+	  	    	labelFotoFilme.setText("");
 			}
 		});
 		lanche1.setBounds(55, 159, 227, 21);
@@ -306,6 +287,7 @@ public class EditLanche extends JFrame {
 		lanche2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					confirmacao.setText("");
 					conexao.conectar();
 					lanche.pegarLanche(2);
 				} catch (Exception e1) {
@@ -317,12 +299,12 @@ public class EditLanche extends JFrame {
 					tfNome.setText(lanche.getNomeLanche());
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
-				tfQuantidade.setText(lanche.getQuantidade());
 				tfcaminhofoto.setText(lanche.getCaminhoFoto());
 				
 
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
 	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
+	  	    	labelFotoFilme.setText("");
 			
 			}
 		});
@@ -333,6 +315,7 @@ public class EditLanche extends JFrame {
 		lanche3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					confirmacao.setText("");
 					conexao.conectar();
 					lanche.pegarLanche(3);
 				} catch (Exception e1) {
@@ -344,12 +327,12 @@ public class EditLanche extends JFrame {
 				tfNome.setText(lanche.getNomeLanche());
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
-				tfQuantidade.setText(lanche.getQuantidade());
 				tfcaminhofoto.setText(lanche.getCaminhoFoto());
 				
 
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
 	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
+	  	    	labelFotoFilme.setText("");
 				
 			}
 		});
@@ -360,6 +343,7 @@ public class EditLanche extends JFrame {
 		lanche4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					confirmacao.setText("");
 					conexao.conectar();
 					lanche.pegarLanche(4);
 				} catch (Exception e1) {
@@ -371,12 +355,12 @@ public class EditLanche extends JFrame {
 				tfNome.setText(lanche.getNomeLanche());
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
-				tfQuantidade.setText(lanche.getQuantidade());
 				tfcaminhofoto.setText(lanche.getCaminhoFoto());
 				
 
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
 	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
+	  	    	labelFotoFilme.setText("");
 				
 			}
 		});
@@ -387,6 +371,7 @@ public class EditLanche extends JFrame {
 		lanche5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					confirmacao.setText("");
 					conexao.conectar();
 					lanche.pegarLanche(5);
 				} catch (Exception e1) {
@@ -398,12 +383,12 @@ public class EditLanche extends JFrame {
 				tfNome.setText(lanche.getNomeLanche());
 				tfMarca.setText(lanche.getMarca());
 				tfPreco.setText(lanche.getPreco());
-				tfQuantidade.setText(lanche.getQuantidade());
 				tfcaminhofoto.setText(lanche.getCaminhoFoto());
 				
 
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
 	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
+	  	    	labelFotoFilme.setText("");
 			}
 		});
 		lanche5.setBounds(55, 530, 227, 21);
@@ -411,7 +396,7 @@ public class EditLanche extends JFrame {
 		
 		JLabel lblNewLabel_4_1 = new JLabel("Caminho da Foto:");
 		lblNewLabel_4_1.setFont(new Font("Arial", Font.BOLD, 15));
-		lblNewLabel_4_1.setBounds(702, 475, 186, 13);
+		lblNewLabel_4_1.setBounds(702, 387, 186, 13);
 		contentPane.add(lblNewLabel_4_1);
 	}
 }

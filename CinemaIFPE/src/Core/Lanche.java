@@ -14,7 +14,6 @@ public class Lanche {
     private String nome;
     private String marca;
     private String preco;
-    private String quantidade;
     private String caminhoFoto;
     
     public String getCaminhoFoto() {
@@ -61,13 +60,6 @@ public class Lanche {
         this.preco = preco;
     }
 
-    public String getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQtdEstoque(String qtdEstoque) {
-        this.quantidade = qtdEstoque;
-    }
     public int multiplicacaoLanche(int valor) {
     	Integer precoLanche = Integer.parseInt(preco);
     	return precoLanche * valor;
@@ -92,14 +84,12 @@ public class Lanche {
                 arrayLanche.add(rs.getString("nome"));
                 arrayLanche.add(rs.getString("marca"));
                 arrayLanche.add(rs.getString("preco"));
-                arrayLanche.add(rs.getString("quantidadeEstoque"));
                 arrayLanche.add(rs.getString("caminhofoto"));
 			}
 			nome = arrayLanche.get(1);
 			marca = arrayLanche.get(2);
-			preco = arrayLanche.get(3);
-			quantidade = arrayLanche.get(4);
-			caminhoFoto = arrayLanche.get(5);
+			preco = arrayLanche.get(3);	
+			caminhoFoto = arrayLanche.get(4);
 			
 			arrayLanche.clear();
 	
