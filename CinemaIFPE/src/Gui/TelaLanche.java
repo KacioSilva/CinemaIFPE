@@ -670,7 +670,10 @@ public class TelaLanche extends JFrame {
 		panel_1.add(botaoContinuar);
 		botaoContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5);
+				GuiPagamento pagamento = new GuiPagamento();
+				pagamento.setVisible(true);
+				dispose();
+				//System.out.println(valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5);
 			}
 		});
 		botaoContinuar.setFont(new Font("Arial", Font.BOLD, 14));
