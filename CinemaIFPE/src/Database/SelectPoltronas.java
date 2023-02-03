@@ -198,8 +198,10 @@ public class SelectPoltronas {
 				}
 				
 
-			} catch (SQLException e) {
-				throw new SQLException("Erro de conexão!");
-			}
+			} finally {
+	        	if(conexao != null) {
+	            	conexao.getConexao().close();
+	        }
     	}
+		}
 	}
