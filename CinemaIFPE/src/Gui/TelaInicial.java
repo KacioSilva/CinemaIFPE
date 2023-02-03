@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import Database.Conexao;
 import javax.swing.SwingConstants;
 
-
+////
 public class TelaInicial extends JFrame{
 	Filme filme = new Filme();
 	static int idFilme;
