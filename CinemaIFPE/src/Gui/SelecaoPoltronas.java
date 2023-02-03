@@ -58,7 +58,10 @@ public class SelecaoPoltronas extends JFrame {
 	}
 	
 	public SelecaoPoltronas() {
+<<<<<<< HEAD
 		setResizable(false);
+=======
+>>>>>>> parent of 89b367b (Poltrona desabilitada na compra)
 		
 		ControlePoltrona cp = new ControlePoltrona();
 		
@@ -282,7 +285,7 @@ public class SelecaoPoltronas extends JFrame {
 		D2.setBounds(183, 42, 55, 40);
 		panel.add(D2);
 		
-		
+		aaaaaaaaaa
 		
 		JButton D3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
 		
