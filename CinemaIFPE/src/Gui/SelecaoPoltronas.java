@@ -60,87 +60,172 @@ public class SelecaoPoltronas extends JFrame {
 	private static String D5Set;
 
 	
+
+
+
+
+	
+
+
 	public static String getA1Set() {
 		return A1Set;
+	}
+
+	public static void setA1Set(String a1Set) {
+		A1Set = a1Set;
 	}
 
 	public static String getA2Set() {
 		return A2Set;
 	}
 
+	public static void setA2Set(String a2Set) {
+		A2Set = a2Set;
+	}
+
 	public static String getA3Set() {
 		return A3Set;
+	}
+
+	public static void setA3Set(String a3Set) {
+		A3Set = a3Set;
 	}
 
 	public static String getA4Set() {
 		return A4Set;
 	}
 
+	public static void setA4Set(String a4Set) {
+		A4Set = a4Set;
+	}
+
 	public static String getA5Set() {
 		return A5Set;
+	}
+
+	public static void setA5Set(String a5Set) {
+		A5Set = a5Set;
 	}
 
 	public static String getB1Set() {
 		return B1Set;
 	}
 
+	public static void setB1Set(String b1Set) {
+		B1Set = b1Set;
+	}
+
 	public static String getB2Set() {
 		return B2Set;
+	}
+
+	public static void setB2Set(String b2Set) {
+		B2Set = b2Set;
 	}
 
 	public static String getB3Set() {
 		return B3Set;
 	}
 
+	public static void setB3Set(String b3Set) {
+		B3Set = b3Set;
+	}
+
 	public static String getB4Set() {
 		return B4Set;
+	}
+
+	public static void setB4Set(String b4Set) {
+		B4Set = b4Set;
 	}
 
 	public static String getB5Set() {
 		return B5Set;
 	}
 
+	public static void setB5Set(String b5Set) {
+		B5Set = b5Set;
+	}
+
 	public static String getC1Set() {
 		return C1Set;
+	}
+
+	public static void setC1Set(String c1Set) {
+		C1Set = c1Set;
 	}
 
 	public static String getC2Set() {
 		return C2Set;
 	}
 
+	public static void setC2Set(String c2Set) {
+		C2Set = c2Set;
+	}
+
 	public static String getC3Set() {
 		return C3Set;
+	}
+
+	public static void setC3Set(String c3Set) {
+		C3Set = c3Set;
 	}
 
 	public static String getC4Set() {
 		return C4Set;
 	}
 
+	public static void setC4Set(String c4Set) {
+		C4Set = c4Set;
+	}
+
 	public static String getC5Set() {
 		return C5Set;
 	}
-	
+
+	public static void setC5Set(String c5Set) {
+		C5Set = c5Set;
+	}
+
 	public static String getD1Set() {
 		return D1Set;
+	}
+
+	public static void setD1Set(String d1Set) {
+		D1Set = d1Set;
 	}
 
 	public static String getD2Set() {
 		return D2Set;
 	}
 
+	public static void setD2Set(String d2Set) {
+		D2Set = d2Set;
+	}
+
 	public static String getD3Set() {
 		return D3Set;
+	}
+
+	public static void setD3Set(String d3Set) {
+		D3Set = d3Set;
 	}
 
 	public static String getD4Set() {
 		return D4Set;
 	}
 
+	public static void setD4Set(String d4Set) {
+		D4Set = d4Set;
+	}
+
 	public static String getD5Set() {
 		return D5Set;
 	}
-	
 
+	public static void setD5Set(String d5Set) {
+		D5Set = d5Set;
+	}
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
