@@ -59,14 +59,6 @@ public class SelecaoPoltronas extends JFrame {
 	private static String D4Set;
 	private static String D5Set;
 
-	
-
-
-
-
-	
-
-
 	public static String getA1Set() {
 		return A1Set;
 	}

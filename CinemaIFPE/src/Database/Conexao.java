@@ -18,7 +18,7 @@ public class Conexao {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Sport@0408";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -107,5 +107,20 @@ public class Conexao {
 	        	conexao.close();
 	        	}
 	        }
+	}
+	public void editarPrecoIngresso(int preco) throws SQLException, ClassNotFoundException{
+		try {
+			conectar();
+			String alterarPreco = "UPDATE sala SET preco = ? WHERE numeroSala = 1";
+			PreparedStatement pstmt = conexao.prepareStatement(alterarPreco);
+			pstmt.setInt(1, preco);
+			
+			pstmt.execute();
+
+		}finally {
+        	if(conexao != null) {
+        	conexao.close();
+        	}
+        }
 	}
 }

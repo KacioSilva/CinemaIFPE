@@ -4,6 +4,7 @@ import Core.Administrador;
 import Core.ControlePoltrona;
 import Core.Filme;
 import Core.Lanche;
+import Core.Sala;
 import Core.Sessao;
 import Database.Conexao;
 import Database.SelectPoltronas;
@@ -13,13 +14,20 @@ import java.time.Duration;
 import java.time.LocalTime;
 import java.time.Period;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 public class FilmesTDD {
 
-public static void main(String[] args) throws ClassNotFoundException, SQLException {
-	Sessao sessao = new Sessao();	
-	sessao.pegarHora();
-//	sessao.getHoras22();
-	sessao.getHoras22().forEach(adonai -> System.out.println(adonai));
-	}
-}
+public static void main(String[] args) {
 	
+	Conexao conexao = new Conexao();
+	
+	try {
+		conexao.editarPrecoIngresso(2);
+	} catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}	
+}

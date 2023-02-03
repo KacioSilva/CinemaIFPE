@@ -34,17 +34,19 @@ public class Administrador {
 		}   
 	}
 		public static boolean funcEditarFilme(String idFilme ,String nome, String cartaz, String trailer, String sinopse, String diretor, String duracao, String genero, 
-				String anoLancamento, String classificacaoIndicativa, String horas, String minutos, String segundos, String sessao) throws SQLException, ClassNotFoundException{
+				String anoLancamento, String classificacaoIndicativa, String horas, String minutos, String segundos, String sessao, String precoIngresso) throws SQLException, ClassNotFoundException{
 		    Conexao filmeadm = new Conexao();
+
 			filmeadm.conectar();
 			
 
 		    if (nome.isEmpty() || nome.isEmpty() || cartaz.isEmpty() || trailer.isEmpty() || sinopse.isEmpty() 
-		    		|| diretor.isEmpty() || duracao.isEmpty() || genero.isEmpty() || anoLancamento.isEmpty() || classificacaoIndicativa.isEmpty() || horas.isEmpty() || minutos.isEmpty() || segundos.isEmpty() || sessao.isEmpty()){
+		    		|| diretor.isEmpty() || duracao.isEmpty() || genero.isEmpty() || anoLancamento.isEmpty() || classificacaoIndicativa.isEmpty() || horas.isEmpty() || minutos.isEmpty() || segundos.isEmpty() || sessao.isEmpty() || precoIngresso.isEmpty()){
 		        throw new RuntimeException("Campos vazios");
 		}else{
 			filmeadm.editarFilme(Integer.parseInt(idFilme), nome, cartaz, trailer, sinopse, diretor, Integer.parseInt(duracao), genero, anoLancamento,Integer.parseInt(classificacaoIndicativa));
 			filmeadm.editarSessao(Integer.parseInt(horas), Integer.parseInt(minutos), Integer.parseInt(segundos), Integer.parseInt(sessao));
+			filmeadm.editarPrecoIngresso(Integer.parseInt(precoIngresso));
 			
 			return true;
 			}   

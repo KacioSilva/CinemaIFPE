@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import Core.Administrador;
 import Core.Filme;
+import Core.Sala;
 import Core.Sessao;
 import Database.Conexao;
 import javax.swing.JButton;
@@ -66,9 +67,7 @@ public class EditFilme extends JFrame {
 	private JTextField textSegundos;
 	
 	
-	
-	private int teste;
-	private JTextField textField;
+	private JTextField textPrecoIngresso;
 	
 	
 	
@@ -101,6 +100,7 @@ public class EditFilme extends JFrame {
 	
 	public EditFilme() {
 		Sessao sessao = new Sessao();
+		Sala sala = new Sala();
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(EditFilme.class.getResource("/Midia/ifpe.png")));
 		
@@ -138,6 +138,7 @@ public class EditFilme extends JFrame {
 	  	contentPane.add(lblpreco);
 	  	
 		JLabel nomeFilme = new JLabel("NOME DO FILME");
+		
 		nomeFilme.setHorizontalAlignment(SwingConstants.CENTER);
 		nomeFilme.setFont(new Font("Arial", Font.BOLD, 14));
 		nomeFilme.setBounds(354, 127, 217, 29);
@@ -258,6 +259,7 @@ public class EditFilme extends JFrame {
 		    		textLancamento.setText("");
 		    		textFilme.setText("");
 		    		txtSinopse.setText("");
+		    		textPrecoIngresso.setText("");
 		    		lblConfirmacao.setText("");
 		    		labelFotoFilme.setIcon(null);
 		    		nomeFilme.setText("NOME DO FILME");
@@ -274,6 +276,7 @@ public class EditFilme extends JFrame {
 	  	    		
 	  	    		filmeObj.pegarFilmes(1);
 	  	    		sessao.pegarSessao(1);
+	  	    		sala.pegarPreco();
 					
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
@@ -294,6 +297,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
+	  	    	textPrecoIngresso.setText(sala.getPreco());
 
 	  	    	
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -312,6 +316,7 @@ public class EditFilme extends JFrame {
 	  	    	try {
 					filmeObj.pegarFilmes(2);
 					sessao.pegarSessao(2);
+					sala.pegarPreco();
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 				}
@@ -330,6 +335,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
+	  	    	textPrecoIngresso.setText(sala.getPreco());
 
 	  	    	setIdSessao("2");
 	  	    		
@@ -347,6 +353,7 @@ public class EditFilme extends JFrame {
 		    	try {
 					filmeObj.pegarFilmes(3);
 					sessao.pegarSessao(3);
+					sala.pegarPreco();
 				}catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -364,6 +371,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
+	  	    	textPrecoIngresso.setText(sala.getPreco());
 
 	  	    	setIdSessao("3");
 	  	    		
@@ -380,6 +388,7 @@ public class EditFilme extends JFrame {
 		    	try {
 					filmeObj.pegarFilmes(4);
 					sessao.pegarSessao(4);
+					sala.pegarPreco();
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -397,6 +406,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
+	  	    	textPrecoIngresso.setText(sala.getPreco());
 
 	  	    	setIdSessao("4");
 	  	    		
@@ -415,6 +425,7 @@ public class EditFilme extends JFrame {
 	  	    		
 					filmeObj.pegarFilmes(5);
 					sessao.pegarSessao(5);
+					sala.pegarPreco();
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -432,6 +443,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
+	  	    	textPrecoIngresso.setText(sala.getPreco());
 
 	  	    	setIdSessao("5");
 	  	    		
@@ -449,6 +461,7 @@ public class EditFilme extends JFrame {
 	  	    	try {
 					filmeObj.pegarFilmes(6);
 					sessao.pegarSessao(6);
+					sala.pegarPreco();
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -466,6 +479,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
+	  	    	textPrecoIngresso.setText(sala.getPreco());
 
 	  	    	setIdSessao("6");
 	  	    		
@@ -479,11 +493,11 @@ public class EditFilme extends JFrame {
 	  	    
 	 //-------CRIANDO OS TEXTFIELDS
 	  	  
-	  textField = new JTextField();
-	  textField.setHorizontalAlignment(SwingConstants.CENTER);
-	  textField.setColumns(10);
-	  textField.setBounds(39, 549, 144, 19);
-	  contentPane.add(textField);
+	  textPrecoIngresso = new JTextField();
+	  textPrecoIngresso.setHorizontalAlignment(SwingConstants.CENTER);
+	  textPrecoIngresso.setColumns(10);
+	  textPrecoIngresso.setBounds(39, 549, 144, 19);
+	  contentPane.add(textPrecoIngresso);
 	    
 	  txtClassificacao = new JTextField();
 	  txtClassificacao.addKeyListener(new KeyAdapter() {
@@ -544,6 +558,7 @@ public class EditFilme extends JFrame {
 	    
 	   
 	    tfcaminhofoto = new JTextField();
+	    tfcaminhofoto.setEditable(false);
 	    tfcaminhofoto.setHorizontalAlignment(SwingConstants.CENTER);
 	    tfcaminhofoto.setBounds(39, 380, 144, 19);
 	    contentPane.add(tfcaminhofoto);
@@ -608,11 +623,12 @@ public class EditFilme extends JFrame {
 		  	String minutos = textMinutos.getText();
 		  	String segundos = textSegundos.getText();
 		  	String idSessao = getIdSessao();
+		  	String precoIngresso = textPrecoIngresso.getText();
 		  	
 		  	
 		 
 		  	try{
-		  	    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa, horas, minutos, segundos, idSessao);
+		  	    Administrador.funcEditarFilme(idFilme, nome, cartaz, trailer, sinopse, diretor, duracao, genero, lancamento, idadeIndicativa, horas, minutos, segundos, idSessao, precoIngresso);
 	                        
 		  	    lblConfirmacao.setText("TUDO CERTO!");
 		  	    nomeFilme.setText(nome);
@@ -663,7 +679,6 @@ public class EditFilme extends JFrame {
 		  	textSegundos.setBounds(170, 625, 52, 19);
 		  	contentPane.add(textSegundos);
 		  
-		  	
 		  	
 	}
 }
