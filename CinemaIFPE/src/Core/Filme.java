@@ -39,7 +39,14 @@ public class Filme{
 	private String nomeArquivo;
 
 	
-
+	private static int valorTotal;
+	
+	public static int getValorTotal() {
+		return valorTotal;
+	}
+	public static void setValorTotal(int valor) {
+		valorTotal = valor;
+	}
     
     public String getNome() {
         return nomeFilme;

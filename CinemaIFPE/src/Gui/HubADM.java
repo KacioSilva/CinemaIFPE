@@ -7,6 +7,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -45,16 +47,16 @@ public class HubADM extends JFrame {
 		
 		
 		//-------CRIANDO LABELS
-		JLabel lblNewLabel = new JLabel("ESCOLHA A OPÇÃO QUE DESEJA ALTERAR");
+		JLabel lblNewLabel = new JLabel("ESCOLHA A OPÇÃO QUE DESEJA ALTERAR:");
 		lblNewLabel.setForeground(new Color(0, 128, 0));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Sitka Heading", Font.BOLD, 28));
-		lblNewLabel.setBounds(97, 66, 772, 120);
+		lblNewLabel.setFont(new Font("Sitka Heading", Font.BOLD, 40));
+		lblNewLabel.setBounds(127, 54, 789, 139);
 		contentPane.add(lblNewLabel);
 		
 		
 		//------CRIANDO BOTÕES
-		JButton lanches = new JButton("LANCHES");
+		JButton lanches = new JButton();
 		lanches.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -64,10 +66,14 @@ public class HubADM extends JFrame {
 				
 			}
 		});
-		lanches.setBounds(169, 300, 187, 251);
+		lanches.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/Lanche.png")));
+		lanches.setBorderPainted(false);
+		lanches.setFocusPainted(false);
+		lanches.setBackground(new Color(240, 240, 240));
+		lanches.setBounds(84, 287, 296, 264);
 		contentPane.add(lanches);
 		
-		JButton filmes = new JButton("FILMES");
+		JButton filmes = new JButton("");
 		filmes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -76,21 +82,39 @@ public class HubADM extends JFrame {
 				dispose();
 			}
 		});
-		filmes.setBounds(634, 300, 187, 251);
+		filmes.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/claquete.png")));
+		filmes.setBorderPainted(false);
+		filmes.setFocusPainted(false);
+		filmes.setBackground(new Color(240, 240, 240));
+		filmes.setBounds(599, 287, 296, 264);
 		contentPane.add(filmes);
 		
-		JButton sair = new JButton("Log out");
+		JButton sair = new JButton();
 		sair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				TelaAdm telaadm = new TelaAdm();
 				telaadm.setVisible(true);
 				dispose();
-				
 			}
 		});
-		sair.setHorizontalAlignment(SwingConstants.LEFT);
-		sair.setBounds(32, 27, 85, 29);
+		sair.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/sair.png")));
+		sair.setBorderPainted(false);
+		sair.setFocusPainted(false);
+		sair.setBackground(new Color(240, 240, 240));
+		sair.setBounds(37, 27, 45, 52);
 		contentPane.add(sair);
+		
+		JLabel lblLanche = new JLabel("Lanches");
+		lblLanche.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLanche.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblLanche.setBounds(182, 562, 108, 25);
+		contentPane.add(lblLanche);
+		
+		JLabel lblFilmes = new JLabel("Filmes");
+		lblFilmes.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFilmes.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblFilmes.setBounds(698, 562, 108, 25);
+		contentPane.add(lblFilmes);
 	}
 }

@@ -16,6 +16,16 @@ public class Lanche {
     private String preco;
     private String caminhoFoto;
     
+    private static int precoTotal;
+    
+    public static int getPrecoTotal() {
+    	return precoTotal;
+    }
+    
+    public static void setPrecoTotal(int preco) {
+    	precoTotal = preco;
+    }
+    
     public String getCaminhoFoto() {
 		return caminhoFoto;
 	}

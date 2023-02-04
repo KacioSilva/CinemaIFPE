@@ -235,8 +235,13 @@ public class EditFilme extends JFrame {
 				dispose();
 			}
 		});
-	    voltar.setBounds(39, 26, 85, 29);
-		contentPane.add(voltar);
+	    voltar.setBackground(new Color(240, 240, 240));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setBorderPainted(false);
+        voltar.setFocusPainted(false);
+        voltar.setBounds(10, 22, 66, 40);
+        voltar.setText("");
+        contentPane.add(voltar);
 		
 		
 		JButton adicionarImagem = new JButton("add imagem");

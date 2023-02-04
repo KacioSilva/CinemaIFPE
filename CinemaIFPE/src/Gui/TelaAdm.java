@@ -72,8 +72,9 @@ public class TelaAdm extends JFrame {
 	    contentPane.add(senha);
 	      
 	    JLabel mensagem = new JLabel("  ");
-	    mensagem.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    mensagem.setBounds(353, 576, 272, 25);
+	    mensagem.setHorizontalAlignment(SwingConstants.CENTER);
+	    mensagem.setFont(new Font("Tahoma", Font.BOLD, 16));
+	    mensagem.setBounds(333, 570, 272, 25);
 	    contentPane.add(mensagem);
 	      
 	    JLabel administrador = new JLabel("ADMINISTRADOR");
@@ -82,6 +83,9 @@ public class TelaAdm extends JFrame {
 	    contentPane.add(administrador);
 		
 	    //-------CRIANDO OS BOTÕES
+	    
+	    
+        
 	    JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -96,9 +100,13 @@ public class TelaAdm extends JFrame {
 		        dispose();
 			}
 		});
-		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		voltar.setBounds(10, 22, 75, 35);
-		contentPane.add(voltar);
+		voltar.setBackground(new Color(240, 240, 240));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setBorderPainted(false);
+        voltar.setFocusPainted(false);
+        voltar.setBounds(10, 22, 66, 40);
+        voltar.setText("");
+        contentPane.add(voltar);
 		
 		
 		JButton help = new JButton("");
@@ -114,10 +122,10 @@ public class TelaAdm extends JFrame {
 	      });
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 
-		help.setBounds(881, 25, 65, 32);
+		help.setBounds(909, 30, 65, 32);
 		contentPane.add(help);
 		
-		JButton entrar = new JButton("Entrar");
+		JButton entrar = new JButton("");
 		entrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usuario = textField.getText();
@@ -136,8 +144,12 @@ public class TelaAdm extends JFrame {
 
 			}
 		});
+		entrar.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/login.png")));
+		entrar.setBorderPainted(false);
+		entrar.setFocusPainted(false);
+		entrar.setBackground(new Color(240, 240, 240));
 		entrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		entrar.setBounds(414, 612, 117, 23);
+		entrar.setBounds(432, 606, 80, 48);
 		contentPane.add(entrar);
 		
 		

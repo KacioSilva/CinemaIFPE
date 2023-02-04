@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Core.ControlePoltrona;
+import Core.Filme;
 import Core.Lanche;
 import Database.UpdatePoltronas;
 
@@ -16,24 +17,39 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
 
 public class GuiPagamento extends JFrame {
 
     private JPanel contentPane;
     private JButton btnDebito;
     private JButton btnCredito;
-    private JButton btnPix;
     private JButton pagar;
-    private JTextField txtEmail;
+    private JTextField textEmail;
     
     private JLabel lblEmail;
-    private JTextField textField;
+    private JTextField textCpf;
     private JLabel lblCpf;
-  
+    private JTextField textNCartao;
+    private JTextField textCvv;
+    private JLabel lblNCartao;
+    private  JLabel lblCvv;
+    private JLabel lblDe; 
+    private JTextField textNomeTitular;
+    private JLabel lblNomeTitular;
+    private JLabel lblTipo;
+    
+    private String tipo;
+   
 
 
     public static void main(String[] args) {
@@ -50,8 +66,9 @@ public class GuiPagamento extends JFrame {
     }
 
     public GuiPagamento() {
-
-        setResizable(false);
+    	setTitle("Pagamento");
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(HubADM.class.getResource("/Midia/ifpe.png")));
+    	setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
@@ -160,7 +177,7 @@ public class GuiPagamento extends JFrame {
 
             }
         });
-        pagar.setBounds(413, 613, 89, 35);
+        pagar.setBounds(439, 566, 89, 35);
         contentPane.add(pagar);
 
         JButton btnVoltar = new JButton("Voltar");
@@ -169,85 +186,116 @@ public class GuiPagamento extends JFrame {
             	
                 TelaLanche lanche = new TelaLanche();
                 lanche.setVisible(true);
+             
                 dispose();
             }
         });
-        btnVoltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-        btnVoltar.setBounds(10, 25, 75, 35);
+        
+   
+        
+        btnVoltar.setBackground(new Color(240, 240, 240));
+        btnVoltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        btnVoltar.setBorderPainted(false);
+        btnVoltar.setFocusPainted(false);
+        btnVoltar.setBounds(10, 22, 66, 40);
+        btnVoltar.setText("");
         contentPane.add(btnVoltar);
         
         JLabel cineifPaulista = new JLabel("CineIF Paulista");
         cineifPaulista.setForeground(new Color(63, 164, 13, 236));
         cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
-        cineifPaulista.setBounds(264, 11, 445, 132);
+        cineifPaulista.setBounds(282, 11, 445, 132);
         contentPane.add(cineifPaulista);
         
         JLabel lblNewLabel = new JLabel("PAGAMENTO");
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 23));
-        lblNewLabel.setBounds(382, 154, 166, 35);
+        lblNewLabel.setBounds(415, 195, 166, 35);
         contentPane.add(lblNewLabel);
         
         JLabel lblSelecione = new JLabel("SELECIONE A FORMA");
-        lblSelecione.setFont(new Font("Tahoma", Font.PLAIN, 17));
-        lblSelecione.setBounds(21, 236, 172, 44);
+        lblSelecione.setHorizontalAlignment(SwingConstants.CENTER);
+        lblSelecione.setFont(new Font("Tahoma", Font.BOLD, 17));
+        lblSelecione.setBounds(21, 236, 192, 44);
         contentPane.add(lblSelecione);
         
         btnDebito = new JButton("Débito");
         btnDebito.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblNomeTitular.setVisible(true);
+        		textNomeTitular.setVisible(true);
+        		lblEmail.setVisible(true);
+        		textEmail.setVisible(true);
+        		lblCvv.setVisible(true);
+        		textCvv.setVisible(true);
+        		lblNCartao.setVisible(true);
+        		textNCartao.setVisible(true);
+        		lblCpf.setVisible(true);
+        		textCpf.setVisible(true);
+        		tipo = "Débito";
+        		lblTipo.setText(tipo);
+        		pagar.setVisible(true);
         	}
         });
         btnDebito.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        btnDebito.setBounds(49, 402, 89, 23);
+        btnDebito.setBounds(71, 432, 89, 23);
         contentPane.add(btnDebito);
         
         btnCredito = new JButton("Crédito");
         btnCredito.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btnCredito.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		lblNomeTitular.setVisible(true);
+        		textNomeTitular.setVisible(true);
+        		lblEmail.setVisible(true);
+        		textEmail.setVisible(true);
+        		lblCvv.setVisible(true);
+        		textCvv.setVisible(true);
+        		lblNCartao.setVisible(true);
+        		textNCartao.setVisible(true);
+        		lblCpf.setVisible(true);
+        		textCpf.setVisible(true);
+        		pagar.setVisible(true);
+        		tipo = "Crédito";
+        		lblTipo.setText(tipo);
         	}
         });
-        btnCredito.setBounds(49, 458, 89, 23);
+        btnCredito.setBounds(71, 488, 89, 23);
         contentPane.add(btnCredito);
         
-        btnPix = new JButton("Pix");
-        btnPix.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        btnPix.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
-        btnPix.setBounds(49, 555, 89, 23);
-        contentPane.add(btnPix);
-        
-        JLabel lblNewLabel_2 = new JLabel("Cartão:");
+        JLabel lblNewLabel_2 = new JLabel();
+        lblNewLabel_2.setIcon(new ImageIcon(InfoFilme.class.getResource("/Midia/cartao.png")));
         lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-        lblNewLabel_2.setBounds(63, 366, 87, 25);
+        lblNewLabel_2.setBounds(92, 386, 43, 35);
         contentPane.add(lblNewLabel_2);
         
-        JLabel lblNewLabel_2_1 = new JLabel("Outra Forma:");
-        lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-        lblNewLabel_2_1.setBounds(45, 518, 112, 25);
-        contentPane.add(lblNewLabel_2_1);
-        
-        JButton btnHelp = new JButton("Help");
-        btnHelp.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-        btnHelp.setBounds(870, 29, 75, 35);
-        contentPane.add(btnHelp);
-        
+        JButton help = new JButton("");
+		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.setBorderPainted(false);
+		help.setFocusPainted(false);
+		help.setBackground(new Color(240, 240, 240));
+		help.addActionListener(new ActionListener() {
+	      	public void actionPerformed(ActionEvent e) {
+	      		 JOptionPane.showMessageDialog(null, "Nessa tela, você pode optar pelas formas de pagamento disponíveis e " + "\n" +
+	      	"realizar o pagamento.",
+	                    "Help", JOptionPane.QUESTION_MESSAGE);
+	      	}
+	     });
+  		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
+  		help.setBounds(909, 30, 65, 32);
+  		contentPane.add(help);
+		
         JPanel panel_1 = new JPanel();
         panel_1.setLayout(null);
         panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
         panel_1.setBounds(749, 308, 212, 189);
         contentPane.add(panel_1);
         
-        JLabel lblTotal = new JLabel("TOTAL GERAL:          R$0");
+        JLabel lblTotal = new JLabel("TOTAL GERAL:          R$" + (Lanche.getPrecoTotal() + Filme.getValorTotal()) );
         lblTotal.setBounds(10, 153, 199, 25);
         panel_1.add(lblTotal);
         lblTotal.setFont(new Font("Arial", Font.BOLD, 12));
         
-        JLabel lblLanche = new JLabel("TOTAL LANCHES:     R$ 0");
+        JLabel lblLanche = new JLabel("TOTAL LANCHES:     R$" + Lanche.getPrecoTotal() );
         lblLanche.setBounds(10, 84, 199, 25);
         panel_1.add(lblLanche);
         lblLanche.setFont(new Font("Arial", Font.BOLD, 12));
@@ -255,7 +303,7 @@ public class GuiPagamento extends JFrame {
         JLabel lblIngresso = new JLabel();
         lblIngresso.setBounds(10, 11, 308, 25);
         panel_1.add(lblIngresso);
-        lblIngresso.setText("TOTAL INGRESSO:    R$0");
+        lblIngresso.setText("TOTAL INGRESSO:    R$" + Filme.getValorTotal());
         lblIngresso.setFont(new Font("Arial", Font.BOLD, 12));
         
         JLabel lblNewLabel_3 = new JLabel("Custos");
@@ -263,37 +311,98 @@ public class GuiPagamento extends JFrame {
         lblNewLabel_3.setBounds(820, 257, 112, 33);
         contentPane.add(lblNewLabel_3);
         
-        JLabel lblDe = new JLabel("DE");
-        lblDe.setFont(new Font("Tahoma", Font.PLAIN, 17));
-        lblDe.setBounds(80, 269, 36, 44);
+        lblDe = new JLabel("DE");
+        lblDe.setHorizontalAlignment(SwingConstants.CENTER);
+        lblDe.setFont(new Font("Tahoma", Font.BOLD, 17));
+        lblDe.setBounds(21, 277, 192, 44);
         contentPane.add(lblDe);
         
-        JLabel lblPagamento = new JLabel("PAGAMENTO");
-        lblPagamento.setFont(new Font("Tahoma", Font.PLAIN, 17));
-        lblPagamento.setBounds(45, 305, 112, 44);
+        JLabel lblPagamento = new JLabel("PAGAMENTO:");
+        lblPagamento.setHorizontalAlignment(SwingConstants.CENTER);
+        lblPagamento.setFont(new Font("Tahoma", Font.BOLD, 17));
+        lblPagamento.setBounds(21, 311, 192, 44);
         contentPane.add(lblPagamento);
         
-        txtEmail = new JTextField();
-        txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        txtEmail.setBounds(392, 305, 156, 20);
-        contentPane.add(txtEmail);
-        txtEmail.setColumns(10);
+        
+        textEmail = new JTextField();
+        textEmail.setVisible(false);
+        textEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        textEmail.setBounds(410, 308, 156, 20);
+        contentPane.add(textEmail);
+        textEmail.setColumns(10);
+        	
         
         lblEmail = new JLabel("Email:");
+        lblEmail.setVisible(false);
         lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        lblEmail.setBounds(348, 306, 43, 18);
+        lblEmail.setBounds(366, 309, 43, 18);
         contentPane.add(lblEmail);
         
-        textField = new JTextField();
-        textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        textField.setColumns(10);
-        textField.setBounds(392, 352, 156, 20);
-        contentPane.add(textField);
+        
+        textCpf = new JTextField();
+        textCpf.setVisible(false);
+        textCpf.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        textCpf.setColumns(10);
+        textCpf.setBounds(410, 355, 156, 20);
+        contentPane.add(textCpf);
+        
         
         lblCpf = new JLabel("CPF:");
+        lblCpf.setVisible(false);
         lblCpf.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        lblCpf.setBounds(348, 353, 30, 18);
+        lblCpf.setBounds(366, 356, 30, 18);
         contentPane.add(lblCpf);
+        
+        
+        textNCartao = new JTextField();
+        textNCartao.setVisible(false);
+        textNCartao.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        textNCartao.setColumns(10);
+        textNCartao.setBounds(410, 408, 156, 20);
+        contentPane.add(textNCartao);
+        
+        
+        lblNCartao = new JLabel("N° Cartão:");
+        lblNCartao.setVisible(false);
+        lblNCartao.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblNCartao.setBounds(334, 410, 75, 18);
+        contentPane.add(lblNCartao);
+        
+        
+        textCvv = new JTextField();
+        textCvv.setVisible(false);
+        textCvv.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        textCvv.setColumns(10);
+        textCvv.setBounds(410, 507, 156, 20);
+        contentPane.add(textCvv);
+        
+        
+        lblCvv = new JLabel("(CVV):");
+        lblCvv.setVisible(false);
+        lblCvv.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblCvv.setBounds(355, 508, 44, 18);
+        contentPane.add(lblCvv);
+        
+      
+        textNomeTitular = new JTextField();
+        textNomeTitular.setVisible(false);
+        textNomeTitular.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        textNomeTitular.setColumns(10);
+        textNomeTitular.setBounds(410, 461, 156, 20);
+        contentPane.add(textNomeTitular);
+        
+        
+        lblNomeTitular = new JLabel("Nome Titular:");
+        lblNomeTitular.setVisible(false);
+        lblNomeTitular.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblNomeTitular.setBounds(320, 463, 89, 18);
+        contentPane.add(lblNomeTitular);
+        
+        lblTipo = new JLabel("");
+        lblTipo.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTipo.setFont(new Font("Tahoma", Font.BOLD, 17));
+        lblTipo.setBounds(426, 257, 102, 23);
+        contentPane.add(lblTipo);
         
 //        ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
 //        JLabel ifpe = new JLabel(logo_ifpe);

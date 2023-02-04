@@ -322,7 +322,7 @@ public class InfoFilme extends JFrame {
 		help.setFocusPainted(false);
 		help.setBackground(new Color(240, 240, 240));
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		help.setBounds(897, 25, 66, 40);
+		help.setBounds(909, 30, 65, 32);
 		contentPane.add(help);
 		
 		JButton voltar = new JButton("Voltar");
@@ -334,9 +334,13 @@ public class InfoFilme extends JFrame {
 		        dispose();
 			}
 		});
-		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		voltar.setBounds(10, 22, 75, 35);
-		contentPane.add(voltar);	
+		voltar.setBackground(new Color(240, 240, 240));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setBorderPainted(false);
+        voltar.setFocusPainted(false);
+        voltar.setBounds(10, 22, 66, 40);
+        voltar.setText("");
+        contentPane.add(voltar);
 		
 		JLabel lblNewLabel = new JLabel("SINOPSE");
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 15));

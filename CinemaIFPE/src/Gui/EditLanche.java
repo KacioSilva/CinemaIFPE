@@ -267,10 +267,14 @@ public class EditLanche extends JFrame {
 				dispose();				
 			}
 		});
-		voltar.setFont(new Font("Arial", Font.BOLD, 13));
-		voltar.setBounds(55, 27, 94, 25);
-		contentPane.add(voltar);
-		
+		voltar.setBackground(new Color(240, 240, 240));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setBorderPainted(false);
+        voltar.setFocusPainted(false);
+        voltar.setBounds(10, 22, 66, 40);
+        voltar.setText("");
+        contentPane.add(voltar);
+        
 		JButton lanche1 = new JButton("LANCHE 1");
 		lanche1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

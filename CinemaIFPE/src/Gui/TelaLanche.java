@@ -106,8 +106,7 @@ public class TelaLanche extends JFrame {
 	      	}
 	      });
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-
-		help.setBounds(881, 25, 66, 32);
+		help.setBounds(909, 30, 65, 32);
 		contentPane.add(help);
 		
 		
@@ -122,10 +121,14 @@ public class TelaLanche extends JFrame {
 				dispose();
 			}
 		});
-		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		voltar.setBounds(10, 26, 75, 35);
-		contentPane.add(voltar);
-		
+		voltar.setBackground(new Color(240, 240, 240));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setBorderPainted(false);
+        voltar.setFocusPainted(false);
+        voltar.setBounds(10, 22, 66, 40);
+        voltar.setText("");
+        contentPane.add(voltar);
+        
 		JLabel fotoLanche1 = new JLabel("SELECIONE UMA FOTO");
 		fotoLanche1.setHorizontalAlignment(SwingConstants.CENTER);
 		fotoLanche1.setBackground(new Color(128, 255, 255));
@@ -674,10 +677,13 @@ public class TelaLanche extends JFrame {
 		panel_1.add(botaoContinuar);
 		botaoContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Lanche.setPrecoTotal(valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5);
+				Filme.setValorTotal(cp.getPreco());
+				
 				GuiPagamento pagamento = new GuiPagamento();
 				pagamento.setVisible(true);
 				dispose();
-				//System.out.println(valorLanche1 + valorLanche2 + valorLanche3 + valorLanche4 + valorLanche5);
+				//System.out.println(;
 			}
 		});
 		botaoContinuar.setFont(new Font("Arial", Font.BOLD, 14));

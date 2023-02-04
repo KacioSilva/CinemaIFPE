@@ -142,10 +142,10 @@ public class TelaInicial extends JFrame{
 	      	}
 	      });
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		help.setBounds(897, 25, 66, 40);
+		help.setBounds(909, 30, 65, 32);
 		contentPane.add(help);
 		
-		JButton administrador = new JButton("Administrador");
+		JButton administrador = new JButton();
 		administrador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaAdm telalogin = new TelaAdm();
@@ -153,12 +153,15 @@ public class TelaInicial extends JFrame{
 		        dispose();
 			}
 		});
-
+		administrador.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/administrador.png")));
+		administrador.setBorderPainted(false);
+		administrador.setFocusPainted(false);
+		administrador.setBackground(new Color(240, 240, 240));
 		administrador.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		administrador.setBounds(827, 635, 136, 23);
+		administrador.setBounds(907, 618, 56, 40);
 		contentPane.add(administrador);
 		
-		JButton verTodosFilmes = new JButton("Ver Todos os Filmes");
+		JButton verTodosFilmes = new JButton();
 		verTodosFilmes.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
 	      		TelaTodosFilmes telalogin = new TelaTodosFilmes();
@@ -166,8 +169,11 @@ public class TelaInicial extends JFrame{
 		        dispose();
 	      	}
 	      });
+		verTodosFilmes.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/verTodososFilmes.png")));
+		verTodosFilmes.setFocusPainted(false);
+		verTodosFilmes.setBackground(new Color(240, 240, 240));
 		verTodosFilmes.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		verTodosFilmes.setBounds(737, 203, 171, 29);
+		verTodosFilmes.setBounds(766, 187, 171, 51);
 	      contentPane.add(verTodosFilmes);
 	      
 	      

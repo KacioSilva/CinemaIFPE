@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -2167,11 +2168,28 @@ public class SelecaoPoltronas extends JFrame {
 				dispose();
 			}
 		});
-		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		voltar.setBounds(20, 25, 75, 35);
-		contentPane.add(voltar);
-	 
-		
-	System.out.println(pegarSoma);	
+		voltar.setBackground(new Color(240, 240, 240));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setBorderPainted(false);
+        voltar.setFocusPainted(false);
+        voltar.setBounds(10, 22, 66, 40);
+        voltar.setText("");
+        contentPane.add(voltar);
+        
+        
+        JButton help = new JButton("");
+	  	help.setIcon(new ImageIcon(InfoFilme.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.addActionListener(new ActionListener() {
+	      	public void actionPerformed(ActionEvent e) {
+	      		 JOptionPane.showMessageDialog(null, "Nessa tela, você pode selecionar as poltronas " + "\n" +
+	                     "que deseja e visualizar o preço. ", "Help", JOptionPane.QUESTION_MESSAGE);
+	      	}
+	      });
+		help.setBorderPainted(false);
+		help.setFocusPainted(false);
+		help.setBackground(new Color(240, 240, 240));
+		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
+		help.setBounds(909, 30, 65, 32);
+		contentPane.add(help);		
 	}
 }
