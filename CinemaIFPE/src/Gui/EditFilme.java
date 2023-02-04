@@ -8,8 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
+
 import Core.Administrador;
 import Core.Filme;
+import Core.FormatTft;
 import Core.Sala;
 import Core.Sessao;
 import Database.Conexao;
@@ -34,8 +37,11 @@ import java.nio.file.Files;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.ParseException;
+
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JTable;
+import javax.swing.JFormattedTextField;
 
 
 public class EditFilme extends JFrame {
@@ -43,8 +49,6 @@ public class EditFilme extends JFrame {
 	private JPanel contentPane;
 	private String alterarimagem;
 	private String posicao;
-	private JTextField txtClassificacao;
-	private JTextField txtDuracao;
 	private JTextField txtGenero;
 	private JTextField txtDiretor;
 	private JButton limparCampos;
@@ -57,7 +61,6 @@ public class EditFilme extends JFrame {
 	private String nomeArquivo;
 	private Filme filmeObj = new Filme();
 	private JTextField textId;
-	private JTextField textLancamento;
 	private JTextArea txtSinopse;
 	File file;
 	Conexao conexao = new Conexao();
@@ -65,11 +68,13 @@ public class EditFilme extends JFrame {
 	private JTextField textHoras;
 	private JTextField textMinutos;
 	private JTextField textSegundos;
+	private JLabel lblConfirmacao;
 	
 	
 	private JTextField textPrecoIngresso;
-	
-	
+	private JFormattedTextField textLancamento;
+	private JTextField txtClassificacao;
+	private JTextField txtDuracao;
 	
 	
 	
@@ -84,8 +89,24 @@ public class EditFilme extends JFrame {
 		return nomeArquivo;
 	}
 	
+	
+	  public  void formatarLancamento() {
+	    	try {
+				MaskFormatter mascara = new MaskFormatter("####-##-##");
+				mascara.install(textLancamento);
+			} catch (ParseException e) {
+		
+				lblConfirmacao.setText("Erro na formatação");
+				
+			}
+	    }
+	  
+	 
+	  
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -247,6 +268,13 @@ public class EditFilme extends JFrame {
 		    contentPane.add(adicionarImagem);
 		    
 		    
+		    textLancamento = new JFormattedTextField();
+		    textLancamento.setHorizontalAlignment(SwingConstants.CENTER);
+		    formatarLancamento();
+		  	textLancamento.setBounds(39, 432, 144, 19);
+		  	contentPane.add(textLancamento);
+
+		  	
 		  	limparCampos = new JButton("LIMPAR");
 		    limparCampos.addActionListener(new ActionListener() {
 		    	public void actionPerformed(ActionEvent e) {
@@ -493,44 +521,23 @@ public class EditFilme extends JFrame {
 	  	    
 	 //-------CRIANDO OS TEXTFIELDS
 	  	  
+	  FormatTft format = new FormatTft(3);	    	  	    
 	  textPrecoIngresso = new JTextField();
+	  textPrecoIngresso.addKeyListener(new KeyAdapter() {
+	  	@Override
+	  	public void keyTyped(KeyEvent e) {
+	  		char c = e.getKeyChar();
+			if(!Character.isDigit(c)) {
+				e.consume();
+			}	
+	  	}
+	  });
+	  textPrecoIngresso.setDocument(format);
+	  
 	  textPrecoIngresso.setHorizontalAlignment(SwingConstants.CENTER);
 	  textPrecoIngresso.setColumns(10);
 	  textPrecoIngresso.setBounds(39, 549, 144, 19);
 	  contentPane.add(textPrecoIngresso);
-	    
-	  txtClassificacao = new JTextField();
-	  txtClassificacao.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-				char c = e.getKeyChar();
-				if(!Character.isDigit(c)) {
-					e.consume();
-				}
-			}
-		});
-	    txtClassificacao.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtClassificacao.setBounds(39, 168, 144, 19);
-	    contentPane.add(txtClassificacao);
-	    txtClassificacao.setColumns(10);
-	    
-	    
-	    txtDuracao = new JTextField();
-	    txtDuracao.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-				char c = e.getKeyChar();
-				if(!Character.isDigit(c)) {
-					e.consume();
-				}
-			}
-		});
-	    txtDuracao.setHorizontalAlignment(SwingConstants.CENTER);
-	    txtDuracao.setBounds(39, 226, 144, 19);
-	    contentPane.add(txtDuracao);
-	    txtDuracao.setColumns(10);
 	    
 	    txtGenero = new JTextField();
 	    txtGenero.setHorizontalAlignment(SwingConstants.CENTER);
@@ -581,13 +588,6 @@ public class EditFilme extends JFrame {
 	  	textId.setBounds(39, 115, 144, 19);
 	  	contentPane.add(textId);
 	  	textId.setColumns(10);
-	  	
-	  	 
-  	    textLancamento = new JTextField();
-  	    textLancamento.setHorizontalAlignment(SwingConstants.CENTER);
-  	    textLancamento.setColumns(10);
-  	    textLancamento.setBounds(39, 432, 144, 19);
-  	    contentPane.add(textLancamento);
 	  	    
 	    
 	    //------CRIANDO O TEXTAREA
@@ -678,6 +678,52 @@ public class EditFilme extends JFrame {
 		  	textSegundos.setColumns(10);
 		  	textSegundos.setBounds(170, 625, 52, 19);
 		  	contentPane.add(textSegundos);
+		  	
+		  	
+		  	
+		  	
+		  	FormatTft formatClassificacao = new FormatTft(2);  	
+		  	txtClassificacao = new JTextField();
+		  	txtClassificacao.addKeyListener(new KeyAdapter() {
+		  		@Override
+		  		public void keyTyped(KeyEvent e) {
+		  			char c = e.getKeyChar();
+					if(!Character.isDigit(c)) {
+						e.consume();
+					}				
+		  		}
+		  	});
+		  	txtClassificacao.setDocument(formatClassificacao);
+		  	txtClassificacao.setHorizontalAlignment(SwingConstants.CENTER);		  	
+		  	txtClassificacao.setBounds(39, 167, 144, 19);
+		  	contentPane.add(txtClassificacao);
+		  	txtClassificacao.setColumns(10);
+		  	
+		  	
+		  	
+		  	
+		  	FormatTft formatDuracao = new FormatTft(3);
+		  	txtDuracao = new JTextField();
+		  	txtDuracao.setDocument(formatDuracao);
+		  	txtDuracao.setHorizontalAlignment(SwingConstants.CENTER);
+		  	txtDuracao.addKeyListener(new KeyAdapter() {
+		  		@Override
+		  		public void keyTyped(KeyEvent e) {	
+			  			char c = e.getKeyChar();
+						if(!Character.isDigit(c)) {
+							e.consume();
+						}				
+			  		}		  		
+		  	});
+		  	txtDuracao.setBounds(39, 225, 144, 19);
+		  	contentPane.add(txtDuracao);
+		  	txtDuracao.setColumns(10);
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
 		  
 		  	
 	}

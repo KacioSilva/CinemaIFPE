@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import Core.Administrador;
+import Core.FormatTft;
 import Core.Lanche;
 import Database.Conexao;
 
@@ -110,6 +111,7 @@ public class EditLanche extends JFrame {
 		
 		//-------CRIANDO OS TEXTFIELDS	
 		 tfcaminhofoto = new JTextField();
+		 tfcaminhofoto.setEditable(false);
 		 tfcaminhofoto.setHorizontalAlignment(SwingConstants.CENTER);
 		 tfcaminhofoto.setBounds(702, 422, 214, 19);
 		 contentPane.add(tfcaminhofoto);
@@ -152,10 +154,22 @@ public class EditLanche extends JFrame {
 		tfMarca.setColumns(10);
 		
 		
-		
+		FormatTft formatPrecoLanche = new FormatTft(3);
 		tfPreco = new JTextField();
+		tfPreco.setDocument(formatPrecoLanche);
 		tfPreco.addKeyListener(new KeyAdapter() {
 			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+		  			char c = e.getKeyChar();
+					if(!Character.isDigit(c)) {
+						e.consume();
+					}
+					
+				
+		  		
+			}
 		});
 		tfPreco.setHorizontalAlignment(SwingConstants.CENTER);
 		tfPreco.setBounds(702, 328, 214, 19);

@@ -128,7 +128,11 @@ public class TelaInicial extends JFrame{
 	      
 	      
 
-		JButton help = new JButton("Help");
+		JButton help = new JButton("");
+		help.setBorderPainted(true);
+		help.setFocusPainted(true);
+		help.setBackground(new Color(240, 240, 240));
+		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/interrogaçao.png")));
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
 	      		 JOptionPane.showMessageDialog(null, "Nessa tela, o cliente pode optar por acessar algum filme " +
@@ -138,7 +142,7 @@ public class TelaInicial extends JFrame{
 	      	}
 	      });
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		help.setBounds(897, 25, 66, 29);
+		help.setBounds(897, 25, 66, 40);
 		contentPane.add(help);
 		
 		JButton administrador = new JButton("Administrador");
