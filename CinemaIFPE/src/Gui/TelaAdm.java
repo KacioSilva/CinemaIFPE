@@ -99,9 +99,13 @@ public class TelaAdm extends JFrame {
 		voltar.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 		voltar.setBounds(10, 22, 75, 35);
 		contentPane.add(voltar);
-	
 		
-		JButton help = new JButton("Help");
+		
+		JButton help = new JButton("");
+		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.setBorderPainted(false);
+		help.setFocusPainted(false);
+		help.setBackground(new Color(240, 240, 240));
 		help.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
 	    	JOptionPane.showMessageDialog(null, "Essa tela é restrita ao administrador. Ele pode fazer o Login e ter acesso" +
@@ -110,7 +114,7 @@ public class TelaAdm extends JFrame {
 	      });
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
 
-		help.setBounds(881, 25, 66, 29);
+		help.setBounds(881, 25, 65, 32);
 		contentPane.add(help);
 		
 		JButton entrar = new JButton("Entrar");
