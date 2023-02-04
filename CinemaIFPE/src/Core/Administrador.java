@@ -53,13 +53,6 @@ public class Administrador {
 			
 			return true;
 			}   
-		}
-		
-		
-		
-		
-		
-		
-		
+		}	
 		
 }

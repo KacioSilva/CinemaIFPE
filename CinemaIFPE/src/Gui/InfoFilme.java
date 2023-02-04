@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import Core.Filme;
+import Core.Sala;
 import Core.Sessao;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -123,8 +124,6 @@ public class InfoFilme extends JFrame {
 		System.out.println(tempoDiferenca);
 		
 	
-		
-
 		
 		setTitle("Informações sobre o filme");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(InfoFilme.class.getResource("/Midia/ifpe.png")));
@@ -253,8 +252,17 @@ public class InfoFilme extends JFrame {
 	  	panel_5.add(diretor);
 	  	
 	  	btnNewButton = new JButton("Comprar Ingresso");
+	  	
 	  	if(tempoDiferenca.isNegative()) {
+	  		Sala sala = new Sala();
+	  		
 	  		btnNewButton.setEnabled(false);
+	  		try {
+				sala.resetarPoltronas(TelaInicial.getIdFilme());
+			} catch (ClassNotFoundException | SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
 	  	btnNewButton.addActionListener(new ActionListener() {
@@ -272,7 +280,7 @@ public class InfoFilme extends JFrame {
 	  	
 	  	lblNewLabel_6 = new JLabel("Sessão Disponível");
 	  	if(tempoDiferenca.isNegative()) {
-	  		lblNewLabel_6.setText("Sessão Indisposnível");
+	  		lblNewLabel_6.setText("Sessão Indisposnível");	
 		}
 	  	
 	  	lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
