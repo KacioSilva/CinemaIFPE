@@ -22,9 +22,9 @@ public class FilmesTDD {
 public static void main(String[] args) {
 	
 	Conexao conexao = new Conexao();
-	
+	Sala sala = new Sala();
 	try {
-		conexao.editarPrecoIngresso(2);
+		sala.pegarPreco();
 	} catch (ClassNotFoundException | SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

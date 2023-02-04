@@ -8,32 +8,14 @@ import java.util.ArrayList;
 import Database.Conexao;
 
 public class Sala {
-	 private ArrayList<String> arraySala = new ArrayList<String>();
+	 private ArrayList<Integer> arraySala = new ArrayList<Integer>();
 	 
-    private String numero;
-    private String qtdPoltronas;
-    private String preco;
+    private int preco;
 
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getQtdPoltronas() {
-        return qtdPoltronas;
-    }
-
-    public void setQtdPoltronas(String qtdPoltronas) {
-        this.qtdPoltronas = qtdPoltronas;
-    }
-    public String getPreco() {
+    public int getPreco() {
     	return this.preco;
     }
-    public void setPreco(String preco) {
+    public void setPreco(int preco) {
     	this.preco = preco;
     }
     
@@ -41,20 +23,18 @@ public class Sala {
     	Conexao conexao = new Conexao();
     	try {
     		conexao.conectar();
-			String query = "select * from sala where numeroSala = 1";
+			String query = "select preco from sala where numeroSala = 1";
 			PreparedStatement resultset = conexao.getConexao().prepareStatement(query);
 			ResultSet rs = resultset.executeQuery();
 			
 			while(rs.next()){
-				arraySala.add(rs.getString("numeroSala"));
-                arraySala.add(rs.getString("qtd.poltronas"));
-                arraySala.add(rs.getString("preco"));
+                arraySala.add(rs.getInt("preco"));
 			}
-			numero = arraySala.get(0);
-			qtdPoltronas = arraySala.get(1);
-			preco = arraySala.get(2);	
+			preco = arraySala.get(0);	
 			
+			System.out.println(arraySala);
 			arraySala.clear();
+			
 			
 	
 		}finally {

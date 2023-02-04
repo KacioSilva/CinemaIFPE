@@ -122,6 +122,8 @@ public class InfoFilme extends JFrame {
 		Duration tempoDiferenca = Duration.between(tempoAtual, tempoBD);
 		System.out.println(tempoDiferenca);
 		
+	
+		
 
 		
 		setTitle("Informações sobre o filme");

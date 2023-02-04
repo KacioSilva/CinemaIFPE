@@ -34,7 +34,6 @@ public class GuiPagamento extends JFrame {
         });
     }
 
-
     public GuiPagamento() {
 
         setResizable(false);
@@ -53,7 +52,6 @@ public class GuiPagamento extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	UpdatePoltronas upPoltrona = new UpdatePoltronas();
             	try {
-            		
             		
              			if(SelecaoPoltronas.getA1Set() == "1") {
                 			upPoltrona.editarPoltronas("A1", TelaInicial.getIdFilme(), SelecaoPoltronas.getA1Set());

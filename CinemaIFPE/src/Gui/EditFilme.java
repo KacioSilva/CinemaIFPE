@@ -325,7 +325,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
-	  	    	textPrecoIngresso.setText(sala.getPreco());
+	  	    	textPrecoIngresso.setText(Integer.toString(sala.getPreco()));
 
 	  	    	
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -363,8 +363,8 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
-	  	    	textPrecoIngresso.setText(sala.getPreco());
-
+	  	    	textPrecoIngresso.setText(Integer.toString(sala.getPreco()));
+	  	    	
 	  	    	setIdSessao("2");
 	  	    		
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
@@ -382,6 +382,7 @@ public class EditFilme extends JFrame {
 					filmeObj.pegarFilmes(3);
 					sessao.pegarSessao(3);
 					sala.pegarPreco();
+					
 				}catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -399,7 +400,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
-	  	    	textPrecoIngresso.setText(sala.getPreco());
+	  	    	textPrecoIngresso.setText(Integer.toString(sala.getPreco()));
 
 	  	    	setIdSessao("3");
 	  	    		
@@ -434,7 +435,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
-	  	    	textPrecoIngresso.setText(sala.getPreco());
+	  	    	textPrecoIngresso.setText(Integer.toString(sala.getPreco()));
 
 	  	    	setIdSessao("4");
 	  	    		
@@ -471,7 +472,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
-	  	    	textPrecoIngresso.setText(sala.getPreco());
+	  	    	textPrecoIngresso.setText(Integer.toString(sala.getPreco()));
 
 	  	    	setIdSessao("5");
 	  	    		
@@ -490,6 +491,7 @@ public class EditFilme extends JFrame {
 					filmeObj.pegarFilmes(6);
 					sessao.pegarSessao(6);
 					sala.pegarPreco();
+					
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
@@ -507,7 +509,7 @@ public class EditFilme extends JFrame {
 	  	    	textHoras.setText(sessao.getHoras());
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
-	  	    	textPrecoIngresso.setText(sala.getPreco());
+	  	    	textPrecoIngresso.setText(Integer.toString(sala.getPreco()));
 
 	  	    	setIdSessao("6");
 	  	    		
