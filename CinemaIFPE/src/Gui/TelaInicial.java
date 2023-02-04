@@ -129,10 +129,10 @@ public class TelaInicial extends JFrame{
 	      
 
 		JButton help = new JButton("");
-		help.setBorderPainted(true);
-		help.setFocusPainted(true);
+		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.setBorderPainted(false);
+		help.setFocusPainted(false);
 		help.setBackground(new Color(240, 240, 240));
-		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/interrogaçao.png")));
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
 	      		 JOptionPane.showMessageDialog(null, "Nessa tela, o cliente pode optar por acessar algum filme " +

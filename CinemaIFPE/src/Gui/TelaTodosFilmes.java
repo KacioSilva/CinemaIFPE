@@ -94,7 +94,8 @@ public class TelaTodosFilmes extends JFrame {
 		contentPane.add(voltar);
 	
 		
-		JButton help = new JButton("Help");
+		JButton help = new JButton("");
+		help.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/ponto-de-interrogacao.png")));
 		help.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
 	    	JOptionPane.showMessageDialog(null, "Nessa tela, o cliente pode optar por acessar algum dos filmes em exibição. Os filmes " +
@@ -102,8 +103,11 @@ public class TelaTodosFilmes extends JFrame {
 	    	
 	    }
 	 });
+		help.setBorderPainted(false);
+		help.setFocusPainted(false);
+		help.setBackground(new Color(240, 240, 240));
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		help.setBounds(883, 35, 66, 29);
+		help.setBounds(883, 35, 66, 40);
 		contentPane.add(help);
 		
 		JLabel Filme1 = new JLabel("");

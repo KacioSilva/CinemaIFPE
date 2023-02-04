@@ -299,15 +299,20 @@ public class InfoFilme extends JFrame {
 	  	setSegundoPoltrona(sessao.getSegundos());
 	  	
 	  
-	  	JButton help = new JButton("Help");
+	  	JButton help = new JButton("");
+	  	help.setSelectedIcon(new ImageIcon(InfoFilme.class.getResource("/Midia/ifpe.png")));
+	  	help.setIcon(new ImageIcon(InfoFilme.class.getResource("/Midia/ponto-de-interrogacao.png")));
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
 	      		 JOptionPane.showMessageDialog(null, "Nessa tela, você tem acesso às informações do filme. " +
 	                     "você pode dar continuidade a compra. ", "Help", JOptionPane.QUESTION_MESSAGE);
 	      	}
 	      });
+		help.setBorderPainted(false);
+		help.setFocusPainted(false);
+		help.setBackground(new Color(240, 240, 240));
 		help.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
-		help.setBounds(897, 25, 66, 29);
+		help.setBounds(897, 25, 66, 40);
 		contentPane.add(help);
 		
 		JButton voltar = new JButton("Voltar");
