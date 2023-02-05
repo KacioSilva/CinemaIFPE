@@ -105,33 +105,26 @@ public class GuiPagamento extends JFrame {
         pagar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	UpdatePoltronas upPoltrona = new UpdatePoltronas();   
+            	ControlePoltrona control = new ControlePoltrona();
 	        	
             	try {
-                    String pegarcpf = textCpf.getText();
-                    String pegarNumeroCartao = textNCartao.getText();
-                    String cvv = textCvv.getText();
-                    
+              
                     Pagamento.validacao(textEmail.getText(), textCpf.getText(), textNCartao.getText(), textNomeTitular.getText(), textCvv.getText());
-                    if(pegarcpf.length() < 11) {
-                        lblConfirmacao.setText("CPF inválido.");                   
-                    }else if(pegarNumeroCartao.length() < 16) {
-                    	lblConfirmacao.setText("Número de cartão inválido.");  
-                    }else if(cvv.length() < 3) {
-                    	lblConfirmacao.setText("CVV inválido.");  
-                    }
-                    else {
-
+                    control.setPreco(0);
+                    
+                    lblConfirmacao.setText("");
+                    
                     JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso. O seu comprovante" + "\n" +
                     "será enviado para o email informado.",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-
+                    
                     TelaInicial tl = new TelaInicial();
                     tl.setVisible(true);
 
                     dispose();
 
                     ifpe.setVisible(false);
-                    }
+                    
                 	
             		
              		if(SelecaoPoltronas.getA1Set() == "1") {
@@ -214,6 +207,7 @@ public class GuiPagamento extends JFrame {
                 		upPoltrona.editarPoltronas("D5", TelaInicial.getIdFilme(), SelecaoPoltronas.getD5Set());
                 	}
                 	SelecaoPoltronas.setD5Set("0");
+                	
                 	
                 	
 					} catch(RuntimeException run){
