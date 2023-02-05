@@ -89,24 +89,9 @@ public class EditFilme extends JFrame {
 		return nomeArquivo;
 	}
 	
-	
-	  public  void formatarLancamento() {
-	    	try {
-				MaskFormatter mascara = new MaskFormatter("####-##-##");
-				mascara.install(textLancamento);
-			} catch (ParseException e) {
-		
-				lblConfirmacao.setText("Erro na formatação");
-				
-			}
-	    }
-	  
-	 
 	  
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
-		
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -134,7 +119,6 @@ public class EditFilme extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		
 		
 		
 		//-------CRIANDO OS LABELS	
@@ -272,10 +256,15 @@ public class EditFilme extends JFrame {
 		    adicionarImagem.setBounds(398, 456, 115, 38);
 		    contentPane.add(adicionarImagem);
 		    
-		    
+		    FormatTft anoLancamento = new FormatTft(8);
 		    textLancamento = new JFormattedTextField();
+		    try {
+				anoLancamento.formatarLancamento(textLancamento);
+			} catch (ParseException e3) {
+				lblConfirmacao.setText("Caractere Inválido");
+			}
+		    
 		    textLancamento.setHorizontalAlignment(SwingConstants.CENTER);
-		    formatarLancamento();
 		  	textLancamento.setBounds(39, 432, 144, 19);
 		  	contentPane.add(textLancamento);
 
@@ -724,14 +713,6 @@ public class EditFilme extends JFrame {
 		  	});
 		  	txtDuracao.setBounds(39, 225, 144, 19);
 		  	contentPane.add(txtDuracao);
-		  	txtDuracao.setColumns(10);
-		  	
-		  	
-		  	
-		  	
-		  	
-		  	
-		  
-		  	
+		  	txtDuracao.setColumns(10);	 	  	
 	}
 }

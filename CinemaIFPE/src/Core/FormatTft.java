@@ -1,8 +1,12 @@
 package Core;
 
+import java.text.ParseException;
+
+import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.MaskFormatter;
 import javax.swing.text.PlainDocument;
 
 public class FormatTft extends PlainDocument {
@@ -25,8 +29,14 @@ public class FormatTft extends PlainDocument {
 
                  if (tamanhoNovo <= tamanhoMax) {
                      super.insertString(posicao, texto , evitar);
-                 } else {
                      super.insertString(posicao, "", evitar); 
                  }
         }
-    }
+        
+        
+        public  void formatarLancamento(JFormattedTextField textLancamento) throws ParseException {
+				MaskFormatter mascara = new MaskFormatter("####-##-##");
+				mascara.install(textLancamento);
+	    }
+      
+ 	}

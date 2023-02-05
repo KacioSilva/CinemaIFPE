@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import Core.ControlePoltrona;
 import Core.Filme;
+import Core.FormatTft;
 import Core.Lanche;
 import Core.Pagamento;
 import Database.UpdatePoltronas;
@@ -15,7 +16,10 @@ import Database.UpdatePoltronas;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -28,6 +32,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+import javax.swing.JFormattedTextField;
 
 public class GuiPagamento extends JFrame {
 
@@ -35,22 +40,23 @@ public class GuiPagamento extends JFrame {
     private JButton btnDebito;
     private JButton btnCredito;
     private JButton pagar;
-    private JTextField textEmail;
-    
     private JLabel lblEmail;
-    private JTextField textCpf;
     private JLabel lblCpf;
-    private JTextField textNCartao;
     private JTextField textCvv;
     private JLabel lblNCartao;
     private  JLabel lblCvv;
     private JLabel lblDe; 
-    private JTextField textNomeTitular;
     private JLabel lblNomeTitular;
     private JLabel lblTipo;
     private JLabel ifpe;
     private String tipo;
     private JLabel lblConfirmacao;
+    private  JFormattedTextField textCpf;
+    private JFormattedTextField textNCartao;
+    private JFormattedTextField textEmail;
+    private JFormattedTextField textNomeTitular;
+    
+    
    
 
 
@@ -66,6 +72,7 @@ public class GuiPagamento extends JFrame {
             }
         });
     }
+    
     public void telaInicial() {
     	try {
 			Thread.sleep(2000);
@@ -97,21 +104,34 @@ public class GuiPagamento extends JFrame {
         pagar.setVisible(false);
         pagar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	UpdatePoltronas upPoltrona = new UpdatePoltronas();
+            	UpdatePoltronas upPoltrona = new UpdatePoltronas();   
+	        	
+            	try {
+                    String pegarcpf = textCpf.getText();
+                    String pegarNumeroCartao = textNCartao.getText();
+                    String cvv = textCvv.getText();
+                    
+                    Pagamento.validacao(textEmail.getText(), textCpf.getText(), textNCartao.getText(), textNomeTitular.getText(), textCvv.getText());
+                    if(pegarcpf.length() < 11) {
+                        lblConfirmacao.setText("CPF inválido.");                   
+                    }else if(pegarNumeroCartao.length() < 16) {
+                    	lblConfirmacao.setText("Número de cartão inválido.");  
+                    }else if(cvv.length() < 3) {
+                    	lblConfirmacao.setText("CVV inválido.");  
+                    }
+                    else {
 
-            	try {   
-            		Pagamento.validacao(textEmail.getText(), textCpf.getText(), textNCartao.getText(), textNomeTitular.getText(), textCvv.getText());
-            		
-            		JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso. O seu comprovante" + "\n" +
-    				"será enviado para o email informado.",
+                    JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso. O seu comprovante" + "\n" +
+                    "será enviado para o email informado.",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            		
-            		TelaInicial tl = new TelaInicial();
-					tl.setVisible(true);
-				
-					dispose();
-					
-                	ifpe.setVisible(false);
+
+                    TelaInicial tl = new TelaInicial();
+                    tl.setVisible(true);
+
+                    dispose();
+
+                    ifpe.setVisible(false);
+                    }
                 	
             		
              		if(SelecaoPoltronas.getA1Set() == "1") {
@@ -354,14 +374,6 @@ public class GuiPagamento extends JFrame {
         lblPagamento.setFont(new Font("Tahoma", Font.BOLD, 17));
         lblPagamento.setBounds(21, 311, 192, 44);
         contentPane.add(lblPagamento);
-        
-        
-        textEmail = new JTextField();
-        textEmail.setVisible(false);
-        textEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        textEmail.setBounds(410, 308, 156, 20);
-        contentPane.add(textEmail);
-        textEmail.setColumns(10);
         	
         
         lblEmail = new JLabel("Email:");
@@ -371,27 +383,11 @@ public class GuiPagamento extends JFrame {
         contentPane.add(lblEmail);
         
         
-        textCpf = new JTextField();
-        textCpf.setVisible(false);
-        textCpf.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        textCpf.setColumns(10);
-        textCpf.setBounds(410, 355, 156, 20);
-        contentPane.add(textCpf);
-        
-        
         lblCpf = new JLabel("CPF:");
         lblCpf.setVisible(false);
         lblCpf.setFont(new Font("Tahoma", Font.PLAIN, 15));
         lblCpf.setBounds(366, 356, 30, 18);
         contentPane.add(lblCpf);
-        
-        
-        textNCartao = new JTextField();
-        textNCartao.setVisible(false);
-        textNCartao.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        textNCartao.setColumns(10);
-        textNCartao.setBounds(410, 408, 156, 20);
-        contentPane.add(textNCartao);
         
         
         lblNCartao = new JLabel("N° Cartão:");
@@ -401,29 +397,32 @@ public class GuiPagamento extends JFrame {
         contentPane.add(lblNCartao);
         
         
+        FormatTft cvv = new FormatTft(3);
         textCvv = new JTextField();
+        textCvv.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {	
+			char c = e.getKeyChar();
+			if(!Character.isDigit(c)) {
+				e.consume();
+				}
+			}
+		});
         textCvv.setVisible(false);
         textCvv.setFont(new Font("Tahoma", Font.PLAIN, 15));
         textCvv.setColumns(10);
-        textCvv.setBounds(410, 507, 156, 20);
+        textCvv.setBounds(415, 507, 156, 20);
+        textCvv.setDocument(cvv);
         contentPane.add(textCvv);
         
-        
+     
         lblCvv = new JLabel("(CVV):");
         lblCvv.setVisible(false);
         lblCvv.setFont(new Font("Tahoma", Font.PLAIN, 15));
         lblCvv.setBounds(355, 508, 44, 18);
         contentPane.add(lblCvv);
         
-      
-        textNomeTitular = new JTextField();
-        textNomeTitular.setVisible(false);
-        textNomeTitular.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        textNomeTitular.setColumns(10);
-        textNomeTitular.setBounds(410, 461, 156, 20);
-        contentPane.add(textNomeTitular);
-        
-        
+     
         lblNomeTitular = new JLabel("Nome Titular:");
         lblNomeTitular.setVisible(false);
         lblNomeTitular.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -440,6 +439,7 @@ public class GuiPagamento extends JFrame {
         
         ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
         ifpe = new JLabel(logo_ifpe);
+        ifpe.setFont(new Font("Tahoma", Font.PLAIN, 15));
         getContentPane().add(ifpe);
         ifpe.setBounds(344,270,284,281);
         
@@ -448,5 +448,63 @@ public class GuiPagamento extends JFrame {
         lblConfirmacao.setHorizontalAlignment(SwingConstants.CENTER);
         lblConfirmacao.setBounds(366, 562, 241, 23);
         contentPane.add(lblConfirmacao);
+        
+        FormatTft cpf = new FormatTft(11);
+        textCpf = new JFormattedTextField();
+        textCpf.addKeyListener(new KeyAdapter() {
+			
+		@Override
+		public void keyTyped(KeyEvent e) {
+		  	char c = e.getKeyChar();
+			if(!Character.isDigit(c)) {
+				e.consume();
+				}	
+			}
+		});
+        textCpf.getText().length();
+        textCpf.setDocument(cpf);
+        textCpf.setVisible(false);
+        textCpf.setBounds(415, 357, 156, 20);
+        contentPane.add(textCpf);
+        
+        
+        FormatTft nCartao = new FormatTft(16);
+        textNCartao = new JFormattedTextField();
+        textNCartao.addKeyListener(new KeyAdapter() {
+    		@Override
+    		public void keyTyped(KeyEvent e) {
+    		  	char c = e.getKeyChar();
+    			if(!Character.isDigit(c)) {
+    				e.consume();
+    				}	
+    			}
+    		});
+        textNCartao.setDocument(nCartao);
+        textNCartao.setVisible(false);
+        textNCartao.setBounds(415, 411, 156, 20);
+        contentPane.add(textNCartao);
+        
+        FormatTft email = new FormatTft(30);
+        textEmail = new JFormattedTextField();
+        textEmail.setDocument(email);
+        textEmail.setVisible(false);
+        textEmail.setBounds(415, 308, 156, 20);
+        contentPane.add(textEmail);
+        
+        FormatTft nomeTitular = new FormatTft(35);
+        textNomeTitular = new JFormattedTextField();
+        textNomeTitular.addKeyListener(new KeyAdapter() {
+    		@Override
+    		public void keyTyped(KeyEvent e) {
+    		  	char c = e.getKeyChar();
+    			if(Character.isDigit(c)) {
+    				e.consume();
+    				}	
+    			}
+    		});
+        textNomeTitular.setDocument(nomeTitular);
+        textNomeTitular.setVisible(false);
+        textNomeTitular.setBounds(415, 464, 156, 20);
+        contentPane.add(textNomeTitular);
     }
 }
