@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import Core.ControlePoltrona;
 import Core.Filme;
 import Core.Lanche;
+import Core.Pagamento;
 import Database.UpdatePoltronas;
 
 import javax.swing.ImageIcon;
@@ -47,8 +48,9 @@ public class GuiPagamento extends JFrame {
     private JTextField textNomeTitular;
     private JLabel lblNomeTitular;
     private JLabel lblTipo;
-    
+    private JLabel ifpe;
     private String tipo;
+    private JLabel lblConfirmacao;
    
 
 
@@ -64,6 +66,18 @@ public class GuiPagamento extends JFrame {
             }
         });
     }
+    public void telaInicial() {
+    	try {
+			Thread.sleep(2000);
+			TelaInicial telaInicial = new TelaInicial();
+			telaInicial.setVisible(true);
+			dispose();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    }
+    
 
     public GuiPagamento() {
     	setTitle("Pagamento");
@@ -84,101 +98,117 @@ public class GuiPagamento extends JFrame {
         pagar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	UpdatePoltronas upPoltrona = new UpdatePoltronas();
-            	try {
-            		
-             			if(SelecaoPoltronas.getA1Set() == "1") {
-                			upPoltrona.editarPoltronas("A1", TelaInicial.getIdFilme(), SelecaoPoltronas.getA1Set());
-                		}
-             			SelecaoPoltronas.setA1Set("0");
-                		if(SelecaoPoltronas.getA2Set() == "1") {
-                			upPoltrona.editarPoltronas("A2", TelaInicial.getIdFilme(), SelecaoPoltronas.getA2Set());
-                		}
-                		SelecaoPoltronas.setA2Set("0");
-                		if(SelecaoPoltronas.getA3Set() == "1") {
-                			upPoltrona.editarPoltronas("A3", TelaInicial.getIdFilme(), SelecaoPoltronas.getA3Set());
-                		}
-                		SelecaoPoltronas.setA3Set("0");
-                		if(SelecaoPoltronas.getA4Set() == "1") {
-                			upPoltrona.editarPoltronas("A4", TelaInicial.getIdFilme(), SelecaoPoltronas.getA4Set());
-                		}
-                		SelecaoPoltronas.setA4Set("0");
-                		if(SelecaoPoltronas.getA5Set() == "1") {
-                			upPoltrona.editarPoltronas("A5", TelaInicial.getIdFilme(), SelecaoPoltronas.getA5Set());
-                		}
-                		SelecaoPoltronas.setA5Set("0");
-                		if(SelecaoPoltronas.getB1Set() == "1") {
-                			upPoltrona.editarPoltronas("B1", TelaInicial.getIdFilme(), SelecaoPoltronas.getB1Set());
-                		}
-                		SelecaoPoltronas.setB1Set("0");
-                		if(SelecaoPoltronas.getB2Set() == "1") {
-                			upPoltrona.editarPoltronas("B2", TelaInicial.getIdFilme(), SelecaoPoltronas.getB2Set());
-                		}
-                		SelecaoPoltronas.setB2Set("0");
-                		if(SelecaoPoltronas.getB3Set() == "1") {
-                			upPoltrona.editarPoltronas("B3", TelaInicial.getIdFilme(), SelecaoPoltronas.getB3Set());
-                		}
-                		SelecaoPoltronas.setB3Set("0");
-                		if(SelecaoPoltronas.getB4Set() == "1") {
-                			upPoltrona.editarPoltronas("B4", TelaInicial.getIdFilme(), SelecaoPoltronas.getB4Set());
-                		}
-                		SelecaoPoltronas.setB4Set("0");
-                		if(SelecaoPoltronas.getB5Set() == "1") {
-                			upPoltrona.editarPoltronas("B5", TelaInicial.getIdFilme(), SelecaoPoltronas.getB5Set());
-                		}
-                		SelecaoPoltronas.setB5Set("0");
-                		if(SelecaoPoltronas.getC1Set() == "1") {
-                			upPoltrona.editarPoltronas("C1", TelaInicial.getIdFilme(), SelecaoPoltronas.getC1Set());
-                		}
-                		SelecaoPoltronas.setC1Set("0");
-                		if(SelecaoPoltronas.getC2Set() == "1") {
-                			upPoltrona.editarPoltronas("C2", TelaInicial.getIdFilme(), SelecaoPoltronas.getC2Set());
-                		}
-                		SelecaoPoltronas.setC2Set("0");
-                		if(SelecaoPoltronas.getC3Set() == "1") {
-                			upPoltrona.editarPoltronas("C3", TelaInicial.getIdFilme(), SelecaoPoltronas.getC3Set());
-                		}
-                		SelecaoPoltronas.setC3Set("0");
-                		if(SelecaoPoltronas.getC4Set() == "1") {
-                			upPoltrona.editarPoltronas("C4", TelaInicial.getIdFilme(), SelecaoPoltronas.getC4Set());
-                		}
-                		SelecaoPoltronas.setC4Set("0");
-                		if(SelecaoPoltronas.getC5Set() == "1") {
-                			upPoltrona.editarPoltronas("C5", TelaInicial.getIdFilme(), SelecaoPoltronas.getC5Set());
-                		}
-                		SelecaoPoltronas.setC5Set("0");
-                		if(SelecaoPoltronas.getD1Set() == "1") {
-                			upPoltrona.editarPoltronas("D1", TelaInicial.getIdFilme(), SelecaoPoltronas.getD1Set());
-                		}
-                		SelecaoPoltronas.setD1Set("0");
-                		if(SelecaoPoltronas.getD2Set() == "1") {
-                			upPoltrona.editarPoltronas("D2", TelaInicial.getIdFilme(), SelecaoPoltronas.getD2Set());
-                		}
-                		SelecaoPoltronas.setD2Set("0");
-                		if(SelecaoPoltronas.getD3Set() == "1") {
-                			upPoltrona.editarPoltronas("D3", TelaInicial.getIdFilme(), SelecaoPoltronas.getD3Set());
-                		}
-                		SelecaoPoltronas.setD3Set("0");
-                		if(SelecaoPoltronas.getD4Set() == "1") {
-                			upPoltrona.editarPoltronas("D4", TelaInicial.getIdFilme(), SelecaoPoltronas.getD4Set());
-                		}
-                		SelecaoPoltronas.setD4Set("0");
-                		if(SelecaoPoltronas.getD5Set() == "1") {
-                			upPoltrona.editarPoltronas("D5", TelaInicial.getIdFilme(), SelecaoPoltronas.getD5Set());
-                		}
-                		SelecaoPoltronas.setD5Set("0");
-            		
-				} catch (ClassNotFoundException e1) {
-					
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					
-					e1.printStackTrace();
-				}
 
-            }
-        });
-        pagar.setBounds(439, 566, 89, 35);
+            	try {   
+            		Pagamento.validacao(textEmail.getText(), textCpf.getText(), textNCartao.getText(), textNomeTitular.getText(), textCvv.getText());
+            		
+            		JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso. O seu comprovante" + "\n" +
+    				"será enviado para o email informado.",
+                    "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            		
+            		TelaInicial tl = new TelaInicial();
+					tl.setVisible(true);
+				
+					dispose();
+					
+                	ifpe.setVisible(false);
+                	
+            		
+             		if(SelecaoPoltronas.getA1Set() == "1") {
+                		upPoltrona.editarPoltronas("A1", TelaInicial.getIdFilme(), SelecaoPoltronas.getA1Set());
+                	}
+             			SelecaoPoltronas.setA1Set("0");
+                	if(SelecaoPoltronas.getA2Set() == "1") {
+                		upPoltrona.editarPoltronas("A2", TelaInicial.getIdFilme(), SelecaoPoltronas.getA2Set());
+                	}
+                	SelecaoPoltronas.setA2Set("0");
+                	if(SelecaoPoltronas.getA3Set() == "1") {
+                		upPoltrona.editarPoltronas("A3", TelaInicial.getIdFilme(), SelecaoPoltronas.getA3Set());
+                	}
+                	SelecaoPoltronas.setA3Set("0");
+                	if(SelecaoPoltronas.getA4Set() == "1") {
+                		upPoltrona.editarPoltronas("A4", TelaInicial.getIdFilme(), SelecaoPoltronas.getA4Set());
+                	}
+                	SelecaoPoltronas.setA4Set("0");
+                	if(SelecaoPoltronas.getA5Set() == "1") {
+                		upPoltrona.editarPoltronas("A5", TelaInicial.getIdFilme(), SelecaoPoltronas.getA5Set());
+                	}
+                	SelecaoPoltronas.setA5Set("0");
+                	if(SelecaoPoltronas.getB1Set() == "1") {
+                		upPoltrona.editarPoltronas("B1", TelaInicial.getIdFilme(), SelecaoPoltronas.getB1Set());
+               		}
+               		SelecaoPoltronas.setB1Set("0");
+               		if(SelecaoPoltronas.getB2Set() == "1") {
+               			upPoltrona.editarPoltronas("B2", TelaInicial.getIdFilme(), SelecaoPoltronas.getB2Set());
+               		}
+               		SelecaoPoltronas.setB2Set("0");
+               		if(SelecaoPoltronas.getB3Set() == "1") {
+               			upPoltrona.editarPoltronas("B3", TelaInicial.getIdFilme(), SelecaoPoltronas.getB3Set());
+               		}
+               		SelecaoPoltronas.setB3Set("0");
+               		if(SelecaoPoltronas.getB4Set() == "1") {
+               			upPoltrona.editarPoltronas("B4", TelaInicial.getIdFilme(), SelecaoPoltronas.getB4Set());
+               		}
+               		SelecaoPoltronas.setB4Set("0");
+               		if(SelecaoPoltronas.getB5Set() == "1") {
+               			upPoltrona.editarPoltronas("B5", TelaInicial.getIdFilme(), SelecaoPoltronas.getB5Set());                		
+                	SelecaoPoltronas.setB5Set("0");
+               		}
+                	if(SelecaoPoltronas.getC1Set() == "1") {
+               			upPoltrona.editarPoltronas("C1", TelaInicial.getIdFilme(), SelecaoPoltronas.getC1Set());
+               		}
+               		SelecaoPoltronas.setC1Set("0");
+               		if(SelecaoPoltronas.getC2Set() == "1") {
+               			upPoltrona.editarPoltronas("C2", TelaInicial.getIdFilme(), SelecaoPoltronas.getC2Set());
+               		}
+               		SelecaoPoltronas.setC2Set("0");
+               		if(SelecaoPoltronas.getC3Set() == "1") {
+               			upPoltrona.editarPoltronas("C3", TelaInicial.getIdFilme(), SelecaoPoltronas.getC3Set());
+               		}
+               		SelecaoPoltronas.setC3Set("0");
+               		if(SelecaoPoltronas.getC4Set() == "1") {
+               			upPoltrona.editarPoltronas("C4", TelaInicial.getIdFilme(), SelecaoPoltronas.getC4Set());
+               		}
+               		SelecaoPoltronas.setC4Set("0");
+               		if(SelecaoPoltronas.getC5Set() == "1") {
+               			upPoltrona.editarPoltronas("C5", TelaInicial.getIdFilme(), SelecaoPoltronas.getC5Set());
+                	}
+                	SelecaoPoltronas.setC5Set("0");
+               		if(SelecaoPoltronas.getD1Set() == "1") {
+               			upPoltrona.editarPoltronas("D1", TelaInicial.getIdFilme(), SelecaoPoltronas.getD1Set());
+               		}
+               		SelecaoPoltronas.setD1Set("0");
+               		if(SelecaoPoltronas.getD2Set() == "1") {
+               			upPoltrona.editarPoltronas("D2", TelaInicial.getIdFilme(), SelecaoPoltronas.getD2Set());
+               		}
+               		SelecaoPoltronas.setD2Set("0");
+               		if(SelecaoPoltronas.getD3Set() == "1") {
+               			upPoltrona.editarPoltronas("D3", TelaInicial.getIdFilme(), SelecaoPoltronas.getD3Set());
+               		}
+               		SelecaoPoltronas.setD3Set("0");
+               		if(SelecaoPoltronas.getD4Set() == "1") {
+               			upPoltrona.editarPoltronas("D4", TelaInicial.getIdFilme(), SelecaoPoltronas.getD4Set());
+               		}
+               		SelecaoPoltronas.setD4Set("0");
+                	if(SelecaoPoltronas.getD5Set() == "1") {
+                		upPoltrona.editarPoltronas("D5", TelaInicial.getIdFilme(), SelecaoPoltronas.getD5Set());
+                	}
+                	SelecaoPoltronas.setD5Set("0");
+                	
+                	
+					} catch(RuntimeException run){
+						lblConfirmacao.setText(run.getMessage());
+					} catch (ClassNotFoundException e1) {
+						lblConfirmacao.setText("Erro");
+					} catch (SQLException e1) {
+					 	lblConfirmacao.setText("Erro ao conectar. Tente novamente");
+					}
+            	}
+        	});
+        
+        pagar.setBounds(439, 598, 89, 35);
         contentPane.add(pagar);
+        
 
         JButton btnVoltar = new JButton("Voltar");
         btnVoltar.addActionListener(new ActionListener() {
@@ -189,10 +219,7 @@ public class GuiPagamento extends JFrame {
              
                 dispose();
             }
-        });
-        
-   
-        
+        });  
         btnVoltar.setBackground(new Color(240, 240, 240));
         btnVoltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
         btnVoltar.setBorderPainted(false);
@@ -234,6 +261,9 @@ public class GuiPagamento extends JFrame {
         		tipo = "Débito";
         		lblTipo.setText(tipo);
         		pagar.setVisible(true);
+        		ifpe.setVisible(false);
+        
+        		
         	}
         });
         btnDebito.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -257,6 +287,8 @@ public class GuiPagamento extends JFrame {
         		pagar.setVisible(true);
         		tipo = "Crédito";
         		lblTipo.setText(tipo);
+        		ifpe.setVisible(false);
+        		
         	}
         });
         btnCredito.setBounds(71, 488, 89, 23);
@@ -404,9 +436,17 @@ public class GuiPagamento extends JFrame {
         lblTipo.setBounds(426, 257, 102, 23);
         contentPane.add(lblTipo);
         
-//        ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
-//        JLabel ifpe = new JLabel(logo_ifpe);
-//        getContentPane().add(ifpe);
-//        ifpe.setBounds(327,236,284,281);
+       
+        
+        ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
+        ifpe = new JLabel(logo_ifpe);
+        getContentPane().add(ifpe);
+        ifpe.setBounds(344,270,284,281);
+        
+        lblConfirmacao = new JLabel("");
+        lblConfirmacao.setFont(new Font("Tahoma", Font.BOLD, 15));
+        lblConfirmacao.setHorizontalAlignment(SwingConstants.CENTER);
+        lblConfirmacao.setBounds(366, 562, 241, 23);
+        contentPane.add(lblConfirmacao);
     }
 }

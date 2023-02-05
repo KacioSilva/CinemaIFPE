@@ -1,9 +1,32 @@
 package Core;
 
-public class Pagamento {
-    private String tipo;
+import java.sql.SQLException;
 
-    public Pagamento(String tipo) {
+import Database.Conexao;
+
+public class Pagamento {
+    private static String tipo;
+    private static String email;
+    private static String nomeTitular;
+    
+  
+    public static String getEmail() {
+		return email;
+	}
+
+	public static void setEmail(String email) {
+		Pagamento.email = email;
+	}
+
+	public static String getNomeTitular() {
+		return nomeTitular;
+	}
+
+	public static void setNomeTitular(String nomeTitular) {
+		Pagamento.nomeTitular = nomeTitular;
+	}
+
+	public Pagamento(String tipo) {
         this.tipo = tipo;
     }
 
@@ -24,5 +47,18 @@ public class Pagamento {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+    
+    public static boolean validacao(String textEmail, String textCpf, String textNCartao, String textNomeTitular, String textCvv) throws RuntimeException {
 
+        if(textEmail.isEmpty() ||  textCpf.isBlank() || textNCartao.isBlank() || textNomeTitular.isBlank() || textCvv.isBlank()) {
+            throw new RuntimeException ("Preencha todos os campos");
+
+        }else {
+        	nomeTitular = textNomeTitular;
+        	email = textEmail;
+        
+            return true;  
+            
+        }
+	}	
 }
