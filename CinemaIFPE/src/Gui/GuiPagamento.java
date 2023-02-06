@@ -115,7 +115,7 @@ public class GuiPagamento extends JFrame {
                     lblConfirmacao.setText("");
                     
                     JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso. O seu comprovante" + "\n" +
-                    "será enviado para o email informado.",
+                    "serÃ¡ enviado para o email informado.",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                     
                     TelaInicial tl = new TelaInicial();
@@ -321,7 +321,7 @@ public class GuiPagamento extends JFrame {
 		help.setBackground(new Color(240, 240, 240));
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
-	      		 JOptionPane.showMessageDialog(null, "Nessa tela, você pode optar pelas formas de pagamento disponíveis e " + "\n" +
+	      		 JOptionPane.showMessageDialog(null, "Nessa tela, vocÃª pode optar pelas formas de pagamento disponÃ­veis e " + "\n" +
 	      	"realizar o pagamento.",
 	                    "Help", JOptionPane.QUESTION_MESSAGE);
 	      	}
@@ -384,7 +384,7 @@ public class GuiPagamento extends JFrame {
         contentPane.add(lblCpf);
         
         
-        lblNCartao = new JLabel("N° Cartão:");
+        lblNCartao = new JLabel("N° Cartão");
         lblNCartao.setVisible(false);
         lblNCartao.setFont(new Font("Tahoma", Font.PLAIN, 15));
         lblNCartao.setBounds(334, 410, 75, 18);
@@ -480,25 +480,35 @@ public class GuiPagamento extends JFrame {
         
         FormatTft email = new FormatTft(30);
         textEmail = new JFormattedTextField();
+        textEmail.addKeyListener(new KeyAdapter() {
+        	public void keyTyped(KeyEvent e) {
+        	    char c = e.getKeyChar();
+
+        	  if(!Character.isAlphabetic(c) && Character.isSpaceChar(c)) {
+        	      e.consume();
+        	      }
+        	  }
+        });
         textEmail.setDocument(email);
         textEmail.setVisible(false);
         textEmail.setBounds(415, 308, 156, 20);
         contentPane.add(textEmail);
         
-        FormatTft nomeTitular = new FormatTft(35);
-        textNomeTitular = new JFormattedTextField();
-        textNomeTitular.addKeyListener(new KeyAdapter() {
-    		@Override
-    		public void keyTyped(KeyEvent e) {
-    		  	char c = e.getKeyChar();
-    			if(Character.isDigit(c)) {
-    				e.consume();
-    				}	
-    			}
-    		});
-        textNomeTitular.setDocument(nomeTitular);
-        textNomeTitular.setVisible(false);
-        textNomeTitular.setBounds(415, 464, 156, 20);
-        contentPane.add(textNomeTitular);
-    }
+      FormatTft nomeTitular = new FormatTft(35);
+      textNomeTitular = new JFormattedTextField();
+      textNomeTitular.addKeyListener(new KeyAdapter() {
+  		@Override
+  		public void keyTyped(KeyEvent e) {
+  		  	char c = e.getKeyChar();
+  		  
+  			if(!Character.isAlphabetic(c) && !Character.isWhitespace(c)) {
+  				e.consume();
+  				}	
+  			}
+  		});
+      textNomeTitular.setDocument(nomeTitular);
+      textNomeTitular.setVisible(false);
+      textNomeTitular.setBounds(415, 464, 156, 20);
+      contentPane.add(textNomeTitular);
+  }
 }
