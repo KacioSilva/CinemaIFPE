@@ -519,7 +519,7 @@ public class GuiPagamento extends JFrame {
         lblNomeTitular = new JLabel("Nome Titular:");
         lblNomeTitular.setVisible(false);
         lblNomeTitular.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        lblNomeTitular.setBounds(320, 463, 89, 18);
+        lblNomeTitular.setBounds(317, 463, 92, 18);
         contentPane.add(lblNomeTitular);
         
         lblTipo = new JLabel("");

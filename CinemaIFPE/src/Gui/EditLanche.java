@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import Core.Administrador;
 import Core.FormatTft;
 import Core.Lanche;
@@ -188,16 +190,20 @@ public class EditLanche extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			 
 		   JFileChooser arquivo = new JFileChooser();
-		   arquivo.setDialogTitle("Selecione uma imagem"); //título da tela de escolha de arquivos
-		   arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY); //setando para escolher apenas arquivos
-		   int op = arquivo.showOpenDialog(getComponent(0)); //Abrindo tela de escolha de arquivos
+		   FileNameExtensionFilter filtro = new FileNameExtensionFilter("Apenas Imagens","png","jpg","jpeg");
+           arquivo.setAcceptAllFileFilterUsed(false);
+           arquivo.addChoosableFileFilter(filtro);
+		   arquivo.setDialogTitle("Selecione uma imagem"); 
+		   arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY); 
+		   int op = arquivo.showOpenDialog(getComponent(0)); 
 		    		
-		   if(op == JFileChooser.APPROVE_OPTION) { // Verificando se o usuário escolheu algum arquivo
+		   if(op == JFileChooser.APPROVE_OPTION) { 
+			   labelFotoFilme.setText("");
 			   labelFotoFilme.setIcon(null);
 		  	
 			   file = new File("");
-			   file = arquivo.getSelectedFile(); //Pega o arquivo selecionado pelo usuário
-			   nomeArquivo = file.getAbsolutePath(); // pegando o caminho da imagem e armazenando numa variável
+			   file = arquivo.getSelectedFile(); 
+			   nomeArquivo = file.getAbsolutePath(); 
 			   tfcaminhofoto.setText(nomeArquivo);
 			   ImageIcon fotoFilme = new ImageIcon(file.getPath()); 
 			   labelFotoFilme.setIcon(new ImageIcon(fotoFilme.getImage().getScaledInstance(labelFotoFilme.getWidth(), 
