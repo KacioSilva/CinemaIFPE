@@ -1,26 +1,15 @@
 package Database;
-
 import java.sql.*;
-import java.util.ArrayList;
-
-import Core.ControlePoltrona;
-import Core.Sala;
-import Core.Sessao;
 
 public class CreateInserts {
 	
 	private Connection conexao = null;
-	private ArrayList<String> array = new ArrayList<String>();
-	private Sala sala = new Sala();
-	private Sessao sessao = new Sessao();
-	private SelectPoltronas poltrona = new SelectPoltronas();
-	
 	
 	
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Tt4189952";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -34,11 +23,10 @@ public class CreateInserts {
 	
 	public void insertSala() throws ClassNotFoundException, SQLException{
 		
+			
+	
 		
-		sala.pegarPreco();	
-		array.add(Integer.toString(sala.getPreco()));
 		
-		if(array.isEmpty()) {
 			String inserirSala = "insert into sala values \r\n"
 					+ "(1,20, 20);";
 			
@@ -52,13 +40,13 @@ public class CreateInserts {
 			} finally {
 				conexao.close();			
 			}
-		}
+		
 		
 	}
 	
 	public void insertSessao() throws ClassNotFoundException, SQLException{
 		
-		if(array.isEmpty()) {
+		
 			String inserirSessao = "INSERT INTO sessao VALUES\r\n"
 					+ "(\"1\", 1, 8, 0, 0),\r\n"
 					+ "(\"2\", 1, 11, 0, 0),\r\n"
@@ -78,12 +66,10 @@ public class CreateInserts {
 				conexao.close();
 				
 			}
-		}
 	}
 	
 	public void insertPoltrona() throws ClassNotFoundException, SQLException{
 
-		if(array.isEmpty()) {
 			String inserirPoltrona = "insert into poltrona values\r\n"
 					+ "(\"A1\",1,\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"),\r\n"
 					+ "(\"A2\",1,\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"),\r\n"
@@ -113,18 +99,17 @@ public class CreateInserts {
 				
 				pstmt.execute();
 				
-				//insertFilme();
+				insertFilme();
 			} finally {
 				conexao.close();
 				
 			}
 		}
-	}
+	
 	
 	
 	public void insertFilme() throws ClassNotFoundException, SQLException{
 			
-		if(array.isEmpty()) {
 			String inserirFilme = "insert into filme values\r\n"
 					+ "(default, \"Clube da Luta\", \"C:\\Users\\Gilva\\Downloads/Adonai.jpg\", \"trailer\", \"sinopse\", \"diretor\", 160, \"acao\", \"1998-09-01\", 16),\r\n"
 					+ "(default, \"Power Ranger\", \"cartaz\", \"trailer\", \"sinopse\", \"diretor\", 160, \"acao\", \"1998-09-01\", 16),\r\n"
@@ -145,10 +130,9 @@ public class CreateInserts {
 				conexao.close();
 			}
 		}
-	}
+	
 		public void insertLanche() throws ClassNotFoundException, SQLException{
 			
-			if(array.isEmpty()) {
 				String inserirLanche = "insert into lanche values\r\n"
 						+ "(1,    \"pipoca tradicional\",    \"bokus\", \"foto lanche\",   19),\r\n"
 						+ "(2,   \"pipoca doce\",    \"bokus\",    \"foto lanche\",  25),\r\n"
@@ -167,6 +151,5 @@ public class CreateInserts {
 					conexao.close();
 				}
 			}
+		
 	}	
-}	
-

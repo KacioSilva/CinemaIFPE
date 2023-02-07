@@ -10,6 +10,7 @@ import Core.Administrador;
 import Core.FormatTft;
 import Core.Lanche;
 import Database.Conexao;
+import Database.CreateInserts;
 
 import javax.swing.JLabel;
 import java.awt.Font;

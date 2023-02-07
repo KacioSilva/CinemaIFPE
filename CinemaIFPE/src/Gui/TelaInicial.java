@@ -17,11 +17,15 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import Database.Conexao;
+import Database.CreateDatabase;
+import Database.CreateInserts;
+
 import javax.swing.SwingConstants;
 
-////
+
 public class TelaInicial extends JFrame{
 	Filme filme = new Filme();
 	static int idFilme;
@@ -40,14 +44,32 @@ public class TelaInicial extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaInicial frame = new TelaInicial();
-					frame.setVisible(true);
-				} catch (Exception e) {
+					CreateDatabase data = new CreateDatabase();
+					CreateInserts insert = new CreateInserts();
+					
+					data.createBD();
+					data.createTableFilme();
+					insert.insertSala();
+					
+					TelaInicial telaInicial = new TelaInicial();
+					telaInicial.setVisible(true);
+					
+				}catch(SQLIntegrityConstraintViolationException e) {
+					TelaInicial telaInicial = new TelaInicial();
+					telaInicial.setVisible(true);
+					
+				}catch(IndexOutOfBoundsException e1) {
+					HubADM teste = new HubADM();
+					teste.setVisible(true);
+					
+					
+				}catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+	
 	public TelaInicial() {
 		
 		

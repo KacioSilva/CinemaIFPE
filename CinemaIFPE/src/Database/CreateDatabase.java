@@ -13,7 +13,7 @@ public class CreateDatabase {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306";
 		String usuario = "root";
-		String senha = "Tt4189952";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -276,15 +276,13 @@ public class CreateDatabase {
 				+ "    REFERENCES `cineif`.`Lanche` (`idLanche`)\r\n"
 				+ "    ON DELETE NO ACTION\r\n"
 				+ "    ON UPDATE NO ACTION)";
-		
 		try {
-			CreateInserts insert = new CreateInserts();
+		
 			conectar();
 			PreparedStatement pstmt = conexao.prepareStatement(criarTableReciboLanche);
 			
 			pstmt.execute();
 			
-			insert.insertSala();
 		} finally {
 			conexao.close();
 		}
