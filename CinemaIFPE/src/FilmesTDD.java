@@ -7,6 +7,8 @@ import Core.Lanche;
 import Core.Sala;
 import Core.Sessao;
 import Database.Conexao;
+import Database.CreateDatabase;
+import Database.CreateInserts;
 import Database.SelectPoltronas;
 import Database.UpdatePoltronas;
 
@@ -24,11 +26,16 @@ public class FilmesTDD {
 
 public static void main(String[] args) {
 	
-	list.add("a");
-	list.add("b");
-	list.add("c");
-	list.remove("a");
+	CreateDatabase data = new CreateDatabase();
+	CreateInserts insert = new CreateInserts();
 	
-	System.out.println(list);
+	try {
+		data.createBD();
+		data.createTableFilme();
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
 	}	
 }
