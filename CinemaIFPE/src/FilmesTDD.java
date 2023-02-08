@@ -13,21 +13,22 @@ import Database.UpdatePoltronas;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class FilmesTDD {
+	 private static List<String> list = new ArrayList<String>();
 
 public static void main(String[] args) {
 	
-	Conexao conexao = new Conexao();
-	Sala sala = new Sala();
-	try {
-		sala.pegarPreco();
-	} catch (ClassNotFoundException | SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}	
+	list.add("a");
+	list.add("b");
+	list.add("c");
+	list.remove("a");
+	
+	System.out.println(list);
+	}	
 }

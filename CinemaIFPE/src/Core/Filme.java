@@ -155,6 +155,7 @@ public class Filme{
 				 classIndicativa=  arrayFilmes.get(9);
 				
 				arrayFilmes.clear();
+				
 
 			}catch(NullPointerException e1) {
 				e1.getMessage();

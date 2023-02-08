@@ -27,15 +27,23 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SelecaoPoltronas extends JFrame {
 
 	private JPanel contentPane;
-	//private int preco;
+	private static List<String> poltronaSelecionada = new ArrayList<String>();
+	
+	public static List getPoltronaSelecionada() {
+		return poltronaSelecionada;
+	}
+	
+	
 	private int pegarSoma;
-	//private int pegandoCPsoma;
+	
 	private ControlePoltrona controle = new ControlePoltrona();
-	//private int idFilme = 5;
+
 	
 	private static String A1Set;
 	private static String A2Set;
@@ -60,7 +68,9 @@ public class SelecaoPoltronas extends JFrame {
 	private static String D3Set;
 	private static String D4Set;
 	private static String D5Set;
-
+	
+	
+	
 	public static String getA1Set() {
 		return A1Set;
 	}
@@ -357,6 +367,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    D1Set = "1";
+	                    poltronaSelecionada.add("D1");
+	                 
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(sala.getPreco());
@@ -364,6 +376,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    D1Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("D1");
+	                   
 	                    
 	                    
 	                    if(cp.getPreco() == 0) {
@@ -445,6 +459,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    cp.soma(sala.getPreco());	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
+	                    poltronaSelecionada.add("D2");
+	                   
 	                    
 	                    	                    
 	               
@@ -453,6 +469,7 @@ public class SelecaoPoltronas extends JFrame {
 	                	cp.subtracao(sala.getPreco());
 	                	D2.setBackground(new Color(240,240,240,240));
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    poltronaSelecionada.remove("D2");
 	                    
 	                    cont = 0;
 	                    
@@ -537,7 +554,9 @@ public class SelecaoPoltronas extends JFrame {
 	                    cp.soma(sala.getPreco());	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
+	                    poltronaSelecionada.add("D3");
 	                    
+	                   
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -545,6 +564,7 @@ public class SelecaoPoltronas extends JFrame {
 	                	cp.subtracao(sala.getPreco());
 	                	D3.setBackground(new Color(240,240,240,240));
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
+	                    poltronaSelecionada.remove("D3");
 	                    
 	                    cont = 0;
 	                    
@@ -627,7 +647,7 @@ public class SelecaoPoltronas extends JFrame {
 	                    cp.soma(sala.getPreco());	                    
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
-	                    
+	                    poltronaSelecionada.add("D4");
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -636,6 +656,7 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    D4Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("D4");
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -714,6 +735,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    D5Set = "1";
+	                    poltronaSelecionada.add("D5");
+	                    
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -722,6 +745,7 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    D5Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("D5");
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -800,6 +824,7 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    C1Set = "1";
+	                    poltronaSelecionada.add("C1");
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -808,6 +833,7 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    C1Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("C1");
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -885,6 +911,7 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    C2Set = "1";
+	                    poltronaSelecionada.add("C2");
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -893,6 +920,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    C2Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("C2");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -974,6 +1003,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    C3Set = "1";
+	                    poltronaSelecionada.add("C3");
+
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -982,6 +1013,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    C3Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("C3");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1065,6 +1098,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    C4Set = "1";
+	                    poltronaSelecionada.add("C4");
+
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -1073,6 +1108,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    C4Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("C4");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1156,6 +1193,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    C5Set = "1";
+	                    poltronaSelecionada.add("C5");
+
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -1164,6 +1203,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    C5Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("C5");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1247,6 +1288,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    B5Set = "1";
+	                    poltronaSelecionada.add("B5");
+
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -1255,6 +1298,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    B5Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("B5");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1337,6 +1382,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    B4Set = "1";
+	                    poltronaSelecionada.add("B4");
+
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -1345,6 +1392,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    B4Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("B4");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1429,6 +1478,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    B3Set = "1";
+	                    poltronaSelecionada.add("B3");
+
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -1437,6 +1488,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    B3Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("B3");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1518,6 +1571,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    B2Set = "1";
+	                    poltronaSelecionada.add("B2");
+
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(sala.getPreco());
@@ -1525,6 +1580,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    B2Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("B2");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1609,6 +1666,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    B1Set = "1";
+	                    poltronaSelecionada.add("B1");
+
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(sala.getPreco());
@@ -1616,6 +1675,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    B1Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("B1");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1697,6 +1758,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    A1Set = "1";
+	                    poltronaSelecionada.add("A1");
+
 	                    	                    
 	               
 	                } else if(cont == 2) {
@@ -1705,6 +1768,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    A1Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("A1");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1785,7 +1850,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    A2Set = "1";
-	                    	                    
+	                    poltronaSelecionada.add("A2");
+   
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(sala.getPreco());
@@ -1793,6 +1859,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    A2Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("A2");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1874,6 +1942,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    A3Set = "1";
+	                    poltronaSelecionada.add("A3");
+
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(sala.getPreco());
@@ -1881,6 +1951,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    A3Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("A3");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -1964,6 +2036,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    A4Set = "1";
+	                    poltronaSelecionada.add("A4");
+
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(sala.getPreco());
@@ -1971,6 +2045,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    A4Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("A4");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	
@@ -2054,6 +2130,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    botaoContinuar.setEnabled(true);
 	                    A5Set = "1";
+	                    poltronaSelecionada.add("A5");
+
 	               
 	                } else if(cont == 2) {
 	                	cp.subtracao(sala.getPreco());
@@ -2061,6 +2139,8 @@ public class SelecaoPoltronas extends JFrame {
 	                    totalPoltronas.setText("Total: R$"+cp.getPreco()+",00");
 	                    A5Set = "0";
 	                    cont = 0;
+	                    poltronaSelecionada.remove("A5");
+
 	                    
 	                    if(cp.getPreco() == 0) {
 	                    	

@@ -8,23 +8,29 @@ import javax.mail.internet.*;
 import javax.swing.JOptionPane;
 
 public class ClasseEnvioCorreio {
+	private static String mensagem = "";
 	
-	public static void main(String[] args) {
-		String mail = JOptionPane.showInputDialog("Digite: ");
-		int x = JOptionPane.showConfirmDialog(null, "desea enviar um correo", "enviando correo...", JOptionPane.PLAIN_MESSAGE);
-		if(x==0) {
-			transfer_to_email(mail);
-			JOptionPane.showMessageDialog(null, "que tenga um buen dia");
-			
-		}else {
-			JOptionPane.showMessageDialog(null, "gracias por utilizar esta porcaria");
-		}
+	public static String getMensagem() {
+		return mensagem;
+	}
+	public static void setMensagem(String mensagem1) {
+		mensagem = mensagem1;
+	}
+	
+	private String emailTo;
+	
+	public String getEmailTo(){
+		return this.emailTo;
+	}
+	public void setEmailTo(String emailTo) {
+		this.emailTo = emailTo;
 	}
 
-	public static void transfer_to_email(String Correo) {
+	
+	public static void transfer_to_email(String Correo) throws AddressException, MessagingException{
 		String correoEnvia = "cineifp@gmail.com";
 		String contrasena = "btbgcrjnomspjzyl";
-		String mesaje = " Prueba de Envio de CORREO 18:18 ";
+		String mesaje = mensagem;
 		
 		Properties objetoPEC = new Properties();
 		
@@ -38,10 +44,10 @@ public class ClasseEnvioCorreio {
 		Session sesion = Session.getDefaultInstance(objetoPEC);
 		MimeMessage mail = new MimeMessage(sesion);
 		
-		try {
+		
 			mail.setFrom(new InternetAddress (correoEnvia));
 			mail.addRecipient(Message.RecipientType.TO, new InternetAddress(Correo));
-			mail.setSubject("Olá, chupe minhas bolas");
+			mail.setSubject("CineIF Paulista");
 			mail.setText(mesaje);
 			
 			Transport transporte = sesion.getTransport("smtp");
@@ -49,10 +55,6 @@ public class ClasseEnvioCorreio {
 			transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
 			transporte.close();
 			
-			System.out.println("El email se envio corretamente");
-			
-		} catch(Exception e) {
-			System.out.println(e);
-		}
+			System.out.println("O envio do comprovante foi realizado.");
 	}
 }

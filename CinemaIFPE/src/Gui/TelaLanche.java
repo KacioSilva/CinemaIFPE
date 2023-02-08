@@ -40,17 +40,40 @@ import javax.swing.border.LineBorder;
 public class TelaLanche extends JFrame {
 
 	private JPanel contentPane;
-	private int qtdLanche1 = 0;
-	private int qtdLanche2 = 0;
-	private int qtdLanche3 = 0;
-	private int qtdLanche4 = 0;
-	private int qtdLanche5 = 0;
-	private int valorLanche1;
+	private static int qtdLanche1 = 0;
+	private static int qtdLanche2 = 0;
+	private static int qtdLanche3 = 0;
+	private static int qtdLanche4 = 0;
+	private static int qtdLanche5 = 0;
+	private  int valorLanche1;
 	private int valorLanche2;
 	private int valorLanche3;
 	private int valorLanche4;
 	private int valorLanche5;
+	
+	
+	
 			
+	public static int getQtdLanche1() {
+		return qtdLanche1;
+	}
+
+	public static int getQtdLanche2() {
+		return qtdLanche2;
+	}
+
+	public static int getQtdLanche3() {
+		return qtdLanche3;
+	}
+
+	public static int getQtdLanche4() {
+		return qtdLanche4;
+	}
+
+	public static int getQtdLanche5() {
+		return qtdLanche5;
+	}
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

@@ -11,8 +11,10 @@ import Database.SelectPoltronas;
 public class ControlePoltrona {
   
    private static int preco;
- 
-
+   
+   private static ArrayList<String> arrayPoltronasSelecionadas = new ArrayList<String>();
+  
+   
    private static String PoltronaLivreS1;
    private static String PoltronaLivreS2;
    private static String PoltronaLivreS3;
@@ -160,6 +162,7 @@ public class ControlePoltrona {
    public static String getPoltronaLivreS1A3() {
 	return PoltronaLivreS1A3;
 }
+   
 
 public static void setPoltronaLivreS1A3(String poltronaLivreS1A3) {
 	PoltronaLivreS1A3 = poltronaLivreS1A3;
