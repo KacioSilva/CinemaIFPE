@@ -13,7 +13,7 @@ public class CreateDatabase {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306";
 		String usuario = "root";
-		String senha = "Fam1l1a..";
+		String senha = "Tt4189952";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -151,28 +151,30 @@ public class CreateDatabase {
 				+ "  `preco` INT NOT NULL,\r\n"
 				+ "  `Filme_idFilme` INT NOT NULL,\r\n"
 				+ "  `Filme_nome` VARCHAR(45) NOT NULL,\r\n"
-				+ "  `Poltrona_Sala_numeroSala` INT NOT NULL,\r\n"
-				+ "  `sessão_sessao` VARCHAR(45) NOT NULL,\r\n"
-				+ "  `sessão_Sala_numeroSala` INT NOT NULL,\r\n"
-				+ "  PRIMARY KEY (`idIngresso`, `Filme_idFilme`, `Filme_nome`, `Poltrona_Sala_numeroSala`, `sessão_sessao`, `sessão_Sala_numeroSala`),\r\n"
+				+ "  `Poltrona` INT NOT NULL,\r\n"
+				+ "  `sessao` VARCHAR(45) NOT NULL,\r\n"
+				+ "  `numeroSala` INT NOT NULL,\r\n"
+				+ "  `horaCompra` VARCHAR(30) NOT NULL,\r\n"
+				+ "  PRIMARY KEY (`idIngresso`, `Filme_idFilme`, `Filme_nome`, `Poltrona`, `sessao`, `numeroSala`),\r\n"
 				+ "  INDEX `fk_Ingresso_Filme1_idx` (`Filme_idFilme` ASC, `Filme_nome` ASC) VISIBLE,\r\n"
-				+ "  INDEX `fk_Ingresso_Poltrona1_idx` (`Poltrona_Sala_numeroSala` ASC) VISIBLE,\r\n"
-				+ "  INDEX `fk_Ingresso_sessão1_idx` (`sessão_sessao` ASC, `sessão_Sala_numeroSala` ASC) VISIBLE,\r\n"
+				+ "  INDEX `fk_Ingresso_Poltrona1_idx` (`numeroSala` ASC) VISIBLE,\r\n"
+				+ "  INDEX `fk_Ingresso_sessão1_idx` (`sessao` ASC, `numeroSala` ASC) VISIBLE,\r\n"
 				+ "  CONSTRAINT `fk_Ingresso_Filme1`\r\n"
 				+ "    FOREIGN KEY (`Filme_idFilme` , `Filme_nome`)\r\n"
 				+ "    REFERENCES `cineif`.`Filme` (`idFilme` , `nome`)\r\n"
 				+ "    ON DELETE NO ACTION\r\n"
 				+ "    ON UPDATE NO ACTION,\r\n"
 				+ "  CONSTRAINT `fk_Ingresso_Poltrona1`\r\n"
-				+ "    FOREIGN KEY (`Poltrona_Sala_numeroSala`)\r\n"
+				+ "    FOREIGN KEY (`numeroSala`)\r\n"
 				+ "    REFERENCES `cineif`.`Poltrona` (`Sala_numeroSala`)\r\n"
 				+ "    ON DELETE NO ACTION\r\n"
 				+ "    ON UPDATE NO ACTION,\r\n"
 				+ "  CONSTRAINT `fk_Ingresso_sessão1`\r\n"
-				+ "    FOREIGN KEY (`sessão_sessao` , `sessão_Sala_numeroSala`)\r\n"
+				+ "    FOREIGN KEY (`sessao` , `numeroSala`)\r\n"
 				+ "    REFERENCES `cineif`.`sessao` (`sessao` , `Sala_numeroSala`)\r\n"
 				+ "    ON DELETE NO ACTION\r\n"
-				+ "    ON UPDATE NO ACTION)";
+				+ "    ON UPDATE NO ACTION)\r\n"
+				+ "ENGINE = InnoDB";
 		
 		try {
 			conectar();
@@ -201,61 +203,12 @@ public class CreateDatabase {
 			
 			pstmt.execute();
 			
-			createTableCliente();
-		} finally {
-			conexao.close();
-		}
-	}
-	
-	
-	public void createTableCliente() throws ClassNotFoundException, SQLException {
-		String criarTableCliente = "CREATE TABLE IF NOT EXISTS `cineif`.`Cliente` (\r\n"
-				+ "  `cpf` CHAR(15) NOT NULL,\r\n"
-				+ "  `email` varchar(100) not null,\r\n"
-				+ "  PRIMARY KEY (`cpf`))";
-		
-		try {
-			conectar();
-			PreparedStatement pstmt = conexao.prepareStatement(criarTableCliente);
-			
-			pstmt.execute();
-			
-			createTableClienteIngresso();
-		} finally {
-			conexao.close();
-		}
-	}
-	
-	public void createTableClienteIngresso() throws ClassNotFoundException, SQLException {
-		String criarTableClienteIngresso = "CREATE TABLE IF NOT EXISTS `cineif`.`Cliente_ingresso` (\r\n"
-				+ "  `Cliente_cpf` CHAR(15) NOT NULL,\r\n"
-				+ "  `Ingresso_idIngresso` INT NOT NULL,\r\n"
-				+ "  `dataCompra` TIMESTAMP NOT NULL,\r\n"
-				+ "  PRIMARY KEY (`Cliente_cpf`, `Ingresso_idIngresso`),\r\n"
-				+ "  INDEX `fk_Cliente_has_Ingresso_Ingresso1_idx` (`Ingresso_idIngresso` ASC) VISIBLE,\r\n"
-				+ "  INDEX `fk_Cliente_has_Ingresso_Cliente1_idx` (`Cliente_cpf` ASC) VISIBLE,\r\n"
-				+ "  CONSTRAINT `fk_Cliente_has_Ingresso_Cliente1`\r\n"
-				+ "    FOREIGN KEY (`Cliente_cpf`)\r\n"
-				+ "    REFERENCES `cineif`.`Cliente` (`cpf`)\r\n"
-				+ "    ON DELETE NO ACTION\r\n"
-				+ "    ON UPDATE NO ACTION,\r\n"
-				+ "  CONSTRAINT `fk_Cliente_has_Ingresso_Ingresso1`\r\n"
-				+ "    FOREIGN KEY (`Ingresso_idIngresso`)\r\n"
-				+ "    REFERENCES `cineif`.`Ingresso` (`idIngresso`)\r\n"
-				+ "    ON DELETE NO ACTION\r\n"
-				+ "    ON UPDATE NO ACTION)";
-		
-		try {
-			conectar();
-			PreparedStatement pstmt = conexao.prepareStatement(criarTableClienteIngresso);
-			
-			pstmt.execute();
-			
 			createTableReciboLanche();
 		} finally {
 			conexao.close();
 		}
 	}
+	
 	
 	
 	public void createTableReciboLanche() throws ClassNotFoundException, SQLException {

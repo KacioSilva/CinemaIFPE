@@ -39,6 +39,7 @@ public class Filme{
 	private JTextField tfcaminhofoto;
 	private Filme filme;
 	private String nomeArquivo;
+	private DatabaseFilmes select = new DatabaseFilmes();
 
 	
 	private static int valorTotal;
@@ -129,31 +130,14 @@ public class Filme{
     
     
     public void pegarFilmes(int i) throws SQLException, ClassNotFoundException{
-    	DatabaseFilmes select = new DatabaseFilmes();
+    	
     	
     	select.selectFilmes(i);
 		
     	}
     
     public String buscarCartaz(int idFilme) throws ClassNotFoundException, SQLException  {
-    	Conexao conexao = new Conexao();
-    	try {
-			conexao.conectar();
-    		String cartaz = "";
-    		String comando = "select cartaz from filme where idFilme = ?";
-    		PreparedStatement pstmt = conexao.getConexao().prepareStatement(comando);
-    		pstmt.setInt(1,idFilme);
-    		ResultSet rs = pstmt.executeQuery();
-    		
-    		while(rs.next()) {
-    			cartaz = rs.getString(1);
-    			return cartaz;
-    		}
-    	}finally {
-        	if(conexao != null) {
-        	conexao.getConexao().close();
-        	}
-        } return cartaz;
+    	return select.buscarCartaz(idFilme);
         
     }
 }

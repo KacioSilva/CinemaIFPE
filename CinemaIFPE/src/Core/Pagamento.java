@@ -9,6 +9,7 @@ public class Pagamento {
     private static String email;
     private static String nomeTitular;
     
+    
   
     public static String getEmail() {
 		return email;
@@ -30,15 +31,9 @@ public class Pagamento {
         this.tipo = tipo;
     }
 
-    public String resumoPagamento(){
-        String detalhamneto = "Detalhamento da compra";
-        return detalhamneto;
+    public void resumoPagamentoBD(){
+        
     }
-
-    public void emitirNota(){
-        //Emitir nota
-    }
-
 
     public String getTipo() {
         return tipo;

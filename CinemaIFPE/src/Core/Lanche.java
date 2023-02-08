@@ -8,13 +8,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Database.Conexao;
+import Database.DatabaseLanche;
 
 public class Lanche {
-    private int idLanche;
-    private String nome;
-    private String marca;
-    private String preco;
-    private String caminhoFoto;
+    private static int idLanche;
+    private static String nome;
+    private static String marca;
+    private static String preco;
+    private static String caminhoFoto;
+    private DatabaseLanche pegarLanche = new DatabaseLanche();
     
     private static int precoTotal;
     
@@ -30,8 +32,8 @@ public class Lanche {
 		return caminhoFoto;
 	}
 
-	public void setCaminhoFoto(String caminhoFoto) {
-		this.caminhoFoto = caminhoFoto;
+	public static void setCaminhoFoto(String caminhoFotoLanche) {
+		caminhoFoto = caminhoFotoLanche;
 	}
 
 
@@ -42,32 +44,32 @@ public class Lanche {
         return idLanche;
     }
 
-    public void setIdLanche(int idLanche) {
-        this.idLanche = idLanche;
+    public static void setIdLanche(int idLancheLanche) {
+        idLanche = idLancheLanche;
     }
 
     public String getNomeLanche() {
         return nome;
     }
 
-    public void setNomeLanche(String nomeLanche) {
-        this.nome = nomeLanche;
+    public static void setNomeLanche(String nomeLanche) {
+        nome = nomeLanche;
     }
 
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public static void setMarca(String marcaLanche) {
+        marca = marcaLanche;
     }
 
     public String getPreco() {
         return preco;
     }
 
-    public void setPreco(String preco) {
-        this.preco = preco;
+    public static void setPreco(String precoLanche) {
+        preco = precoLanche;
     }
 
     public int multiplicacaoLanche(int valor) {
@@ -81,55 +83,10 @@ public class Lanche {
  
       
     public void pegarLanche(int idlancheh) throws SQLException, ClassNotFoundException {
-    	Conexao conexao = new Conexao();
-    	try {
-    		conexao.conectar();
-			String query = "select * from lanche where idLanche = ?";
-			PreparedStatement resultset = conexao.getConexao().prepareStatement(query);
-			resultset.setInt(1, idlancheh);
-			ResultSet rs = resultset.executeQuery();
-			
-			while(rs.next()){
-				arrayLanche.add(rs.getString("idLanche"));
-                arrayLanche.add(rs.getString("nome"));
-                arrayLanche.add(rs.getString("marca"));
-                arrayLanche.add(rs.getString("preco"));
-                arrayLanche.add(rs.getString("caminhofoto"));
-			}
-			nome = arrayLanche.get(1);
-			marca = arrayLanche.get(2);
-			preco = arrayLanche.get(3);	
-			caminhoFoto = arrayLanche.get(4);
-			
-			arrayLanche.clear();
-	
-		}finally {
-        	if(conexao != null) {
-        	conexao.getConexao().close();
-        	}
-        }
-    	
+    	pegarLanche.pegarLanche(idlancheh);
     }
     
     public String buscarFotoLanche(int idLanche) throws SQLException, ClassNotFoundException{
-
-        Conexao conexao = new Conexao();
-        try {
-            conexao.conectar();
-            String caminhoFoto = "";
-            String comando = "select caminhofoto from lanche where idLanche = ?";
-            PreparedStatement pstmt = conexao.getConexao().prepareStatement(comando);
-            pstmt.setInt(1,idLanche);
-            ResultSet rs = pstmt.executeQuery();
-
-            while(rs.next()) {
-                caminhoFoto = rs.getString(1);
-            }
-            return caminhoFoto;
-        }finally {
-        	if(conexao != null) {
-        	conexao.getConexao().close();
-        	}
-        }
+    	return pegarLanche.buscarFotoLanche(idLanche);
     }
 }

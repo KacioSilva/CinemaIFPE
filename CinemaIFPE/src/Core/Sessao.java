@@ -6,13 +6,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Database.Conexao;
+import Database.DatabaseSessao;
 
 public class Sessao {
-    private String horas;
-    private String minutos;
-    private String segundos;
-    private String sessao;
-    private String Sala_numeroSala;
+    private static String horas;
+    private static String minutos;
+    private static String segundos;
+    private static String sessao;
+    private static String Sala_numeroSala;
+    private DatabaseSessao dataSesao = new DatabaseSessao();
     
     private String teste;
     
@@ -22,8 +24,12 @@ public class Sessao {
     public ArrayList getHoras22() {
     	System.out.println(arrayHora);
     	return this.arrayHora;
-  
     }
+    
+    public static void setHoras22(String hora) {
+    	arrayHora.add(hora);
+    }
+    
     public Sessao() {
         
     }
@@ -32,87 +38,46 @@ public class Sessao {
         return horas;
     }
 
-    public void setHoras(String horas) {
-        this.horas = horas;
+    public static void setHoras(String horas) {
+        Sessao.horas = horas;
     }
     
     public String getMinutos() {
     	return minutos;
     }
-    public void setMinutos(String minutos) {
-    	this.minutos = minutos;
+    public static void setMinutos(String minutos) {
+    	Sessao.minutos = minutos;
     }
     public String getSegundos() {
     	return segundos;
     }
-    public void setSegundos(String segundos) {
-    	this.segundos = segundos;
+    public static void setSegundos(String segundos) {
+    	Sessao.segundos = segundos;
     }
 
     public String getSessao() {
         return sessao;
     }
 
-    public void setSessao(String Sessao) {
-        this.sessao = Sessao;
+    public static void setSessao(String sessao) {
+        Sessao.sessao = sessao;
     }
     
     public String getSala_numeroSala() {
         return Sala_numeroSala;
     }
     
-    public void setSala_numeroSala(String Sala_numeroSala) {
-        this.Sala_numeroSala = Sala_numeroSala;
+    public static void setSala_numeroSala(String Sala_numeroSala) {
+        Sessao.Sala_numeroSala = Sala_numeroSala;
     }
     
     
     
     public void pegarSessao(int i) throws SQLException, ClassNotFoundException{
-    	Conexao conexao = new Conexao();
-		try {	
-				conexao.conectar();
-				String query = "select * from sessao where sessao = ?";
-				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
-				pstm.setInt(1, i);
-				ResultSet rs = pstm.executeQuery();
-				while(rs.next()){
-					arraySessao.add(rs.getString("horas"));
-					arraySessao.add(rs.getString("minutos"));
-					arraySessao.add(rs.getString("segundos"));
-					arraySessao.add(rs.getString("sessao"));
-					arraySessao.add(rs.getString("Sala_numeroSala"));	
-				
-				}
-				horas = arraySessao.get(0);
-				minutos = arraySessao.get(1);
-				segundos = arraySessao.get(2);
-				sessao = arraySessao.get(3);
-				Sala_numeroSala = arraySessao.get(4);
-				
-				arraySessao.clear();
-
-			} catch (SQLException e) {
-				throw new SQLException("Erro de conexão!");
-			}
-	
-    	}
+    	dataSesao.pegarSessao(i);
+    }
+    
     public void pegarHora() throws SQLException, ClassNotFoundException{
-    	Conexao conexao = new Conexao();
-		try {	
-				conexao.conectar();
-				String query = "select horas from sessao";
-				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
-				ResultSet rs = pstm.executeQuery();
-				while(rs.next()){
-					arrayHora.add(rs.getString("horas"));
-				
-				}
-				System.out.println(arrayHora);
-				arraySessao.clear();
-
-			} catch (SQLException e) {
-				throw new SQLException("Erro de conexão!");
-			}
-	
-    	}
+    	dataSesao.pegarHora();
+    }
 }

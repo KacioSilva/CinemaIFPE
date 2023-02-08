@@ -200,7 +200,7 @@ public class GuiPagamento extends JFrame {
                            EnviarEmail.setMensagem(total);
                             	
                       }
-                    EnviarEmail.transfer_to_email(textEmail.getText());
+                    EnviarEmail.emitirNota(textEmail.getText());
                   
                     
                     nome = textNomeTitular.getText();
@@ -302,6 +302,13 @@ public class GuiPagamento extends JFrame {
                 	SelecaoPoltronas.setD5Set("0");
                 	
                 	
+                	SelecaoPoltronas.getPoltronaSelecionada().clear();
+					TelaLanche.setQtdLanche1(0);
+					TelaLanche.setQtdLanche2(0);
+					TelaLanche.setQtdLanche3(0);
+					TelaLanche.setQtdLanche4(0);
+					TelaLanche.setQtdLanche5(0);
+                	
 					}catch(AddressException e1){
 						lblConfirmacao.setText("Email Inválido");
 					}catch(MessagingException e1){
@@ -313,15 +320,7 @@ public class GuiPagamento extends JFrame {
 						lblConfirmacao.setText("Erro");
 					} catch (SQLException e1) {
 					 	lblConfirmacao.setText("Erro ao conectar. Tente novamente");
-					}finally {
-						SelecaoPoltronas.getPoltronaSelecionada().clear();
-						TelaLanche.setQtdLanche1(0);
-						TelaLanche.setQtdLanche2(0);
-						TelaLanche.setQtdLanche3(0);
-						TelaLanche.setQtdLanche4(0);
-						TelaLanche.setQtdLanche5(0);
 					}
-        	
             	}
         	});
         

@@ -17,13 +17,13 @@ class TddEmail {
 	@Test
 	void emailVazio() {
 			DatabaseFuncionario databaseFunc = new DatabaseFuncionario();
-			assertThrows(MessagingException.class, () -> EnviarEmail.transfer_to_email(""));
+			assertThrows(MessagingException.class, () -> EnviarEmail.emitirNota(""));
 			
 	}
 
 	@Test
 	void emailInvalido() {
 			DatabaseFuncionario databaseFunc = new DatabaseFuncionario();
-			assertThrows(MessagingException.class, () -> EnviarEmail.transfer_to_email("dfldalçfma"));
+			assertThrows(MessagingException.class, () -> EnviarEmail.emitirNota("dfldalçfma"));
 	}
 }

@@ -2,24 +2,7 @@ package Database;
 import java.sql.*;
 
 public class CreateInserts {
-	
-	private Connection conexao = null;
-	
-	
-	public Connection conectar() throws SQLException, ClassNotFoundException {
-		String servidor = "jdbc:mysql://localhost:3306/cineif";
-		String usuario = "root";
-		String senha = "Fam1l1a..";
-		String driver = "com.mysql.jdbc.Driver";
-		try {
-			Class.forName(driver);
-			conexao = DriverManager.getConnection(servidor, usuario, senha);
-		}catch(SQLException e) {
-			throw new SQLException("Erro de acesso ao banco!");
-		}catch(ClassNotFoundException e1){
-			throw new ClassNotFoundException("Erro inesperado!");
-		} return conexao;
-	}
+	private Conexao conexao = new Conexao();
 	
 	public void insertSala() throws ClassNotFoundException, SQLException{
 					
@@ -27,14 +10,14 @@ public class CreateInserts {
 					+ "(1,20, 20);";
 			
 			try {
-				conectar();
-				PreparedStatement pstmt = conexao.prepareStatement(inserirSala);
+				conexao.conectar();
+				PreparedStatement pstmt = conexao.getConexao().prepareStatement(inserirSala);
 
 				pstmt.execute();
 				
 				insertSessao();
 			} finally {
-				conexao.close();			
+				conexao.getConexao().close();			
 			}
 	}
 	
@@ -50,14 +33,14 @@ public class CreateInserts {
 					+ "(\"6\", 1, 23, 0, 0)";
 			
 			try {
-				conectar();
-				PreparedStatement pstmt = conexao.prepareStatement(inserirSessao);
+				conexao.conectar();
+				PreparedStatement pstmt = conexao.getConexao().prepareStatement(inserirSessao);
 				
 				pstmt.execute();
 				
 				insertPoltrona();
 			} finally {
-				conexao.close();
+				conexao.getConexao().close();
 				
 			}
 	}
@@ -88,14 +71,14 @@ public class CreateInserts {
 					+ "";
 			
 			try {
-				conectar();
-				PreparedStatement pstmt = conexao.prepareStatement(inserirPoltrona);
+				conexao.conectar();
+				PreparedStatement pstmt = conexao.getConexao().prepareStatement(inserirPoltrona);
 				
 				pstmt.execute();
 				
 				insertFilme();
 			} finally {
-				conexao.close();
+				conexao.getConexao().close();
 				
 			}
 		}
@@ -114,14 +97,14 @@ public class CreateInserts {
 					+ "(default, \"Eu sou a lenda\", \"cartaz\", \"trailer\", \"sinopse\", \"diretor\", 160, \"acao\", \"1998-09-01\", 16)";
 			
 			try {
-				conectar();
-				PreparedStatement pstmt = conexao.prepareStatement(inserirFilme);
+				conexao.conectar();
+				PreparedStatement pstmt = conexao.getConexao().prepareStatement(inserirFilme);
 				
 				pstmt.execute();
 				
 				insertLanche();
 			} finally {
-				conexao.close();
+				conexao.getConexao().close();
 			}
 		}
 	
@@ -136,14 +119,14 @@ public class CreateInserts {
 						+ "";
 				
 				try {
-					conectar();
-					PreparedStatement pstmt = conexao.prepareStatement(inserirLanche);
+					conexao.conectar();
+					PreparedStatement pstmt = conexao.getConexao().prepareStatement(inserirLanche);
 					
 					pstmt.execute();
 					insertFuncionario();
 					
 				} finally {
-					conexao.close();
+					conexao.getConexao().close();
 				}
 			}
 		
@@ -151,13 +134,13 @@ public class CreateInserts {
 			String inserirFuncionario = "insert into funcionario values\r\n"
 					+ "(\"adm\", \"123\")";
 			try {
-				conectar();
-				PreparedStatement pstmt = conexao.prepareStatement(inserirFuncionario);
+				conexao.conectar();
+				PreparedStatement pstmt = conexao.getConexao().prepareStatement(inserirFuncionario);
 				
 				pstmt.execute();
 				
 			} finally {
-				conexao.close();
+				conexao.getConexao().close();
 			}
 		}
 	}	

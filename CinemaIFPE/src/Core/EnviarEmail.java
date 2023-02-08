@@ -27,7 +27,7 @@ public class EnviarEmail {
 	}
 
 	
-	public static void transfer_to_email(String Correo) throws AddressException, MessagingException{
+	public static void emitirNota(String Correo) throws AddressException, MessagingException{
 		String correoEnvia = "cineifpaulista@gmail.com";
 		String contrasena = "aaipyfmspffithtk";
 		String mesaje = mensagem;

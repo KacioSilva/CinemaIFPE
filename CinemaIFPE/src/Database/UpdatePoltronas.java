@@ -1,7 +1,10 @@
 package Database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import Core.Sala;
 import Database.Conexao.*;
 
 public class UpdatePoltronas {
@@ -46,6 +49,27 @@ public class UpdatePoltronas {
             if(conexao != null) {
             conexao.getConexao().close();
             }
+        }
+    }
+    
+    
+    public void pegarPreco() throws SQLException, ClassNotFoundException {
+    	Conexao conexao = new Conexao();
+    	
+    	try {
+    		conexao.conectar();
+			String query = "select preco from sala where numeroSala = 1";
+			PreparedStatement resultset = conexao.getConexao().prepareStatement(query);
+			ResultSet rs = resultset.executeQuery();
+			
+			while(rs.next()){
+                Sala.setPreco(rs.getInt("preco"));
+			}
+	
+		}finally {
+        	if(conexao != null) {
+        	conexao.getConexao().close();
+        	}
         }
     }
 }

@@ -12,41 +12,22 @@ import Gui.TelaInicial;
 
 public class Sala {
 	 private ArrayList<Integer> arraySala = new ArrayList<Integer>();
+	 private UpdatePoltronas upPoltrona = new UpdatePoltronas();
 	 
-    private int preco;
+    private static int preco;
 
     public int getPreco() {
     	return this.preco;
     }
-    public void setPreco(int preco) {
-    	this.preco = preco;
+    public static void setPreco(int preco) {
+    	Sala.preco = preco;
     }
     
     public void pegarPreco() throws SQLException, ClassNotFoundException {
-    	Conexao conexao = new Conexao();
-    	
-    	try {
-    		conexao.conectar();
-			String query = "select preco from sala where numeroSala = 1";
-			PreparedStatement resultset = conexao.getConexao().prepareStatement(query);
-			ResultSet rs = resultset.executeQuery();
-			
-			while(rs.next()){
-                arraySala.add(rs.getInt("preco"));
-			}
-			preco = arraySala.get(0);	
-			
-			System.out.println(arraySala);
-			arraySala.clear();
-	
-		}finally {
-        	if(conexao != null) {
-        	conexao.getConexao().close();
-        	}
-        }
+    	upPoltrona.pegarPreco();
     }
     public void resetarPoltronas(int id) throws SQLException, ClassNotFoundException{
-    	UpdatePoltronas upPoltrona = new UpdatePoltronas();
+    	
     	Conexao conexao = new Conexao();
 
     	try {

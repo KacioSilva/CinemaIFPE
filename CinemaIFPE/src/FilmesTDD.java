@@ -14,6 +14,7 @@ import Database.CreateDatabase;
 import Database.CreateInserts;
 import Database.DatabaseFilmes;
 import Database.DatabaseFuncionario;
+import Database.DatabaseReciboIgresso;
 import Database.UpdatePoltronas;
 import Gui.TelaInicial;
 
@@ -31,6 +32,8 @@ public class FilmesTDD {
 
 public static void main(String[] args) {
 	
+	DatabaseReciboIgresso recibo = new DatabaseReciboIgresso();
+
 	
 	
 
