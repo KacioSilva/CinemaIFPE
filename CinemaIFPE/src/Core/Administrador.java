@@ -12,17 +12,7 @@ import Database.Conexao;
 
 
 public class Administrador {	
-	//Método para controle de acesso do adm para as áreas de controle do cinema
-	
-	public static boolean login(String usuario, String senha){
-        if(usuario.equals("adm")  && senha.equals("123")){
-                return true;
-        }
-        else{
-        	throw new RuntimeException("Usuário ou senha incorretos");
-         }
-	}
-	
+		
 	//Método para o funcionário editar os lanches
 	
 	public static boolean funcEditarLanche(String nome, String preco, String marca, String ID, String caminhoFoto) throws SQLException, ClassNotFoundException  {

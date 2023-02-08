@@ -9,7 +9,7 @@ public class CreateInserts {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "203040lL";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -140,10 +140,24 @@ public class CreateInserts {
 					PreparedStatement pstmt = conexao.prepareStatement(inserirLanche);
 					
 					pstmt.execute();
+					insertFuncionario();
 					
 				} finally {
 					conexao.close();
 				}
 			}
 		
+		public void insertFuncionario() throws ClassNotFoundException, SQLException{
+			String inserirFuncionario = "insert into funcionario values\r\n"
+					+ "(\"adm\", \"123\")";
+			try {
+				conectar();
+				PreparedStatement pstmt = conexao.prepareStatement(inserirFuncionario);
+				
+				pstmt.execute();
+				
+			} finally {
+				conexao.close();
+			}
+		}
 	}	

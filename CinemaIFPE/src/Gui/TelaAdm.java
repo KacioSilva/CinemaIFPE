@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import Core.Administrador;
+import Core.Funcionario;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
@@ -19,6 +21,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 
 public class TelaAdm extends JFrame {
 
@@ -132,16 +135,25 @@ public class TelaAdm extends JFrame {
 				String senha = new String(passwordField.getPassword());
 				
 				try{
-	                boolean logar = Administrador.login(usuario, senha);
-	                HubADM hubADM = new HubADM();
-	                hubADM.setVisible(true);
-	                dispose();
-
-	            } catch (RuntimeException e1){
-	                mensagem.setText(e1.getMessage());
-	                mensagem.setForeground(new Color(241, 5, 5));
-	            }
-
+	                boolean logar = Funcionario.login(usuario, senha);
+	                if(logar) {
+	                	HubADM hubADM = new HubADM();
+	 	                hubADM.setVisible(true);
+	 	                dispose();
+	                }
+	                else {
+	                	mensagem.setText("Usuário ou senha incorreta");
+	                }
+	             
+	            }catch (ClassNotFoundException e1) {
+                    mensagem.setText("Erro inesperado, tente novamente.");
+                } catch (RuntimeException e1) {
+                    mensagem.setText(e1.getMessage());
+                    mensagem.setForeground(new Color(241, 5, 5));
+                    
+            	}catch(SQLException e1) {
+            		mensagem.setText("teste");
+            	}
 			}
 		});
 		entrar.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/login.png")));
@@ -165,14 +177,26 @@ public class TelaAdm extends JFrame {
 				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
 					
 					try{
-		                Administrador.login(usuario, senha);
-		                HubADM hubADM = new HubADM();
-		                hubADM.setVisible(true);
-		                dispose();
-
-		            } catch (RuntimeException e1){
+						boolean login = Funcionario.login(usuario, senha);
+						if(login) {
+							HubADM hubADM = new HubADM();
+			                hubADM.setVisible(true);
+			                dispose();
+						}
+						else {
+		                	mensagem.setText("Usuário ou senha incorreta");
+		                	mensagem.setForeground(new Color(241, 5, 5));
+		                }
+		                
+		            }catch (RuntimeException e1){
 		                mensagem.setText(e1.getMessage());
 		                mensagem.setForeground(new Color(241, 5, 5));
+		            }catch(SQLException e1) {
+		            	mensagem.setText("Erro inesperado");
+		            	mensagem.setForeground(new Color(241, 5, 5));
+		            }catch(ClassNotFoundException e1) {
+		            	mensagem.setText("Erro inesperado, tente novamente.");
+		            	mensagem.setForeground(new Color(241, 5, 5));
 		            }
 
 					
@@ -195,14 +219,27 @@ public class TelaAdm extends JFrame {
 	    		if( e.getKeyCode() == KeyEvent.VK_ENTER ) {
 	    			
 	    			try{
-		                Administrador.login(usuario, senha);
-		                HubADM hubADM = new HubADM();
-		                hubADM.setVisible(true);
-		                dispose();
-
-		            } catch (RuntimeException e1){
+		                boolean login = Funcionario.login(usuario, senha);
+		                if(login) {
+		                	HubADM hubADM = new HubADM();
+			                hubADM.setVisible(true);
+			                dispose();
+		                }
+		                else {
+		                	mensagem.setText("Usuário ou senha incorreta");
+		                	mensagem.setForeground(new Color(241, 5, 5));
+		                }
+		               
+		                
+		            }catch (RuntimeException e1){
 		                mensagem.setText(e1.getMessage());
 		                mensagem.setForeground(new Color(241, 5, 5));
+		            }catch(SQLException e1) {
+		            	mensagem.setText("Erro inesperado");
+		            	mensagem.setForeground(new Color(241, 5, 5));
+		            }catch(ClassNotFoundException e1) {
+		            	mensagem.setText("Erro inesperado, tente novamente.");
+		            	mensagem.setForeground(new Color(241, 5, 5));
 		            }
 	    		}
 	    	}
@@ -216,6 +253,6 @@ public class TelaAdm extends JFrame {
 	    ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
 	    JLabel ifpe = new JLabel(logo_ifpe);
 	    getContentPane().add(ifpe);
-	    ifpe.setBounds(321,129,284,281); 
+	    ifpe.setBounds(321,129,284,281);
 	}
 }

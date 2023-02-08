@@ -2,7 +2,13 @@ package Gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Core.Funcionario;
+import Database.DatabaseFuncionario;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Color;
@@ -11,6 +17,7 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
@@ -123,5 +130,39 @@ public class HubADM extends JFrame {
 		lblFilmes.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblFilmes.setBounds(698, 562, 108, 25);
 		contentPane.add(lblFilmes);
+		
+		JButton btnRedefinirSenha = new JButton("Redefinir Senha");
+		btnRedefinirSenha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String usuario = JOptionPane.showInputDialog("Usuário: ");
+				String senha = JOptionPane.showInputDialog("Senha Atual: ");
+				try {
+					if(Funcionario.login(usuario, senha)) {
+						String senhaNova1 = JOptionPane.showInputDialog("Nova Senha: ");
+						String senhaNova2 = JOptionPane.showInputDialog("Repita a senha: ");
+						if(senhaNova1.equals(senhaNova2)) {
+							DatabaseFuncionario dbFuncionario = new DatabaseFuncionario();
+							dbFuncionario.updateSenhaADM(usuario, senhaNova1);
+							JOptionPane.showMessageDialog(null, "Senhas alteradas");	
+						}
+						else{
+							JOptionPane.showMessageDialog(null, "Senhas incorretas");
+						}
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Usuário ou senha incorreta");
+					}
+				} catch (ClassNotFoundException e1) {
+					JOptionPane.showMessageDialog(null, "Erro inesperado. Tente novamente.");
+				} catch (SQLException e1) {
+					JOptionPane.showMessageDialog(null, "Erro inesperado. Tente novamente.");
+				} catch(RuntimeException e1) {
+				JOptionPane.showMessageDialog(null, "Campos vazios");
+				} 
+			}
+			
+		});
+		btnRedefinirSenha.setBounds(839, 647, 135, 23);
+		contentPane.add(btnRedefinirSenha);
 	}
 }

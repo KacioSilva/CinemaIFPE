@@ -5,6 +5,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import Core.Administrador;
 import Core.ControlePoltrona;
 import Core.Filme;
+import Core.Funcionario;
 import Core.Lanche;
 import Core.Sala;
 import Core.Sessao;
@@ -12,6 +13,7 @@ import Database.Conexao;
 import Database.CreateDatabase;
 import Database.CreateInserts;
 import Database.DatabaseFilmes;
+import Database.DatabaseFuncionario;
 import Database.UpdatePoltronas;
 import Gui.TelaInicial;
 
@@ -29,25 +31,13 @@ public class FilmesTDD {
 
 public static void main(String[] args) {
 	
-	CreateDatabase data = new CreateDatabase();
-	CreateInserts testando = new CreateInserts();
 	
+	DatabaseFuncionario funcionario = new DatabaseFuncionario();
 	try {
-		data.createBD();
-		data.createTableFilme();
-		testando.insertSala();
-		
-		TelaInicial teste = new TelaInicial();
-		teste.setVisible(true);
-		
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}catch(SQLIntegrityConstraintViolationException e) {
-			TelaInicial teste = new TelaInicial();
-			teste.setVisible(true);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		funcionario.updateSenhaADM("adm", "123");
+	} catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	}
 }

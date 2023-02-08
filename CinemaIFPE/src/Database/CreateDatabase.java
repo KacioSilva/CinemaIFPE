@@ -13,7 +13,7 @@ public class CreateDatabase {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306";
 		String usuario = "root";
-		String senha = "203040lL";
+		String senha = "Fam1l1a..";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -280,13 +280,29 @@ public class CreateDatabase {
 		
 			conectar();
 			PreparedStatement pstmt = conexao.prepareStatement(criarTableReciboLanche);
-			
+		
 			pstmt.execute();
-			
+			createTableFuncionario();
 		} finally {
 			conexao.close();
 		}
 	}
 	
 	
+	public void createTableFuncionario() throws ClassNotFoundException, SQLException {
+		String criarTabelaFuncionario = "CREATE TABLE IF NOT EXISTS `cineif`.`funcionario` (\r\n"
+				+ "  `usuario` VARCHAR(15) NOT NULL,\r\n"
+				+ "  `senha` VARCHAR(45) NOT NULL,\r\n"
+				+ "  PRIMARY KEY (`usuario`))\r\n"
+				+ "ENGINE = InnoDB;";
+		try {
+			conectar();
+			PreparedStatement pstmt = conexao.prepareStatement(criarTabelaFuncionario);
+			pstmt.execute();
+			
+			
+		} finally {
+			conexao.close();
+		}
+	}
 }
