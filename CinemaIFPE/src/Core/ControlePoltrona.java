@@ -1129,8 +1129,8 @@ public static void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
 		this.preco = preco;
 	}
 	
-	public void subtracao(int preco) {
-		this.preco -= preco;
+	public int subtracao(int preco) {
+		return this.preco -= preco;
 	}
 
 	public int soma(int preco) {

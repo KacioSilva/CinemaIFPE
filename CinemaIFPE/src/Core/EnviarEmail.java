@@ -45,16 +45,14 @@ public class EnviarEmail {
 		MimeMessage mail = new MimeMessage(sesion);
 		
 		
-			mail.setFrom(new InternetAddress (correoEnvia));
-			mail.addRecipient(Message.RecipientType.TO, new InternetAddress(Correo));
-			mail.setSubject("CineIF Paulista");
-			mail.setText(mesaje);
+		mail.setFrom(new InternetAddress (correoEnvia));
+		mail.addRecipient(Message.RecipientType.TO, new InternetAddress(Correo));
+		mail.setSubject("CineIF Paulista");
+		mail.setText(mesaje);
 			
-			Transport transporte = sesion.getTransport("smtp");
-			transporte.connect(correoEnvia, contrasena);
-			transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
-			transporte.close();
-			
-			System.out.println("O envio do comprovante foi realizado.");
+		Transport transporte = sesion.getTransport("smtp");
+		transporte.connect(correoEnvia, contrasena);
+		transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
+		transporte.close();
 	}
 }

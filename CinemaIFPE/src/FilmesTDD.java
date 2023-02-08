@@ -32,12 +32,7 @@ public class FilmesTDD {
 public static void main(String[] args) {
 	
 	
-	DatabaseFuncionario funcionario = new DatabaseFuncionario();
-	try {
-		funcionario.updateSenhaADM("adm", "123");
-	} catch (ClassNotFoundException | SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	
+
 	}
 }

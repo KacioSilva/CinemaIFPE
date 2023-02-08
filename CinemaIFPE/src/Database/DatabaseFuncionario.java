@@ -21,6 +21,8 @@ public class DatabaseFuncionario {
            		conexao.getConexao().close();
        		}
    }
+	 
+	 
 	 public void updateSenhaADM(String usuario, String senha) throws SQLException, ClassNotFoundException{			 
 		 Conexao conexao = new Conexao();
 		 
@@ -39,6 +41,8 @@ public class DatabaseFuncionario {
 		        	}
 		       }
 	 }
+	 
+	 
 }
 
 
