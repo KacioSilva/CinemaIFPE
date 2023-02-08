@@ -157,9 +157,9 @@ public class EditLanche extends JFrame {
 		tfMarca.setColumns(10);
 		
 		
-		FormatTft formatPrecoLanche = new FormatTft(3);
+		
 		tfPreco = new JTextField();
-		tfPreco.setDocument(formatPrecoLanche);
+		
 		tfPreco.addKeyListener(new KeyAdapter() {
 			
 			@Override

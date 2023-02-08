@@ -53,8 +53,9 @@ public class Pagamento {
         if(textEmail.isEmpty() ||  textCpf.isBlank() || textNCartao.isBlank() || textNomeTitular.isBlank() || textCvv.isBlank()) {
             throw new RuntimeException ("Preencha todos os campos");
          
-        }else if(textCpf.length() < 11) {
+        }else if(textCpf.length() < 11 ) {
         	throw new RuntimeException("CPF inválido.");
+        	
         }else if(textNCartao.length() < 16) {
         	throw new RuntimeException("Número de cartão inválido.");
         }else if(textCvv.length() < 3) {

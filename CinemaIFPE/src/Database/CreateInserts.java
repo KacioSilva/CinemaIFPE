@@ -9,7 +9,7 @@ public class CreateInserts {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Tt4189952";
+		String senha = "203040lL";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);

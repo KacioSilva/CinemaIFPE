@@ -11,6 +11,7 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 
@@ -77,7 +78,13 @@ public class HubADM extends JFrame {
 		filmes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				EditFilme telafilme = new EditFilme();
+				EditFilme telafilme = null;
+				try {
+					telafilme = new EditFilme();
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				telafilme.setVisible(true);
 				dispose();
 			}

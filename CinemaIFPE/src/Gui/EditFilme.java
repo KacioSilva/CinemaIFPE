@@ -14,6 +14,7 @@ import javax.swing.text.MaskFormatter;
 import Core.Administrador;
 import Core.Filme;
 import Core.FormatTft;
+import Core.FormatedTextfield;
 import Core.Sala;
 import Core.Sessao;
 import Database.Conexao;
@@ -105,7 +106,10 @@ public class EditFilme extends JFrame {
 		});
 	}
 	
-	public EditFilme() {
+	
+	
+	
+	public EditFilme() throws ParseException {
 		Sessao sessao = new Sessao();
 		Sala sala = new Sala();
 		
@@ -261,14 +265,9 @@ public class EditFilme extends JFrame {
 		    adicionarImagem.setBounds(398, 456, 115, 38);
 		    contentPane.add(adicionarImagem);
 		    
-		    FormatTft anoLancamento = new FormatTft(8);
-		    textLancamento = new JFormattedTextField();
-		    try {
-				anoLancamento.formatarLancamento(textLancamento);
-			} catch (ParseException e3) {
-				lblConfirmacao.setText("Caractere Inválido");
-			}
 		    
+		    textLancamento = new JFormattedTextField();
+		    FormatedTextfield.formatarLancamento(textLancamento);
 		    textLancamento.setHorizontalAlignment(SwingConstants.CENTER);
 		  	textLancamento.setBounds(39, 432, 144, 19);
 		  	contentPane.add(textLancamento);
@@ -522,8 +521,9 @@ public class EditFilme extends JFrame {
 	  	    
 	 //-------CRIANDO OS TEXTFIELDS
 	  	  
-	  FormatTft format = new FormatTft(3);	    	  	    
+	    	  	    
 	  textPrecoIngresso = new JTextField();
+	  textPrecoIngresso.setDocument(new FormatTft(2, FormatTft.TipoEntrada.PRECO));
 	  textPrecoIngresso.addKeyListener(new KeyAdapter() {
 	  	@Override
 	  	public void keyTyped(KeyEvent e) {
@@ -533,7 +533,7 @@ public class EditFilme extends JFrame {
 			}	
 	  	}
 	  });
-	  textPrecoIngresso.setDocument(format);
+	  
 	  
 	  textPrecoIngresso.setHorizontalAlignment(SwingConstants.CENTER);
 	  textPrecoIngresso.setColumns(10);
@@ -683,7 +683,7 @@ public class EditFilme extends JFrame {
 		  	
 		  	
 		  	
-		  	FormatTft formatClassificacao = new FormatTft(2);  	
+		  	
 		  	txtClassificacao = new JTextField();
 		  	txtClassificacao.addKeyListener(new KeyAdapter() {
 		  		@Override
@@ -694,7 +694,7 @@ public class EditFilme extends JFrame {
 					}				
 		  		}
 		  	});
-		  	txtClassificacao.setDocument(formatClassificacao);
+		  	 txtClassificacao.setDocument(new FormatTft(2, FormatTft.TipoEntrada.CLASSIFICACAO));
 		  	txtClassificacao.setHorizontalAlignment(SwingConstants.CENTER);		  	
 		  	txtClassificacao.setBounds(39, 167, 144, 19);
 		  	contentPane.add(txtClassificacao);
@@ -703,9 +703,9 @@ public class EditFilme extends JFrame {
 		  	
 		  	
 		  	
-		  	FormatTft formatDuracao = new FormatTft(3);
+		  	
 		  	txtDuracao = new JTextField();
-		  	txtDuracao.setDocument(formatDuracao);
+		  	txtDuracao.setDocument(new FormatTft(3, FormatTft.TipoEntrada.DURACAO));
 		  	txtDuracao.setHorizontalAlignment(SwingConstants.CENTER);
 		  	txtDuracao.addKeyListener(new KeyAdapter() {
 		  		@Override

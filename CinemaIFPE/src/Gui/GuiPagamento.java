@@ -10,6 +10,8 @@ import Core.EnviarEmail;
 import Core.ControlePoltrona;
 import Core.Filme;
 import Core.FormatTft;
+import Core.FormatarEmail;
+import Core.FormatedTextfield;
 import Core.Lanche;
 import Core.Pagamento;
 import Core.Sessao;
@@ -319,6 +321,7 @@ public class GuiPagamento extends JFrame {
 						TelaLanche.setQtdLanche4(0);
 						TelaLanche.setQtdLanche5(0);
 					}
+        	
             	}
         	});
         
@@ -500,8 +503,9 @@ public class GuiPagamento extends JFrame {
         contentPane.add(lblNCartao);
         
         
-        FormatTft cvv = new FormatTft(3);
+        
         textCvv = new JTextField();
+        textCvv.setDocument(new FormatTft(3, FormatTft.TipoEntrada.CVV));
         textCvv.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {	
@@ -515,7 +519,6 @@ public class GuiPagamento extends JFrame {
         textCvv.setFont(new Font("Tahoma", Font.PLAIN, 15));
         textCvv.setColumns(10);
         textCvv.setBounds(415, 507, 156, 20);
-        textCvv.setDocument(cvv);
         contentPane.add(textCvv);
         
      
@@ -552,8 +555,9 @@ public class GuiPagamento extends JFrame {
         lblConfirmacao.setBounds(366, 562, 241, 23);
         contentPane.add(lblConfirmacao);
         
-        FormatTft cpf = new FormatTft(11);
+        
         textCpf = new JFormattedTextField();
+        textCpf.setDocument(new FormatTft(11, FormatTft.TipoEntrada.CPF));
         textCpf.addKeyListener(new KeyAdapter() {
 			
 		@Override
@@ -565,14 +569,15 @@ public class GuiPagamento extends JFrame {
 			}
 		});
         textCpf.getText().length();
-        textCpf.setDocument(cpf);
+        
         textCpf.setVisible(false);
         textCpf.setBounds(415, 357, 156, 20);
         contentPane.add(textCpf);
         
         
-        FormatTft nCartao = new FormatTft(16);
+        
         textNCartao = new JFormattedTextField();
+        textNCartao.setDocument(new FormatTft(16, FormatTft.TipoEntrada.NCARTAO));
         textNCartao.addKeyListener(new KeyAdapter() {
     		@Override
     		public void keyTyped(KeyEvent e) {
@@ -582,13 +587,16 @@ public class GuiPagamento extends JFrame {
     				}	
     			}
     		});
-        textNCartao.setDocument(nCartao);
         textNCartao.setVisible(false);
         textNCartao.setBounds(415, 411, 156, 20);
         contentPane.add(textNCartao);
         
-        FormatTft email = new FormatTft(30);
+        
+        
+        
+        
         textEmail = new JFormattedTextField();
+        FormatarEmail email = new FormatarEmail(30);
         textEmail.addKeyListener(new KeyAdapter() {
         	public void keyTyped(KeyEvent e) {
         	    char c = e.getKeyChar();
@@ -603,8 +611,9 @@ public class GuiPagamento extends JFrame {
         textEmail.setBounds(415, 308, 156, 20);
         contentPane.add(textEmail);
         
-      FormatTft nomeTitular = new FormatTft(35);
+      
       textNomeTitular = new JFormattedTextField();
+      textNomeTitular.setDocument(new FormatTft(30, FormatTft.TipoEntrada.NOME));
       textNomeTitular.addKeyListener(new KeyAdapter() {
   		@Override
   		public void keyTyped(KeyEvent e) {
@@ -615,7 +624,7 @@ public class GuiPagamento extends JFrame {
   				}	
   			}
   		});
-      textNomeTitular.setDocument(nomeTitular);
+      
       textNomeTitular.setVisible(false);
       textNomeTitular.setBounds(415, 464, 156, 20);
       contentPane.add(textNomeTitular);

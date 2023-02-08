@@ -28,8 +28,8 @@ public class EnviarEmail {
 
 	
 	public static void transfer_to_email(String Correo) throws AddressException, MessagingException{
-		String correoEnvia = "cineifp@gmail.com";
-		String contrasena = "btbgcrjnomspjzyl";
+		String correoEnvia = "cineifpaulista@gmail.com";
+		String contrasena = "aaipyfmspffithtk";
 		String mesaje = mensagem;
 		
 		Properties objetoPEC = new Properties();
