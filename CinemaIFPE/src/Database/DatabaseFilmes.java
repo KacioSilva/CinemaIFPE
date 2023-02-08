@@ -5,9 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Core.ControlePoltrona;
+import Core.Filme;
 
 
-public class SelectPoltronas {
+public class DatabaseFilmes {
 	
 	public String PoltronaLivreS1;
 	public String PoltronaLivreS2;
@@ -16,9 +17,10 @@ public class SelectPoltronas {
 	public String PoltronaLivreS5;
 	public String PoltronaLivreS6;
 	ControlePoltrona control = new ControlePoltrona();
+	private Conexao conexao = new Conexao();
 	
 	public void pegarPoltronas(String i) throws SQLException, ClassNotFoundException{
-    	Conexao conexao = new Conexao();
+    	
 		try {	
 				conexao.conectar();
 				String query = "select * from poltrona where numeroPoltrona = ?";
@@ -204,4 +206,35 @@ public class SelectPoltronas {
 	        }
     	}
 		}
-	}
+	
+	public void selectFilmes(int i) throws SQLException, ClassNotFoundException{
+		try {	
+				conexao.conectar();
+				String query = "select * from filme where idFilme = ?";
+				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
+				pstm.setInt(1, i);
+				ResultSet rs = pstm.executeQuery();
+				while(rs.next()){
+					Filme.setIdFilme(rs.getString("idFilme"));
+					Filme.setNome(rs.getString("nome"));
+					 
+					Filme.setCartaz(rs.getString("cartaz"));
+					Filme.setTrailer(rs.getString("trailer"));
+					Filme.setSinopse(rs.getString("sinopse"));
+					Filme.setDiretor(rs.getString("diretor"));
+					Filme.setDuracao(rs.getString("duracao"));
+					Filme.setGenero(rs.getString("genero"));
+					Filme.setAnoLancamento(rs.getString("anoLancamento"));
+					Filme.setClassIndicativa(rs.getString("classificacaoIndicativa"));  	
+				}		  			
+				
+
+			}catch(NullPointerException e1) {
+				e1.getMessage();
+			}finally {
+	        	if(conexao != null) {
+	        	conexao.getConexao().close();
+	        }
+	    }
+    }
+}

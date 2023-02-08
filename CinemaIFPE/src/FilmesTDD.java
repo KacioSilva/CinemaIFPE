@@ -11,7 +11,7 @@ import Core.Sessao;
 import Database.Conexao;
 import Database.CreateDatabase;
 import Database.CreateInserts;
-import Database.SelectPoltronas;
+import Database.DatabaseFilmes;
 import Database.UpdatePoltronas;
 import Gui.TelaInicial;
 

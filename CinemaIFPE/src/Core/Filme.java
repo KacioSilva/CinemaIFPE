@@ -17,22 +17,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import Database.Conexao;
+import Database.DatabaseFilmes;
 import Gui.EditFilme;
 import java.lang.NullPointerException;
 
 public class Filme{
 	
 	private static ArrayList<String> arrayFilmes = new ArrayList<String>();
-	private String idFilme;
-    private String nomeFilme;
-    private String sinopse;
-    private String cartaz;
-    private String diretor;
-    private String duracao;
-    private String genero;
-    private String anoLancamento;
-    private String classIndicativa;
-    private String trailer;
+	
+	private static String idFilme;
+	private static String nomeFilme;
+    private static String sinopse;
+    private static String cartaz;
+    private static String diretor;
+    private static String duracao;
+    private static String genero;
+    private static String anoLancamento;
+    private static String classIndicativa;
+    private static String trailer;
     private String nomedofilme;
 	private JTextField tfcaminhofoto;
 	private Filme filme;
@@ -41,6 +43,11 @@ public class Filme{
 	
 	private static int valorTotal;
 	
+	
+	public static void setIdFilme(String idFilme) {
+		Filme.idFilme = idFilme;
+	}
+
 	public static int getValorTotal() {
 		return valorTotal;
 	}
@@ -52,120 +59,80 @@ public class Filme{
         return nomeFilme;
     }
 
-    public void setNome(String nomeFilme) {
-        this.nomeFilme = nomeFilme;
+    public static void setNome(String nomeFilme) {
+        Filme.nomeFilme = nomeFilme;
     }
 
     public String getSinopse() {
         return sinopse;
     }
 
-    public void setSinopse(String sinopse) {
-        this.sinopse = sinopse;
+    public static void setSinopse(String sinopse) {
+        Filme.sinopse = sinopse;
     }
 
     public String getCartaz() {
         return cartaz;
     }
 
-    public void setCartaz(String cartaz) {
-        this.cartaz = cartaz;
+    public static void setCartaz(String cartaz) {
+        Filme.cartaz = cartaz;
     }
 
     public String getDiretor() {
         return diretor;
     }
 
-    public void setDiretor(String diretor) {
-        this.diretor = diretor;
+    public static void setDiretor(String diretor) {
+        Filme.diretor = diretor;
     }
 
     public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
+    public static void setDuracao(String duracao) {
+        Filme.duracao = duracao;
     }
 
     public String getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public static void setGenero(String genero) {
+        Filme.genero = genero;
     }
 
     public String getAnoLancamento() {
         return anoLancamento;
     }
 
-    public void setAnoLancamento(String anoLancamento) {
-        this.anoLancamento = anoLancamento;
+    public static void setAnoLancamento(String anoLancamento) {
+        Filme.anoLancamento = anoLancamento;
     }
 
     public String getClassIndicativa() {
         return classIndicativa;
     }
 
-    public void setClassIndicativa(String classIndicativa) {
-        this.classIndicativa = classIndicativa;
+    public static void setClassIndicativa(String classIndicativa) {
+        Filme.classIndicativa = classIndicativa;
     }
 
     public String getTrailer() {
         return trailer;
     }
 
-    public void setTrailer(String trailer) {
-        this.trailer = trailer;
+    public static void setTrailer(String trailer) {
+        Filme.trailer = trailer;
     }
     
     
     public void pegarFilmes(int i) throws SQLException, ClassNotFoundException{
-    	Conexao conexao = new Conexao();
-		try {	
-				conexao.conectar();
-				String query = "select * from filme where idFilme = ?";
-				PreparedStatement pstm = conexao.getConexao().prepareStatement(query);
-				pstm.setInt(1, i);
-				ResultSet rs = pstm.executeQuery();
-				while(rs.next()){
-					arrayFilmes.add(rs.getString("idFilme"));
-					arrayFilmes.add(rs.getString("nome"));
-					 
-					arrayFilmes.add(rs.getString("cartaz"));
-					arrayFilmes.add(rs.getString("trailer"));
-					arrayFilmes.add(rs.getString("sinopse"));
-					arrayFilmes.add(rs.getString("diretor"));
-					arrayFilmes.add(rs.getString("duracao"));
-					arrayFilmes.add(rs.getString("genero"));
-					arrayFilmes.add(rs.getString("anoLancamento"));
-					arrayFilmes.add(rs.getString("classificacaoIndicativa"));  	
-				}		  			
-			  
-				 idFilme = arrayFilmes.get(0);
-				 nomeFilme = arrayFilmes.get(1);
-				 cartaz = arrayFilmes.get(2);
-				 trailer=  arrayFilmes.get(3);
-				 sinopse = arrayFilmes.get(4);
-				 diretor =arrayFilmes.get(5);
-				 duracao = arrayFilmes.get(6);
-				 genero =  arrayFilmes.get(7);
-				 anoLancamento=  arrayFilmes.get(8);
-				 classIndicativa=  arrayFilmes.get(9);
-				
-				arrayFilmes.clear();
-				
-
-			}catch(NullPointerException e1) {
-				e1.getMessage();
-				System.out.println("testando");
-			}
-					finally {
-	        	if(conexao != null) {
-	        	conexao.getConexao().close();
-	        	}
-	        }
+    	DatabaseFilmes select = new DatabaseFilmes();
+    	
+    	select.selectFilmes(i);
+		
     	}
     
     public String buscarCartaz(int idFilme) throws ClassNotFoundException, SQLException  {

@@ -9,7 +9,7 @@ public class CreateInserts {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "Fam1l1a..";
+		String senha = "Tt4189952";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
@@ -22,11 +22,7 @@ public class CreateInserts {
 	}
 	
 	public void insertSala() throws ClassNotFoundException, SQLException{
-		
-			
-	
-		
-		
+					
 			String inserirSala = "insert into sala values \r\n"
 					+ "(1,20, 20);";
 			
@@ -40,8 +36,6 @@ public class CreateInserts {
 			} finally {
 				conexao.close();			
 			}
-		
-		
 	}
 	
 	public void insertSessao() throws ClassNotFoundException, SQLException{

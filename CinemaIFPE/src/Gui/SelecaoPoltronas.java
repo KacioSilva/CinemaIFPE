@@ -39,6 +39,10 @@ public class SelecaoPoltronas extends JFrame {
 		return poltronaSelecionada;
 	}
 	
+	public static void resetarPoltronaSelecionada() {
+		poltronaSelecionada.clear();
+	}
+	
 	
 	private int pegarSoma;
 	
@@ -246,6 +250,7 @@ public class SelecaoPoltronas extends JFrame {
 	
 	public SelecaoPoltronas() {
 		
+		System.out.println(SelecaoPoltronas.getPoltronaSelecionada());
 		
 		ControlePoltrona cp = new ControlePoltrona();
 		Sala sala = new Sala();

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Database.Conexao;
-import Database.SelectPoltronas;
+import Database.DatabaseFilmes;
 
 public class ControlePoltrona {
   
@@ -1138,20 +1138,20 @@ public static void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
 	}
 	
 	public void pegarPoltronas(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona = new SelectPoltronas();
+    	DatabaseFilmes poltrona = new DatabaseFilmes();
     	
     	poltrona.pegarPoltronas(i);
     	
     	}
 	
 	public void pegarPoltronasA2(String i) throws SQLException, ClassNotFoundException{
-		SelectPoltronas poltrona2 = new SelectPoltronas();
+		DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	}
 	
 	public void pegarPoltronasA3(String i) throws SQLException, ClassNotFoundException{
-		SelectPoltronas poltrona2 = new SelectPoltronas();
+		DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
@@ -1159,35 +1159,35 @@ public static void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
     	}
 	
 	public void pegarPoltronasA4(String i) throws SQLException, ClassNotFoundException{
-		SelectPoltronas poltrona2 = new SelectPoltronas();
+		DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
 	}
 	
 	public void pegarPoltronasA5(String i) throws SQLException, ClassNotFoundException{
-		SelectPoltronas poltrona2 = new SelectPoltronas();
+		DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
     	}
 	
     public void pegarPoltronasB1(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
          }
     
     public void pegarPoltronasB2(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasB3(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
@@ -1195,21 +1195,21 @@ public static void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
 
 	
     public void pegarPoltronasB4(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasB5(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasD1(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
@@ -1217,21 +1217,21 @@ public static void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
     
     
     public void pegarPoltronasD2(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasD3(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasD4(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
@@ -1239,42 +1239,42 @@ public static void setPoltronaLivreS6A2(String poltronaLivreS6A2) {
     
     
     public void pegarPoltronasD5(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasC1(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
 
     public void pegarPoltronasC2(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasC3(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasC4(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	
         }
     
     public void pegarPoltronasC5(String i) throws SQLException, ClassNotFoundException{
-    	SelectPoltronas poltrona2 = new SelectPoltronas();
+    	DatabaseFilmes poltrona2 = new DatabaseFilmes();
     	
     	poltrona2.pegarPoltronas(i);
     	

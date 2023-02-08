@@ -54,24 +54,46 @@ public class TelaLanche extends JFrame {
 	
 	
 			
+	
+
 	public static int getQtdLanche1() {
 		return qtdLanche1;
+	}
+
+	public static void setQtdLanche1(int qtdLanche1) {
+		TelaLanche.qtdLanche1 = qtdLanche1;
 	}
 
 	public static int getQtdLanche2() {
 		return qtdLanche2;
 	}
 
+	public static void setQtdLanche2(int qtdLanche2) {
+		TelaLanche.qtdLanche2 = qtdLanche2;
+	}
+
 	public static int getQtdLanche3() {
 		return qtdLanche3;
+	}
+
+	public static void setQtdLanche3(int qtdLanche3) {
+		TelaLanche.qtdLanche3 = qtdLanche3;
 	}
 
 	public static int getQtdLanche4() {
 		return qtdLanche4;
 	}
 
+	public static void setQtdLanche4(int qtdLanche4) {
+		TelaLanche.qtdLanche4 = qtdLanche4;
+	}
+
 	public static int getQtdLanche5() {
 		return qtdLanche5;
+	}
+
+	public static void setQtdLanche5(int qtdLanche5) {
+		TelaLanche.qtdLanche5 = qtdLanche5;
 	}
 
 	public static void main(String[] args) {
@@ -136,7 +158,16 @@ public class TelaLanche extends JFrame {
 		JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				ControlePoltrona cp = new ControlePoltrona();
+				SelecaoPoltronas.getPoltronaSelecionada().clear();
+				
+				qtdLanche1 = 0;
+				qtdLanche2 = 0;
+				qtdLanche3 = 0;
+				qtdLanche4 = 0;
+				qtdLanche5 = 0;
+				
 				cp.setPreco(0);
 				SelecaoPoltronas poltrona = new SelecaoPoltronas();
 				poltrona.setVisible(true);

@@ -7,7 +7,7 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import javax.swing.JOptionPane;
 
-public class ClasseEnvioCorreio {
+public class EnviarEmail {
 	private static String mensagem = "";
 	
 	public static String getMensagem() {

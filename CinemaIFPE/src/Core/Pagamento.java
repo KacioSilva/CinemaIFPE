@@ -49,7 +49,7 @@ public class Pagamento {
     }
     
     public static boolean validacao(String textEmail, String textCpf, String textNCartao, String textNomeTitular, String textCvv) throws RuntimeException {
-
+    	
         if(textEmail.isEmpty() ||  textCpf.isBlank() || textNCartao.isBlank() || textNomeTitular.isBlank() || textCvv.isBlank()) {
             throw new RuntimeException ("Preencha todos os campos");
          

@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Core.ClasseEnvioCorreio;
+import Core.EnviarEmail;
 import Core.ControlePoltrona;
 import Core.Filme;
 import Core.FormatTft;
@@ -72,7 +72,6 @@ public class GuiPagamento extends JFrame {
     private String email;
     private String nome;
 
-   
 
 
     public static void main(String[] args) {
@@ -121,7 +120,7 @@ public class GuiPagamento extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	UpdatePoltronas upPoltrona = new UpdatePoltronas();   
             	ControlePoltrona control = new ControlePoltrona();
-            	ClasseEnvioCorreio correio = new ClasseEnvioCorreio();
+            	EnviarEmail correio = new EnviarEmail();
             	Filme filme = new Filme();
             	Sessao sessao = new Sessao();
             	Lanche lanche = new Lanche(); 
@@ -152,55 +151,54 @@ public class GuiPagamento extends JFrame {
                     	lanche.pegarLanche(1);
                     	quantidadeLanche += "\n" + lanche.getNomeLanche() + " x " + TelaLanche.getQtdLanche1();
                     	
-                    	ClasseEnvioCorreio.setMensagem(quantidadeLanche);
+                    	EnviarEmail.setMensagem(quantidadeLanche);
                     }
                    
                     if(TelaLanche.getQtdLanche2() > 0) {
                     	lanche.pegarLanche(2);
                     	
                     	quantidadeLanche += "\n" + lanche.getNomeLanche() + " x " + TelaLanche.getQtdLanche2();
-                    	ClasseEnvioCorreio.setMensagem(quantidadeLanche);
+                    	EnviarEmail.setMensagem(quantidadeLanche);
                     }
                     
                     if(TelaLanche.getQtdLanche3() > 0) {
                     	lanche.pegarLanche(3);
                     	quantidadeLanche += "\n" + lanche.getNomeLanche() + " x " + TelaLanche.getQtdLanche3();
-                    	ClasseEnvioCorreio.setMensagem(quantidadeLanche);
+                    	EnviarEmail.setMensagem(quantidadeLanche);
                     }
                     if(TelaLanche.getQtdLanche4() > 0) {
                     	lanche.pegarLanche(4);
                     	quantidadeLanche += "\n" + lanche.getNomeLanche() + " x " + TelaLanche.getQtdLanche4();
-                    	ClasseEnvioCorreio.setMensagem(quantidadeLanche);
+                    	EnviarEmail.setMensagem(quantidadeLanche);
                     }
                     if(TelaLanche.getQtdLanche5() > 0) {
                     	lanche.pegarLanche(5);
                     	quantidadeLanche += "\n" + lanche.getNomeLanche() + " x " + TelaLanche.getQtdLanche5();
-                    	ClasseEnvioCorreio.setMensagem(quantidadeLanche);
+                    	EnviarEmail.setMensagem(quantidadeLanche);
                     }
-                    //SE TIVER LANCHE
                     if(TelaLanche.getQtdLanche5() > 0 || TelaLanche.getQtdLanche4() > 0 || TelaLanche.getQtdLanche3() > 0 || TelaLanche.getQtdLanche2() > 0
-                    ||TelaLanche.getQtdLanche1() > 0) {
-                    	
-                        total = "Prezado(a)  " + textNomeTitular.getText() + ", Aqui está o seu comprovante: " + "\n\n" + "Lanches:" +  quantidadeLanche 
-                    	+ "\n\n" + "Detalhes:" + "\n" + "Tipo de Pagamento: " + tipo  + "\n" +
-                        "Valor Lanche: " + "R$:" + Lanche.getPrecoTotal() + "\n" + "Valor Ingresso: " + Filme.getValorTotal() + "\n" +
-                    	"Valor Total: " + "R$:" + (Lanche.getPrecoTotal())  + "\n\n" + "Filme selecionado: " + filme.getNome() + "\n" + "Sala: " + 
-                        sessao.getSala_numeroSala() + "\n" + "Sessão: " + sessao.getSessao()+ "\n" + "Poltrona selecionada(s): " +
-                    	SelecaoPoltronas.getPoltronaSelecionada()  + "\n" + "Pagamento efetuado às " + format; 
-                        ClasseEnvioCorreio.setMensagem(total);
-                  }
-                    	//SE NÃO TIVER LANCHE
+                            ||TelaLanche.getQtdLanche1() > 0) {
+                            	
+                                total = "Prezado(a)  " + textNomeTitular.getText() + ", Aqui está o seu comprovante: " + "\n\n" + "Lanches:" +  quantidadeLanche 
+                            	+ "\n\n" + "Detalhes:" + "\n" + "Tipo de Pagamento: " + tipo  + "\n" +
+                                "Valor Lanche: " + "R$:" + Lanche.getPrecoTotal() + "\n" + "Valor Ingresso: " + Filme.getValorTotal() + "\n" +
+                            	"Valor Total: " + "R$:" + (Lanche.getPrecoTotal() + Filme.getValorTotal())  + "\n\n" + "Filme selecionado: " + filme.getNome() + "\n" + "Sala: " + 
+                                sessao.getSala_numeroSala() + "\n" + "Sessão: " + sessao.getSessao()+ "\n" + "Poltrona selecionada(s): " +
+                            	SelecaoPoltronas.getPoltronaSelecionada()  + "\n" + "Pagamento efetuado às " + format; 
+                                EnviarEmail.setMensagem(total);
+                         }
+                            	//SE NÃO TIVER LANCHE
                     else {
-                    	
-                    	total = "Prezado(a)  " + textNomeTitular.getText() + ", Aqui está o seu comprovante: " + "\n\n" + "Detalhes:" + "\n" +
-                    	"Tipo de Pagamento: " + tipo  + "\n" + "Valor Ingresso: " + Filme.getValorTotal() + "\n" +
-                        "Valor Total: " + "R$:" + (Filme.getValorTotal())  + "\n\n" + "Filme selecionado: " + filme.getNome() + "\n" + "Sala: " + 
-                        sessao.getSala_numeroSala() + "\n" + "Sessão: " + sessao.getSessao()+ "\n" + "Poltrona selecionada(s): " +
-                        SelecaoPoltronas.getPoltronaSelecionada()  + "\n" + "Pagamento efetuado às " + format; 
-                        ClasseEnvioCorreio.setMensagem(total);
-                    	
-                    }
-                    ClasseEnvioCorreio.transfer_to_email(textEmail.getText());
+                            	
+                           total = "Prezado(a)  " + textNomeTitular.getText() + ", Aqui está o seu comprovante: " + "\n\n" + "Detalhes:" + "\n" +
+                           "Tipo de Pagamento: " + tipo  + "\n" + "Valor Ingresso: " + Filme.getValorTotal() + "\n" +
+                           "Valor Total: " + "R$:" + (Filme.getValorTotal()) + "\n\n" + "Filme selecionado: " + filme.getNome() + "\n" + "Sala: " + 
+                           sessao.getSala_numeroSala() + "\n" + "Sessão: " + sessao.getSessao()+ "\n" + "Poltrona selecionada(s): " +
+                           SelecaoPoltronas.getPoltronaSelecionada()  + "\n" + "Pagamento efetuado às " + format; 
+                           EnviarEmail.setMensagem(total);
+                            	
+                      }
+                    EnviarEmail.transfer_to_email(textEmail.getText());
                   
                     
                     nome = textNomeTitular.getText();
@@ -208,7 +206,7 @@ public class GuiPagamento extends JFrame {
                     lblConfirmacao.setText("");
                     
                     JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso. O seu comprovante" + "\n" +
-                    "serÃ¡ enviado para o email informado.",
+                    "será enviado para o email informado.",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                     
                     TelaInicial tl = new TelaInicial();
@@ -315,6 +313,11 @@ public class GuiPagamento extends JFrame {
 					 	lblConfirmacao.setText("Erro ao conectar. Tente novamente");
 					}finally {
 						SelecaoPoltronas.getPoltronaSelecionada().clear();
+						TelaLanche.setQtdLanche1(0);
+						TelaLanche.setQtdLanche2(0);
+						TelaLanche.setQtdLanche3(0);
+						TelaLanche.setQtdLanche4(0);
+						TelaLanche.setQtdLanche5(0);
 					}
             	}
         	});
@@ -325,11 +328,18 @@ public class GuiPagamento extends JFrame {
 
         JButton btnVoltar = new JButton("Voltar");
         btnVoltar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	
+            public void actionPerformed(ActionEvent e) {            		
+            	SelecaoPoltronas.resetarPoltronaSelecionada();
+            	TelaLanche.setQtdLanche1(0);
+				TelaLanche.setQtdLanche2(0);
+				TelaLanche.setQtdLanche3(0);
+				TelaLanche.setQtdLanche4(0);
+				TelaLanche.setQtdLanche5(0);
+
+            	System.out.println(SelecaoPoltronas.getPoltronaSelecionada());
                 TelaLanche lanche = new TelaLanche();
                 lanche.setVisible(true);
-             
+                
                 dispose();
             }
         });  
