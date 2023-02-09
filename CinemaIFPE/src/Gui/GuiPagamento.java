@@ -16,6 +16,7 @@ import Core.Lanche;
 import Core.Pagamento;
 import Core.Sessao;
 import Database.Conexao;
+import Database.DatabaseReciboIgresso;
 import Database.UpdatePoltronas;
 
 import javax.mail.MessagingException;
@@ -188,6 +189,11 @@ public class GuiPagamento extends JFrame {
                                 sessao.getSala_numeroSala() + "\n" + "Sessão: " + sessao.getSessao()+ "\n" + "Poltrona selecionada(s): " +
                             	SelecaoPoltronas.getPoltronaSelecionada()  + "\n" + "Pagamento efetuado às " + format; 
                                 EnviarEmail.setMensagem(total);
+                                
+                                DatabaseReciboIgresso recibo = new DatabaseReciboIgresso();
+                                
+                                
+                                recibo.insertIngresso((Lanche.getPrecoTotal() + Filme.getValorTotal()), TelaInicial.getIdFilme(), filme.getNome(), SelecaoPoltronas.getPoltronaSelecionada().toString(), sessao.getSessao(), format);
                          }
                             	//SE NÃO TIVER LANCHE
                     else {
@@ -198,8 +204,13 @@ public class GuiPagamento extends JFrame {
                            sessao.getSala_numeroSala() + "\n" + "Sessão: " + sessao.getSessao()+ "\n" + "Poltrona selecionada(s): " +
                            SelecaoPoltronas.getPoltronaSelecionada()  + "\n" + "Pagamento efetuado às " + format; 
                            EnviarEmail.setMensagem(total);
+                           
+                           DatabaseReciboIgresso recibo = new DatabaseReciboIgresso();
+                           recibo.insertIngresso((Lanche.getPrecoTotal() + Filme.getValorTotal()), TelaInicial.getIdFilme(), filme.getNome(), SelecaoPoltronas.getPoltronaSelecionada().toString(), sessao.getSessao(), format);
                             	
                       }
+                    
+                    
                     EnviarEmail.emitirNota(textEmail.getText());
                   
                     
@@ -210,6 +221,8 @@ public class GuiPagamento extends JFrame {
                     JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso. O seu comprovante" + "\n" +
                     "será enviado para o email informado.",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    
                     
                     TelaInicial tl = new TelaInicial();
                     tl.setVisible(true);
@@ -300,6 +313,9 @@ public class GuiPagamento extends JFrame {
                 		upPoltrona.editarPoltronas("D5", TelaInicial.getIdFilme(), SelecaoPoltronas.getD5Set());
                 	}
                 	SelecaoPoltronas.setD5Set("0");
+                	
+                	
+                	
                 	
                 	
                 	SelecaoPoltronas.getPoltronaSelecionada().clear();

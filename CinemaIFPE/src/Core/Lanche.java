@@ -40,7 +40,7 @@ public class Lanche {
 	private static Connection conexao = null;
     private ArrayList<String> arrayLanche = new ArrayList<String>();
 
-    public int getIdLanche() {
+    public static int getIdLanche() {
         return idLanche;
     }
 

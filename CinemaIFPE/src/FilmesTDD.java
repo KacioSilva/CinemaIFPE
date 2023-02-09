@@ -34,8 +34,7 @@ public static void main(String[] args) {
 	
 	DatabaseReciboIgresso recibo = new DatabaseReciboIgresso();
 
-	
-	
+
 
 	}
 }

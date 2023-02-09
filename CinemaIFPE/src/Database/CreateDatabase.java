@@ -91,7 +91,7 @@ public class CreateDatabase {
 	
 	public void createTablePoltrona() throws ClassNotFoundException, SQLException {
 		String criarTablePoltrona = "CREATE TABLE IF NOT EXISTS `cineif`.`Poltrona` (\r\n"
-				+ "  `numeroPoltrona` VARCHAR(45) NOT NULL,\r\n"
+				+ "  `numeroPoltrona` VARCHAR(100) NOT NULL,\r\n"
 				+ "  `Sala_numeroSala` INT NOT NULL,\r\n"
 				+ "  `PoltronaLivreS1` VARCHAR(45) NULL,\r\n"
 				+ "  `PoltronaLivreS2` VARCHAR(45) NULL,\r\n"
@@ -151,7 +151,7 @@ public class CreateDatabase {
 				+ "  `preco` INT NOT NULL,\r\n"
 				+ "  `Filme_idFilme` INT NOT NULL,\r\n"
 				+ "  `Filme_nome` VARCHAR(45) NOT NULL,\r\n"
-				+ "  `Poltrona` INT NOT NULL,\r\n"
+				+ "  `Poltrona` VARCHAR(100) NOT NULL,\r\n"
 				+ "  `sessao` VARCHAR(45) NOT NULL,\r\n"
 				+ "  `numeroSala` INT NOT NULL,\r\n"
 				+ "  `horaCompra` VARCHAR(30) NOT NULL,\r\n"
