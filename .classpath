@@ -6,9 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Gilva/Downloads/mysql-connector-j-8.0.31.jar"/>
+	<classpathentry kind="lib" path="C:/Users/lucia/Desktop/drivers projeto/mysql-connector-j-8.0.31.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="C:/Users/Gilva/Desktop/activation-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Gilva/Desktop/javax.mail-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/lucia/Desktop/drivers projeto/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/lucia/Desktop/drivers projeto/javax.mail-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

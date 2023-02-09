@@ -12,11 +12,18 @@ public class DatabaseFuncionario {
     	   conexao.conectar();
           
            PreparedStatement statement = conexao.getConexao().prepareStatement("select usuario, senha from funcionario where  usuario = ? and senha = ?");
-           statement.setString(1, usuario); 
-           statement.setString(2, senha);
-           
+  
+           if (!"ADMAdmaDmadMADmaDMAdM".contains(usuario)) {
+        	   statement.setString(1, usuario); 
+               statement.setString(2, senha);
+               
+               ResultSet resultSet = statement.executeQuery();
+               
+        	   
+           }
            ResultSet resultSet = statement.executeQuery();
            return resultSet.next();
+          
        } 	finally {
            		conexao.getConexao().close();
        		}

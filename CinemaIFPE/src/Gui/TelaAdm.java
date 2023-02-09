@@ -68,23 +68,23 @@ public class TelaAdm extends JFrame {
 		
 		JLabel usuario = new JLabel("Usuário:");
 		usuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		usuario.setBounds(296, 474, 81, 29);
+		usuario.setBounds(308, 474, 81, 29);
 	    contentPane.add(usuario);
 	      
 	    JLabel senha = new JLabel("Senha:");
 	    senha.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	    senha.setBounds(311, 525, 66, 29);
+	    senha.setBounds(323, 525, 66, 29);
 	    contentPane.add(senha);
 	      
 	    mensagem = new JLabel("  ");
 	    mensagem.setHorizontalAlignment(SwingConstants.CENTER);
 	    mensagem.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    mensagem.setBounds(333, 570, 523, 25);
+	    mensagem.setBounds(0, 570, 984, 25);
 	    contentPane.add(mensagem);
 	      
 	    JLabel administrador = new JLabel("ADMINISTRADOR");
 	    administrador.setFont(new Font("Tahoma", Font.BOLD, 18));
-	    administrador.setBounds(377, 437, 187, 25);
+	    administrador.setBounds(389, 437, 187, 25);
 	    contentPane.add(administrador);
 		
 	    //-------CRIANDO OS BOTÕES
@@ -154,7 +154,7 @@ public class TelaAdm extends JFrame {
                     mensagem.setForeground(new Color(241, 5, 5));
                     
             	}catch(SQLException e1) {
-            		mensagem.setText("teste");
+            		mensagem.setText("Usuário ou senha incorreta");
             	}
 			}
 		});
@@ -194,7 +194,7 @@ public class TelaAdm extends JFrame {
 		                mensagem.setText(e1.getMessage());
 		                mensagem.setForeground(new Color(241, 5, 5));
 		            }catch(SQLException e1) {
-		            	mensagem.setText("Erro inesperado");
+		            	mensagem.setText("Usuário ou senha incorreta");
 		            	mensagem.setForeground(new Color(241, 5, 5));
 		            }catch(ClassNotFoundException e1) {
 		            	mensagem.setText("Erro inesperado, tente novamente.");
@@ -206,7 +206,7 @@ public class TelaAdm extends JFrame {
 			}
 		});
 	    textField.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    textField.setBounds(387, 476, 163, 29);
+	    textField.setBounds(399, 476, 163, 29);
 	    contentPane.add(textField);
 	    textField.setColumns(10);
 	      
@@ -237,7 +237,7 @@ public class TelaAdm extends JFrame {
 		                mensagem.setText(e1.getMessage());
 		                mensagem.setForeground(new Color(241, 5, 5));
 		            }catch(SQLException e1) {
-		            	mensagem.setText("Erro inesperado");
+		            	mensagem.setText("Usuário ou senha incorreta");
 		            	mensagem.setForeground(new Color(241, 5, 5));
 		            }catch(ClassNotFoundException e1) {
 		            	mensagem.setText("Erro inesperado, tente novamente.");
@@ -247,7 +247,7 @@ public class TelaAdm extends JFrame {
 	    	}
 	    });
 	    passwordField.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	    passwordField.setBounds(387, 527, 163, 29);
+	    passwordField.setBounds(399, 527, 163, 29);
 	    contentPane.add(passwordField);
 	    
 	    
@@ -255,6 +255,6 @@ public class TelaAdm extends JFrame {
 	    ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("ifpe.png")));
 	    JLabel ifpe = new JLabel(logo_ifpe);
 	    getContentPane().add(ifpe);
-	    ifpe.setBounds(321,129,284,281);
+	    ifpe.setBounds(333,129,284,281);
 	}
 }
