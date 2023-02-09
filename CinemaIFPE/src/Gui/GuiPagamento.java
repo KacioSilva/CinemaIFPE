@@ -392,6 +392,12 @@ public class GuiPagamento extends JFrame {
         		lblTipo.setText(tipo);
         		pagar.setVisible(true);
         		ifpe.setVisible(false);
+        		
+        		textNomeTitular.setText("");
+                textEmail.setText("");
+                textCvv.setText("");
+                textNCartao.setText("");
+                textCpf.setText("");
         
         		
         	}
@@ -418,6 +424,12 @@ public class GuiPagamento extends JFrame {
         		tipo = "Crédito";
         		lblTipo.setText(tipo);
         		ifpe.setVisible(false);
+        		
+        		textNomeTitular.setText("");
+                textEmail.setText("");
+                textCvv.setText("");
+                textNCartao.setText("");
+                textCpf.setText("");
         		
         	}
         });
