@@ -50,7 +50,7 @@ public class TelaTodosFilmes extends JFrame {
 	public TelaTodosFilmes() {
 		
 		setTitle("Escolha de filmes");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaTodosFilmes.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaTodosFilmes.class.getResource("ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 720);
@@ -90,7 +90,7 @@ public class TelaTodosFilmes extends JFrame {
 			
 		});
 		voltar.setBackground(new Color(240, 240, 240));
-        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("retornar.png")));
         voltar.setBorderPainted(false);
         voltar.setFocusPainted(false);
         voltar.setBounds(10, 22, 66, 40);
@@ -99,7 +99,7 @@ public class TelaTodosFilmes extends JFrame {
 	
 		
 		JButton help = new JButton("");
-		help.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("ponto-de-interrogacao.png")));
 		help.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
 	    	JOptionPane.showMessageDialog(null, "Nessa tela, o cliente pode optar por acessar algum dos filmes em exibição. Os filmes " +

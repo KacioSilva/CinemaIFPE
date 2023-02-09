@@ -105,7 +105,7 @@ public class GuiPagamento extends JFrame {
 
     public GuiPagamento() {
     	setTitle("Pagamento");
-    	setIconImage(Toolkit.getDefaultToolkit().getImage(HubADM.class.getResource("/Midia/ifpe.png")));
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(HubADM.class.getResource("ifpe.png")));
     	setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
@@ -362,7 +362,7 @@ public class GuiPagamento extends JFrame {
             }
         });  
         btnVoltar.setBackground(new Color(240, 240, 240));
-        btnVoltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        btnVoltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("retornar.png")));
         btnVoltar.setBorderPainted(false);
         btnVoltar.setFocusPainted(false);
         btnVoltar.setBounds(10, 22, 66, 40);
@@ -436,13 +436,13 @@ public class GuiPagamento extends JFrame {
         contentPane.add(btnCredito);
         
         JLabel lblNewLabel_2 = new JLabel();
-        lblNewLabel_2.setIcon(new ImageIcon(InfoFilme.class.getResource("/Midia/cartao.png")));
+        lblNewLabel_2.setIcon(new ImageIcon(InfoFilme.class.getResource("cartao.png")));
         lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
         lblNewLabel_2.setBounds(92, 386, 43, 35);
         contentPane.add(lblNewLabel_2);
         
         JButton help = new JButton("");
-		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.setIcon(new ImageIcon(TelaInicial.class.getResource("ponto-de-interrogacao.png")));
 		help.setBorderPainted(false);
 		help.setFocusPainted(false);
 		help.setBackground(new Color(240, 240, 240));
@@ -558,7 +558,7 @@ public class GuiPagamento extends JFrame {
         
        
         
-        ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
+        ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("ifpe.png")));
         ifpe = new JLabel(logo_ifpe);
         ifpe.setFont(new Font("Tahoma", Font.PLAIN, 15));
         getContentPane().add(ifpe);

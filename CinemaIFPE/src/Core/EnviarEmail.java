@@ -29,7 +29,7 @@ public class EnviarEmail {
 	
 	public static void emitirNota(String Correo) throws AddressException, MessagingException{
 		String correoEnvia = "cineifpaulista@gmail.com";
-		String contrasena = "aaipyfmspffithtk";
+		String contrasena = "qmfojpdkftjnxism";
 		String mesaje = mensagem;
 		
 		Properties objetoPEC = new Properties();

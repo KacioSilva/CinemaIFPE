@@ -45,7 +45,7 @@ public class TelaAdm extends JFrame {
 	public TelaAdm() {
 		
 		setTitle("Login do administrador");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAdm.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAdm.class.getResource("ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 720);
@@ -104,7 +104,7 @@ public class TelaAdm extends JFrame {
 			}
 		});
 		voltar.setBackground(new Color(240, 240, 240));
-        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("retornar.png")));
         voltar.setBorderPainted(false);
         voltar.setFocusPainted(false);
         voltar.setBounds(10, 22, 66, 40);
@@ -113,7 +113,7 @@ public class TelaAdm extends JFrame {
 		
 		
 		JButton help = new JButton("");
-		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.setIcon(new ImageIcon(TelaInicial.class.getResource("ponto-de-interrogacao.png")));
 		help.setBorderPainted(false);
 		help.setFocusPainted(false);
 		help.setBackground(new Color(240, 240, 240));
@@ -156,7 +156,7 @@ public class TelaAdm extends JFrame {
             	}
 			}
 		});
-		entrar.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/login.png")));
+		entrar.setIcon(new ImageIcon(TelaInicial.class.getResource("login.png")));
 		entrar.setBorderPainted(false);
 		entrar.setFocusPainted(false);
 		entrar.setBackground(new Color(240, 240, 240));
@@ -250,7 +250,7 @@ public class TelaAdm extends JFrame {
 	    
 	    
 	    //-------CRIANDO A IMAGEM IFPE	
-	    ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
+	    ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("ifpe.png")));
 	    JLabel ifpe = new JLabel(logo_ifpe);
 	    getContentPane().add(ifpe);
 	    ifpe.setBounds(321,129,284,281);

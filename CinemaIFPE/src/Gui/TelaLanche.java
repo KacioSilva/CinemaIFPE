@@ -116,7 +116,7 @@ public class TelaLanche extends JFrame {
 		Lanche lanche = new Lanche();
 		
 		setTitle("Escolha de lanches");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaLanche.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaLanche.class.getResource("ifpe.png")));
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -140,7 +140,7 @@ public class TelaLanche extends JFrame {
 		contentPane.add(cineifPaulista);
 		
 		JButton help = new JButton();
-		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.setIcon(new ImageIcon(TelaInicial.class.getResource("ponto-de-interrogacao.png")));
 		help.setBorderPainted(false);
 		help.setFocusPainted(false);
 		help.setBackground(new Color(240, 240, 240));
@@ -176,7 +176,7 @@ public class TelaLanche extends JFrame {
 			}
 		});
 		voltar.setBackground(new Color(240, 240, 240));
-        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("retornar.png")));
         voltar.setBorderPainted(false);
         voltar.setFocusPainted(false);
         voltar.setBounds(10, 22, 66, 40);
@@ -438,7 +438,7 @@ public class TelaLanche extends JFrame {
 				
 			}
 		});
-		adicionarLanche1.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche1.setIcon(new ImageIcon(TelaLanche.class.getResource("adicionarpngg.png")));
 		adicionarLanche1.setBorderPainted(false);
 		adicionarLanche1.setFocusPainted(false);		
 		adicionarLanche1.setBounds(158, 390, 55, 40);
@@ -469,7 +469,7 @@ public class TelaLanche extends JFrame {
 				lblQuantidade1.setText(Integer.toString(qtdLanche1));
 			}
 		});
-		subtrairLanche1.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche1.setIcon(new ImageIcon(TelaLanche.class.getResource("subtrair.png")));
 		subtrairLanche1.setBorderPainted(false);
 		subtrairLanche1.setFocusPainted(false);
 		subtrairLanche1.addActionListener(new ActionListener() {
@@ -504,7 +504,7 @@ public class TelaLanche extends JFrame {
 			}
 		});
 		
-		adicionarLanche2.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche2.setIcon(new ImageIcon(TelaLanche.class.getResource("adicionarpngg.png")));
 		adicionarLanche2.setFocusPainted(false);
 		adicionarLanche2.setBorderPainted(false);
 		adicionarLanche2.setBackground(SystemColor.menu);
@@ -534,7 +534,7 @@ public class TelaLanche extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		subtrairLanche2.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche2.setIcon(new ImageIcon(TelaLanche.class.getResource("subtrair.png")));
 		subtrairLanche2.setFocusPainted(false);
 		subtrairLanche2.setBorderPainted(false);
 		subtrairLanche2.setBackground(new Color(240, 240, 240, 240));
@@ -565,7 +565,7 @@ public class TelaLanche extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		adicionarLanche3.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche3.setIcon(new ImageIcon(TelaLanche.class.getResource("adicionarpngg.png")));
 		adicionarLanche3.setFocusPainted(false);
 		adicionarLanche3.setBorderPainted(false);
 		adicionarLanche3.setBackground(SystemColor.menu);
@@ -592,7 +592,7 @@ public class TelaLanche extends JFrame {
 				lblQuantidade5.setText(Integer.toString(qtdLanche5));
 			}
 		});
-		adicionarLanche5.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche5.setIcon(new ImageIcon(TelaLanche.class.getResource("adicionarpngg.png")));
 		adicionarLanche5.setFocusPainted(false);
 		adicionarLanche5.setBorderPainted(false);
 		adicionarLanche5.setBackground(SystemColor.menu);
@@ -624,7 +624,7 @@ public class TelaLanche extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		adicionarLanche4.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/adicionarpngg.png")));
+		adicionarLanche4.setIcon(new ImageIcon(TelaLanche.class.getResource("adicionarpngg.png")));
 		adicionarLanche4.setFocusPainted(false);
 		adicionarLanche4.setBorderPainted(false);
 		adicionarLanche4.setBackground(SystemColor.menu);
@@ -651,7 +651,7 @@ public class TelaLanche extends JFrame {
 				lblQuantidade4.setText(Integer.toString(qtdLanche4));
 			}
 		});
-		subtrairLanche4.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche4.setIcon(new ImageIcon(TelaLanche.class.getResource("subtrair.png")));
 		subtrairLanche4.setFocusPainted(false);
 		subtrairLanche4.setBorderPainted(false);
 		subtrairLanche4.setBackground(new Color(240, 240, 240, 240));
@@ -680,7 +680,7 @@ public class TelaLanche extends JFrame {
 				lblQuantidade3.setText(Integer.toString(qtdLanche3));
 			}
 		});
-		subtrairLanche3.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche3.setIcon(new ImageIcon(TelaLanche.class.getResource("subtrair.png")));
 		subtrairLanche3.setFocusPainted(false);
 		subtrairLanche3.setBorderPainted(false);
 		subtrairLanche3.setBackground(new Color(240, 240, 240, 240));
@@ -706,7 +706,7 @@ public class TelaLanche extends JFrame {
 				lblQuantidade5.setText(Integer.toString(qtdLanche5));
 			}
 		});
-		subtrairLanche5.setIcon(new ImageIcon(TelaLanche.class.getResource("/Midia/subtrair.png")));
+		subtrairLanche5.setIcon(new ImageIcon(TelaLanche.class.getResource("subtrair.png")));
 		subtrairLanche5.setFocusPainted(false);
 		subtrairLanche5.setBorderPainted(false);
 		subtrairLanche5.setBackground(new Color(240, 240, 240, 240));

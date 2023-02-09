@@ -261,7 +261,7 @@ public class SelecaoPoltronas extends JFrame {
 			e2.printStackTrace();
 		}
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(SelecaoPoltronas.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(SelecaoPoltronas.class.getResource("ifpe.png")));
 		
 		
 		setTitle("Escolha de poltronas");
@@ -305,7 +305,7 @@ public class SelecaoPoltronas extends JFrame {
 		});
 		
 		System.out.println(TelaInicial.getIdFilme());
-		JButton D1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton D1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasD1("D1");
@@ -398,7 +398,7 @@ public class SelecaoPoltronas extends JFrame {
 		
 		  
 		
-		JButton D2 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton D2 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasD2("D2");
@@ -492,7 +492,7 @@ public class SelecaoPoltronas extends JFrame {
 		
 		
 		
-		JButton D3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton D3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasD3("D3");
@@ -585,7 +585,7 @@ public class SelecaoPoltronas extends JFrame {
 		
 		
 		
-		JButton D4 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton D4 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasD4("D4");
@@ -673,7 +673,7 @@ public class SelecaoPoltronas extends JFrame {
 		D4.setBounds(463, 42, 55, 40);
 		panel.add(D4);
 		
-		JButton D5 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton D5 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasD5("D5");
@@ -763,7 +763,7 @@ public class SelecaoPoltronas extends JFrame {
 		D5.setBounds(588, 42, 55, 40);
 		panel.add(D5);
 		
-		JButton C1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton C1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasC1("C1");
@@ -850,7 +850,7 @@ public class SelecaoPoltronas extends JFrame {
 		C1.setBounds(41, 133, 55, 40);
 		panel.add(C1);
 		
-		JButton C2 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton C2 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasC2("C2");
@@ -940,7 +940,7 @@ public class SelecaoPoltronas extends JFrame {
 		C2.setBounds(183, 133, 55, 40);
 		panel.add(C2);
 		
-		JButton C3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton C3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasC3("C3");
@@ -1035,7 +1035,7 @@ public class SelecaoPoltronas extends JFrame {
 		C3.setBounds(328, 133, 55, 40);
 		panel.add(C3);
 		
-		JButton C4 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton C4 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasC4("C4");
@@ -1130,7 +1130,7 @@ public class SelecaoPoltronas extends JFrame {
 		C4.setBounds(463, 133, 55, 40);
 		panel.add(C4);
 		
-		JButton C5 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton C5 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
             controle.pegarPoltronasC5("C5");
@@ -1225,7 +1225,7 @@ public class SelecaoPoltronas extends JFrame {
 		C5.setBounds(588, 133, 55, 40);
 		panel.add(C5);
 		
-		JButton B5 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton B5 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
 			controle.pegarPoltronasB5("B5");
@@ -1320,7 +1320,7 @@ public class SelecaoPoltronas extends JFrame {
 		B5.setBounds(588, 234, 55, 40);
 		panel.add(B5);
 		
-		JButton B4 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton B4 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
 			controle.pegarPoltronasB4("B4");
@@ -1415,7 +1415,7 @@ public class SelecaoPoltronas extends JFrame {
 		panel.add(B4);
 		
 		
-		JButton B3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton B3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
 			controle.pegarPoltronasB3("B3");
@@ -1509,7 +1509,7 @@ public class SelecaoPoltronas extends JFrame {
 		}});		B3.setBounds(328, 234, 55, 40);
 		panel.add(B3);
 		
-		JButton B2 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton B2 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
 			controle.pegarPoltronasB2("B2");
@@ -1604,7 +1604,7 @@ public class SelecaoPoltronas extends JFrame {
 		
 		
 		
-		JButton B1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton B1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
 			controle.pegarPoltronasB1("B1");
@@ -1697,7 +1697,7 @@ public class SelecaoPoltronas extends JFrame {
 		B1.setBounds(41, 234, 55, 40);
 		panel.add(B1);
 		
-		JButton A1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton A1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		try {
 			controle.pegarPoltronas("A1");
 		} catch (ClassNotFoundException | SQLException e1) {
@@ -1790,7 +1790,7 @@ public class SelecaoPoltronas extends JFrame {
 		A1.setBounds(41, 326, 55, 40);
 		panel.add(A1);
 		
-		JButton A2 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton A2 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		try {
 			controle.pegarPoltronasA2("A2");
 		} catch (ClassNotFoundException | SQLException e1) {
@@ -1881,7 +1881,7 @@ public class SelecaoPoltronas extends JFrame {
 		A2.setBounds(183, 326, 55, 40);
 		panel.add(A2);
 		
-		JButton A3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton A3 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
 			controle.pegarPoltronasA3("A3");
@@ -1973,7 +1973,7 @@ public class SelecaoPoltronas extends JFrame {
 		A3.setBounds(328, 326, 55, 40);
 		panel.add(A3);
 		
-		JButton A4 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton A4 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		
 		try {
@@ -2067,7 +2067,7 @@ public class SelecaoPoltronas extends JFrame {
 		A4.setBounds(463, 326, 55, 40);
 		panel.add(A4);
 		
-		JButton A5 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("/Midia/poltrona (1).png")));
+		JButton A5 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		
 		try {
@@ -2254,7 +2254,7 @@ public class SelecaoPoltronas extends JFrame {
 			}
 		});
 		voltar.setBackground(new Color(240, 240, 240));
-        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("retornar.png")));
         voltar.setBorderPainted(false);
         voltar.setFocusPainted(false);
         voltar.setBounds(10, 22, 66, 40);
@@ -2263,7 +2263,7 @@ public class SelecaoPoltronas extends JFrame {
         
         
         JButton help = new JButton("");
-	  	help.setIcon(new ImageIcon(InfoFilme.class.getResource("/Midia/ponto-de-interrogacao.png")));
+	  	help.setIcon(new ImageIcon(InfoFilme.class.getResource("ponto-de-interrogacao.png")));
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
 	      		 JOptionPane.showMessageDialog(null, "Nessa tela, você pode selecionar as poltronas " + "\n" +

@@ -74,7 +74,7 @@ public class TelaInicial extends JFrame{
 		
 		
 		setTitle("CineIF Paulista");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaInicial.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaInicial.class.getResource("ifpe.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 720);
@@ -151,7 +151,7 @@ public class TelaInicial extends JFrame{
 	      
 
 		JButton help = new JButton("");
-		help.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/ponto-de-interrogacao.png")));
+		help.setIcon(new ImageIcon(TelaInicial.class.getResource("ponto-de-interrogacao.png")));
 		help.setBorderPainted(false);
 		help.setFocusPainted(false);
 		help.setBackground(new Color(240, 240, 240));
@@ -175,7 +175,7 @@ public class TelaInicial extends JFrame{
 		        dispose();
 			}
 		});
-		administrador.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/administrador.png")));
+		administrador.setIcon(new ImageIcon(TelaInicial.class.getResource("administrador.png")));
 		administrador.setBorderPainted(false);
 		administrador.setFocusPainted(false);
 		administrador.setBackground(new Color(240, 240, 240));
@@ -191,7 +191,7 @@ public class TelaInicial extends JFrame{
 		        dispose();
 	      	}
 	      });
-		verTodosFilmes.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/verTodososFilmes.png")));
+		verTodosFilmes.setIcon(new ImageIcon(TelaInicial.class.getResource("verTodososFilmes.png")));
 		verTodosFilmes.setFocusPainted(false);
 		verTodosFilmes.setBackground(new Color(240, 240, 240));
 		verTodosFilmes.setFont(new Font("Sitka Heading", Font.PLAIN, 15));
@@ -200,7 +200,7 @@ public class TelaInicial extends JFrame{
 	      
 	      
 	  //-------CRIANDO A IMAGEM IFPE	
-      ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("/midia/ifpe.png")));
+      ImageIcon logo_ifpe = new ImageIcon((getClass().getResource("ifpe.png")));
       JLabel ifpe = new JLabel(logo_ifpe);
       getContentPane().add(ifpe);
       ifpe.setBounds(0,0,284,281);

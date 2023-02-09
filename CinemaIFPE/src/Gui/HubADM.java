@@ -41,7 +41,7 @@ public class HubADM extends JFrame {
 	public HubADM() {
 		
 		setTitle("Hub de alterações do administrador");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(HubADM.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HubADM.class.getResource("ifpe.png")));
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,7 +74,7 @@ public class HubADM extends JFrame {
 				
 			}
 		});
-		lanches.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/Lanche.png")));
+		lanches.setIcon(new ImageIcon(TelaInicial.class.getResource("Lanche.png")));
 		lanches.setBorderPainted(false);
 		lanches.setFocusPainted(false);
 		lanches.setBackground(new Color(240, 240, 240));
@@ -96,7 +96,7 @@ public class HubADM extends JFrame {
 				dispose();
 			}
 		});
-		filmes.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/claquete.png")));
+		filmes.setIcon(new ImageIcon(TelaInicial.class.getResource("claquete.png")));
 		filmes.setBorderPainted(false);
 		filmes.setFocusPainted(false);
 		filmes.setBackground(new Color(240, 240, 240));
@@ -112,7 +112,7 @@ public class HubADM extends JFrame {
 				dispose();
 			}
 		});
-		sair.setIcon(new ImageIcon(TelaInicial.class.getResource("/Midia/sair.png")));
+		sair.setIcon(new ImageIcon(TelaInicial.class.getResource("sair.png")));
 		sair.setBorderPainted(false);
 		sair.setFocusPainted(false);
 		sair.setBackground(new Color(240, 240, 240));

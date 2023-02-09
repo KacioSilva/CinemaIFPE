@@ -113,7 +113,7 @@ public class EditFilme extends JFrame {
 		Sessao sessao = new Sessao();
 		Sala sala = new Sala();
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(EditFilme.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EditFilme.class.getResource("ifpe.png")));
 		
 		setTitle("ALTERAR FILMES - ADM");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -225,7 +225,7 @@ public class EditFilme extends JFrame {
 			}
 		});
 	    voltar.setBackground(new Color(240, 240, 240));
-        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("retornar.png")));
         voltar.setBorderPainted(false);
         voltar.setFocusPainted(false);
         voltar.setBounds(10, 22, 66, 40);
@@ -347,6 +347,7 @@ public class EditFilme extends JFrame {
 					lblConfirmacao.setText(e1.getMessage());
 				}
 	  	    	
+	  	    	
 	  	    	lblConfirmacao.setText("");
 	  	    	nomeFilme.setText(filmeObj.getNome());
 	  	    	textId.setText("2");	  	    		
@@ -373,20 +374,21 @@ public class EditFilme extends JFrame {
 	  	    contentPane.add(sessao2);
 	  	    
 	  	    
-	  	    sessao3 = new JButton("sessao3");
+	  	  JButton sessao3 = new JButton("sessao3");
 	  	    sessao3.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		    	try {
+	  	    public void actionPerformed(ActionEvent e) {
+	  	    	try {
 					filmeObj.pegarFilmes(3);
 					sessao.pegarSessao(3);
 					sala.pegarPreco();
-					
-				}catch (Exception e1) {
+				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
-					}
-		    	lblConfirmacao.setText("");
-		    	nomeFilme.setText(filmeObj.getNome());
-		    	textId.setText("3");	  	    		
+				}
+	  	    	
+	  	    	
+	  	    	lblConfirmacao.setText("");
+	  	    	nomeFilme.setText(filmeObj.getNome());
+	  	    	textId.setText("3");	  	    		
 	  	    	txtClassificacao.setText(filmeObj.getClassIndicativa());
 	  	    	txtDuracao.setText(filmeObj.getDuracao());
 	  	    	txtGenero.setText(filmeObj.getGenero());
@@ -399,15 +401,17 @@ public class EditFilme extends JFrame {
 	  	    	textMinutos.setText(sessao.getMinutos());
 	  	    	textSegundos.setText(sessao.getSegundos());
 	  	    	textPrecoIngresso.setText(Integer.toString(sala.getPreco()));
-
+	  	    	
 	  	    	setIdSessao("3");
 	  	    		
 	  	    	String nomedoarquivo = tfcaminhofoto.getText();
 	  	    	labelFotoFilme.setIcon(new ImageIcon(nomedoarquivo));
-		    	}
-		    });
-		    sessao3.setBounds(509, 26, 85, 29);
-		    contentPane.add(sessao3);
+	  	    	}
+	  	    });
+	  	    sessao2.setBounds(387, 26, 85, 29);
+	  	    contentPane.add(sessao2);
+        sessao3.setBounds(509, 26, 85, 29);
+        contentPane.add(sessao3);
 		    
 		    sessao4 = new JButton("sessao4");
 		    sessao4.addActionListener(new ActionListener() {
@@ -419,6 +423,7 @@ public class EditFilme extends JFrame {
 				} catch (Exception e1) {
 					lblConfirmacao.setText(e1.getMessage());
 					}
+		    	
 		    	lblConfirmacao.setText("");
 		    	nomeFilme.setText(filmeObj.getNome());
 		    	textId.setText("4");	  	    		

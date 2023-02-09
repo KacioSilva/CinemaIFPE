@@ -126,7 +126,7 @@ public class InfoFilme extends JFrame {
 	
 		
 		setTitle("Informações sobre o filme");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(InfoFilme.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(InfoFilme.class.getResource("ifpe.png")));
 		Filme filme = new Filme();
 		
 		try {
@@ -310,8 +310,8 @@ public class InfoFilme extends JFrame {
 	  	
 	  
 	  	JButton help = new JButton("");
-	  	help.setSelectedIcon(new ImageIcon(InfoFilme.class.getResource("/Midia/ifpe.png")));
-	  	help.setIcon(new ImageIcon(InfoFilme.class.getResource("/Midia/ponto-de-interrogacao.png")));
+	  	help.setSelectedIcon(new ImageIcon(InfoFilme.class.getResource("ifpe.png")));
+	  	help.setIcon(new ImageIcon(InfoFilme.class.getResource("ponto-de-interrogacao.png")));
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
 	      		 JOptionPane.showMessageDialog(null, "Nessa tela, você tem acesso às informações do filme. " +
@@ -335,7 +335,7 @@ public class InfoFilme extends JFrame {
 			}
 		});
 		voltar.setBackground(new Color(240, 240, 240));
-        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("retornar.png")));
         voltar.setBorderPainted(false);
         voltar.setFocusPainted(false);
         voltar.setBounds(10, 22, 66, 40);

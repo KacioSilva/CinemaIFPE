@@ -64,7 +64,7 @@ public class EditLanche extends JFrame {
 	}
 
 	public EditLanche() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(EditLanche.class.getResource("/Midia/ifpe.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EditLanche.class.getResource("ifpe.png")));
 		
 		setResizable(false);
 		setTitle("Editar Lanches - ADM");
@@ -275,7 +275,7 @@ public class EditLanche extends JFrame {
 			}
 		});
 		voltar.setBackground(new Color(240, 240, 240));
-        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("/Midia/retornar.png")));
+        voltar.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("retornar.png")));
         voltar.setBorderPainted(false);
         voltar.setFocusPainted(false);
         voltar.setBounds(10, 22, 66, 40);
