@@ -121,7 +121,7 @@ public class InfoFilme extends JFrame {
 		LocalTime tempoAtual = LocalTime.now();
 		LocalTime tempoBD = LocalTime.of(horas, minutos, segundos);
 		Duration tempoDiferenca = Duration.between(tempoAtual, tempoBD);
-		System.out.println(tempoDiferenca);
+
 		
 	
 		

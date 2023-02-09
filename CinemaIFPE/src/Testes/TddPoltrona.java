@@ -17,7 +17,6 @@ class TddPoltrona {
 	void testeSomaValor() {
 		ControlePoltrona cp = new ControlePoltrona();
 		int valor = cp.soma(2);
-		System.out.println(valor);
 		assertEquals(2, valor);
 	}
 	

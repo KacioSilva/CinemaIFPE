@@ -342,7 +342,6 @@ public class GuiPagamento extends JFrame {
 				TelaLanche.setQtdLanche4(0);
 				TelaLanche.setQtdLanche5(0);
 
-            	System.out.println(SelecaoPoltronas.getPoltronaSelecionada());
                 TelaLanche lanche = new TelaLanche();
                 lanche.setVisible(true);
                 

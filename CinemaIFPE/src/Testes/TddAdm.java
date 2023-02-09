@@ -22,7 +22,7 @@ class TddAdm {
 		DatabaseFuncionario databaseFunc = new DatabaseFuncionario();
 		boolean teste = false;
 		try {
-			teste = databaseFunc.login("adm", "1234");
+			teste = databaseFunc.login("adm", "123");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -31,7 +31,7 @@ class TddAdm {
 	@Test
 	void EmptyUsuarioAdm(){
 		
-		assertThrows(RuntimeException.class, () -> Funcionario.login("", "1234"));
+		assertThrows(RuntimeException.class, () -> Funcionario.login("", "123"));
 	}
 	
 	@Test

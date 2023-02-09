@@ -19,7 +19,7 @@ class tddSessao {
 		
 		String teste = sessao.getHoras();
 		
-		assertEquals("11", teste);
+		assertEquals("8", teste);
 		
 	}
 	

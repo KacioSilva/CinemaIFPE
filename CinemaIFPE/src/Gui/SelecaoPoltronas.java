@@ -249,10 +249,7 @@ public class SelecaoPoltronas extends JFrame {
 		});
 	}
 	
-	public SelecaoPoltronas() {
-		
-		System.out.println(SelecaoPoltronas.getPoltronaSelecionada());
-		
+	public SelecaoPoltronas() {		
 		ControlePoltrona cp = new ControlePoltrona();
 		Sala sala = new Sala();
 		try {
@@ -304,7 +301,6 @@ public class SelecaoPoltronas extends JFrame {
 			}
 		});
 		
-		System.out.println(TelaInicial.getIdFilme());
 		JButton D1 = new JButton(new ImageIcon(SelecaoPoltronas.class.getResource("poltrona (1).png")));
 		
 		try {
