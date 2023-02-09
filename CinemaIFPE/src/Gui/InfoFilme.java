@@ -260,8 +260,7 @@ public class InfoFilme extends JFrame {
 	  		try {
 				sala.resetarPoltronas(TelaInicial.getIdFilme());
 			} catch (ClassNotFoundException | SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				lblHorario.setText("Erro de conexão. Reinicie o sistema.");
 			}
 		}
 		

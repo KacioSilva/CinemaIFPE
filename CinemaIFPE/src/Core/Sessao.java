@@ -15,23 +15,12 @@ public class Sessao {
     private static String sessao;
     private static String Sala_numeroSala;
     private DatabaseSessao dataSesao = new DatabaseSessao();
-    
-    private String teste;
-    
     private static ArrayList<String> arraySessao = new ArrayList<String>();
     private static ArrayList<String> arrayHora = new ArrayList<String>();
     
-    public ArrayList getHoras22() {
-    	System.out.println(arrayHora);
-    	return this.arrayHora;
-    }
     
     public static void setHoras22(String hora) {
     	arrayHora.add(hora);
-    }
-    
-    public Sessao() {
-        
     }
 
     public String getHoras() {
@@ -70,8 +59,6 @@ public class Sessao {
     public static void setSala_numeroSala(String Sala_numeroSala) {
         Sessao.Sala_numeroSala = Sala_numeroSala;
     }
-    
-    
     
     public void pegarSessao(int i) throws SQLException, ClassNotFoundException{
     	dataSesao.pegarSessao(i);

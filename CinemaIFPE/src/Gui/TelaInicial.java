@@ -93,11 +93,10 @@ public class TelaInicial extends JFrame{
 		try {
 			filme.pegarFilmes(1);
 		} catch (ClassNotFoundException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
+			nomeFilme1.setText("Erro. Reinicie o sistema.");
 		} catch (SQLException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
+			nomeFilme1.setText("Erro. Reinicie o sistema.");
+			
 		}
 		nomeFilme1.setText(filme.getNome());
 		nomeFilme1.setBounds(70, 570, 199, 27);
@@ -110,11 +109,9 @@ public class TelaInicial extends JFrame{
 		try {
 			filme.pegarFilmes(2);
 		} catch (ClassNotFoundException e2) {
-			
-			e2.printStackTrace();
+			nomeFilme1.setText("Erro. Reinicie o sistema.");
 		} catch (SQLException e2) {
-			
-			e2.printStackTrace();
+			nomeFilme1.setText("Erro. Reinicie o sistema.");
 		}
 		nomeFilme2.setText(filme.getNome());
 		nomeFilme2.setBounds(373, 570, 199, 27);
@@ -126,11 +123,9 @@ public class TelaInicial extends JFrame{
 		try {
 			filme.pegarFilmes(3);
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			nomeFilme1.setText("Erro. Reinicie o sistema.");
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			nomeFilme1.setText("Erro. Reinicie o sistema.");
 		}
 		nomeFilme3.setText(filme.getNome());
 		nomeFilme3.setBounds(694, 570, 199, 27);

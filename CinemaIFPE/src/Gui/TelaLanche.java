@@ -52,9 +52,6 @@ public class TelaLanche extends JFrame {
 	private int valorLanche5;
 	
 	
-	
-			
-	
 
 	public static int getQtdLanche1() {
 		return qtdLanche1;
@@ -417,14 +414,14 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche1.pegarLanche(1);
 				} catch (ClassNotFoundException | SQLException e2) {
-					e2.printStackTrace();
+					lblLanche1.setText("Erro ao Adicionar");
 				}
 				try {
 					lanche1.pegarLanche(1);
 				} catch (ClassNotFoundException e1) {
-					e1.printStackTrace();
+					lblLanche1.setText("Erro ao Subtrair");
 				} catch (SQLException e1) {
-					e1.printStackTrace();
+					lblLanche1.setText("Erro ao Subtrair");
 				}
 				if(qtdLanche1 <= 9) {
 				qtdLanche1 +=1;
@@ -454,8 +451,7 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche1.pegarLanche(1);
 				} catch (ClassNotFoundException | SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					lblLanche1.setText("Erro ao Subtrair");
 				}
 				if(qtdLanche1 > 0) {
 					qtdLanche1 -=1;
@@ -488,7 +484,7 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche2.pegarLanche(2);
 				} catch (ClassNotFoundException | SQLException e1) {
-					e1.printStackTrace();
+					lblLanche2.setText("Erro ao Adicionar");
 				}
 				if(qtdLanche2 <= 9 ) {
 					qtdLanche2 +=1;
@@ -519,7 +515,7 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche2.pegarLanche(2);
 				} catch (ClassNotFoundException | SQLException e1) {
-					e1.printStackTrace();
+					lblLanche2.setText("Erro ao Subtrair");
 				}
 				if(qtdLanche2 > 0) {
 					qtdLanche2 -=1;
@@ -549,8 +545,8 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche3.pegarLanche(3);
 				} catch (ClassNotFoundException | SQLException e1) {
-					e1.printStackTrace();
-				}
+					lblLanche3.setText("Erro ao Adicionar");
+					}
 				if(qtdLanche3 <= 9 ) {
 					qtdLanche3 +=1;
 					int operacao = lanche3.multiplicacaoLanche(qtdLanche3);
@@ -580,7 +576,7 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche5.pegarLanche(5);
 				} catch (ClassNotFoundException | SQLException e1) {
-					e1.printStackTrace();
+					lblLanche5.setText("Erro ao Adicionar");
 				}
 				if(qtdLanche5 <= 9 ) {
 					qtdLanche5 +=1;
@@ -607,7 +603,7 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche4.pegarLanche(4);
 				} catch (ClassNotFoundException | SQLException e1) {
-					e1.printStackTrace();
+					lblLanche1.setText("Erro ao Adicionar");
 				}
 				
 				if(qtdLanche4 <= 9 ) {
@@ -639,8 +635,7 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche4.pegarLanche(4);
 				} catch (ClassNotFoundException | SQLException e1) {
-					e1.printStackTrace();
-				}
+					lblLanche4.setText("Erro ao Subtrair");				}
 
 				if(qtdLanche4 > 0) {
 					qtdLanche4 -=1;
@@ -667,8 +662,7 @@ public class TelaLanche extends JFrame {
 					lanche3.pegarLanche(3);
 				} catch (ClassNotFoundException | SQLException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+					lblLanche3.setText("Erro ao Subtrair");				}
 				
 
 				if(qtdLanche3 > 0) {
@@ -695,8 +689,7 @@ public class TelaLanche extends JFrame {
 				try {
 					lanche5.pegarLanche(5);
 				} catch (ClassNotFoundException | SQLException e1) {
-					e1.printStackTrace();
-				}
+					lblLanche1.setText("Erro ao Subtrair");				}
 				if(qtdLanche5 > 0) {
 					qtdLanche5 -=1;
 					int operacao = lanche5.subtracaoLanche(qtdLanche5);

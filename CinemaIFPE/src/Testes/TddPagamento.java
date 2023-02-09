@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import Core.Funcionario;
 import Core.Pagamento;
 
-class TeddPagamento {
+class TddPagamento {
 
 	@Test
 	void emailVazio() {

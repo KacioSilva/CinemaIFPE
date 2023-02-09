@@ -22,8 +22,20 @@ class TddEmail {
 	}
 
 	@Test
-	void emailInvalido() {
+	void emailInvalidoNumero() {
 			DatabaseFuncionario databaseFunc = new DatabaseFuncionario();
-			assertThrows(MessagingException.class, () -> EnviarEmail.emitirNota("dfldalçfma"));
+			assertThrows(MessagingException.class, () -> EnviarEmail.emitirNota("123456"));
 	}
+	@Test
+	void emailInvalidoLetra() {
+			DatabaseFuncionario databaseFunc = new DatabaseFuncionario();
+			assertThrows(MessagingException.class, () -> EnviarEmail.emitirNota("erasar"));
+	}
+	@Test
+	void emailInvalidoLetraNumero() {
+			DatabaseFuncionario databaseFunc = new DatabaseFuncionario();
+			assertThrows(MessagingException.class, () -> EnviarEmail.emitirNota("erasar2132456"));
+	}
+	
+	
 }

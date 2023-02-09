@@ -96,7 +96,6 @@ public class GuiPagamento extends JFrame {
 			telaInicial.setVisible(true);
 			dispose();
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
     }
@@ -133,7 +132,6 @@ public class GuiPagamento extends JFrame {
 					sessao.pegarSessao(TelaInicial.idFilme);
 				} catch (ClassNotFoundException e2) {
 					lblConfirmacao.setText("Reinicie o Sistema.");
-					e2.printStackTrace();
 				} catch (SQLException e2) {		
 					lblConfirmacao.setText("Erro de Conexão. Reinicie o sistema.");
 				}

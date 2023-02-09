@@ -45,6 +45,7 @@ public class SelecaoPoltronas extends JFrame {
 	
 	
 	private int pegarSoma;
+	private JLabel labelHorario;
 	
 	private ControlePoltrona controle = new ControlePoltrona();
 
@@ -257,8 +258,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			sala.pegarPreco();
 		} catch (ClassNotFoundException | SQLException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
+			labelHorario.setText("Erro de conexão. Reinicie o sistema.");
 		}
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(SelecaoPoltronas.class.getResource("ifpe.png")));
@@ -310,7 +310,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasD1("D1");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+           
         }
 		
 		
@@ -403,7 +403,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasD2("D2");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+        	 labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		if(TelaInicial.getIdFilme() == 1){
@@ -497,7 +497,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasD3("D3");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+        	 labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		
@@ -590,7 +590,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasD4("D4");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+            labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		
@@ -678,7 +678,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasD5("D5");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+        	 labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		
@@ -768,7 +768,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasC1("C1");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+        	 labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		if(TelaInicial.getIdFilme() == 1){
@@ -855,7 +855,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasC2("C2");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+        	 labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		
@@ -945,7 +945,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasC3("C3");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+        	 labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		
@@ -1040,7 +1040,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasC4("C4");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+        	 labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		
@@ -1135,7 +1135,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
             controle.pegarPoltronasC5("C5");
         } catch (ClassNotFoundException | SQLException e1) {
-            e1.printStackTrace();
+        	 labelHorario.setText("erro de conexão. Reinicie o sistema.");
         }
 		
 		
@@ -1230,7 +1230,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasB5("B5");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -1325,7 +1325,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasB4("B4");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -1420,7 +1420,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasB3("B3");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -1514,7 +1514,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasB2("B2");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -1609,7 +1609,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasB1("B1");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -1701,7 +1701,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronas("A1");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -1794,7 +1794,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasA2("A2");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -1886,7 +1886,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasA3("A3");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -1979,7 +1979,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasA4("A4");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -2073,7 +2073,7 @@ public class SelecaoPoltronas extends JFrame {
 		try {
 			controle.pegarPoltronasA5("A5");
 		} catch (ClassNotFoundException | SQLException e1) {
-			e1.printStackTrace();
+			 labelHorario.setText("erro de conexão. Reinicie o sistema.");
 		}
 		
 		
@@ -2236,7 +2236,7 @@ public class SelecaoPoltronas extends JFrame {
 		labelFilme.setText(String.valueOf(InfoFilme.getNomePoltrona()));
 		contentPane.add(labelFilme);
 		
-		JLabel labelHorario = new JLabel("HORÁRIO");
+		labelHorario = new JLabel("HORÁRIO");
 		labelHorario.setFont(new Font("Arial", Font.BOLD, 15));
 		labelHorario.setHorizontalAlignment(SwingConstants.CENTER);
 		labelHorario.setBounds(522, 559, 320, 32);

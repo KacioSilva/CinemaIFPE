@@ -71,8 +71,6 @@ public class EditFilme extends JFrame {
 	private JTextField textMinutos;
 	private JTextField textSegundos;
 	private JLabel lblConfirmacao;
-	
-	
 	private JTextField textPrecoIngresso;
 	private JFormattedTextField textLancamento;
 	private JTextField txtClassificacao;
@@ -105,9 +103,6 @@ public class EditFilme extends JFrame {
 			}
 		});
 	}
-	
-	
-	
 	
 	public EditFilme() throws ParseException {
 		Sessao sessao = new Sessao();
@@ -207,7 +202,7 @@ public class EditFilme extends JFrame {
 	    contentPane.add(lblDataLancamento);  
 	    
 	    
-	    JLabel lblConfirmacao = new JLabel("");
+	    lblConfirmacao = new JLabel("");
   	    lblConfirmacao.setFont(new Font("Arial", Font.BOLD, 15));
   	    lblConfirmacao.setHorizontalAlignment(SwingConstants.CENTER);
   	    lblConfirmacao.setBounds(354, 526, 208, 29);

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import Core.ControlePoltrona;
 import Core.Pagamento;
 import Database.Conexao;
+import Database.UpdatePoltronas;
 
 class TddPoltrona {
 
@@ -21,10 +22,10 @@ class TddPoltrona {
 	}
 	
 	@Test
-	void pegarPoltrona() {
-		ControlePoltrona cp = new ControlePoltrona();
-		assertThrows(SQLException.class, () -> cp.pegarPoltronasA2("A99"));
+	void EditarPoltronaIDInvalido() {
+		UpdatePoltronas poltronas = new UpdatePoltronas();
+		
+		assertThrows(SQLException.class, () -> poltronas.editarPoltronas("A1", 7, "0"));
 	
 	}
-
 }

@@ -28,6 +28,7 @@ public class TelaAdm extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	private JLabel mensagem; 
 
 	//-------CRIANDO A TELA
 	public static void main(String[] args) {
@@ -75,10 +76,10 @@ public class TelaAdm extends JFrame {
 	    senha.setBounds(311, 525, 66, 29);
 	    contentPane.add(senha);
 	      
-	    JLabel mensagem = new JLabel("  ");
+	    mensagem = new JLabel("  ");
 	    mensagem.setHorizontalAlignment(SwingConstants.CENTER);
 	    mensagem.setFont(new Font("Tahoma", Font.BOLD, 16));
-	    mensagem.setBounds(333, 570, 272, 25);
+	    mensagem.setBounds(333, 570, 523, 25);
 	    contentPane.add(mensagem);
 	      
 	    JLabel administrador = new JLabel("ADMINISTRADOR");
@@ -98,7 +99,7 @@ public class TelaAdm extends JFrame {
 					voltar = new TelaInicial();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					mensagem.setText("não foi possível voltar. Reinicie o sistema");
 				}
 		        voltar.setVisible(true);
 		        dispose();

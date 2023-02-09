@@ -24,7 +24,6 @@ class TddAdm {
 		try {
 			teste = databaseFunc.login("adm", "1234");
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		assertEquals(true, teste);
