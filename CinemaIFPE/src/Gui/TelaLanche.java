@@ -133,11 +133,11 @@ public class TelaLanche extends JFrame {
 		contentPane.add(lblConfirmacao);
 		
 		JLabel cineifPaulista = new JLabel("CineIF Paulista");
-		cineifPaulista.setHorizontalAlignment(SwingConstants.CENTER);
-		cineifPaulista.setForeground(new Color(63, 164, 13, 236));
-		cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
-		cineifPaulista.setBounds(0, 10, 986, 132);
-		contentPane.add(cineifPaulista);
+	  	cineifPaulista.setHorizontalAlignment(SwingConstants.CENTER);
+	  	cineifPaulista.setForeground(new Color(63, 164, 13, 236));
+	  	cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 42));
+	  	cineifPaulista.setBounds(10, 22, 964, 85);
+	  	contentPane.add(cineifPaulista);
 		
 		JButton help = new JButton();
 		help.setIcon(new ImageIcon(TelaInicial.class.getResource("ponto-de-interrogacao.png")));

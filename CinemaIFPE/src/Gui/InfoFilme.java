@@ -289,9 +289,10 @@ public class InfoFilme extends JFrame {
 	  	contentPane.add(lblNewLabel_6);
 	  	
 	  	cineifPaulista = new JLabel("CineIF Paulista");
+	  	cineifPaulista.setHorizontalAlignment(SwingConstants.CENTER);
 	  	cineifPaulista.setForeground(new Color(63, 164, 13, 236));
-	  	cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
-	  	cineifPaulista.setBounds(268, 22, 445, 85);
+	  	cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 42));
+	  	cineifPaulista.setBounds(20, 22, 942, 85);
 	  	contentPane.add(cineifPaulista);
 	  	
 	  	

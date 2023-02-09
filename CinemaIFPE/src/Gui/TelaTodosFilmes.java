@@ -102,8 +102,8 @@ public class TelaTodosFilmes extends JFrame {
 		help.setIcon(new ImageIcon(TelaTodosFilmes.class.getResource("ponto-de-interrogacao.png")));
 		help.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
-	    	JOptionPane.showMessageDialog(null, "Nessa tela, o cliente pode optar por acessar algum dos filmes em exibição. Os filmes " +
-	        "que estão 'Em Breve' serão exibidos nas próximas sessões.", "Help", JOptionPane.QUESTION_MESSAGE);
+	    	JOptionPane.showMessageDialog(null, "Nessa tela, o cliente pode optar por acessar algum dos filmes em exibição.\n"
+	    			+ "Podendo escolher entre 6 (seis) opções, que são equivalentes as nossas 6 (seis) sessões.", "Help", JOptionPane.QUESTION_MESSAGE);
 	    	
 	    }
 	 });

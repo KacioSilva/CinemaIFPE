@@ -18,7 +18,7 @@ public class Conexao {
 	public Connection conectar() throws SQLException, ClassNotFoundException {
 		String servidor = "jdbc:mysql://localhost:3306/cineif";
 		String usuario = "root";
-		String senha = "203040lL";
+		String senha = "Tt4189952";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);

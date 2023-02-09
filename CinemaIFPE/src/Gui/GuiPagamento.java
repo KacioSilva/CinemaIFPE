@@ -16,7 +16,6 @@ import Core.Lanche;
 import Core.Pagamento;
 import Core.Sessao;
 import Database.Conexao;
-import Database.DatabaseReciboIgresso;
 import Database.UpdatePoltronas;
 
 import javax.mail.MessagingException;
@@ -188,12 +187,7 @@ public class GuiPagamento extends JFrame {
                             	"Valor Total: " + "R$:" + (Lanche.getPrecoTotal() + Filme.getValorTotal())  + "\n\n" + "Filme selecionado: " + filme.getNome() + "\n" + "Sala: " + 
                                 sessao.getSala_numeroSala() + "\n" + "Sessão: " + sessao.getSessao()+ "\n" + "Poltrona selecionada(s): " +
                             	SelecaoPoltronas.getPoltronaSelecionada()  + "\n" + "Pagamento efetuado às " + format; 
-                                EnviarEmail.setMensagem(total);
-                                
-                                DatabaseReciboIgresso recibo = new DatabaseReciboIgresso();
-                                
-                                
-                                recibo.insertIngresso((Lanche.getPrecoTotal() + Filme.getValorTotal()), TelaInicial.getIdFilme(), filme.getNome(), SelecaoPoltronas.getPoltronaSelecionada().toString(), sessao.getSessao(), format);
+                                EnviarEmail.setMensagem(total);    
                          }
                             	//SE NÃO TIVER LANCHE
                     else {
@@ -203,11 +197,7 @@ public class GuiPagamento extends JFrame {
                            "Valor Total: " + "R$:" + (Filme.getValorTotal()) + "\n\n" + "Filme selecionado: " + filme.getNome() + "\n" + "Sala: " + 
                            sessao.getSala_numeroSala() + "\n" + "Sessão: " + sessao.getSessao()+ "\n" + "Poltrona selecionada(s): " +
                            SelecaoPoltronas.getPoltronaSelecionada()  + "\n" + "Pagamento efetuado às " + format; 
-                           EnviarEmail.setMensagem(total);
-                           
-                           DatabaseReciboIgresso recibo = new DatabaseReciboIgresso();
-                           recibo.insertIngresso((Lanche.getPrecoTotal() + Filme.getValorTotal()), TelaInicial.getIdFilme(), filme.getNome(), SelecaoPoltronas.getPoltronaSelecionada().toString(), sessao.getSessao(), format);
-                            	
+                           EnviarEmail.setMensagem(total);     	
                       }
                     
                     
@@ -370,10 +360,11 @@ public class GuiPagamento extends JFrame {
         contentPane.add(btnVoltar);
         
         JLabel cineifPaulista = new JLabel("CineIF Paulista");
-        cineifPaulista.setForeground(new Color(63, 164, 13, 236));
-        cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
-        cineifPaulista.setBounds(282, 11, 445, 132);
-        contentPane.add(cineifPaulista);
+	  	cineifPaulista.setHorizontalAlignment(SwingConstants.CENTER);
+	  	cineifPaulista.setForeground(new Color(63, 164, 13, 236));
+	  	cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 42));
+	  	cineifPaulista.setBounds(20, 22, 954, 85);
+	  	contentPane.add(cineifPaulista);
         
         JLabel lblNewLabel = new JLabel("PAGAMENTO");
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 23));
@@ -448,7 +439,7 @@ public class GuiPagamento extends JFrame {
 		help.setBackground(new Color(240, 240, 240));
 		help.addActionListener(new ActionListener() {
 	      	public void actionPerformed(ActionEvent e) {
-	      		 JOptionPane.showMessageDialog(null, "Nessa tela, vocÃª pode optar pelas formas de pagamento disponÃ­veis e " + "\n" +
+	      		 JOptionPane.showMessageDialog(null, "Nessa tela, você pode optar pelas formas de pagamento disponíveis e " + "\n" +
 	      	"realizar o pagamento.",
 	                    "Help", JOptionPane.QUESTION_MESSAGE);
 	      	}
@@ -611,7 +602,7 @@ public class GuiPagamento extends JFrame {
         
         
         textEmail = new JFormattedTextField();
-        FormatarEmail email = new FormatarEmail(30);
+        FormatarEmail email = new FormatarEmail(100);
         textEmail.addKeyListener(new KeyAdapter() {
         	public void keyTyped(KeyEvent e) {
         	    char c = e.getKeyChar();

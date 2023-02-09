@@ -138,9 +138,10 @@ public class TelaInicial extends JFrame{
       
       
 		JLabel cineifPaulista = new JLabel("CineIF Paulista");
+		cineifPaulista.setHorizontalAlignment(SwingConstants.CENTER);
 		cineifPaulista.setForeground(new Color(63, 164, 13, 236));
-		cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 62));
-		cineifPaulista.setBounds(304, 11, 445, 132);
+		cineifPaulista.setFont(new Font("Sitka Heading", Font.BOLD | Font.ITALIC, 42));
+		cineifPaulista.setBounds(10, 11, 964, 132);
 		contentPane.add(cineifPaulista);
 		
 		JLabel emDestaque = new JLabel("Em Destaque:");
